@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import TraineeDashboard from './TraineeDashBoard'
+import RegTrainee from './TraineeReg'
 
  class LoginTrainee extends React.Component {
   static navigationOptions = {
@@ -144,7 +145,7 @@ import TraineeDashboard from './TraineeDashBoard'
                  marginTop:4
 
                  }}
-                 onPress={()=>{alert("This is the Register Page")}}
+                 onPress={()=>{this.props.navigation.navigate('RegisterTrainee')}}
                  >
                    Don't have account you can register now for free 
                  </Text>
@@ -161,6 +162,9 @@ export default createStackNavigator({
   },
   TraineeDashBoardPage:{
     screen: TraineeDashboard
+  },
+  RegisterTrainee:{
+    screen:RegTrainee
   }
 })
   

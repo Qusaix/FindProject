@@ -15,8 +15,12 @@ app.use(function(req, res, next) {
 app.get('/',(req,res)=>{
     res.send("Hello")
 })
-app.post('/register',(req,res)=>{
+app.post('/registerCoach',(req,res)=>{
     const Info = req.body;
     console.log("This is the Info From the FrontEnd ",Info)
+})
+app.post('/registerTrainee',(req,res)=>{
+    const TheInfo = req.body; 
+    console.log("This is the Trainee Info ", TheInfo)
 })
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 

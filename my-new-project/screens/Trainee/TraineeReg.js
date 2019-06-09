@@ -16,7 +16,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 //import console = require('console');
 
- class RegCoach extends React.Component {
+ class RegTrainee extends React.Component {
    constructor(){
      super()
      this.state={
@@ -24,11 +24,14 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        Email:"",
        Password:"",
        Bio:"",
-       Experence:""
+       Experence:"",
+       Goal:"",
+       Weight:"",
+       Height:""
      }
    }
   static navigationOptions = {
-    title:"RegIster",
+    title:"RegIster Trainee",
     headerStyle:{
       backgroundColor:"red",
       height:1,
@@ -56,7 +59,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     this.setState({[name] : value})
   }
   sendUserInfo(){
-    fetch('http://192.168.0.24:5000/registerCoach', {
+    fetch('http://192.168.0.24:5000/registerTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -68,7 +71,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   .then((data)=>{console.warn("This is the data ",data)})
   //.catch((err)=>console.warn(err))
   .done()
-  }
+}
 
     render() {
       return (
@@ -76,7 +79,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
           <View
           style={{
             width: 300,
-            height: 400,
+            height: 600,
             backgroundColor:"#238aff",
             marginLeft:90,
             marginTop:20,
@@ -233,6 +236,100 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 
                   />
 
+<TextInput 
+                  style={{
+                  backgroundColor:"#fff",
+                  borderLeftWidth: 2,
+                  borderRightWidth: 2,
+                  borderBottomWidth:2,
+                  borderTopWidth:2,
+                  borderColor:"#fff",
+                  borderRadius:6,
+                  height: 40,
+                  textAlign:"center",
+                  marginTop:15,
+                  marginLeft:15,
+                  marginRight:15,
+                  marginBottom:4,
+                  padding:10,
+                  color:"#000",
+                  fontSize:15,
+                  textDecorationLine:"none"
+
+          
+                }}
+                placeholder="Goal"
+                //textContentType="password"
+               // secureTextEntry={true}
+                name={"Goal"}
+               onChangeText={(value)=>this.setState({Goal:value})}
+                
+                  />
+                  <TextInput 
+                  style={{
+                  backgroundColor:"#fff",
+                  borderLeftWidth: 2,
+                  borderRightWidth: 2,
+                  borderBottomWidth:2,
+                  borderTopWidth:2,
+                  borderColor:"#fff",
+                  borderRadius:6,
+                  height: 40,
+                  textAlign:"center",
+                  marginTop:15,
+                  marginLeft:15,
+                  marginRight:15,
+                  marginBottom:4,
+                  padding:10,
+                  color:"#000",
+                  fontSize:15,
+                  textDecorationLine:"none"
+
+          
+                }}
+                placeholder="Weight"
+                //textContentType="password"
+               // secureTextEntry={true}
+                name={"Weight"}
+               onChangeText={(value)=>this.setState({Weight:value})}
+                
+                  />
+                  <TextInput 
+                  style={{
+                  backgroundColor:"#fff",
+                  borderLeftWidth: 2,
+                  borderRightWidth: 2,
+                  borderBottomWidth:2,
+                  borderTopWidth:2,
+                  borderColor:"#fff",
+                  borderRadius:6,
+                  height: 40,
+                  textAlign:"center",
+                  marginTop:15,
+                  marginLeft:15,
+                  marginRight:15,
+                  marginBottom:4,
+                  padding:10,
+                  color:"#000",
+                  fontSize:15,
+                  textDecorationLine:"none"
+
+          
+                }}
+                placeholder="Height"
+                //textContentType="password"
+               // secureTextEntry={true}
+                name={"Height"}
+               onChangeText={(value)=>this.setState({Height:value})}
+                
+                  />
+
+
+
+
+
+
+
 
                 <TouchableOpacity
                 style={{
@@ -261,5 +358,5 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 };
 
-export default RegCoach;
+export default RegTrainee;
   
