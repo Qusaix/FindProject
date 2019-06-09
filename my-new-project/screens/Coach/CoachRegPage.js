@@ -44,10 +44,26 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     display:"none"
     }
   }
-  TextFieldValue(text , type){
-    console.warn("The Change Function is Working")
+  TextFieldValue(type){
+    this.setState({ text: type })
+    
+    console.warn(type)
   }
-  
+  componentWillMount(){
+    fetch('http://localhost:5000/register', {
+    method: 'POST',
+    headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    },
+  body: JSON.stringify({
+  // Name: Name,
+
+      }),
+    });
+
+  }
+
     render() {
       return (
         <View>
@@ -221,7 +237,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   marginTop:5,
                   borderRadius:7
                 }}
-                onPress={()=>{alert("Welcome to Your Account Coach")}}
+                onPress={this.state.componentWillMount}
                 >
                   <Text
                   style={{

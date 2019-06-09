@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "body-parser": "^1.19.0",
     "expo": "^32.0.6",
     "expo-cli": "^2.19.4",
     "react": "16.5.0",
