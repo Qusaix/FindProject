@@ -15,7 +15,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import RegCoach from "./CoachRegPage";
 import CoachDashboard from './dashboard'
-
+ 
  class LoginCoach extends React.Component {
    constructor(){
      super()
