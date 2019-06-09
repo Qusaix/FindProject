@@ -49,19 +49,19 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     
     console.warn(type)
   }
-  componentWillMount(){
-    fetch('http://localhost:5000/register', {
-    method: 'POST',
+  sendUserInfo(){
+    fetch('http://192.168.0.24:5000/register', {
+    method: 'post',
     headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
-  body: JSON.stringify({
-  // Name: Name,
-
-      }),
-    });
-
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()})
+  .then((data)=>{console.warn("This is the data ",data)})
+  //.catch((err)=>console.warn(err))
+  .done()
   }
 
     render() {
@@ -237,7 +237,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   marginTop:5,
                   borderRadius:7
                 }}
-                onPress={this.state.componentWillMount}
+                onPress={this.sendUserInfo.bind(this)}
                 >
                   <Text
                   style={{
