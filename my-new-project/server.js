@@ -16,8 +16,7 @@ app.get('/',(req,res)=>{
     res.send("Hello")
 })
 app.post('/register',(req,res)=>{
-    const name = req.body;
-    console.log(name);
-    console.log("HIIIIIIII")
+    const Info = req.body;
+    console.log("This is the Info From the FrontEnd ",Info)
 })
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 

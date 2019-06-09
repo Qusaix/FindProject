@@ -24,7 +24,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        Email:"",
        Password:"",
        Bio:"",
-       Expreence:""
+       Experence:""
      }
    }
   static navigationOptions = {
@@ -45,9 +45,15 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     }
   }
   TextFieldValue(type){
-    this.setState({ text: type })
+    this.setState({ text: type }) 
     
-    console.warn(type)
+    ///console.warn(type)
+  }
+  handelChange(event = {}){
+    const name = event.target && event.target.name;
+    const value = event.target && event.target.value;
+    console.warn("This is the Name Value ",name)
+    this.setState({[name] : value})
   }
   sendUserInfo(){
     fetch('http://192.168.0.24:5000/register', {
@@ -105,8 +111,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 //textContentType="password"
                 //secureTextEntry={true}
                 name={"Name"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Name")}}
-                
+                onChangeText={(value)=>this.setState({Name:value})}
+                //value = {this.state.Name}
                   />
 
 <TextInput 
@@ -135,7 +141,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 //textContentType="password"
                // secureTextEntry={true}
                 name={"Email"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Eamil")}}
+                onChangeText={(value)=>this.setState({Email:value})}
                 
                   />
                   <TextInput 
@@ -164,7 +170,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 textContentType="password"
                 secureTextEntry={true}
                 name={"Password"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Password")}}
+                onChangeText={(value)=>this.setState({Password:value})}
                 
                   />
                   <TextInput 
@@ -193,7 +199,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 //textContentType="password"
                // secureTextEntry={true}
                 name={"Bio"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Bio")}}
+                onChangeText={(value)=>this.setState({Bio:value})}
                 
                   />
 
@@ -223,7 +229,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 //textContentType="password"
                // secureTextEntry={true}
                 name={"Experence"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Experence")}}
+               onChangeText={(value)=>this.setState({Experence:value})}
                 
                   />
 
