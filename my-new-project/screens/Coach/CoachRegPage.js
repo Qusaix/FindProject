@@ -20,8 +20,11 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    constructor(){
      super()
      this.state={
+       Name:"",
        Email:"",
-       Password:""
+       Password:"",
+       Bio:"",
+       Expreence:""
      }
    }
   static navigationOptions = {
@@ -53,21 +56,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
             width: 300,
             height: 400,
             backgroundColor:"#238aff",
-            marginLeft:45,
+            marginLeft:90,
             marginTop:20,
             borderRadius:10
           }}
           >
-            <Image 
-            style={{
-              width:150,
-              height:150,
-              //marginBottom:3,
-              marginLeft:80,
-              marginTop:10
-            }}
-            source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
-            />
+
+
                 <TextInput 
                   style={{
                   backgroundColor:"#fff",
@@ -76,12 +71,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   borderBottomWidth:2,
                   borderTopWidth:2,
                   borderColor:"#fff",
-                  borderRadius:8,
+                  borderRadius:6,
                   height: 40,
                   textAlign:"center",
                   marginTop:15,
                   marginLeft:15,
                   marginRight:15,
+                  marginBottom:4,
                   padding:10,
                   color:"#000",
                   fontSize:15,
@@ -89,13 +85,44 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
           
                 }}
-                placeholder="Email"
-                name={"Email"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
-
+                placeholder="Name"
+                //textContentType="password"
+                //secureTextEntry={true}
+                name={"Name"}
+                onChangeText={(text)=>{this.TextFieldValue(text,"Name")}}
+                
                   />
 
-                <TextInput 
+<TextInput 
+                  style={{
+                  backgroundColor:"#fff",
+                  borderLeftWidth: 2,
+                  borderRightWidth: 2,
+                  borderBottomWidth:2,
+                  borderTopWidth:2,
+                  borderColor:"#fff",
+                  borderRadius:6,
+                  height: 40,
+                  textAlign:"center",
+                  marginTop:15,
+                  marginLeft:15,
+                  marginRight:15,
+                  marginBottom:4,
+                  padding:10,
+                  color:"#000",
+                  fontSize:15,
+                  textDecorationLine:"none"
+
+          
+                }}
+                placeholder="Eamil"
+                //textContentType="password"
+               // secureTextEntry={true}
+                name={"Email"}
+                onChangeText={(text)=>{this.TextFieldValue(text,"Eamil")}}
+                
+                  />
+                  <TextInput 
                   style={{
                   backgroundColor:"#fff",
                   borderLeftWidth: 2,
@@ -124,6 +151,66 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 onChangeText={(text)=>{this.TextFieldValue(text,"Password")}}
                 
                   />
+                  <TextInput 
+                  style={{
+                  backgroundColor:"#fff",
+                  borderLeftWidth: 2,
+                  borderRightWidth: 2,
+                  borderBottomWidth:2,
+                  borderTopWidth:2,
+                  borderColor:"#fff",
+                  borderRadius:6,
+                  height: 80,
+                  textAlign:"center",
+                  marginTop:15,
+                  marginLeft:15,
+                  marginRight:15,
+                  marginBottom:4,
+                  padding:10,
+                  color:"#000",
+                  fontSize:15,
+                  textDecorationLine:"none"
+
+          
+                }}
+                placeholder="Bio"
+                //textContentType="password"
+               // secureTextEntry={true}
+                name={"Bio"}
+                onChangeText={(text)=>{this.TextFieldValue(text,"Bio")}}
+                
+                  />
+
+<TextInput 
+                  style={{
+                  backgroundColor:"#fff",
+                  borderLeftWidth: 2,
+                  borderRightWidth: 2,
+                  borderBottomWidth:2,
+                  borderTopWidth:2,
+                  borderColor:"#fff",
+                  borderRadius:6,
+                  height: 40,
+                  textAlign:"center",
+                  marginTop:15,
+                  marginLeft:15,
+                  marginRight:15,
+                  marginBottom:4,
+                  padding:10,
+                  color:"#000",
+                  fontSize:15,
+                  textDecorationLine:"none"
+
+          
+                }}
+                placeholder="Experence"
+                //textContentType="password"
+               // secureTextEntry={true}
+                name={"Experence"}
+                onChangeText={(text)=>{this.TextFieldValue(text,"Experence")}}
+                
+                  />
+
 
                 <TouchableOpacity
                 style={{
@@ -140,22 +227,11 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   style={{
                     textAlign:"center",
                     color:"#fff",
-                    fontWeight:"bold"
+                    fontWeight:"bold",
+                    fontSize:12
                   }}
-                  >RegIsterNow</Text>
+                  >SignUp</Text>
                   </TouchableOpacity>
-
-                  <Text
-                  style={{
-                   fontSize:12,
-                   color:"#fff",
-                   marginLeft:5,
-                   marginTop:4
-
-                   }}
-                   onPress={()=>{alert("Hello")}}
-                   >Don't have account you can register now for free
-                   </Text>
                </View>
           </View>
  )}

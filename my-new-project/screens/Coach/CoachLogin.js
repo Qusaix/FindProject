@@ -157,10 +157,11 @@ import CoachDashboard from './dashboard'
                    marginTop:4
 
                    }}
-                   onPress={()=>{alert("This is the Register Page")}}
+                   onPress={()=>{this.props.navigation.navigate('RegCoachPage')}}
                    >
                      Don't have account you can register now for free 
                    </Text>
+            
                </View>
           </View>
  )}
@@ -174,6 +175,9 @@ export default createStackNavigator({
   },
   DashboardPage:{
     screen:CoachDashboard
+  },
+  RegCoachPage:{
+    screen:RegCoach
   }
 })
   
