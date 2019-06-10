@@ -24,47 +24,49 @@ app.use(function(req, res, next) {
 app.get('/',(req,res)=>{
     res.send("Hello")
 })
-app.post('/registerCoach',(req,res)=>{
+app.post('/registerCoach',(req,res , next)=>{
     const Info = req.body.Email;
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
-    console.log(NewCoach,"HHHHHHHH")
+    //console.log(NewCoach,"HHHHHHHH")
     NewCoach.findOne({where:{Email:Info}})
     .then((User)=>{
-        
-        console.log("No")
-        }
-        )
-    // const FindEmail: req.body.Email
-    // NewCoach.find({where:{FindEmail}})
-    // .then(Email =>{
-    //     console.log(Email)
-    //     if(Email !== undefined){
-    //         console.log("The Email Is Already exists")
-    //     }
-    // })
-    const CoachData = {
-       Name : req.body.Name,
-       Email: req.body.Email,
-       Password: HashPassword,
-       Bio: req.body.Bio,
-       Experence: req.body.Experence 
+    //console.log("Hiaaaa", User);
+    
+    if(!User){
+        console.log("Hello from if")
+        const CoachData = {
+            Name : req.body.Name,
+            Email: req.body.Email,
+            Password: HashPassword,
+            Bio: req.body.Bio,
+            Experence: req.body.Experence 
+         }
+     
+         const {Name , Email , Password , Bio , Experence } = CoachData
+     
+         NewCoach.create({
+             Name:Name,
+             Email:Email,
+             Password:Password,
+             Bio:Bio,
+             Experence:Experence
+         })
+         .then((created)=>{console.log("The User Is Created",created.dataValues)
+         res.send(created.dataValues)})
+         .catch((err)=>{console.log(err)
+     
+         })
+     
+         console.log("This is the Info From the FrontEnd ",Info)
+
+    }else{
+       console.log("The Email Is Already Exist Plese Enter another Email") 
+   return res.send(User)
     }
-
-    const {Name , Email , Password , Bio , Experence } = CoachData
-
-    NewCoach.create({
-        Name:Name,
-        Email:Email,
-        Password:Password,
-        Bio:Bio,
-        Experence:Experence
-    })
-    .then(()=>{console.log("The User Is Created")})
-    .catch((err)=>{console.log(err)
-
+    
     })
 
-    console.log("This is the Info From the FrontEnd ",Info)
+    
 
 })
 app.post('/registerTrainee',(req,res)=>{

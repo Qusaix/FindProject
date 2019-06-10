@@ -68,6 +68,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   .then((data)=>{console.warn("This is the data ",data)})
   //.catch((err)=>console.warn(err))
   .done()
+
+     
+
   }
 
     render() {
