@@ -3,7 +3,7 @@ const app = express();
 const bodyparser = require('body-parser')
 const Sequelize = require('./Database/database')
 var NewCoach = require('./Database/moduls/CoachIModule');
-const NewTrainee = require('./Database/moduls/TraineeModule').NewTraineeModule
+const NewTrainee = require('./Database/moduls/TraineeModule')
 const bcrypt = require('bcrypt')
 const salt = 10; 
 const PORT = 5000;
@@ -27,11 +27,10 @@ app.get('/',(req,res)=>{
 app.post('/registerCoach',(req,res , next)=>{
     const Info = req.body.Email;
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
-    //console.log(NewCoach,"HHHHHHHH")
+
     NewCoach.findOne({where:{Email:Info}})
-    .then((User)=>{
-    //console.log("Hiaaaa", User);
-    
+    .then((User)=>{    
+
     if(!User){
         console.log("Hello from if")
         const CoachData = {
@@ -60,8 +59,8 @@ app.post('/registerCoach',(req,res , next)=>{
          console.log("This is the Info From the FrontEnd ",Info)
 
     }else{
-       console.log("The Email Is Already Exist Plese Enter another Email") 
-   return res.send(User)
+       console.log("The Email Is Already Exist Plese Enter another Email ",User) 
+//    return res.send(User)
     }
     
     })
@@ -70,30 +69,43 @@ app.post('/registerCoach',(req,res , next)=>{
 
 })
 app.post('/registerTrainee',(req,res)=>{
-    const TheInfo = req.body; 
+    const TheInfo = req.body.Email; 
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
-    const TraineeData = {
-        Name:req.body.Name,
-        Email:req.body.Email,
-        Password:HashPassword,
-        Bio:req.body.Bio,
-        Experence:req.body.Experence,
-        Goal:req.body.Goal,
-        Weight:req.body.Weight,
-        Height:req.body.Height
+    console.log(NewTrainee)
+    NewTrainee.findOne({where:{Email:TheInfo}})
+    .then((User)=>{
 
-    }
-    const { Name , Email , Password , Bio , Experence , Goal , Weight , Height } = TraineeData
-    NewTrainee.create({
-        Name,
-        Email,
-        Password,
-        Bio,
-        Experence,
-        Goal,
-        Weight,
-        Height
+        if(!User){
+            const TraineeData = {
+                Name:req.body.Name,
+                Email:req.body.Email,
+                Password:HashPassword,
+                Bio:req.body.Bio,
+                Experence:req.body.Experence,
+                Goal:req.body.Goal,
+                Weight:req.body.Weight,
+                Height:req.body.Height
+        
+            }
+            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height } = TraineeData
+            NewTrainee.create({
+                Name,
+                Email,
+                Password,
+                Bio,
+                Experence,
+                Goal,
+                Weight,
+                Height
+            })
+            console.log("This is the Trainee Info ", TheInfo)
+
+        }else{
+            console.log("The Email Is already Exisis")
+        }
     })
-    console.log("This is the Trainee Info ", TheInfo)
+    
 })
+
+
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 

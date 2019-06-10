@@ -59,8 +59,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     this.setState({[name] : value})
   }
   sendUserInfo(){
-    alert("HI")
-    fetch('http://192.168.0.24:5000/registerTrainee', {
+    fetch('http://192.168.1.103:5000/registerTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
