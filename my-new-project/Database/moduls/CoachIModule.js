@@ -18,5 +18,30 @@ Experence:{
     type:Sequelize.STRING
 }
 })
+module.exports = NewCoach
 
-module.exports = NewCoach 
+// module.exports = function(sequelize , DataType){
+//     const NewUser = sequelize.define("CoachInfo",{
+//         Name:{
+//             type: DataType.STRING
+//         },
+//         Email:{
+//             type:DataType.STRING
+//         },
+//         Password:{
+//             type:DataType.STRING
+//         },
+//         Bio:{
+//             type:DataType.STRING
+//         },
+//         Experence:{
+//             type:DataType.STRING
+//         }
+//         },
+//         {
+//             tableName: 'CoachInfo'
+//           }
+//         )
+
+//         return NewUser
+// }

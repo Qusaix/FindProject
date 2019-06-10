@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const bodyparser = require('body-parser')
 const Sequelize = require('./Database/database')
-const NewCoach = require('./Database/moduls/CoachIModule')
-const NewTrainee = require('./Database/moduls/TraineeModule')
+var NewCoach = require('./Database/moduls/CoachIModule');
+const NewTrainee = require('./Database/moduls/TraineeModule').NewTraineeModule
+const bcrypt = require('bcrypt')
+const salt = 10; 
 const PORT = 5000;
 
 app.use(bodyparser.urlencoded({extended:false}));
@@ -23,11 +25,27 @@ app.get('/',(req,res)=>{
     res.send("Hello")
 })
 app.post('/registerCoach',(req,res)=>{
-    const Info = req.body;
+    const Info = req.body.Email;
+    const HashPassword = bcrypt.hashSync(req.body.Password,salt)
+    console.log(NewCoach,"HHHHHHHH")
+    NewCoach.findOne({where:{Email:Info}})
+    .then((User)=>{
+        
+        console.log("No")
+        }
+        )
+    // const FindEmail: req.body.Email
+    // NewCoach.find({where:{FindEmail}})
+    // .then(Email =>{
+    //     console.log(Email)
+    //     if(Email !== undefined){
+    //         console.log("The Email Is Already exists")
+    //     }
+    // })
     const CoachData = {
        Name : req.body.Name,
        Email: req.body.Email,
-       Password: req.body.Password,
+       Password: HashPassword,
        Bio: req.body.Bio,
        Experence: req.body.Experence 
     }
@@ -41,18 +59,21 @@ app.post('/registerCoach',(req,res)=>{
         Bio:Bio,
         Experence:Experence
     })
-    .then()
-    .catch((err)=>console.log("There is an error in saving the Coach Data ",err))
+    .then(()=>{console.log("The User Is Created")})
+    .catch((err)=>{console.log(err)
+
+    })
 
     console.log("This is the Info From the FrontEnd ",Info)
 
 })
 app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body; 
+    const HashPassword = bcrypt.hashSync(req.body.Password,salt)
     const TraineeData = {
         Name:req.body.Name,
         Email:req.body.Email,
-        Password:req.body.Password,
+        Password:HashPassword,
         Bio:req.body.Bio,
         Experence:req.body.Experence,
         Goal:req.body.Goal,
