@@ -9,10 +9,12 @@ import {
   View,
   Button,
   Alert,
-  TextInput
+  TextInput,
+  AsyncStorage
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+//import TheArray from './TraineeLoginPage'
 //import console = require('console');
 //const { Height } = Dimensions.get('window');
 
@@ -20,12 +22,32 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    constructor(){
      super()
      this.state={
-       Email:"",
+       Email:[],
        Password:"",
-       ScreeenHeight:0
+       ScreeenHeight:0,
+       name:""
      } 
    }
-
+   componentDidMount(){
+   // this._loadInitialState().done()
+   this.getTheUser();
+   }
+  //  _loadInitialState = async()=>{
+  //    var value = await AsyncStorage.getItem('Email');
+  //    if(value !== null){
+  //      this.setState({Email:value});
+  //    }
+  //  }
+   getTheUser(){
+     AsyncStorage.getItem('Email')
+     .then((value)=>{
+      this.setState({Email:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{console.log("Hi is Done ",res)})
+     var w = "Qusai"
+      
+   }
   static navigationOptions = {
     title:"Login as Coach",
     headerStyle:{
@@ -123,7 +145,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
               marginBottom:15
           }}
           >Your Info</Text>
-          <Text>Name</Text>
+          <Text>Name {this.state.Email}</Text>
           <Text>Bio</Text>
           <Text>How Many Years</Text>
           <Text>Goal</Text>

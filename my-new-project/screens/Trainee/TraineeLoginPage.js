@@ -9,7 +9,8 @@ import {
   View,
   Button,
   Alert,
-  TextInput
+  TextInput,
+  AsyncStorage
 } from 'react-native';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import TraineeDashboard from './TraineeDashBoard'
@@ -52,13 +53,29 @@ import RegTrainee from './TraineeReg'
    console.log("This is the Err ",data.err)
     if(data.err === undefined){
       console.log("It's Work")
+      // saveName = (value)=>{
+      //   console.log("This is the SaveName value ",value)
+      //   AsyncStorage.setItem("Email",value)
+      // }
+      // saveName();
+      var Email = this.state.Email 
+      const saveData = async Saving =>{
+        try {
+          console.log("Im Inside Try")
+          await AsyncStorage.setItem("Email",Email)
+        }
+        catch(error){
+          console.log("This is the Error ",error)
+        }
+      }
+      saveData();
       return this.props.navigation.navigate("TraineeDashBoardPage")
     }else{
       alert("You Need To Sighn Up")
     }
   }
   LoginNow(){
-    fetch('http://192.168.1.103:5000/LoginTrainee', {
+    fetch('http://192.168.0.24:5000/LoginTrainee', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -73,6 +90,8 @@ import RegTrainee from './TraineeReg'
   //.catch((err)=>console.warn(err))
   .done()
   }
+  
+ 
     render() {
       return (
         <View>
