@@ -188,8 +188,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
           <Text>How Many Years {this.state.Experence}</Text>
           <Text>Goal {this.state.Goal}</Text>
           <Text>Photos</Text>
-          <Text>Weight {this.state.Weight}</Text>
-          <Text>Height {this.state.Height}</Text>
+          <Text>Weight {this.state.Weight}KG</Text>
+          <Text>Height {this.state.Height}cm</Text>
         </View>
 
           <View>

@@ -69,7 +69,27 @@ app.post('/registerCoach',(req,res , next)=>{
 
 })
 //Login For Coach
-app.get("/LoginCoch",(res,req)=>{console.log("Hello Login")})
+app.post("/LoginCoch",(req,res)=>{
+    console.log("Hello Login",req.body)
+   const TheEmail = req.body.Email;
+   //console.log("The Email",TheEmail)
+   NewCoach.findOne({where:{Email:TheEmail}})
+    .then((User)=>{
+        //console.log("This is the User ", User)
+        if(!User){
+            console.log("The Email Is not in the database")
+        var obj = {err:User}
+        console.log(obj)
+            res.send(obj)
+        }
+        else{
+            console.log("Welcome To Your Account")
+            res.send(User)
+        }
+    })
+   // console.log("Hello Need to enter my account")
+
+})
 
 app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body.Email; 

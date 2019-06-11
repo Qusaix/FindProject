@@ -9,7 +9,8 @@ import {
   View,
   Button,
   Alert,
-  TextInput
+  TextInput,
+  AsyncStorage
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
@@ -20,8 +21,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    constructor(){
      super()
      this.state={
-       Email:"",
-       Password:""
+       Name:"",
+       Bio:"",
+      Experence:""
      } 
    }
 
@@ -39,8 +41,30 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     flex: 1
     }
   }
+  componentDidMount(){
+    this.getUsers();
+  }
+  getUsers(){
+    AsyncStorage.getItem('Name')
+     .then((value)=>{
+      this.setState({Name:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{})
+     AsyncStorage.getItem('Bio')
+     .then((value)=>{
+      this.setState({Bio:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{})
 
-
+     AsyncStorage.getItem('Experence')
+     .then((value)=>{
+      this.setState({Experence:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{})
+  }
 
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
@@ -120,9 +144,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
               marginBottom:15
           }}
           >Your Info</Text>
-          <Text>Name</Text>
-          <Text>Bio</Text>
-          <Text>Experence</Text>
+          <Text>Name {this.state.Name}</Text>
+          <Text>Bio  {this.state.Bio}</Text>
+          <Text>Experence {this.state.Experence}</Text>
           <Text>Charge</Text>
           <Text>Trainees</Text>
           <Text>Review</Text>

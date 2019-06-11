@@ -9,7 +9,8 @@ import {
   View,
   Button,
   Alert,
-  TextInput
+  TextInput,
+  AsyncStorage
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
@@ -24,6 +25,51 @@ import CoachDashboard from './dashboard'
        Password:""
      }
    }
+   TheData(data){
+    console.log(data)
+    //this.state.userInfo.push(data)
+   // console.log("This is the Array ",this.state.userInfo)
+   console.log("This is the Err ",data.err)
+    if(data.err === undefined){
+      console.log("It's Work")
+
+      /// Savaing Data Here -- Start 
+      const saveData = async Saving =>{
+        try {
+          console.log("Im Inside Try ",data.Name)
+           AsyncStorage.setItem("Name",data.Name)
+           AsyncStorage.setItem("Bio",data.Bio)
+           AsyncStorage.setItem("Experence",data.Experence)
+        }
+        catch(error){
+          console.log("This is the Error ",error)
+        }
+      }
+      saveData();
+      /// Savaing Data Here -- END
+      return this.props.navigation.navigate("DashboardPage",data)
+    }else{
+      alert("You Need To Sighn Up")
+    }
+  }
+
+   LoginNow(){
+    fetch('http://192.168.0.24:5000/LoginCoch', {
+    method: 'post',
+    headers: {
+    Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()}) 
+  .then((res)=>{
+    console.log("Helllo")
+    this.TheData(res)})
+  //.catch((err)=>console.warn(err))
+  .done()
+  }
+
   static navigationOptions = {
     title:"Login as Coach",
     headerStyle:{
@@ -39,6 +85,8 @@ import CoachDashboard from './dashboard'
     display:"none"
     }
   }
+
+
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
   }
@@ -48,122 +96,119 @@ import CoachDashboard from './dashboard'
     render() {
       return (
         <View>
-          <View
+        <View
+        style={{
+          width: 300,
+          height: 250,
+          backgroundColor:"red",
+          marginLeft:90,
+          marginTop:20,
+          marginBottom:150,
+          borderRadius:10
+        }}
+        >
+          <Image 
           style={{
-            width: 300,
-            height: 250,
-            backgroundColor:"#238aff",
-            marginLeft:90,
-            marginTop:20,
-            marginBottom:150,
-            borderRadius:10
+            width:50,
+            height:50,
+            //marginBottom:3,
+            marginLeft:120,
+            marginTop:10
           }}
-          >
-            <Image 
-            style={{
-              width:50,
-              height:50,
-              //marginBottom:3,
-              marginLeft:120,
-              marginTop:10
-            }}
-            source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
-            /> 
-                <TextInput 
-                  style={{
-                  backgroundColor:"#fff",
-                  borderLeftWidth: 2,
-                  borderRightWidth: 2,
-                  borderBottomWidth:2,
-                  borderTopWidth:2,
-                  borderColor:"#fff",
-                  borderRadius:8,
-                  height: 40,
-                  textAlign:"center",
-                  marginTop:15,
-                  marginLeft:15,
-                  marginRight:15,
-                  padding:10,
-                  color:"#000",
-                  fontSize:15,
-                  textDecorationLine:"none"
-
-          
-                }}
-                placeholder="Email"
-                name={"Email"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
-
-                  />
-
-                <TextInput 
-                  style={{
-                  backgroundColor:"#fff",
-                  borderLeftWidth: 2,
-                  borderRightWidth: 2,
-                  borderBottomWidth:2,
-                  borderTopWidth:2,
-                  borderColor:"#fff",
-                  borderRadius:6,
-                  height: 40,
-                  textAlign:"center",
-                  marginTop:15,
-                  marginLeft:15,
-                  marginRight:15,
-                  marginBottom:4,
-                  padding:10,
-                  color:"#000",
-                  fontSize:15,
-                  textDecorationLine:"none"
-
-          
-                }}
-                placeholder="Password"
-                textContentType="password"
-                secureTextEntry={true}
-                name={"Password"}
-                onChangeText={(text)=>{this.TextFieldValue(text,"Password")}}
-                
-                  />
-
-                <TouchableOpacity
+          source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
+          /> 
+              <TextInput 
                 style={{
-                  backgroundColor:"green",
-                  padding:10,
-                  width:70,
-                  marginLeft:38+"%",
-                  marginTop:5,
-                  borderRadius:7
-                }}
-                onPress={()=>{
-                  this.props.navigation.navigate("DashboardPage");
-                }}
-                >
-                  <Text
-                  style={{
-                    textAlign:"center",
-                    color:"#fff",
-                    fontWeight:"bold"
-                  }}
-                  
-                  >Login</Text>
-                  </TouchableOpacity>
+                backgroundColor:"#fff",
+                borderLeftWidth: 2,
+                borderRightWidth: 2,
+                borderBottomWidth:2,
+                borderTopWidth:2,
+                borderColor:"#fff",
+                borderRadius:8,
+                height: 40,
+                textAlign:"center",
+                marginTop:15,
+                marginLeft:15,
+                marginRight:15,
+                padding:10,
+                color:"#000",
+                fontSize:15,
+                textDecorationLine:"none"
 
-                  <Text
-                  style={{
-                   fontSize:12,
-                   color:"#fff",
-                   marginLeft:5,
-                   marginTop:4
+        
+              }}
+              placeholder="Email"
+              name={"Email"}
+              onChangeText={(value)=>this.setState({Email:value})}
 
-                   }}
-                   onPress={()=>{this.props.navigation.navigate('RegCoachPage')}}
-                   >
-                     Don't have account you can register now for free 
-                   </Text>
-            
-               </View>
-          </View>
+                />
+
+              <TextInput 
+                style={{
+                backgroundColor:"#fff",
+                borderLeftWidth: 2,
+                borderRightWidth: 2,
+                borderBottomWidth:2,
+                borderTopWidth:2,
+                borderColor:"#fff",
+                borderRadius:6,
+                height: 40,
+                textAlign:"center",
+                marginTop:15,
+                marginLeft:15,
+                marginRight:15,
+                marginBottom:4,
+                padding:10,
+                color:"#000",
+                fontSize:15,
+                textDecorationLine:"none"
+
+        
+              }}
+              placeholder="Password"
+              textContentType="password"
+              secureTextEntry={true}
+              name={"Password"}
+              onChangeText={(value)=>this.setState({Password:value})}
+              
+                />
+
+              <TouchableOpacity
+              style={{
+                backgroundColor:"green",
+                padding:10,
+                width:70,
+                marginLeft:38+"%",
+                marginTop:5,
+                borderRadius:7
+              }}
+              onPress={this.LoginNow.bind(this)}
+              >
+                <Text
+                style={{
+                  textAlign:"center",
+                  color:"#fff",
+                  fontWeight:"bold"
+                }}
+                // onPress={this.props.navigation.navigate('TraineeDashBoardPage')}
+                >Login</Text>
+                </TouchableOpacity>
+
+                <Text
+                style={{
+                 fontSize:12,
+                 color:"#fff",
+                 marginLeft:5,
+                 marginTop:4
+
+                 }}
+                 onPress={()=>{this.props.navigation.navigate('RegCoachPage')}}
+                 >
+                   Don't have account you can register now for free 
+                 </Text>
+             </View>
+             </View>
  )}
 
 
