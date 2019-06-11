@@ -53,23 +53,26 @@ import RegTrainee from './TraineeReg'
    console.log("This is the Err ",data.err)
     if(data.err === undefined){
       console.log("It's Work")
-      // saveName = (value)=>{
-      //   console.log("This is the SaveName value ",value)
-      //   AsyncStorage.setItem("Email",value)
-      // }
-      // saveName();
-      var Email = this.state.Email 
+
+      /// Savaing Data Here -- Start 
       const saveData = async Saving =>{
         try {
-          console.log("Im Inside Try")
-          await AsyncStorage.setItem("Email",Email)
+          console.log("Im Inside Try ",data.Name)
+           AsyncStorage.setItem("Bio",data.Bio)
+           AsyncStorage.setItem("Email",data.Email)
+           AsyncStorage.setItem("Experence",data.Experence)
+           AsyncStorage.setItem("Goal",data.Goal)
+           AsyncStorage.setItem("Height",data.Height)
+           AsyncStorage.setItem("Name",data.Name)
+           AsyncStorage.setItem("weight",data.Weight)
         }
         catch(error){
           console.log("This is the Error ",error)
         }
       }
       saveData();
-      return this.props.navigation.navigate("TraineeDashBoardPage")
+      /// Savaing Data Here -- END
+      return this.props.navigation.navigate("TraineeDashBoardPage",data)
     }else{
       alert("You Need To Sighn Up")
     }

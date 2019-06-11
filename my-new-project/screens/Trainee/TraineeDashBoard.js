@@ -22,32 +22,70 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    constructor(){
      super()
      this.state={
-       Email:[],
-       Password:"",
-       ScreeenHeight:0,
-       name:""
+      Name:"",
+      Email:"",
+      Password:"",
+      Bio:"",
+      Experence:"",
+      Goal:"",
+      Weight:"",
+      Height:"",
+      ScreeenHeight:0,
      } 
    }
    componentDidMount(){
-   // this._loadInitialState().done()
+   // this._loadInitialState().done(
+   console.log("Thhhhhhhhhhhh",this.props.navigation.getParam('data'))
    this.getTheUser();
+
    }
-  //  _loadInitialState = async()=>{
-  //    var value = await AsyncStorage.getItem('Email');
-  //    if(value !== null){
-  //      this.setState({Email:value});
-  //    }
-  //  }
    getTheUser(){
-     AsyncStorage.getItem('Email')
+     AsyncStorage.getItem('Name')
      .then((value)=>{
-      this.setState({Email:value})
+      this.setState({Name:value})
        console.log("This is the value ",value)
       })
      .then((res)=>{console.log("Hi is Done ",res)})
-     var w = "Qusai"
-      
+     AsyncStorage.getItem('Bio')
+     .then((value)=>{
+      this.setState({Bio:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{console.log("Hi is Done ",res)})
+
+     AsyncStorage.getItem('Experence')
+     .then((value)=>{
+      this.setState({Experence:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{console.log("Hi is Done ",res)})
+
+     AsyncStorage.getItem('Goal')
+     .then((value)=>{
+      this.setState({Goal:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{console.log("Hi is Done ",res)})
+
+     AsyncStorage.getItem('Height')
+     .then((value)=>{
+      this.setState({Height:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{console.log("Hi is Done ",res)})
+
+     AsyncStorage.getItem('weight')
+     .then((value)=>{
+      this.setState({Weight:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{})
+
+
+
+
    }
+   
   static navigationOptions = {
     title:"Login as Coach",
     headerStyle:{
@@ -145,13 +183,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
               marginBottom:15
           }}
           >Your Info</Text>
-          <Text>Name {this.state.Email}</Text>
-          <Text>Bio</Text>
-          <Text>How Many Years</Text>
-          <Text>Goal</Text>
+          <Text>Name {this.state.Name}</Text>
+          <Text>Bio {this.state.Bio}</Text>
+          <Text>How Many Years {this.state.Experence}</Text>
+          <Text>Goal {this.state.Goal}</Text>
           <Text>Photos</Text>
-          <Text>Weight</Text>
-          <Text>Height</Text>
+          <Text>Weight {this.state.Weight}</Text>
+          <Text>Height {this.state.Height}</Text>
         </View>
 
           <View>
