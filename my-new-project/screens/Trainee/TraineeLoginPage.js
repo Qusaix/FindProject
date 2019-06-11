@@ -16,6 +16,7 @@ import TraineeDashboard from './TraineeDashBoard'
 import RegTrainee from './TraineeReg'
 //import console = require('console');
 //import console = require('console');
+//import console = require('console');
 
  class LoginTrainee extends React.Component {
    constructor(){
@@ -23,6 +24,7 @@ import RegTrainee from './TraineeReg'
      this.state={
       Email:"",
       Password:"",
+      userInfo:[]
 
 
      }
@@ -45,7 +47,15 @@ import RegTrainee from './TraineeReg'
   }
   TheData(data){
     console.log(data)
-    return data
+    this.state.userInfo.push(data)
+   // console.log("This is the Array ",this.state.userInfo)
+   console.log("This is the Err ",data.err)
+    if(data.err === undefined){
+      console.log("It's Work")
+      return this.props.navigation.navigate("TraineeDashBoardPage")
+    }else{
+      alert("You Need To Sighn Up")
+    }
   }
   LoginNow(){
     fetch('http://192.168.1.103:5000/LoginTrainee', {

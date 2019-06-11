@@ -117,7 +117,9 @@ app.post('/LoginTrainee',(req,res,next)=>{
         //console.log("This is the User ", User)
         if(!User){
             console.log("The Email Is not in the database")
-            //res.send(User)
+        var obj = {err:User}
+        console.log(obj)
+            res.send(obj)
         }
         else{
             console.log("Welcome To Your Account")
