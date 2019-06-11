@@ -9,10 +9,21 @@ import {
   View,
   Button,
   Alert,
-  TextInput
+  TextInput,
+  Input
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+import ImagePicker from 'react-native-image-picker';
+
+var options = {
+  title: 'Select Avatar',
+  takePhotoButtonTitle: "Upload Your Photo ",
+  chooseFromLibraryButtonTitle:"Chose Your Photo",
+  quality:1,
+
+};
+
 
 //import console = require('console');
 
@@ -20,6 +31,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    constructor(){
      super()
      this.state={
+       img:null,
        Name:"",
        Email:"",
        Password:"",
@@ -47,6 +59,34 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     display:"none"
     }
   }
+
+  // UploadPhotos(){
+  //   alert("HI")
+  //   ImagePicker.showImagePicker(options, (response) => {
+  //     console.log('Response = ', response);
+     
+  //     if (response.didCancel) {
+  //       console.log('User cancelled image picker');
+  //     }
+  //     else if (response.error) {
+  //       console.log('ImagePicker Error: ', response.error);
+  //     }
+  //     else if (response.customButton) {
+  //       console.log('User tapped custom button: ', response.customButton);
+  //     }
+  //     else {
+  //       let source = { uri: response.uri };
+     
+  //       // You can also display the image using data:
+  //       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+     
+  //       this.setState({
+  //         avatarSource: source
+  //       });
+  //     }
+  //   });
+  // }
+
   TextFieldValue(type){
     this.setState({ text: type }) 
     
@@ -87,8 +127,16 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
             borderRadius:10
           }}
           > 
+                  {/* <TouchableOpacity
+                  style={{
+                    padding:25,
+                    backgroundColor:"red",
 
-
+                  }}
+                  onPress={this.UploadPhotos.bind(this)}
+                  >
+                  <Text>Upload Photo</Text>
+                  </TouchableOpacity> */}
                 <TextInput 
                   style={{
                   backgroundColor:"#fff",

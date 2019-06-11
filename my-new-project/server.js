@@ -59,7 +59,7 @@ app.post('/registerCoach',(req,res , next)=>{
          console.log("This is the Info From the FrontEnd ",Info)
 
     }else{
-       console.log("The Email Is Already Exist Plese Enter another Email ",User) 
+       console.log("The Email Is Already Exist Plese Enter another Email ") 
 //    return res.send(User)
     }
     
@@ -68,6 +68,9 @@ app.post('/registerCoach',(req,res , next)=>{
     
 
 })
+//Login For Coach
+app.get("/LoginCoch",(res,req)=>{console.log("Hello Login")})
+
 app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body.Email; 
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
@@ -105,6 +108,23 @@ app.post('/registerTrainee',(req,res)=>{
         }
     })
     
+})
+app.post('/LoginTrainee',(req,res,next)=>{
+   const TheEmail = req.body.Email;
+   console.log("The Email",TheEmail)
+   NewTrainee.findOne({where:{Email:TheEmail}})
+    .then((User)=>{
+        //console.log("This is the User ", User)
+        if(!User){
+            console.log("The Email Is not in the database")
+            //res.send(User)
+        }
+        else{
+            console.log("Welcome To Your Account")
+            res.send(User)
+        }
+    })
+   // console.log("Hello Need to enter my account")
 })
 
 

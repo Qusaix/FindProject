@@ -14,8 +14,19 @@ import {
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import TraineeDashboard from './TraineeDashBoard'
 import RegTrainee from './TraineeReg'
+//import console = require('console');
+//import console = require('console');
 
  class LoginTrainee extends React.Component {
+   constructor(){
+     super()
+     this.state={
+      Email:"",
+      Password:"",
+
+
+     }
+   }
   static navigationOptions = {
     title:"LoginTrainee",
     headerStyle:{
@@ -32,7 +43,26 @@ import RegTrainee from './TraineeReg'
     display:"none"
     }
   }
-
+  TheData(data){
+    console.log(data)
+    return data
+  }
+  LoginNow(){
+    fetch('http://192.168.1.103:5000/LoginTrainee', {
+    method: 'post',
+    headers: {
+    Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()}) 
+  .then((res)=>{
+    console.log("Helllo")
+    this.TheData(res)})
+  //.catch((err)=>console.warn(err))
+  .done()
+  }
     render() {
       return (
         <View>
@@ -80,7 +110,7 @@ import RegTrainee from './TraineeReg'
               }}
               placeholder="Email"
               name={"Email"}
-              onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
+              onChangeText={(value)=>this.setState({Email:value})}
 
                 />
 
@@ -110,7 +140,7 @@ import RegTrainee from './TraineeReg'
               textContentType="password"
               secureTextEntry={true}
               name={"Password"}
-              onChangeText={(text)=>{this.TextFieldValue(text,"Password")}}
+              onChangeText={(value)=>this.setState({Password:value})}
               
                 />
 
@@ -123,9 +153,7 @@ import RegTrainee from './TraineeReg'
                 marginTop:5,
                 borderRadius:7
               }}
-              onPress={()=>{
-                this.props.navigation.navigate("TraineeDashBoardPage");
-              }}
+              onPress={this.LoginNow.bind(this)}
               >
                 <Text
                 style={{
@@ -155,7 +183,7 @@ import RegTrainee from './TraineeReg'
 
 
 };
-
+//this.props.navigation.navigate("TraineeDashBoardPage");
 export default createStackNavigator({
   Home:{
     screen: LoginTrainee
