@@ -49,20 +49,20 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     AsyncStorage.getItem('Name')
      .then((value)=>{
       this.setState({Name:value})
-       console.log("This is the value ",value)
+      // console.log("This is the value ",value)
       })
      .then((res)=>{})
      AsyncStorage.getItem('Bio')
      .then((value)=>{
       this.setState({Bio:value})
-       console.log("This is the value ",value)
+       //console.log("This is the value ",value)
       })
      .then((res)=>{})
 
      AsyncStorage.getItem('Experence')
      .then((value)=>{
       this.setState({Experence:value})
-       console.log("This is the value ",value)
+       //console.log("This is the value ",value)
       })
      .then((res)=>{})
   }
@@ -83,8 +83,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   .then((res)=>{return res.json()}) 
   .then((res)=>{
     console.log("Helllo",res)
-    this.state.AllCoachs.push(res)
+    this.setState({ AllCoachs : res})
     console.log("This is the Array ",this.state.AllCoachs)
+    console.log("This is The ID",res)
     //this.state.AllCoachs.map((element)=>{return (console.log("This is the Element ",element))})
     //this.TheData(res)
   })
@@ -97,16 +98,19 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
       return (
         <ScrollView>
           <Text>HIIiiiiiiii</Text>
-        <View>
+        
             {this.state.AllCoachs.map((Coach)=>{
               return(
-                // Change
-                <View key={Coach.id.toString()}> 
-              <Text > Hello {Coach.Name}</Text>
+                <View key={Coach.id}>
+              
+                <Text > {Coach.Name} </Text>
+              
+              
+              
               </View>
 
             )})}
-          </View>
+          
           </ScrollView>
  )}
 
