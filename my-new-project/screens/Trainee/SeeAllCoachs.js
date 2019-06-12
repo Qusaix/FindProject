@@ -96,22 +96,95 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
     render() {
       return (
-        <ScrollView>
-          <Text>HIIiiiiiiii</Text>
-        
+        <ScrollView >
             {this.state.AllCoachs.map((Coach)=>{
               return(
-                <View key={Coach.id}>
+                <View
+                key={Coach.id+1}
+                >
+                    <View 
+                    key={Coach.id}
+                      style={{
+                        width:300,
+                        height:250,
+                        backgroundColor:"#238aff",
+                        marginLeft:77,
+                        marginTop:10,
+                        marginBottom:10,
+                        borderRadius:9
+
+                      }}
+                    >
+                 
+                        <Image 
+                          style={{
+                          width:100,
+                          height:100,
+                          marginLeft:100,
+                          marginTop:5,
+
+                          }}
+                          source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
+                        /> 
+                          <Text 
+                            style={{
+                              fontSize:18,
+                              fontWeight:"bold",
+                              marginTop:8,
+                              color:"#fff",
+                              //backgroundColor:"#fff",
+                              borderRadius:8
+                            }}                          
+                          > Name: {Coach.Name} </Text>
+                          <Text 
+                          style={{
+                            fontSize:18,
+                            fontWeight:"bold",
+                            marginTop:8,
+                            color:"#fff",
+                            //backgroundColor:"#fff",
+                            borderRadius:8
+                          }}
+                          > Bio: {Coach.Bio} </Text>
+                          <Text
+                          style={{
+                            fontSize:18,
+                            fontWeight:"bold",
+                            marginTop:8,
+                            color:"#fff",
+                            //backgroundColor:"#fff",
+                            borderRadius:8
+                          }}
+                          
+                          > Experence: {Coach.Experence} </Text>
+                           <TouchableOpacity
+                           style={{
+                             backgroundColor:"#fff",
+                             //padding:25,
+                             borderRadius:7,
+                             width:150,
+                             marginLeft:70,
+                             marginTop:5
+                           }}
+                           >
+                             <Text
+                             style={{
+                               color:"#000",
+                               fontWeight:"bold",
+                               textAlign:"center",
+                               fontSize:25
+                             }}
+                             >Profile</Text>
+                             </TouchableOpacity> 
               
-                <Text > {Coach.Name} </Text>
               
-              
-              
-              </View>
+      
+                    </View>
+                 </View>
 
             )})}
           
-          </ScrollView>
+</ScrollView>
  )}
 
 
