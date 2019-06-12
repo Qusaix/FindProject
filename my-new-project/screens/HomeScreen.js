@@ -23,6 +23,8 @@ import RegCoach from "./Coach/CoachRegPage";
 import CoachDashboard from './Coach/dashboard'
 import LoginCoach from './Coach/CoachLogin'
 import TraineeDashboard from './Trainee/TraineeDashBoard'
+//import SeeAllCoachs from './Trainee/SeeAllCoachs'
+import CoachProfile from './Trainee/ProfilePageCoach'
 
 class HomeScreen extends React.Component {
 static navigationOptions = {
@@ -197,5 +199,10 @@ export default createStackNavigator({
   // LoginCoach:{
   //   screen:LoginCoach
   // }
-
+   SeeAllCoachsPage:{
+     screen: SeeAllCoachs
+   },
+   CoachProfilePage:{
+     screen:CoachProfile
+   }
 })

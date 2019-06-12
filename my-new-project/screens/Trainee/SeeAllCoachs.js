@@ -72,7 +72,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   }
   
   componentWillMount(){
-    fetch('http://192.168.0.24:5000/getAllCoachs', {
+    fetch('http://192.168.1.103:5000/getAllCoachs', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -92,11 +92,25 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   //.catch((err)=>console.warn(err))
   .done()
   }
-
+  backProfile(){
+    return this.props.navigation.navigate("TraineeDashBoardPage")
+  }
 
     render() {
       return (
         <ScrollView >
+          <TouchableOpacity
+         onPress={()=> {return this.backProfile()}}
+          >
+            <Text
+            style={{
+              backgroundColor:"#000",
+              padding:10,
+              margin:5,
+              color:"#fff"
+            }}
+            >Go Back to Your Profile</Text>
+          </TouchableOpacity>
             {this.state.AllCoachs.map((Coach)=>{
               return(
                 <View
@@ -174,6 +188,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                                textAlign:"center",
                                fontSize:25
                              }}
+                             onPress={()=>{return this.props.navigation.navigate('CoachProfilePage')}}
                              >Profile</Text>
                              </TouchableOpacity> 
               
