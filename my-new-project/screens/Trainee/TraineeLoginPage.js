@@ -15,6 +15,10 @@ import {
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import TraineeDashboard from './TraineeDashBoard'
 import RegTrainee from './TraineeReg'
+import SeeAllCoachs from './SeeAllCoachs'
+import RegCoach from "../Coach/CoachRegPage";
+import CoachDashboard from '../Coach/dashboard'
+//import LoginCoach from '../Coach/CoachLogin'
 //import console = require('console');
 //import console = require('console');
 //import console = require('console');
@@ -34,7 +38,7 @@ import RegTrainee from './TraineeReg'
     title:"LoginTrainee",
     headerStyle:{
       backgroundColor:"#238aff",
-      display:"none"
+      //display:"none"
 
     },
     headerTitleStyle:{
@@ -43,7 +47,7 @@ import RegTrainee from './TraineeReg'
       // marginTop: -38
     alignItems:"center",
     flex: 1,
-    display:"none"
+    //display:"none"
     }
   }
   TheData(data){
@@ -209,6 +213,11 @@ import RegTrainee from './TraineeReg'
                  >
                    Don't have account you can register now for free 
                  </Text>
+                 {/* <TouchableOpacity
+                 onPress={this.props.navigation.goBack}
+                 >
+                   <Text>Go Back</Text>
+                   </TouchableOpacity> */}
              </View>
         </View>
  )}
@@ -216,15 +225,28 @@ import RegTrainee from './TraineeReg'
 
 };
 //this.props.navigation.navigate("TraineeDashBoardPage");
-export default createStackNavigator({
-  Home:{
-    screen: LoginTrainee
-  },
-  TraineeDashBoardPage:{
-    screen: TraineeDashboard
-  },
-  RegisterTrainee:{
-    screen:RegTrainee
-  }
-})
+export default LoginTrainee
+// export default createStackNavigator({
+//   Home:{
+//     screen: LoginTrainee
+//   },
+//   TraineeDashBoardPage:{
+//     screen: TraineeDashboard
+//   },
+//   RegisterTrainee:{
+//     screen:RegTrainee
+//   },
+//   SeeAllCoachs:{
+//     screen: SeeAllCoachs
+//   },
+//   DashboardPage:{
+//     screen:CoachDashboard
+//   },
+//   RegCoachPage:{
+//     screen:RegCoach
+//   },
+//   // LoginCoach:{
+//   //   screen:LoginCoach
+//   // }
+// })
   

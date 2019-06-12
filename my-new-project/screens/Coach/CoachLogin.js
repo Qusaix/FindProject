@@ -25,14 +25,36 @@ import CoachDashboard from './dashboard'
        Password:""
      }
    }
+
+   static navigationOptions = {
+    title:"LoginCoach",
+    headerStyle:{
+      backgroundColor:"#238aff",
+      //display:"none"
+
+    },
+    headerTitleStyle:{
+      color:"#fff",
+      // marginLeft:48+"%",
+      // marginTop: -38
+    alignItems:"center",
+    flex: 1,
+    //display:"none"
+    }
+  }
+
+
+
    TheData(data){
     console.log(data)
     //this.state.userInfo.push(data)
    // console.log("This is the Array ",this.state.userInfo)
    console.log("This is the Err ",data.err)
     if(data.err === undefined){
-      console.log("It's Work")
-
+      console.log("It's Work", data.Name)
+      if(data.Name === ""){
+        return alert("Put Your Email")
+      }
       /// Savaing Data Here -- Start 
       const saveData = async Saving =>{
         try {
@@ -74,15 +96,17 @@ import CoachDashboard from './dashboard'
     title:"Login as Coach",
     headerStyle:{
       backgroundColor:"#238aff",
-      display:"none"
+      //display:"none"
+     // marginTop: -38,
+      
     },
     headerTitleStyle:{
       color:"#fff",
       // marginLeft:48+"%",
-      // marginTop: -38
+    
     alignItems:"center",
     flex: 1,
-    display:"none"
+    //display:"none"
     }
   }
 
@@ -191,7 +215,7 @@ import CoachDashboard from './dashboard'
                   color:"#fff",
                   fontWeight:"bold"
                 }}
-                // onPress={this.props.navigation.navigate('TraineeDashBoardPage')}
+                onPress={()=>this.props.navigation.navigate('DashboardPage')}
                 >Login</Text>
                 </TouchableOpacity>
 
@@ -214,15 +238,17 @@ import CoachDashboard from './dashboard'
 
 };
 
-export default createStackNavigator({
-  Home:{
-    screen:LoginCoach
-  },
-  DashboardPage:{
-    screen:CoachDashboard
-  },
-  RegCoachPage:{
-    screen:RegCoach
-  }
-})
+export default LoginCoach
+
+// export default createStackNavigator({
+//   Home:{
+//     screen:LoginCoach
+//   },
+//   DashboardPage:{
+//     screen:CoachDashboard
+//   },
+//   RegCoachPage:{
+//     screen:RegCoach
+//   }
+// })
   

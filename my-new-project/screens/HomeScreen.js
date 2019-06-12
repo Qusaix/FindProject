@@ -15,15 +15,22 @@ import {
 import { WebBrowser } from 'expo';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import { MonoText } from '../components/StyledText';
-import LoginCoach from './Coach/CoachLogin';
+//import LoginCoach from './Coach/CoachLogin';
 import LoginTrainee from './Trainee/TraineeLoginPage'
+import RegTrainee from './Trainee/TraineeReg'
+import SeeAllCoachs from './Trainee/SeeAllCoachs'
+import RegCoach from "./Coach/CoachRegPage";
+import CoachDashboard from './Coach/dashboard'
+import LoginCoach from './Coach/CoachLogin'
+import TraineeDashboard from './Trainee/TraineeDashBoard'
 
 class HomeScreen extends React.Component {
 static navigationOptions = {
   title:"Welcome Page",
   headerStyle:{
+    color:"#fff",
     backgroundColor:"#238aff",
-    display:"none"
+    //display:"none"
   },
   headerTitleStyle:{
     color:"red",
@@ -31,12 +38,12 @@ static navigationOptions = {
     // marginTop: -38
   alignItems:"center",
   flex: 1,
-  display:"none"
+  //display:"none"
 
   }
 }
   
-  LoginTrainee = () => {
+LoginTrainee = () => {
   this.props.navigation.navigate('LoginTraineeTake')  
 }
 LoginCoach = () =>{
@@ -142,16 +149,53 @@ const styles = StyleSheet.create({
 
   },
 });
+/*
+static navigationOptions = {
+    title:"Login as Coach",
+    headerStyle:{
+      backgroundColor:"#238aff",
+      display:"none"
+    },
+    headerTitleStyle:{
+      color:"#fff",
+      // marginLeft:48+"%",
+      // marginTop: -38
+    alignItems:"center",
+    flex: 1
+    }
+  }
 
+*/
 export default createStackNavigator({
-  Home:{
+  HomeScreen:{
     screen:HomeScreen
   },
   LoginCoachTake:{
-    screen:LoginCoach
+   screen:LoginCoach
   },
   LoginTraineeTake:{
-    screen:LoginTrainee
-  }
+     screen:LoginTrainee
+   },
+  // Home:{
+  //   screen: LoginTrainee
+  // },
+  TraineeDashBoardPage:{
+     screen: TraineeDashboard
+  },
+   RegisterTrainee:{
+     screen:RegTrainee
+   },
+  SeeAllCoachs:{
+     screen: SeeAllCoachs
+   },
+  DashboardPage:{
+     screen:CoachDashboard
+   },
+  RegCoachPage:{
+     screen:RegCoach
+   },
+  // LoginCoach:{
+  //   screen:LoginCoach
+  // }
 
 })

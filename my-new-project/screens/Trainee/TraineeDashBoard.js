@@ -12,6 +12,7 @@ import {
   TextInput,
   AsyncStorage
 } from 'react-native';
+import SeeAllCoachs from './SeeAllCoachs'
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 //import TheArray from './TraineeLoginPage'
@@ -19,6 +20,25 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 //const { Height } = Dimensions.get('window');
 
  class TraineeDashboard extends React.Component {
+
+  static navigationOptions = {
+    title:"Welcom to Your Account",
+    headerStyle:{
+    backgroundColor:"#000",
+    //display:"none"
+
+    },
+    headerTitleStyle:{
+      color:"#fff",
+      // marginLeft:48+"%",
+      // marginTop: -38
+    alignItems:"center",
+    flex: 1,
+    //display:"none"
+    }
+  }
+
+
    constructor(){
      super()
      this.state={
@@ -33,6 +53,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
       ScreeenHeight:0,
      } 
    }
+   
    componentDidMount(){
    // this._loadInitialState().done(
    console.log("Thhhhhhhhhhhh",this.props.navigation.getParam('data'))
@@ -149,7 +170,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   borderRadius:7
                 }}
                 onPress={()=>{
-                  this.props.navigation.navigate("DashboardPage");
+                  this.props.navigation.navigate("SeeAllCoachs"); 
                 }}
                 >
                   <Text
@@ -234,10 +255,10 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
             fontSize:25,
             marginTop:15,
             margin:10
-        }}
+            }}
            >Goal </Text>
 
-           <View
+         <View
            style={{
             fontSize:25,
             margin:10
@@ -249,11 +270,33 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
              <Text>
                End 
              </Text>
-             </View>
+         </View>
            
 
           </View>
-          
+          <View>
+          <TouchableOpacity 
+          onPress={()=>this.props.navigation.navigate("LoginTraineeTake")}
+          style={{
+            backgroundColor:"green",
+            padding:10,
+            width:70,
+            marginLeft:43+"%",
+            marginTop:5,
+            borderRadius:7,
+            marginBottom:10
+          }}
+          >
+            <Text
+            style={{
+              color:"#fff",
+              fontSize:15,
+              fontWeight:"bold",
+              textAlign:"center"
+            }}
+            >Logout</Text>
+            </TouchableOpacity>
+            </View>
 
           </View>
           </ScrollView>

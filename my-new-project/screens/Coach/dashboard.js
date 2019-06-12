@@ -110,7 +110,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   borderRadius:7
                 }}
                 onPress={()=>{
-                  this.props.navigation.navigate("DashboardPage");
+                  this.props.navigation.navigate("LoginCoach");
                 }}
                 >
                   <Text
@@ -182,7 +182,29 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
           </View>
 
-          
+          <View>
+          <TouchableOpacity 
+          onPress={()=>this.props.navigation.navigate("LoginCoachTake")}
+          style={{
+            backgroundColor:"green",
+            padding:10,
+            width:70,
+            marginLeft:43+"%",
+            marginTop:5,
+            borderRadius:7,
+            marginBottom:10
+          }}
+          >
+            <Text
+            style={{
+              color:"#fff",
+              fontSize:15,
+              fontWeight:"bold",
+              textAlign:"center"
+            }}
+            >Logout</Text>
+            </TouchableOpacity>
+            </View>
           
 
           </View>

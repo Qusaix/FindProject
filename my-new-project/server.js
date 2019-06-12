@@ -149,5 +149,16 @@ app.post('/LoginTrainee',(req,res,next)=>{
    // console.log("Hello Need to enter my account")
 })
 
+// Send All The Coachs Inside the database to The frontEnd
+app.post('/getAllCoachs',(req,res)=>{
+    NewCoach.findAll()
+    .then((Coach)=>{
+
+        console.log(Coach)
+        res.json(Coach)
+    })
+    .catch((err)=>console.log(err))
+   
+})
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 

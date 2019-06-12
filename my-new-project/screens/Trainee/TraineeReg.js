@@ -111,6 +111,7 @@ var options = {
   .then((data)=>{console.warn("This is the data ",data)})
   //.catch((err)=>console.warn(err))
   .done()
+  this.props.navigation.navigate('LoginTraineeTake')
   
 }
 
