@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
 
 //import console = require('console');
 
@@ -104,7 +105,153 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                         /> 
             <Text>Hello {this.state.Name}</Text>
             <Text>More About Me {this.state.Bio}</Text>
-            <Text>HI This is Your Coach </Text>
+            <Text
+            style={{
+              backgroundColor:"green",
+              borderRadius:9,
+              width:150,
+              fontSize:25,
+              fontWeight:"bold",
+              padding:10,
+              margin:10,
+              color:"#fff"
+            }}
+            >
+            <MaterialCommunityIcons name="blogger" size={35} color="#fff" /> Blogs
+              </Text>
+            <View style={{
+              backgroundColor:"#238aff",
+              height:200,
+              width:300,
+              borderRadius:7,
+              margin:10,
+              color:"#fff"
+            }}>
+         <ScrollView>      
+          <View style={{
+            margin:5
+          }}>
+          <Text
+          style={{
+            fontSize:15,
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          > Blog Title </Text>
+          <Text
+          style={{
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          >This is the post it will The Coach Relese </Text>
+            
+            </View> 
+
+
+            <View style={{
+            margin:5
+          }}>
+          <Text
+          style={{
+            fontSize:15,
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          > Blog Title </Text>
+          <Text
+          style={{
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          >This is the post it will The Coach Relese </Text>
+            
+            </View> 
+
+
+
+            <View style={{
+            margin:5
+          }}>
+          <Text
+          style={{
+            fontSize:15,
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          > Blog Title </Text>
+          <Text
+          style={{
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          >This is the post it will The Coach Relese </Text>
+            
+            </View> 
+
+            <View style={{
+            margin:5
+          }}>
+          <Text
+          style={{
+            fontSize:15,
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          > Blog Title </Text>
+          <Text
+          style={{
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          >This is the post it will The Coach Relese </Text>
+            
+            </View> 
+
+            <View style={{
+            margin:5
+          }}>
+          <Text
+          style={{
+            fontSize:15,
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          > Blog Title </Text>
+          <Text
+          style={{
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          >This is the post it will The Coach Relese </Text>
+            
+            </View> 
+
+            <View style={{
+            margin:5
+          }}>
+          <Text
+          style={{
+            fontSize:15,
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          > Blog Title </Text>
+          <Text
+          style={{
+            fontWeight:"bold",
+            color:"#fff"
+          }}
+          >This is the post it will The Coach Relese </Text>
+            
+            </View> 
+
+
+
+
+            </ScrollView> 
+
+            </View>
+
             </View>
           
 </ScrollView>
