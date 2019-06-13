@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
+
 
 //import console = require('console');
 
@@ -101,15 +103,21 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
         <ScrollView >
           <TouchableOpacity
          onPress={()=> {return this.backProfile()}}
+         style={{
+           width:110,
+           
+         }}
           >
             <Text
             style={{
               backgroundColor:"#000",
               padding:10,
               margin:5,
-              color:"#fff"
+              color:"#fff",
+              borderRadius:9
             }}
-            >Go Back to Your Profile</Text>
+            ><Ionicons name="ios-arrow-back" size={35} color="#fff" /> <Text style={{fontWeight:"bold",fontSize:14}}>Profile
+              </Text></Text>
           </TouchableOpacity>
             {this.state.AllCoachs.map((Coach)=>{
               return(
@@ -147,31 +155,46 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                               fontWeight:"bold",
                               marginTop:8,
                               color:"#fff",
+                              marginLeft:3,
                               //backgroundColor:"#fff",
                               borderRadius:8
                             }}                          
-                          > Name: {Coach.Name} </Text>
+                          >      
+                         <FontAwesome name="user" size={20} color="#000" />
+                         
+                          Name: {Coach.Name} 
+                          
+                          </Text>
+
                           <Text 
                           style={{
                             fontSize:16,
                             fontWeight:"bold",
                             marginTop:8,
+                            marginLeft:3,
                             color:"#fff",
                             //backgroundColor:"#fff",
                             borderRadius:8
                           }}
-                          > Bio: {Coach.Bio} </Text>
+                          > 
+                          <AntDesign name="solution1" size={20} color="#000"/>
+
+                          Bio: {Coach.Bio} </Text>
                           <Text
                           style={{
                             fontSize:16,
                             fontWeight:"bold",
                             marginTop:8,
                             color:"#fff",
+                            marginLeft:3,
                             //backgroundColor:"#fff",
                             borderRadius:8
                           }}
-                          
-                          > Experence: {Coach.Experence} </Text>
+                          >
+
+                          <AntDesign name="calendar" size={20} color="#000" marginRight={5}/>
+                          Experence: {Coach.Experence} </Text>
+
                            <TouchableOpacity
                            style={{
                              backgroundColor:"#fff",
