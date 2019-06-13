@@ -97,27 +97,54 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
                           style={{
                           width:100,
                           height:100,
-                          marginLeft:100,
+                          marginLeft:4,
                           marginTop:5,
 
                           }}
                           source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
                         /> 
-            <Text>Hello {this.state.Name}</Text>
-            <Text>More About Me {this.state.Bio}</Text>
+            {/* This is The Start of User Info */}
+      <View style={{
+        backgroundColor:"#f5f5f5",
+        margin:5,
+        borderRadius:9,
+        width:400,
+        padding:10
+
+      }}>                  
+            <Text
+            style={{
+              marginLeft:4,
+              fontSize:16
+            }}
+            ><Text style={{fontWeight:"bold"}}>NAME</Text> {this.state.Name}</Text>
+            <Text
+            style={{
+              marginLeft:4,
+              fontSize:16
+            }}
+            > <Text style={{fontWeight:"bold"}} >BIO</Text> {this.state.Bio}</Text>
+            
+            <View style={{alignItems:"flex-end"}}><TouchableOpacity style={{marginTop:-25,backgroundColor:"green",padding:5,borderRadius:5,width:80,}}><Text style={{color:"#fff"}}><FontAwesome name="user-plus" size={16} color="#fff" />Contect</Text></TouchableOpacity></View>
+
+            </View>
+
+
+
             <Text
             style={{
               backgroundColor:"green",
               borderRadius:9,
               width:150,
-              fontSize:25,
+              fontSize:16,
               fontWeight:"bold",
               padding:10,
               margin:10,
               color:"#fff"
             }}
             >
-            <MaterialCommunityIcons name="blogger" size={35} color="#fff" /> Blogs
+              
+            <MaterialCommunityIcons name="blogger" size={20} color="#fff" /> Blogs
               </Text>
             <View style={{
               backgroundColor:"#238aff",
@@ -251,6 +278,41 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
             </ScrollView> 
 
             </View>
+
+          {/* This is the Photos Area  */}
+
+          <View>
+          <Text
+            style={{
+              backgroundColor:"green",
+              borderRadius:9,
+              width:150,
+              fontSize:14,
+              fontWeight:"bold",
+              padding:10,
+              margin:10,
+              color:"#fff"
+            }}
+            >
+            <FontAwesome name="photo" size={16} color="#fff" /> Clients Photos
+              </Text>
+            {/* Hold Photos */}
+            <View
+            style={{flexDirection:'row', flexWrap:'wrap'}}
+            >
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>   
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
+            </View>
+
+
+
+
+
+
+            </View>  
+
 
             </View>
           
