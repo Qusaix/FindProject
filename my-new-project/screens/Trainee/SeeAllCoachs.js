@@ -136,13 +136,14 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                           height:100,
                           marginLeft:100,
                           marginTop:5,
+                          borderRadius:15
 
                           }}
-                          source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
+                          source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
                         /> 
                           <Text 
                             style={{
-                              fontSize:18,
+                              fontSize:16,
                               fontWeight:"bold",
                               marginTop:8,
                               color:"#fff",
@@ -152,7 +153,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                           > Name: {Coach.Name} </Text>
                           <Text 
                           style={{
-                            fontSize:18,
+                            fontSize:16,
                             fontWeight:"bold",
                             marginTop:8,
                             color:"#fff",
@@ -162,7 +163,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                           > Bio: {Coach.Bio} </Text>
                           <Text
                           style={{
-                            fontSize:18,
+                            fontSize:16,
                             fontWeight:"bold",
                             marginTop:8,
                             color:"#fff",

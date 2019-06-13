@@ -100,7 +100,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                           marginTop:5,
 
                           }}
-                          source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
+                          source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
                         /> 
             <Text>Hello {this.state.Name}</Text>
             <Text>More About Me {this.state.Bio}</Text>
