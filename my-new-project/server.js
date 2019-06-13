@@ -60,7 +60,7 @@ app.post('/registerCoach',(req,res , next)=>{
 
     }else{
        console.log("The Email Is Already Exist Plese Enter another Email ") 
-//    return res.send(User)
+       
     }
     
     })
@@ -72,10 +72,8 @@ app.post('/registerCoach',(req,res , next)=>{
 app.post("/LoginCoch",(req,res)=>{
     console.log("Hello Login",req.body)
    const TheEmail = req.body.Email;
-   //console.log("The Email",TheEmail)
    NewCoach.findOne({where:{Email:TheEmail}})
     .then((User)=>{
-        //console.log("This is the User ", User)
         if(!User){
             console.log("The Email Is not in the database")
         var obj = {err:User}
@@ -87,7 +85,7 @@ app.post("/LoginCoch",(req,res)=>{
             res.send(User)
         }
     })
-   // console.log("Hello Need to enter my account")
+
 
 })
 
@@ -95,7 +93,7 @@ app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body.Email; 
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
     console.log(NewTrainee)
-    NewTrainee.findOne({where:{Email:TheInfo}})
+    NewTrainee.findOne({where:{Email:TheInfo},subQuery: false})
     .then((User)=>{
 
         if(!User){
@@ -107,7 +105,8 @@ app.post('/registerTrainee',(req,res)=>{
                 Experence:req.body.Experence,
                 Goal:req.body.Goal,
                 Weight:req.body.Weight,
-                Height:req.body.Height
+                Height:req.body.Height,
+                CoachInfoId:1
         
             }
             const { Name , Email , Password , Bio , Experence , Goal , Weight , Height } = TraineeData
@@ -134,7 +133,7 @@ app.post('/LoginTrainee',(req,res,next)=>{
    console.log("The Email",TheEmail)
    NewTrainee.findOne({where:{Email:TheEmail}})
     .then((User)=>{
-        //console.log("This is the User ", User)
+
         if(!User){
             console.log("The Email Is not in the database")
         var obj = {err:User}
@@ -146,7 +145,6 @@ app.post('/LoginTrainee',(req,res,next)=>{
             res.send(User)
         }
     })
-   // console.log("Hello Need to enter my account")
 })
 
 // Send All The Coachs Inside the database to The frontEnd
@@ -162,3 +160,24 @@ app.post('/getAllCoachs',(req,res)=>{
 })
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 
+
+
+/*
+get(dfklsdkjfkl?id=${this.sta}&&dfk=,(req,res){
+    cosh.findone({
+        where:{
+           id:id
+        }
+    }).then(data=>{
+        var {id,name}=data.dataValues
+        trine.fineAll({
+            where:{
+                cochid:id
+            }
+        }).then(df=>{
+            res.send({trne:df,cosh:{id,name}})
+        })
+    })
+})
+
+*/

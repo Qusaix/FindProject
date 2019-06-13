@@ -72,7 +72,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   }
   
   componentWillMount(){
-    fetch('http://192.168.1.103:5000/getAllCoachs', {
+    fetch('http://192.168.0.24:5000/getAllCoachs', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -188,7 +188,11 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                                textAlign:"center",
                                fontSize:25
                              }}
-                             onPress={()=>{return this.props.navigation.navigate('CoachProfilePage')}}
+                             onPress={()=>{
+                              AsyncStorage.setItem("ProFileName",Coach.Name)
+                              AsyncStorage.setItem("ProFileBio",Coach.Bio)
+                              return this.props.navigation.navigate('CoachProfilePage')
+                            }}
                              >Profile</Text>
                              </TouchableOpacity> 
               

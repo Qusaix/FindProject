@@ -215,7 +215,7 @@ import CoachDashboard from './dashboard'
                   color:"#fff",
                   fontWeight:"bold"
                 }}
-                onPress={()=>this.props.navigation.navigate('DashboardPage')}
+               // onPress={()=>this.props.navigation.navigate('DashboardPage')}
                 >Login</Text>
                 </TouchableOpacity>
 

@@ -82,7 +82,7 @@ import CoachDashboard from '../Coach/dashboard'
     }
   }
   LoginNow(){
-    fetch('http://192.168.1.103:5000/LoginTrainee', {
+    fetch('http://192.168.0.24:5000/LoginTrainee', {
     method: 'post',
     headers: {
     Accept: 'application/json',

@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize')
 const sequelizeDB = require('../database')
+const NewTraineeModule = require('./TraineeModule');
 
 const NewCoach = sequelizeDB.define("CoachInfo",{
-Name:{
+    Name:{
     type: Sequelize.STRING
 },
 Email:{
@@ -16,6 +17,12 @@ Bio:{
 },
 Experence:{
     type:Sequelize.STRING
+},
+CoachInfoId:{
+    autoIncremt:true,
+    type:Sequelize.INTEGER
 }
 })
+NewCoach.hasMany(NewTraineeModule)
+NewTraineeModule.belongsTo(NewCoach)
 module.exports = NewCoach;

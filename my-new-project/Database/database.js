@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('FindFitness',"root","12345678A",{
+module.exports = new Sequelize('FindFitness1',"root","12345678A",{
     host:"localhost",
     dialect:"mysql",
     pool: {
@@ -12,7 +12,7 @@ module.exports = new Sequelize('FindFitness',"root","12345678A",{
         idle: 10000
       },
       define:{
-        timestamps:false
+        timestamps: false
       }
 })
 

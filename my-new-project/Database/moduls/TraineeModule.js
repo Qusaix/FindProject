@@ -2,6 +2,11 @@ const sequelize = require('sequelize');
 const sequelizeDb = require('../database')
 
 const NewTraineeModule = sequelizeDb.define('TraineeInfos',{
+    id:{
+        unique:true,
+        primaryKey:true,
+        type:sequelize.INTEGER
+    },
     Name:{
         type:sequelize.STRING
     },
@@ -25,6 +30,10 @@ const NewTraineeModule = sequelizeDb.define('TraineeInfos',{
     },
     Height:{
     type:sequelize.STRING
+    },
+    CoachInfoId:{
+        type:sequelize.INTEGER
     }
+
 })
 module.exports = NewTraineeModule;
