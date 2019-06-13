@@ -83,14 +83,20 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
         <ScrollView >
           <TouchableOpacity
           onPress={()=>{return this.Back()}}
+          style={{
+            width:100
+          }}
           >
             <Text
             style={{
-              backgroundColor:"red",
+              backgroundColor:"#000",
               padding:10,
-              margin:5
+              margin:5,
+              color:"#fff",
+              borderRadius:9
             }}
-            >Back</Text>
+            ><Ionicons name="ios-arrow-back" size={35} color="#fff" /> <Text style={{fontWeight:"bold",fontSize:14}}>Profile
+              </Text></Text>
           </TouchableOpacity>
           <View>
           <Image 
