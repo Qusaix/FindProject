@@ -5,6 +5,7 @@ const Sequelize = require('./Database/database')
 var NewCoach = require('./Database/moduls/CoachIModule');
 const NewTrainee = require('./Database/moduls/TraineeModule')
 const bcrypt = require('bcrypt')
+const nodemailer = require("nodemailer");
 const salt = 10; 
 const PORT = 5000;
 
@@ -56,6 +57,50 @@ app.post('/registerCoach',(req,res , next)=>{
      
          })
      
+
+
+
+         /// Send Email Area START
+
+
+  
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'tafran56@gmail.com',
+      pass: '12345678D!'
+    },tls: {
+      rejectUnauthorized: false
+  }
+  });
+  
+  var mailOptions = {
+    from: 'tafran56@gmail.com',
+    to: `${req.body.Email}`,
+    subject: 'TAFRAN.inc Registerd in TAFRAN',
+    text: `Thank You For Registerd We Will Be in Toch With You Soon`,
+    html: `<h1 style="color:#000">App NAME</h1>
+    <h3 style="color:#000">Thank You For Registerd We Will Be in Toch With You Soon</h3>
+   
+    `        
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+
+/// Send Email Area END
+
+
+
+
+
+
          console.log("This is the Info From the FrontEnd ",Info)
 
     }else{
@@ -68,6 +113,8 @@ app.post('/registerCoach',(req,res , next)=>{
     
 
 })
+
+
 //Login For Coach
 app.post("/LoginCoch",(req,res)=>{
     console.log("Hello Login",req.body)

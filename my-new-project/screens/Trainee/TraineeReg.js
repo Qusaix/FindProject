@@ -99,7 +99,7 @@ var options = {
     this.setState({[name] : value})
   }
   sendUserInfo(){
-    fetch('http://192.168.0.24:5000/registerTrainee', {
+    fetch('http://192.168.1.2:5000/registerTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -117,6 +117,7 @@ var options = {
 
     render() {
       return (
+        <ScrollView>
         <View>
           <View
           style={{
@@ -403,6 +404,7 @@ var options = {
                   </TouchableOpacity>
                </View>
           </View>
+          </ScrollView>
  )}
 
 
