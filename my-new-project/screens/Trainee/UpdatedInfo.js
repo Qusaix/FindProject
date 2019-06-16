@@ -43,35 +43,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     }
   }
   componentDidMount(){
-    this.getUsers();
+    //this.getUsers();
     AsyncStorage.getItem('Email')
      .then((value)=>{
       this.setState({Email:value})
        console.log("This is the value ",value)
       })
   }
-  getUsers(){
-    AsyncStorage.getItem('Name')
-     .then((value)=>{
-      this.setState({Name:value})
-       console.log("This is the value ",value)
-      })
-     .then((res)=>{})
-     AsyncStorage.getItem('Bio')
-     .then((value)=>{
-      this.setState({Bio:value})
-       console.log("This is the value ",value)
-      })
-     .then((res)=>{})
-
-     AsyncStorage.getItem('Experence')
-     .then((value)=>{
-      this.setState({Experence:value})
-       console.log("This is the value ",value)
-      })
-     .then((res)=>{})
-  }
-
   UpdatedData(){
     fetch('http://192.168.0.24:5000/UpdateTraineeInfo', {
         method: 'post',
@@ -86,7 +64,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
       //.catch((err)=>console.warn(err))
       .done()
       alert("You Need to logout and login again To see Changes")  
-      return this.props.navigation.navigate('DashboardPage')
+      return this.props.navigation.navigate('TraineeDashBoardPage')
   }
   
     render() {
