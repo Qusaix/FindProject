@@ -23,6 +23,7 @@ import RegCoach from "./Coach/CoachRegPage";
 import CoachDashboard from './Coach/dashboard'
 import LoginCoach from './Coach/CoachLogin'
 import TraineeDashboard from './Trainee/TraineeDashBoard'
+import UpdatedCoachInfo from './Coach/CoachUpdateInfo'
 //import SeeAllCoachs from './Trainee/SeeAllCoachs'
 import CoachProfile from './Trainee/ProfilePageCoach'
 
@@ -204,5 +205,8 @@ export default createStackNavigator({
    },
    CoachProfilePage:{
      screen:CoachProfile
+   },
+   UpdatedCoachInfo:{
+     screen:UpdatedCoachInfo
    }
 })

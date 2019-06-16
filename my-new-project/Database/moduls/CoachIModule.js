@@ -21,6 +21,16 @@ Experence:{
 CoachInfoId:{
     autoIncremt:true,
     type:Sequelize.INTEGER
+},
+CreatedAt:{
+    allowNull:false,
+    type:Sequelize.DATE,
+    defaultValue:Sequelize.NOW
+},
+UpdatedAt:{
+    allowNull:false,
+    type:Sequelize.DATE,
+    defaultValue:Sequelize.NOW
 }
 })
 // NewCoach.hasMany(NewTraineeModule)

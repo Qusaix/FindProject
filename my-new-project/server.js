@@ -140,8 +140,9 @@ app.post("/LoginCoch",(req,res)=>{
 
 })
 
-// Starting With The Update 
+// Starting With The Update Info
 app.post("/UpdateCoachInfo",(req,res,next)=>{
+    console.log("This is the Data I Take ", req.body.UpdatedName)
     const TheEmail = req.body.Email
     console.log("This is the Email From PostMan ",req.body.Email)
     NewCoach.findOne({where:{Email:TheEmail}})
@@ -155,12 +156,13 @@ app.post("/UpdateCoachInfo",(req,res,next)=>{
         else{
             console.log("This is the User ",User)
             User.update({
-                Name:"Samer Ahmed",
-                Email:"Samer@gmail.com",
-                Bio:"I Will Update This Bio From The Front End :)",
-                Experence:"10"
+                Name:req.body.UpdatedName,
+                Email:req.body.Email,
+                Bio:req.body.UpdatedBio,
+                Experence:req.body.UpdatedExperence,
+                UpdateAt:Date.now()
             })
-            console.log("This is the Updated Email ",User.Email)
+            console.log("This is the Updated Email ",User.name)
             res.send(User)
         }
        // res.send("Finshed")

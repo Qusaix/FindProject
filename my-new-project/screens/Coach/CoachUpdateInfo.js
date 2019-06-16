@@ -17,13 +17,14 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 //import console = require('console');
 
- class CoachDashboard extends React.Component {
+ class UpdatedCoachInfo extends React.Component {
    constructor(){
      super()
      this.state={
-       Name:"",
-       Bio:"",
-      Experence:""
+        Email:"",
+        UpdatedName:"",
+        UpdatedBio:"",
+        UpdatedExperence:""
      } 
    }
 
@@ -43,6 +44,11 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   }
   componentDidMount(){
     this.getUsers();
+    AsyncStorage.getItem('Email')
+     .then((value)=>{
+      this.setState({Email:value})
+       console.log("This is the value ",value)
+      })
   }
   getUsers(){
     AsyncStorage.getItem('Name')
@@ -66,8 +72,19 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
      .then((res)=>{})
   }
 
-  TextFieldValue(text , type){
-    console.warn("The Change Function is Working")
+  UpdatedData(){
+    fetch('http://192.168.0.24:5000/UpdateCoachInfo', {
+        method: 'post',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state)
+        })
+      .then((res)=>{return res.json()})
+      .then((data)=>{console.warn("This is the data ",data)})
+      //.catch((err)=>console.warn(err))
+      .done()
   }
   
     render() {
@@ -143,58 +160,36 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
               fontSize:25,
               marginBottom:15
           }}
-          >Your Info</Text>
-          <Text>Name {this.state.Name}</Text>
-          <Text>Bio  {this.state.Bio}</Text>
-          <Text>Experence {this.state.Experence}</Text>
-          <Text>Charge</Text>
-          <Text>Trainees</Text>
-          <Text>Review</Text>
+          > Update Your Info</Text>
+          <Text name="Email">Email {this.state.Email}</Text>
+          <Text>Name</Text>
+          <TextInput name={"UpdatedName"} placeholder="Put Your Name" onChangeText={(value)=>this.setState({UpdatedName:value})}/>
+          <Text >Bio</Text>
+          <TextInput name={"UpdatedBio"} placeholder="Put Your Bio" onChangeText={(value)=>this.setState({UpdatedBio:value})}/>
+          <Text >Experence</Text>
+          <TextInput name={"UpdatedExperence"} placeholder="Put Your Experence" onChangeText={(value)=>this.setState({UpdatedExperence:value})}/>
         </View>
           <View>
-           <Text
-           style={{
-            fontSize:25,
-            margin:10
-           }}
-           >
-            Your Trainees
 
-            </Text>   
-          <Text
-          style={{
-              fontSize:25,
-              marginTop:15,
-              margin:10
-          }}
-          >
-         Your Revenue</Text>
-
-
-         <Text
-          style={{
-              fontSize:25,
-              marginTop:15,
-              margin:10
-          }}
-          > 
-         Photos</Text>
 
           </View>
 
           <View>
-            <TouchableOpacity
-            onPress={()=>this.props.navigation.navigate('UpdatedCoachInfo')}
-            style={{
-              backgroundColor:"green",
-              padding:10,
-              width:70,
-              marginLeft:43+"%",
-              marginTop:5,
-              borderRadius:7,
-              marginBottom:10
-            }}
-            >
+          
+            </View>
+          
+          <TouchableOpacity
+          style={{
+            backgroundColor:"green",
+            padding:10,
+            width:100+"%",
+           // marginLeft:43+"%",
+            marginTop:5,
+            borderRadius:7,
+            marginBottom:10
+          }}
+          onPress={this.UpdatedData.bind(this)}
+          >
               <Text
               style={{
                 color:"#fff",
@@ -202,10 +197,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 fontWeight:"bold",
                 textAlign:"center"
               }}
-              >Update Your Info</Text>
-            </TouchableOpacity>
-          <TouchableOpacity 
-          onPress={()=>this.props.navigation.navigate("LoginCoachTake")}
+              >
+                  Save Your Updated Info
+              </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+          onPress={()=>this.props.navigation.navigate('DashboardPage')}
           style={{
             backgroundColor:"green",
             padding:10,
@@ -216,18 +214,17 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
             marginBottom:10
           }}
           >
-            <Text
-            style={{
-              color:"#fff",
-              fontSize:15,
-              fontWeight:"bold",
-              textAlign:"center"
-            }}
-            >Logout</Text>
-            </TouchableOpacity>
-            </View>
-          
-
+              <Text
+              style={{
+                color:"#fff",
+                fontSize:15,
+                fontWeight:"bold",
+                textAlign:"center"
+              }}
+              >
+                  Close
+              </Text>
+          </TouchableOpacity>
           </View>
           </ScrollView>
  )}
@@ -235,4 +232,4 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 };
 
-export default CoachDashboard;
+export default UpdatedCoachInfo;

@@ -58,7 +58,8 @@ import CoachDashboard from './dashboard'
       /// Savaing Data Here -- Start 
       const saveData = async Saving =>{
         try {
-          console.log("Im Inside Try ",data.Name)
+          console.log("Im Inside Try ",data.Email)
+           AsyncStorage.setItem("Email",data.Email)
            AsyncStorage.setItem("Name",data.Name)
            AsyncStorage.setItem("Bio",data.Bio)
            AsyncStorage.setItem("Experence",data.Experence)
