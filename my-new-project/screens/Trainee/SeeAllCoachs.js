@@ -97,12 +97,16 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
   backProfile(){
     return this.props.navigation.navigate("TraineeDashBoardPage")
   }
+  UpadateAllProfileData(){
+    AsyncStorage.setItem("ProFileName",this.setState({Name:Coach.Name}))
+    AsyncStorage.setItem("ProFileBio",Coach.Bio)
+  }
 
     render() {
       return (
         <ScrollView >
           <TouchableOpacity
-         onPress={()=> {return this.backProfile()}}
+         onPress={()=> {this.backProfile()}}
          style={{
            width:110,
            
@@ -213,6 +217,7 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
                                fontSize:25
                              }}
                              onPress={()=>{
+                              //this.setState({Name:Coach.Name})
                               AsyncStorage.setItem("ProFileName",Coach.Name)
                               AsyncStorage.setItem("ProFileBio",Coach.Bio)
                               return this.props.navigation.navigate('CoachProfilePage')
