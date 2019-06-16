@@ -298,6 +298,28 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
             </TouchableOpacity>
             </View>
 
+            <TouchableOpacity
+            style={{
+              backgroundColor:"green",
+              padding:10,
+              width:70,
+              marginLeft:43+"%",
+              marginTop:5,
+              borderRadius:7,
+              marginBottom:10
+            }}
+            onPress={()=>this.props.navigation.navigate('UpdateTraineeInfo')}
+            >
+              <Text
+              style={{
+                color:"#fff",
+                fontSize:15,
+                fontWeight:"bold",
+                textAlign:"center"
+              }}
+              >Update Your Info</Text>
+            </TouchableOpacity>
+
           </View>
           </ScrollView>
  )}

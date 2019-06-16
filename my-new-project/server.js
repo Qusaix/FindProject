@@ -140,7 +140,7 @@ app.post("/LoginCoch",(req,res)=>{
 
 })
 
-// Starting With The Update Info
+// Starting With The Update Info /* UPDATE AREA - START
 app.post("/UpdateCoachInfo",(req,res,next)=>{
     console.log("This is the Data I Take ", req.body.UpdatedName)
     const TheEmail = req.body.Email
@@ -169,6 +169,45 @@ app.post("/UpdateCoachInfo",(req,res,next)=>{
 
     })
 })
+
+
+app.post("/UpdateTraineeInfo",(req,res,next)=>{
+    console.log("This is the Data I Take ", req.body.UpdatedName)
+    const TheEmail = req.body.Email
+    console.log("This is the Email From PostMan ",req.body.Email)
+    NewTrainee.findOne({where:{Email:TheEmail}})
+    .then((User)=>{
+        if(!User){
+            console.log("The Email Is not in the database")
+        var obj = {err:User}
+        console.log(obj)
+            res.send(obj)
+        }
+        else{
+            console.log("This is the User ",User)
+            User.update({
+                Name:req.body.UpdatedName,
+                Email:req.body.Email,
+                Bio:req.body.UpdatedBio,
+                Experence:req.body.UpdatedExperence,
+                Goal:req.body.UpdatedGoal,
+                Weight:req.body.UpdatedWeight,
+                Height:req.body.UpdatedHeight,
+                UpdateAt:Date.now()
+            })
+            console.log("This is the Updated Email ",User.name)
+            res.send(User)
+        }
+       // res.send("Finshed")
+
+    })
+})
+
+
+
+// Starting With The Update Info /* UPDATE AREA - END
+
+
 
 
 

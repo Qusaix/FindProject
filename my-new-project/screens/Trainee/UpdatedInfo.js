@@ -17,7 +17,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 //import console = require('console');
 
- class UpdatedCoachInfo extends React.Component {
+ class UpdateTraineeInfo extends React.Component {
    constructor(){
      super()
      this.state={
@@ -73,7 +73,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   }
 
   UpdatedData(){
-    fetch('http://192.168.0.24:5000/UpdateCoachInfo', {
+    fetch('http://192.168.0.24:5000/UpdateTraineeInfo', {
         method: 'post',
         headers: {
           Accept: 'application/json',
@@ -170,6 +170,12 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
           <TextInput name={"UpdatedBio"} placeholder="Put Your Bio" onChangeText={(value)=>this.setState({UpdatedBio:value})}/>
           <Text >Experence</Text>
           <TextInput name={"UpdatedExperence"} placeholder="Put Your Experence" onChangeText={(value)=>this.setState({UpdatedExperence:value})}/>
+          <Text >Goal</Text>
+          <TextInput name={"UpdatedGoal"} placeholder="Put Your Goal" onChangeText={(value)=>this.setState({UpdatedGoal:value})}/>
+          <Text >Weight</Text>
+          <TextInput name={"UpdatedWeight"} placeholder="Put Your Weight in KG" onChangeText={(value)=>this.setState({UpdatedWeight:value})}/>
+          <Text >Height</Text>
+          <TextInput name={"UpdatedHeight"} placeholder="Put Your Height in cm" onChangeText={(value)=>this.setState({UpdatedHeight:value})}/>
         </View>
           <View>
 
@@ -205,7 +211,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
           </TouchableOpacity>
 
           <TouchableOpacity
-          onPress={()=>this.props.navigation.navigate('DashboardPage')}
+          onPress={()=>this.props.navigation.navigate('TraineeDashBoardPage')}
           style={{
             backgroundColor:"green",
             padding:10,
@@ -234,4 +240,4 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 };
 
-export default UpdatedCoachInfo;
+export default UpdateTraineeInfo;

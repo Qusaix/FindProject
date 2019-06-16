@@ -26,6 +26,7 @@ import TraineeDashboard from './Trainee/TraineeDashBoard'
 import UpdatedCoachInfo from './Coach/CoachUpdateInfo'
 //import SeeAllCoachs from './Trainee/SeeAllCoachs'
 import CoachProfile from './Trainee/ProfilePageCoach'
+import UpdateTraineeInfo from './Trainee/UpdatedInfo'
 
 class HomeScreen extends React.Component {
 static navigationOptions = {
@@ -208,5 +209,8 @@ export default createStackNavigator({
    },
    UpdatedCoachInfo:{
      screen:UpdatedCoachInfo
+   },
+   UpdateTraineeInfo:{
+     screen:UpdateTraineeInfo
    }
 })
