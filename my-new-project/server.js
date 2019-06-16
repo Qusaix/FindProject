@@ -25,6 +25,10 @@ app.use(function(req, res, next) {
 app.get('/',(req,res)=>{
     res.send("Hello")
 })
+/* This is For The REalation Data Base 
+NewCoach.hasMany( NewTrainee , {as:req.body.Email, foreignKey:req.body.id});
+NewTrainee.belongsTo(NewCoach ,{as:req.body.Email,foreignKey:req.body.id});
+*/
 app.post('/registerCoach',(req,res , next)=>{
     const Info = req.body.Email;
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
@@ -135,6 +139,36 @@ app.post("/LoginCoch",(req,res)=>{
 
 
 })
+
+// Starting With The Update 
+app.post("/UpdateCoachInfo",(req,res,next)=>{
+    const TheEmail = req.body.Email
+    console.log("This is the Email From PostMan ",req.body.Email)
+    NewCoach.findOne({where:{Email:TheEmail}})
+    .then((User)=>{
+        if(!User){
+            console.log("The Email Is not in the database")
+        var obj = {err:User}
+        console.log(obj)
+            res.send(obj)
+        }
+        else{
+            console.log("This is the User ",User)
+            User.update({
+                Name:"Samer Ahmed",
+                Email:"Samer@gmail.com",
+                Bio:"I Will Update This Bio From The Front End :)",
+                Experence:"10"
+            })
+            console.log("This is the Updated Email ",User.Email)
+            res.send(User)
+        }
+       // res.send("Finshed")
+
+    })
+})
+
+
 
 app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body.Email; 

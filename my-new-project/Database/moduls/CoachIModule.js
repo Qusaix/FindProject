@@ -23,6 +23,6 @@ CoachInfoId:{
     type:Sequelize.INTEGER
 }
 })
-NewCoach.hasMany(NewTraineeModule)
-NewTraineeModule.belongsTo(NewCoach)
+// NewCoach.hasMany(NewTraineeModule)
+// NewTraineeModule.belongsTo(NewCoach)
 module.exports = NewCoach;

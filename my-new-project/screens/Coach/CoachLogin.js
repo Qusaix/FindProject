@@ -76,7 +76,7 @@ import CoachDashboard from './dashboard'
   }
 
    LoginNow(){
-    fetch('http://192.168.1.2:5000/LoginCoch', {
+    fetch('http://192.168.0.24:5000/LoginCoch', {
     method: 'post',
     headers: {
     Accept: 'application/json',

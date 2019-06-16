@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('FindFitness1',"root","1111",{
+module.exports = new Sequelize('FindFitness1',"root","12345678A",{
     host:"localhost",
     dialect:"mysql",
     pool: {

@@ -11,7 +11,8 @@ const NewTraineeModule = sequelizeDb.define('TraineeInfos',{
         type:sequelize.STRING
     },
     Email:{
-        type:sequelize.STRING
+        type:sequelize.STRING,
+        
     },
     Password:{
         type:sequelize.STRING
@@ -33,6 +34,16 @@ const NewTraineeModule = sequelizeDb.define('TraineeInfos',{
     },
     CoachInfoId:{
         type:sequelize.INTEGER
+    },
+    CreatedAt:{
+        allowNull:false,
+        type:sequelize.DATE,
+        defaultValue:sequelize.NOW
+    },
+    UpdatedAt:{
+        allowNull:false,
+        type:sequelize.DATE,
+        defaultValue:sequelize.NOW
     }
 
 })
