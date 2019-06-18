@@ -221,12 +221,47 @@ app.post("/UpdateTraineeInfo",(req,res,next)=>{
 })
 
 
-app.post('/AddNewTrainee',(req,res) => {
+
+
+// Adding New Coach For Trainees - Start
+
+app.post('/AddingCouchForTrainee',(req,res)=>{
+    
+    const TheUserId = req.body.id
+    console.log("This is the User ID From The Front End ",TheUserId)
+    NewTraineeModule.findOne({where:{id:TheUserId}})
+    .then((User)=>{
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }
+        else{
+           console.log("This is the User ",req.body.id)
+            User.update({
+                CoachInfoId:3
+            })
+            console.log("The Couch Was Updated For This User ",User.Name)
+            res.send(User)
+        }
+})
+
+
+
+})
+
+
+// Adding New couch For Trinees - END
+
+// START WITH Relation - START
+
+    // Updateing the The coach for the Trainee API Is Done
+app.post('/UpdateTraineeToNewCoach',(req,res) => {
 
     const TheUserId = req.body.id;
 
     console.log("This is the Id From the frontend ",TheUserId)
-
 
 
     NewTraineeModule.findOne({where:{CoachInfoId:TheUserId}})
@@ -240,7 +275,7 @@ app.post('/AddNewTrainee',(req,res) => {
         else{
            //console.log("This is the User ",User)
             User.update({
-                CoachInfoId:1
+                CoachInfoId:3
             })
             console.log("The Couch Was Updated For This User ",User.Name)
             res.send(User)
@@ -250,16 +285,7 @@ app.post('/AddNewTrainee',(req,res) => {
     .catch((err)=>console.log(err))
 
 })
-
-
-
-
-
 // Starting With The Update Info /* UPDATE AREA - END
-
-
-
-
 
 app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body.Email; 
@@ -278,7 +304,7 @@ app.post('/registerTrainee',(req,res)=>{
                 Goal:req.body.Goal,
                 Weight:req.body.Weight,
                 Height:req.body.Height,
-                CoachInfoId:1
+                CoachInfoId:null
         
             }
             const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId} = TraineeData
@@ -316,6 +342,39 @@ app.post('/registerTrainee',(req,res)=>{
     })
     
 })
+
+app.post('/SeeAlTraineesYouHave',(req,res)=>{
+
+
+    const TheUserId = req.body.id
+    console.log("This is the User ID From The Front End ",TheUserId)
+    NewTraineeModule.findAll({where:{CoachInfoId:TheUserId},raw:true,plain: true })
+    .then((User)=>{
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }
+        else{
+           console.log("This is the User ",User.Name)
+            // User.update({
+            //     CoachInfoId:3
+            // })
+           // console.log("The Couch Was Updated For This User ",User.Name)
+            res.send(User)
+        }
+})
+
+
+
+
+})
+
+
+// START WITH Relation - END
+
+
 app.post('/LoginTrainee',(req,res,next)=>{
    const TheEmail = req.body.Email;
    console.log("The Email",TheEmail)
