@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const bodyparser = require('body-parser')
-const Sequelize = require('./Database/database')
-var NewCoach = require('./Database/moduls/CoachIModule');
-const NewTrainee = require('./Database/moduls/TraineeModule')
+const { TheData } = require('./Database/database')
+var { NewCoach , NewTraineeModule } = require('./Database/moduls/CoachIModule');
+//const NewTrainee = require('./Database/moduls/TraineeModule')
 const bcrypt = require('bcrypt')
 const nodemailer = require("nodemailer");
 const salt = 10; 
@@ -12,7 +12,7 @@ const PORT = 5000;
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 
-Sequelize.authenticate()
+TheData.authenticate()
 .then(()=>console.log("Database is on"))
 .catch((err)=>console.log("There is and err ",err))
 
@@ -28,11 +28,19 @@ app.get('/',(req,res)=>{
 /* This is For The REalation Data Base 
 NewCoach.hasMany( NewTrainee , {as:req.body.Email, foreignKey:req.body.id});
 NewTrainee.belongsTo(NewCoach ,{as:req.body.Email,foreignKey:req.body.id});
+
 */
+/*New Thing 
+NewTrainee.belongsTo(NewCoach, { as: 'NewTrainee', foreignKey: 'id' });
+        NewCoach.hasMany(NewTrainee, { as:'NewCoach',foreignKey: 'id' })
+*/
+//Item.setNewTrinee(NewCoach)
+//NewCoach.hasMany(NewTrainee, { as:'NewCoach',foreignKey: 'id' })
+
+
 app.post('/registerCoach',(req,res , next)=>{
     const Info = req.body.Email;
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
-
     NewCoach.findOne({where:{Email:Info}})
     .then((User)=>{    
 
@@ -60,42 +68,51 @@ app.post('/registerCoach',(req,res , next)=>{
          .catch((err)=>{console.log(err)
      
          })
-     
-
-
+         // The Thing Is Not Working 
+         NewTraineeModule.findAll({
+           where: { id: 1 },
+           include: [{
+            model: NewCoach,
+            as: 'CoachInfo',
+           // where: { name: 'Al Green' } //
+          }]
+         })
+         .then(Couch => console.log("This is the Couch Id From the rel database ",Couch))
+         .catch(err=>console.log(err))
+        //NewCoach.setNewCoach(NewTrainee)
 
          /// Send Email Area START
 
 
   
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'tafran56@gmail.com',
-      pass: '12345678D!'
-    },tls: {
-      rejectUnauthorized: false
-  }
-  });
+//   var transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//       user: 'tafran56@gmail.com',
+//       pass: '12345678D!'
+//     },tls: {
+//       rejectUnauthorized: false
+//   }
+//   });
   
-  var mailOptions = {
-    from: 'tafran56@gmail.com',
-    to: `${req.body.Email}`,
-    subject: 'TAFRAN.inc Registerd in TAFRAN',
-    text: `Thank You For Registerd We Will Be in Toch With You Soon`,
-    html: `<h1 style="color:#000">App NAME</h1>
-    <h3 style="color:#000">Thank You For Registerd We Will Be in Toch With You Soon</h3>
+//   var mailOptions = {
+//     from: 'tafran56@gmail.com',
+//     to: `${req.body.Email}`,
+//     subject: 'TAFRAN.inc Registerd in TAFRAN',
+//     text: `Thank You For Registerd We Will Be in Toch With You Soon`,
+//     html: `<h1 style="color:#000">App NAME</h1>
+//     <h3 style="color:#000">Thank You For Registerd We Will Be in Toch With You Soon</h3>
    
-    `        
-  };
+//     `        
+//   };
   
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+//   transporter.sendMail(mailOptions, function(error, info){
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log('Email sent: ' + info.response);
+//     }
+//   });
 
 
 /// Send Email Area END
@@ -175,7 +192,7 @@ app.post("/UpdateTraineeInfo",(req,res,next)=>{
     console.log("This is the Data I Take ", req.body.UpdatedName)
     const TheEmail = req.body.Email
     console.log("This is the Email From PostMan ",req.body.Email)
-    NewTrainee.findOne({where:{Email:TheEmail}})
+    NewTraineeModule.findOne({where:{Email:TheEmail}})
     .then((User)=>{
         if(!User){
             console.log("The Email Is not in the database")
@@ -204,6 +221,39 @@ app.post("/UpdateTraineeInfo",(req,res,next)=>{
 })
 
 
+app.post('/AddNewTrainee',(req,res) => {
+
+    const TheUserId = req.body.id;
+
+    console.log("This is the Id From the frontend ",TheUserId)
+
+
+
+    NewTraineeModule.findOne({where:{CoachInfoId:TheUserId}})
+    .then((User)=>{
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }
+        else{
+           //console.log("This is the User ",User)
+            User.update({
+                CoachInfoId:1
+            })
+            console.log("The Couch Was Updated For This User ",User.Name)
+            res.send(User)
+        }
+})
+
+    .catch((err)=>console.log(err))
+
+})
+
+
+
+
 
 // Starting With The Update Info /* UPDATE AREA - END
 
@@ -214,8 +264,8 @@ app.post("/UpdateTraineeInfo",(req,res,next)=>{
 app.post('/registerTrainee',(req,res)=>{
     const TheInfo = req.body.Email; 
     const HashPassword = bcrypt.hashSync(req.body.Password,salt)
-    console.log(NewTrainee)
-    NewTrainee.findOne({where:{Email:TheInfo},subQuery: false})
+    console.log(NewTraineeModule)
+    NewTraineeModule.findOne({where:{Email:TheInfo},subQuery: false})
     .then((User)=>{
 
         if(!User){
@@ -231,8 +281,8 @@ app.post('/registerTrainee',(req,res)=>{
                 CoachInfoId:1
         
             }
-            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height } = TraineeData
-            NewTrainee.create({
+            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId} = TraineeData
+            NewTraineeModule.create({
                 Name,
                 Email,
                 Password,
@@ -240,8 +290,24 @@ app.post('/registerTrainee',(req,res)=>{
                 Experence,
                 Goal,
                 Weight,
-                Height
+                Height,
+                CoachInfoId
             })
+
+            NewTraineeModule.findAll({
+               where: { id: 1 },
+               include: [
+                {
+                  model: NewCoach,
+                }
+              ]
+              })
+              .then(Couch => console.log("This is the Couch Id From the rel database ",Couch))
+              .catch(err=>console.log(err))
+
+
+
+
             console.log("This is the Trainee Info ", TheInfo)
 
         }else{
@@ -253,7 +319,7 @@ app.post('/registerTrainee',(req,res)=>{
 app.post('/LoginTrainee',(req,res,next)=>{
    const TheEmail = req.body.Email;
    console.log("The Email",TheEmail)
-   NewTrainee.findOne({where:{Email:TheEmail}})
+   NewTraineeModule.findOne({where:{Email:TheEmail}})
     .then((User)=>{
 
         if(!User){
