@@ -42,6 +42,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    constructor(){
      super()
      this.state={
+      TheEmail:"",
       Name:"",
       Email:"",
       Password:"",
@@ -56,7 +57,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
    
    componentDidMount(){
    // this._loadInitialState().done(
-   console.log("Thhhhhhhhhhhh",this.props.navigation.getParam('data'))
+  // console.log("Thhhhhhhhhhhh",this.props.navigation.getParam('data'))
    this.getTheUser();
 
    }
@@ -64,44 +65,62 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
      AsyncStorage.getItem('Name')
      .then((value)=>{
       this.setState({Name:value})
-       console.log("This is the value ",value)
+       //console.log("This is the value ",value)
       })
-     .then((res)=>{console.log("Hi is Done ",res)})
+     .then((res)=>{
+      // console.log("Hi is Done ",res)
+      })
      AsyncStorage.getItem('Bio')
      .then((value)=>{
       this.setState({Bio:value})
-       console.log("This is the value ",value)
+      // console.log("This is the value ",value)
       })
-     .then((res)=>{console.log("Hi is Done ",res)})
+     .then((res)=>{
+      // console.log("Hi is Done ",res)
+      })
 
      AsyncStorage.getItem('Experence')
      .then((value)=>{
       this.setState({Experence:value})
-       console.log("This is the value ",value)
+      // console.log("This is the value ",value)
       })
-     .then((res)=>{console.log("Hi is Done ",res)})
+     .then((res)=>{
+      // console.log("Hi is Done ",res)
+      })
 
      AsyncStorage.getItem('Goal')
      .then((value)=>{
       this.setState({Goal:value})
-       console.log("This is the value ",value)
+     //  console.log("This is the value ",value)
       })
-     .then((res)=>{console.log("Hi is Done ",res)})
+     .then((res)=>{
+     //  console.log("Hi is Done ",res)
+      })
 
      AsyncStorage.getItem('Height')
      .then((value)=>{
       this.setState({Height:value})
-       console.log("This is the value ",value)
+     //  console.log("This is the value ",value)
       })
-     .then((res)=>{console.log("Hi is Done ",res)})
+     .then((res)=>{
+       //console.log("Hi is Done ",res)
+      })
 
      AsyncStorage.getItem('weight')
      .then((value)=>{
       this.setState({Weight:value})
-       console.log("This is the value ",value)
+       console.log("This is the WEight From Login ",value)
       })
      .then((res)=>{})
 
+
+     AsyncStorage.getItem('TheEmail')
+     .then((value)=>{
+       console.log("This is the id from the login ",value)
+      //this.setState({id:value})
+      // console.log("This is the value ",value)
+      })
+     .then((res)=>{})
 
 
 

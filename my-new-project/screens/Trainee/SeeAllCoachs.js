@@ -20,9 +20,11 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
 //import console = require('console');
 
  class SeeAllCoachs extends React.Component {
-   constructor(){
-     super()
+   constructor(props){
+     super(props)
      this.state={
+      TheEmail:"",
+       id:"",
        Name:"",
        Bio:"",
       Experence:"",
@@ -67,6 +69,14 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
        //console.log("This is the value ",value)
       })
      .then((res)=>{})
+
+    //  AsyncStorage.getItem('TheEmail')
+    //  .then((value)=>{
+    //    console.log("This is the New Email ",value)
+    //   // this.setState({id:value})
+    //    //console.log("This is the value ",value)
+    //   })
+    //  .then((res)=>{})
   }
 
   TextFieldValue(text , type){
@@ -87,7 +97,7 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
     console.log("Helllo",res)
     this.setState({ AllCoachs : res})
     console.log("This is the Array ",this.state.AllCoachs)
-    console.log("This is The ID",res)
+   // console.log("This is The ID",res)
     //this.state.AllCoachs.map((element)=>{return (console.log("This is the Element ",element))})
     //this.TheData(res)
   })
@@ -100,6 +110,7 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
   UpadateAllProfileData(){
     AsyncStorage.setItem("ProFileName",this.setState({Name:Coach.Name}))
     AsyncStorage.setItem("ProFileBio",Coach.Bio)
+    console.log(Coach.id);
   }
 
     render() {
@@ -129,6 +140,7 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
                 key={Coach.id+1}
                 >
                     <View 
+                    TheTest={this.state.Bio}
                     key={Coach.id}
                       style={{
                         width:300,
@@ -217,9 +229,13 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
                                fontSize:25
                              }}
                              onPress={()=>{
-                              //this.setState({Name:Coach.Name})
+                              this.setState({Name:Coach.Name})
+                              /// Here Send the Data Of The Chosing Coach
                               AsyncStorage.setItem("ProFileName",Coach.Name)
                               AsyncStorage.setItem("ProFileBio",Coach.Bio)
+                              AsyncStorage.setItem("TheEmail",Coach.Email)
+                              console.log("This Email Work ",Coach.Email)
+
                               return this.props.navigation.navigate('CoachProfilePage')
                             }}
                              >Profile</Text>

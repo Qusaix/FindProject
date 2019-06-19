@@ -19,9 +19,12 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
 //import console = require('console');
 
  class CoachProfile extends React.Component {
-   constructor(){
-     super()
+   constructor(props){
+     super(props)
      this.state={
+      TheEmail:"",
+      TheLoginTraineeEmail:"",
+       IdCoach:"",
        Name:"",
        Bio:"",
       Experence:"",
@@ -59,29 +62,71 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
     AsyncStorage.getItem('ProFileName')
      .then((value)=>{
       this.setState({Name:value})
-       console.log("This the Profile Now ",value)
+      // console.log("This the Profile Now ",value)
       })
      .then((res)=>{})
      
      AsyncStorage.getItem('ProFileBio')
      .then((value)=>{
       this.setState({Bio:value})
-       console.log("This is Bio",value)
-       console.log("This is the Name", this.state.Bio)
+       //console.log("This is Bio",value)
+      // console.log("This is the Name", this.state.Bio)
       })
      .then((res)=>{})
+
+     AsyncStorage.getItem('TheEmail')
+     .then((value)=>{
+      this.setState({TheEmail:value})
+      //console.log("Email :",value)
+       console.log("State Email :", this.state.TheEmail)
+      })
+     .then((res)=>{})
+
+     AsyncStorage.getItem('IdCoach')
+     .then((value)=>{
+      this.setState({IdCoach:value})
+      //console.log("IDCouch :",value)
+       console.log("State IDCouch :", this.state.IdCoach)
+      })
+     .then((res)=>{})
+
+     AsyncStorage.getItem('Email')
+     .then((value)=>{
+      this.setState({TheLoginTraineeEmail:value})
+       console.log("LoginTraineeEmail :",value)
+      })
 
   }
 
   Back(){
     return this.props.navigation.navigate("SeeAllCoachsPage");
   }
+  AddCoach(){
+    alert("Welcome")
+    fetch('http://192.168.1.103:5000/AddingCouchForTrainee', {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()})
+  .then((data)=>{
 
+    console.warn("This is the data ",data)
+  })
+  //.catch((err)=>console.warn(err))
+  .done()
+
+
+  }
 
     render() {
       return (
         <ScrollView >
           <TouchableOpacity
+          
           onPress={()=>{return this.Back()}}
           style={{
             width:100
@@ -124,6 +169,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
               fontSize:16
             }}
             ><Text style={{fontWeight:"bold"}}>NAME</Text> {this.state.Name}</Text>
+              {/* <Text>This is Test For PROPS {this.props.state.TheEmail}</Text> */}
             <Text
             style={{
               marginLeft:4,
@@ -131,7 +177,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
             }}
             > <Text style={{fontWeight:"bold"}} >BIO</Text> {this.state.Bio}</Text>
             
-            <View style={{alignItems:"flex-end"}}><TouchableOpacity style={{marginTop:-25,backgroundColor:"green",padding:5,borderRadius:5,width:80,}}><Text style={{color:"#fff"}}><FontAwesome name="user-plus" size={16} color="#fff" />Contect</Text></TouchableOpacity></View>
+            <View style={{alignItems:"flex-end"}}><TouchableOpacity onPress={this.AddCoach.bind(this)} style={{marginTop:-25,backgroundColor:"green",padding:5,borderRadius:5,width:80,}}><Text style={{color:"#fff"}}><FontAwesome name="user-plus" size={16} color="#fff" />Contect</Text></TouchableOpacity></View>
 
             </View>
 

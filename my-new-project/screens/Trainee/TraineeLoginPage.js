@@ -61,7 +61,8 @@ import CoachDashboard from '../Coach/dashboard'
       /// Savaing Data Here -- Start 
       const saveData = async Saving =>{
         try {
-          console.log("Im Inside Try ",data.Name)
+          console.log("Im Inside Try ",data.id)
+           AsyncStorage.setItem("TheEmail",data.Email)
            AsyncStorage.setItem("Bio",data.Bio)
            AsyncStorage.setItem("Email",data.Email)
            AsyncStorage.setItem("Experence",data.Experence)
@@ -69,6 +70,7 @@ import CoachDashboard from '../Coach/dashboard'
            AsyncStorage.setItem("Height",data.Height)
            AsyncStorage.setItem("Name",data.Name)
            AsyncStorage.setItem("weight",data.Weight)
+
         }
         catch(error){
           console.log("This is the Error ",error)

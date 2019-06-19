@@ -158,6 +158,11 @@ app.post("/LoginCoch",(req,res)=>{
 })
 
 // Starting With The Update Info /* UPDATE AREA - START
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 app.post("/UpdateCoachInfo",(req,res,next)=>{
     console.log("This is the Data I Take ", req.body.UpdatedName)
     const TheEmail = req.body.Email
@@ -226,35 +231,85 @@ app.post("/UpdateTraineeInfo",(req,res,next)=>{
 // Adding New Coach For Trainees - Start
 
 app.post('/AddingCouchForTrainee',(req,res)=>{
-    
-    const TheUserId = req.body.id
-    console.log("This is the User ID From The Front End ",TheUserId)
-    NewTraineeModule.findOne({where:{id:TheUserId}})
+    var TheCouchId = 0;
+    const TheTraineeEmail = req.body.TheLoginTraineeEmail;
+    const TheCouchEmail = req.body.TheEmail;
+    console.log("Trainee : ",TheTraineeEmail)
+    console.log("Couch : ",TheCouchEmail)
+
+    console.log("This is the USER",TheTraineeEmail);
+
+    NewCoach.findOne({where:{Email:TheCouchEmail}})
     .then((User)=>{
         if(!User){
-        console.log("The Id Is Not There")
         var obj = {err:User}
-        console.log(obj)
-        res.send(obj)
         }
         else{
-           console.log("This is the User ",req.body.id)
-            User.update({
-                CoachInfoId:3
-            })
-            console.log("The Couch Was Updated For This User ",User.Name)
-            res.send(User)
+       TheCouchId = User.id
+        console.log("The User : ",TheCouchId)
+            // User.update({
+            //     CoachInfoId:2
+            // })
+          //  console.log("The Couch Was Updated For This User ",User.Name)
+            //res.send(User)
         }
+        
+})
+
+NewTraineeModule.findOne({where:{Email:TheTraineeEmail}})
+.then((User)=>{
+    if(!User){
+    //console.log("The Email Is Not There")
+    var obj = {err:User}
+   // console.log(obj)
+    //res.send(obj)
+    }
+    else{
+  // TheCouchId = User.id
+    //console.log("The User : ",User.id)
+        User.update({
+         CoachInfoId:TheCouchId
+         })
+       console.log("The Couch Was Updated For This User ",User.Name)
+        res.send(User)
+    }
+    
 })
 
 
 
-})
+//     NewTraineeModule.findOne({where:{Email:TheTraineeEmail}})
+//     .then((User)=>{
+//         if(!User){
+//         //console.log("The Email Is Not There")
+//         var obj = {err:User}
+//        // console.log(obj)
+//         res.send(obj)
+//         }
+//         else{
+//          // console.log("This is the User ",req.body.id)
+//             User.update({
+//                 CoachInfoId:2
+//             })
+//           //  console.log("The Couch Was Updated For This User ",User.Name)
+//             res.send(User)
+//         }
+        
+// })
 
+
+
+})
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Adding New couch For Trinees - END
 
 // START WITH Relation - START
+
+
+
+
+
 
     // Updateing the The coach for the Trainee API Is Done
 app.post('/UpdateTraineeToNewCoach',(req,res) => {
