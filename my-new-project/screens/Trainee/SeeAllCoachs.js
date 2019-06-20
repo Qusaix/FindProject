@@ -84,7 +84,7 @@ import { Ionicons , FontAwesome, AntDesign} from '@expo/vector-icons';
   }
   
   componentWillMount(){
-    fetch('http://192.168.1.103:5000/getAllCoachs', {
+    fetch('http://192.168.0.24:5000/SeeAllUsers', {
     method: 'post',
     headers: {
     Accept: 'application/json',

@@ -23,7 +23,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
      this.state={
        Name:"",
        Bio:"",
-      Experence:""
+      Experence:"",
+      Email:"",
+      AllTheData:[]
      } 
    }
 
@@ -43,6 +45,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   }
   componentDidMount(){
     this.getUsers();
+    this.TakeAndSendData();
   }
   getUsers(){
     AsyncStorage.getItem('Name')
@@ -64,7 +67,48 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        console.log("This is the value ",value)
       })
      .then((res)=>{})
+
+     AsyncStorage.getItem('Email')
+     .then((value)=>{
+      this.setState({Email:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{})
+
   }
+
+  TakeAndSendData(){
+
+
+    setTimeout(() => {
+      fetch('http://192.168.0.24:5000/getAllCoachs', {
+    method: 'post',
+    headers: {
+    Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()}) 
+  .then((res)=>{
+    console.log("This is the Data I Get ",res);
+   this.setState({AllTheData:res})
+    console.log("The Array : ", this.state.AllTheData)
+    //console.log("Helllo",res)
+    //this.setState({ AllCoachs : res})
+    //console.log("This is the Array ",this.state.AllCoachs)
+   // console.log("This is The ID",res)
+    //this.state.AllCoachs.map((element)=>{return (console.log("This is the Element ",element))})
+    //this.TheData(res)
+  })
+  //.catch((err)=>console.warn(err))
+  .done()
+    }, 10000);
+
+
+
+  }
+
 
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")

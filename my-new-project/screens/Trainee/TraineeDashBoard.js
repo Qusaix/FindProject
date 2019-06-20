@@ -52,16 +52,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
       Weight:"",
       Height:"",
       ScreeenHeight:0,
+      YourCouch:""
      } 
    }
    
-   componentDidMount(){
-   // this._loadInitialState().done(
-  // console.log("Thhhhhhhhhhhh",this.props.navigation.getParam('data'))
-   this.getTheUser();
-
-   }
+   
    getTheUser(){
+     alert(1)
      AsyncStorage.getItem('Name')
      .then((value)=>{
       this.setState({Name:value})
@@ -117,8 +114,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
      AsyncStorage.getItem('TheEmail')
      .then((value)=>{
        console.log("This is the id from the login ",value)
-      //this.setState({id:value})
-      // console.log("This is the value ",value)
+      this.setState({TheEmail:value})
       })
      .then((res)=>{})
 
@@ -146,7 +142,43 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
   }
+
+  SeeYourCouch(){   
+    alert(2)
+    setTimeout(() => {
+      fetch('http://192.168.0.24:5000/SeeAlTraineesYouHave', {
+    method: 'post',
+    headers: {
+    Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()}) 
+  .then((res)=>{
+    console.log(res);
+    this.setState({YourCouch:res.Name})
+    //console.log("Helllo",res)
+    //this.setState({ AllCoachs : res})
+    //console.log("This is the Array ",this.state.AllCoachs)
+   // console.log("This is The ID",res)
+    //this.state.AllCoachs.map((element)=>{return (console.log("This is the Element ",element))})
+    //this.TheData(res)
+  })
+  //.catch((err)=>console.warn(err))
+  .done()
+    }, 10000);
+    
+  }
   
+
+  async componentDidMount(){
+   await this.getTheUser();
+    await this.SeeYourCouch();
+    }
+
+
+
     render() {
     //const Scroll = this.state.ScreeenHeight > Height
 
@@ -248,7 +280,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
               margin:10
              }}
             >
-              <Text>Ahmed</Text>
+              <Text>{this.state.YourCouch}</Text>
             </View>
           <Text
           style={{

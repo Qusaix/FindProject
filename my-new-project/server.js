@@ -140,6 +140,7 @@ app.post('/registerCoach',(req,res , next)=>{
 app.post("/LoginCoch",(req,res)=>{
     console.log("Hello Login",req.body)
    const TheEmail = req.body.Email;
+   console.log("Email :", TheEmail)
    NewCoach.findOne({where:{Email:TheEmail}})
     .then((User)=>{
         if(!User){
@@ -247,26 +248,21 @@ app.post('/AddingCouchForTrainee',(req,res)=>{
         else{
        TheCouchId = User.id
         console.log("The User : ",TheCouchId)
-            // User.update({
-            //     CoachInfoId:2
-            // })
-          //  console.log("The Couch Was Updated For This User ",User.Name)
-            //res.send(User)
+
         }
         
 })
 
 NewTraineeModule.findOne({where:{Email:TheTraineeEmail}})
 .then((User)=>{
+
     if(!User){
-    //console.log("The Email Is Not There")
+
     var obj = {err:User}
-   // console.log(obj)
-    //res.send(obj)
+
     }
     else{
-  // TheCouchId = User.id
-    //console.log("The User : ",User.id)
+
         User.update({
          CoachInfoId:TheCouchId
          })
@@ -274,32 +270,14 @@ NewTraineeModule.findOne({where:{Email:TheTraineeEmail}})
         res.send(User)
     }
     
+
+
 })
-
-
-
-//     NewTraineeModule.findOne({where:{Email:TheTraineeEmail}})
-//     .then((User)=>{
-//         if(!User){
-//         //console.log("The Email Is Not There")
-//         var obj = {err:User}
-//        // console.log(obj)
-//         res.send(obj)
-//         }
-//         else{
-//          // console.log("This is the User ",req.body.id)
-//             User.update({
-//                 CoachInfoId:2
-//             })
-//           //  console.log("The Couch Was Updated For This User ",User.Name)
-//             res.send(User)
-//         }
-        
-// })
 
 
 
 })
+/* DONE ADDING*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Adding New couch For Trinees - END
@@ -399,11 +377,40 @@ app.post('/registerTrainee',(req,res)=>{
 })
 
 app.post('/SeeAlTraineesYouHave',(req,res)=>{
+    var TheCouchId = 0;
+    const TraineEmail = req.body.TheEmail;
+
+    console.log("Trainee Email :",TraineEmail)
 
 
-    const TheUserId = req.body.id
-    console.log("This is the User ID From The Front End ",TheUserId)
-    NewTraineeModule.findAll({where:{CoachInfoId:TheUserId},raw:true,plain: true })
+    // const TheUserId = req.body.id
+
+    //console.log("This is the User ID From The Front End ",TheUserId)
+
+    NewTraineeModule.findOne({where:{Email:TraineEmail}})
+
+    .then((User)=>{
+
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }
+        
+        else{
+           console.log("This is the Coach Info ID ",User.CoachInfoId)
+           TheCouchId = User.CoachInfoId;
+           
+           // User.update({
+            //     CoachInfoId:3
+            // })
+           // console.log("The Couch Was Updated For This User ",User.Name)
+            //res.send(User)
+        }
+
+
+     NewCoach.findOne({where:{id:TheCouchId}})
     .then((User)=>{
         if(!User){
         console.log("The Id Is Not There")
@@ -412,22 +419,75 @@ app.post('/SeeAlTraineesYouHave',(req,res)=>{
         res.send(obj)
         }
         else{
-           console.log("This is the User ",User.Name)
-            // User.update({
-            //     CoachInfoId:3
-            // })
-           // console.log("The Couch Was Updated For This User ",User.Name)
+        //    //console.log("This is the User ",User)
+        //     User.update({
+        //         CoachInfoId:3
+        //     })
+
+            console.log("This User Was Send ",User.Name)
             res.send(User)
         }
 })
 
+    .catch((err)=>console.log(err))
+
+
 
 
 
 })
 
 
+
+
+})
+
+app.post('/getAllCoachs',(req,res)=>{
+    var TheCouchId = 0;
+    const TheCouchEmail = req.body.Email;
+    console.log("Coach Email : ",req.body.Email);
+    
+    NewCoach.findOne({where:{Email:TheCouchEmail}})
+    //var TheCouchId = 1
+    .then((User)=>{
+        
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }
+        else{
+            TheCouchId = User.id
+          console.log("Seeee ",TheCouchId)
+            console.log("The Couch Was Updated For This User ",User.Name)
+            //res.send(User)
+        }
+       // TheCouchId = User.id
+})
+    .catch((err)=>console.log(err))
+
+//////////////////////// PART II ///////////////////////////////////////////////////
+    console.log("This The Coach ID ",TheCouchId)
+    // NewTraineeModule.findAll({ where: { CoachInfoId: TheCouchId } }).then(projects => {
+    //     console.log(projects)
+    //   })
+    // .catch((err)=>console.log(err))
+   
+})
+
+
+
 // START WITH Relation - END
+
+app.post('/SeeAllUsers',(req,res)=>{
+    NewCoach.findAll()
+    .then((couch)=>{
+        res.json(couch);
+    })
+})
+
+
 
 
 app.post('/LoginTrainee',(req,res,next)=>{
@@ -450,16 +510,7 @@ app.post('/LoginTrainee',(req,res,next)=>{
 })
 
 // Send All The Coachs Inside the database to The frontEnd
-app.post('/getAllCoachs',(req,res)=>{
-    NewCoach.findAll()
-    .then((Coach)=>{
 
-        console.log(Coach)
-        res.json(Coach)
-    })
-    .catch((err)=>console.log(err))
-   
-})
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 
 
