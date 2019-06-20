@@ -478,6 +478,79 @@ app.post('/getAllCoachs',(req,res)=>{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// WORK HERE ///////////////
+////////////////////////////
+app.post('/SeeAllTheCustomers',(req,res)=>{
+    console.log("Weclome Home")
+    console.log("Couch Email : ",req.body.Email)
+    let ThisIsMyId = null;
+    const TheCouchEmail = req.body.Email;
+    NewCoach.findOne({where:{Email:TheCouchEmail}})
+    .then((User)=>{
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }else{
+            ThisIsMyId = User.id
+           console.log("Coach ID ",ThisIsMyId)
+        }
+
+    })
+
+    function Start(){
+        NewTraineeModule.findAll({where:{CoachInfoId:ThisIsMyId}})
+       .then((couch)=>{
+           console.log("inside then : ",couch)
+           res.json(couch);
+       })
+   }
+
+   // console.log("This is the Will Reach : ", ThisIsMyId)
+    setTimeout(function(){ Start(); }, 5000);
+
+   
+
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // START WITH Relation - END
 
 app.post('/SeeAllUsers',(req,res)=>{
