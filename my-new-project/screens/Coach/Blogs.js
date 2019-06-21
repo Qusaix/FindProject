@@ -14,7 +14,8 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { createStackNavigator , createAppContainer , Header} from 'react-navigation'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 //import console = require('console');
 
@@ -108,18 +109,24 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
   }
-  
+  scrollKeyBoard(){
+    this.scrollKeyBoard.props.scrollToFocusedInput(reactNode)
+  }
     render() {
       return (
-        
+      <KeyboardAvoidingView
+      style={{
+      flex:1
+  
+      }}
+keyboardVerticalOffset={ Header.HEIGHT + 30}
+behavior = "padding"
+//behavior="padding"
+>
         <ScrollView
         style={{
             flex: 1,
-           // justifyContent:"center",
-            flexDirection:"column",
-           // display:"flex",
-           // justifyContent:"center",
-           // flexShrink:1
+           // flexDirection:"column",
         }}>
         
   
@@ -131,10 +138,11 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 key={Blog.id+1}
                 style={{
                     flex: 1,
-                    justifyContent:"center",
-                    flexDirection:"column",
-                   // display:"flex",
-                   // justifyContent:"center",
+                    justifyContent:"flex-end",
+
+                  //   flexDirection:"column",
+                  //  // display:"flex",
+                   // justifyContent:"center", 
                    // flexShrink:1
                 }}>
                 
@@ -192,7 +200,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
         backgroundColor:"green",
         padding:5,
         margin:5,
-        borderRadius:9
+        borderRadius:9,
+        justifyContent:"flex-end"
 
       }}>
 
@@ -206,8 +215,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
         flexDirection:"row",
         flex:1
       }}>
-        <KeyboardAvoidingView>
-      <TextInput placeholder="Title" style={{
+       
+      <TextInput 
+      placeholder="Title" style={{
         margin:5,
         backgroundColor:"red",
         color:"#fff",
@@ -215,7 +225,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
         borderRadius:6,
         width:150
       }}/>
-       </KeyboardAvoidingView>
+       
       <TextInput placeholder="Content" 
       style={{
         margin:5,
@@ -245,9 +255,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   >Add Tip</Text>
 </TouchableOpacity>
       </View>
-
          </ScrollView>
-              
+    </KeyboardAvoidingView>
 
 
 
