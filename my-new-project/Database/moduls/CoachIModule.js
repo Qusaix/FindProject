@@ -55,6 +55,12 @@ const NewTraineeModule = TheData.define('TraineeInfos',{
   
   
   const Blogs = TheData.define("Blogs",{
+    TheCreater:{
+        type:sequelize.STRING
+    },
+    Email:{
+        type:sequelize.STRING
+    },
     Title:{
         type: sequelize.STRING
     },

@@ -10,7 +10,8 @@ import {
   Button,
   Alert,
   TextInput,
-  AsyncStorage
+  AsyncStorage,
+  KeyboardAvoidingView
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
@@ -110,7 +111,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   
     render() {
       return (
-
+        
         <ScrollView
         style={{
             flex: 1,
@@ -120,10 +121,10 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
            // justifyContent:"center",
            // flexShrink:1
         }}>
-           
+        
+  
         {this.state.AllTheData.map((Blog)=>{
             return(
-    
     
                 
                 <View 
@@ -152,7 +153,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                      fontSize:21,
                      fontWeight:"bold",
                  }}
-                 >Qusai</Text>      
+                 >{Blog.TheCreater}</Text>      
                 <Text
                 style={{
                     padding:5,
@@ -172,6 +173,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 </View> 
         
         
+                  
+
         
     
                   </View>
@@ -182,9 +185,70 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     
             )
          })}  
-         
+
+
+
+      <View style={{
+        backgroundColor:"green",
+        padding:5,
+        margin:5,
+        borderRadius:9
+
+      }}>
+
+      <Text
+      style={{
+        fontSize:25,
+        fontWeight:"bold"
+      }}
+      >New Tip</Text>
+      <View style={{
+        flexDirection:"row",
+        flex:1
+      }}>
+        <KeyboardAvoidingView>
+      <TextInput placeholder="Title" style={{
+        margin:5,
+        backgroundColor:"red",
+        color:"#fff",
+        padding:15,
+        borderRadius:6,
+        width:150
+      }}/>
+       </KeyboardAvoidingView>
+      <TextInput placeholder="Content" 
+      style={{
+        margin:5,
+        backgroundColor:"red",
+        color:"#fff",
+        padding:15,
+        borderRadius:6,
+        width:150
+      }}
+      />
+      </View>
+  <TouchableOpacity
+  style={{
+  width:100,
+  backgroundColor:"red",
+  margin:5,
+  padding:5,
+  borderRadius:9,
+}}
+>
+  <Text
+  style={{
+    color:"#fff",
+    fontWeight:"bold",
+    fontSize:14
+  }}
+  >Add Tip</Text>
+</TouchableOpacity>
+      </View>
+
          </ScrollView>
-    
+              
+
 
 
       )

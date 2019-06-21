@@ -577,8 +577,10 @@ app.post('/LoginTrainee',(req,res,next)=>{
 app.post('/AddBlog',(req,res)=>{
     
     console.log("email : ",req.body.Email);
+    console.log("Name :",req.body);
 
     const TheCouchEmail = req.body.Email;
+    const CouchName = req.body.Name;
     var ThisIsMyID = 0;
     // Search Area START
     NewCoach.findOne({where:{Email:TheCouchEmail}})
@@ -598,6 +600,8 @@ app.post('/AddBlog',(req,res)=>{
     // Search Area END
    function Create (){
     Blogs.create({
+        TheCreater:CouchName,
+        Email:TheCouchEmail,
         Title:"This is the Test Title",
         content:"This is a very Importent Info I written",
         CoachInfoId: ThisIsMyID
@@ -607,6 +611,15 @@ app.post('/AddBlog',(req,res)=>{
 
     res.send("The Blog Was Created")
 })
+
+
+
+
+
+
+
+
+
 // See All Blogs Done
 app.post('/SeeAllBlogs',(req,res)=>{
     Blogs.findAll()
