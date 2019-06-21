@@ -10,7 +10,8 @@ import {
   Button,
   Alert,
   TextInput,
-  Navigator
+  Navigator,
+  TabBarIOS
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
@@ -133,10 +134,13 @@ LoginCoach = () =>{
 
           
         </ScrollView>
+       {/* // <TapBar /> */}
       </View>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
