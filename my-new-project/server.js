@@ -547,13 +547,39 @@ app.post('/LoginTrainee',(req,res,next)=>{
 
 // Send All The Coachs Inside the database to The frontEnd
 
-// BLOGS API
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BLOGS APIs START 
+
+// ADD Done
 app.post('/AddBlog',(req,res)=>{
     
     console.log("email : ",req.body.Email);
 
     const TheCouchEmail = req.body.Email;
-    var ThisIsMyID = 0
+    var ThisIsMyID = 0;
     // Search Area START
     NewCoach.findOne({where:{Email:TheCouchEmail}})
     .then((User)=>{
@@ -581,6 +607,43 @@ app.post('/AddBlog',(req,res)=>{
 
     res.send("The Blog Was Created")
 })
+app.post('/SeeAllBlogs',(req,res)=>{
+    Blogs.findAll()
+    .then((Blog)=>{
+        console.log("This is the Blogs ",Blog)
+        res.json(Blog)
+    })
+   
+})
+
+
+
+
+// Blogs APIs END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 
 
