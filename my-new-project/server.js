@@ -607,6 +607,7 @@ app.post('/AddBlog',(req,res)=>{
 
     res.send("The Blog Was Created")
 })
+// See All Blogs Done
 app.post('/SeeAllBlogs',(req,res)=>{
     Blogs.findAll()
     .then((Blog)=>{

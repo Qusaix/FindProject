@@ -28,6 +28,7 @@ import UpdatedCoachInfo from './Coach/CoachUpdateInfo'
 //import SeeAllCoachs from './Trainee/SeeAllCoachs'
 import CoachProfile from './Trainee/ProfilePageCoach'
 import UpdateTraineeInfo from './Trainee/UpdatedInfo'
+import Blogs from './Coach/Blogs'
 
 class HomeScreen extends React.Component {
 static navigationOptions = {
@@ -175,8 +176,11 @@ static navigationOptions = {
 
 */
 export default createStackNavigator({
-  HomeScreen:{
-    screen:HomeScreen
+  // HomeScreen:{
+  //   screen:HomeScreen
+  // },
+  TestePage:{
+    screen:Blogs
   },
   LoginCoachTake:{
    screen:LoginCoach
@@ -216,5 +220,8 @@ export default createStackNavigator({
    },
    UpdateTraineeInfo:{
      screen:UpdateTraineeInfo
+   },
+   Blogs:{
+     screen:Blogs
    }
 })
