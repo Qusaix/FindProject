@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyparser = require('body-parser')
 const { TheData } = require('./Database/database')
-var { NewCoach , NewTraineeModule } = require('./Database/moduls/CoachIModule');
+var { NewCoach , NewTraineeModule , Blogs} = require('./Database/moduls/CoachIModule');
 //const NewTrainee = require('./Database/moduls/TraineeModule')
 const bcrypt = require('bcrypt')
 const nodemailer = require("nodemailer");
@@ -477,32 +477,6 @@ app.post('/getAllCoachs',(req,res)=>{
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// WORK HERE ///////////////
-////////////////////////////
 app.post('/SeeAllTheCustomers',(req,res)=>{
     console.log("Weclome Home")
     console.log("Couch Email : ",req.body.Email)
@@ -540,17 +514,6 @@ app.post('/SeeAllTheCustomers',(req,res)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // START WITH Relation - END
 
 app.post('/SeeAllUsers',(req,res)=>{
@@ -584,26 +547,40 @@ app.post('/LoginTrainee',(req,res,next)=>{
 
 // Send All The Coachs Inside the database to The frontEnd
 
+// BLOGS API
+app.post('/AddBlog',(req,res)=>{
+    
+    console.log("email : ",req.body.Email);
+
+    const TheCouchEmail = req.body.Email;
+    var ThisIsMyID = 0
+    // Search Area START
+    NewCoach.findOne({where:{Email:TheCouchEmail}})
+    .then((User)=>{
+        if(!User){
+        console.log("The Id Is Not There")
+        var obj = {err:User}
+        console.log(obj)
+        res.send(obj)
+        }else{
+            ThisIsMyID = User.id
+           console.log("Coach ID ",ThisIsMyID)
+        }
+
+    })
+
+    // Search Area END
+   function Create (){
+    Blogs.create({
+        Title:"This is the Test Title",
+        content:"This is a very Importent Info I written",
+        CoachInfoId: ThisIsMyID
+    })
+   }
+    setTimeout(function(){ Create(); console.log("This is the Id I take To Search : ",ThisIsMyID) }, 100);
+
+    res.send("The Blog Was Created")
+})
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 
 
-
-/*
-get(dfklsdkjfkl?id=${this.sta}&&dfk=,(req,res){
-    cosh.findone({
-        where:{
-           id:id
-        }
-    }).then(data=>{
-        var {id,name}=data.dataValues
-        trine.fineAll({
-            where:{
-                cochid:id
-            }
-        }).then(df=>{
-            res.send({trne:df,cosh:{id,name}})
-        })
-    })
-})
-
-*/

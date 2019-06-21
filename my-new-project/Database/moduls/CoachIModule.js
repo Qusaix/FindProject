@@ -54,14 +54,27 @@ const NewTraineeModule = TheData.define('TraineeInfos',{
   })
   
   
+  const Blogs = TheData.define("Blogs",{
+    Title:{
+        type: sequelize.STRING
+    },
+    content:{
+        type:sequelize.STRING
+    },
+    })
+
+
 
   NewTraineeModule.belongsTo(NewCoach)
   NewCoach.hasMany(NewTraineeModule)
+  NewCoach.hasMany(Blogs)
   
 
 module.exports.NewCoach = NewCoach;
 
 module.exports.NewTraineeModule = NewTraineeModule;
+
+module.exports.Blogs = Blogs;
 
 // TheData.sync().done(function() {
 // console.log("DONE!")  })
