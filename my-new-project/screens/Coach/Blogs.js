@@ -27,7 +27,9 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
        Bio:"",
       Experence:"",
       Email:"",
-      AllTheData:[]
+      AllTheData:[],
+      Content:"",
+      Title:""
      } 
    }
 
@@ -35,7 +37,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
     title:"Login as Coach",
     headerStyle:{
       backgroundColor:"#238aff",
-      display:"none"
+     // display:"none"
     },
     headerTitleStyle:{
       color:"#fff",
@@ -105,6 +107,46 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
   }
 
+  AddBlog(){
+
+    fetch('http://192.168.0.24:5000/AddBlog', {
+    method: 'post',
+    headers: {
+    Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()}) 
+  .then((res)=>{
+    this.setState({AllTheData:[...this.state.AllTheData,res]})
+   console.log("This is the Data ",res)
+  })
+  //.catch((err)=>console.warn(err))
+  .done()
+
+  
+
+  }
+
+  check(){
+    if(this.state.Content.length >= 99){Alert.alert(
+      'Err',
+      'You Reach The Max of charerctors',
+      [
+        ,
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+         // style: 'cancel',
+        },
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
+      {cancelable: false},
+    );}
+    
+  }
+
 
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
@@ -119,7 +161,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
       flex:1
   
       }}
-keyboardVerticalOffset={ Header.HEIGHT + 30}
+keyboardVerticalOffset={ Header.HEIGHT + 120}
 behavior = "padding"
 //behavior="padding"
 >
@@ -158,7 +200,7 @@ behavior = "padding"
                  style={{
                      padding:5,
                      color:"#fff",
-                     fontSize:21,
+                     fontSize:25,
                      fontWeight:"bold",
                  }}
                  >{Blog.TheCreater}</Text>      
@@ -166,7 +208,7 @@ behavior = "padding"
                 style={{
                     padding:5,
                     color:"#fff",
-                    fontSize:15,
+                    fontSize:21,
                     fontWeight:"bold"
                 }}
                 > {Blog.Title} </Text>
@@ -174,7 +216,7 @@ behavior = "padding"
                 style={{
                     padding:5,
                     color:"#fff",
-                    fontSize:10,
+                    fontSize:14,
                     fontWeight:"bold"
                 }}
                 > {Blog.content}  </Text>
@@ -215,8 +257,11 @@ behavior = "padding"
         flexDirection:"row",
         flex:1
       }}>
-       
+      {/* <Text name={"Email"}></Text>  */}
       <TextInput 
+      name={"Title"}
+      maxLength={60}
+      onChangeText={(value)=>this.setState({Title:value})}
       placeholder="Title" style={{
         margin:5,
         backgroundColor:"red",
@@ -226,7 +271,13 @@ behavior = "padding"
         width:150
       }}/>
        
-      <TextInput placeholder="Content" 
+      <TextInput 
+      name={"Content"}
+      maxLength={100}
+      onChangeText={(value)=>{this.setState({Content:value})
+      this.check()
+    }}
+      placeholder="Content" 
       style={{
         margin:5,
         backgroundColor:"red",
@@ -238,6 +289,9 @@ behavior = "padding"
       />
       </View>
   <TouchableOpacity
+  onPress={()=>{
+    this.AddBlog();
+  }}
   style={{
   width:100,
   backgroundColor:"red",

@@ -579,8 +579,23 @@ app.post('/AddBlog',(req,res)=>{
     console.log("email : ",req.body.Email);
     console.log("Name :",req.body);
 
-    const TheCouchEmail = req.body.Email;
-    const CouchName = req.body.Name;
+
+   
+
+
+    const AllTheDataFromTheFrontEnd = {
+        TheCouchEmail : req.body.Email,
+
+        CouchName : req.body.Name,
+
+        Title : req.body.Title,
+
+        Content : req.body.Content
+
+    }
+
+   const { TheCouchEmail , CouchName , Title , Content } = AllTheDataFromTheFrontEnd;
+
     var ThisIsMyID = 0;
     // Search Area START
     NewCoach.findOne({where:{Email:TheCouchEmail}})
@@ -589,7 +604,7 @@ app.post('/AddBlog',(req,res)=>{
         console.log("The Id Is Not There")
         var obj = {err:User}
         console.log(obj)
-        res.send(obj)
+       // res.send(obj)
         }else{
             ThisIsMyID = User.id
            console.log("Coach ID ",ThisIsMyID)
@@ -602,14 +617,16 @@ app.post('/AddBlog',(req,res)=>{
     Blogs.create({
         TheCreater:CouchName,
         Email:TheCouchEmail,
-        Title:"This is the Test Title",
-        content:"This is a very Importent Info I written",
+        Title:Title,
+        content:Content,
         CoachInfoId: ThisIsMyID
     })
+    .then((Blogs)=>{res.send(Blogs)})
+    .done();
    }
     setTimeout(function(){ Create(); console.log("This is the Id I take To Search : ",ThisIsMyID) }, 100);
 
-    res.send("The Blog Was Created")
+    // res.json(Blogs)
 })
 
 

@@ -148,7 +148,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   borderRadius:7
                 }}
                 onPress={()=>{
-                  this.props.navigation.navigate("LoginCoach");
+                  this.props.navigation.navigate("Blogs");
                 }}
                 >
                   <Text
@@ -158,7 +158,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                     fontWeight:"bold"
                   }}
                   
-                  >Find</Text>
+                  >Blogs</Text>
                   </TouchableOpacity>
 
             <Image 
