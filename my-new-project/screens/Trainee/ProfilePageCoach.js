@@ -15,6 +15,7 @@ import {
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
+import {Bottom } from '../HomeScreen'
 
 //import console = require('console');
 
@@ -103,7 +104,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   }
   AddCoach(){
     alert("Welcome")
-    fetch('http://192.168.0.24:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.103:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -367,7 +368,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
 
 
             </View>
-          
+          {/* <Bottom /> */}
 </ScrollView>
  )}
 

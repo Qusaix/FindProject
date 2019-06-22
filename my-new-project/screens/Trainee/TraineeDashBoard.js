@@ -146,7 +146,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   SeeYourCouch(){   
     alert(2)
     setTimeout(() => {
-      fetch('http://192.168.0.24:5000/SeeAlTraineesYouHave', {
+      fetch('http://192.168.1.103:5000/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',

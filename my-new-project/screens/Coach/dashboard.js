@@ -14,6 +14,11 @@ import {
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { Ionicons , Foundation, AntDesign } from '@expo/vector-icons';
+import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
+import Blogs from "./Blogs"
+
 
 //import console = require('console');
 
@@ -29,23 +34,75 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
      } 
    }
 
-  static navigationOptions = {
-    title:"Login as Coach",
-    headerStyle:{
-      backgroundColor:"#238aff",
-      display:"none"
+  // static navigationOptions = {
+  //   title:"Login as Coach",
+  //   headerStyle:{
+  //     backgroundColor:"#238aff",
+  //    // display:"none"
+  //   },
+  //   headerTitleStyle:{
+  //     color:"#fff",
+  //     // marginLeft:48+"%",
+  //     // marginTop: -38
+  //   alignItems:"center",
+  //   flex: 1,
+  //  // display:"none"
+  //   }
+  // };
+
+  
+  
+  tabs = [
+    {
+      key: 'games',
+      icon: 'gamepad-variant',
+      label: 'Games',
+      barColor: '#388E3C',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
     },
-    headerTitleStyle:{
-      color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
-    alignItems:"center",
-    flex: 1
+    {
+      key: 'movies-tv',
+      icon: 'movie',
+      label: 'Movies & TV',
+      barColor: '#B71C1C',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
+    },
+    {
+      key: 'music',
+      icon: 'music-note',
+      label: 'Music',
+      barColor: '#E64A19',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
     }
-  }
+  ]
+  
+  renderIcon = icon => ({ isActive }) => (
+    <Icon size={24} color="white" name={icon} />
+  )
+  
+  renderTab = ({ tab, isActive }) => (
+    <FullTab
+      isActive={isActive}
+      key={tab.key}
+      label={tab.label}
+      renderIcon={this.renderIcon(tab.icon)}
+    />
+  )
+  
+
+
+
+
+
+
+
+
+
+
   componentDidMount(){
     this.getUsers();
     this.TakeAndSendData();
+   // this.TheBar();
   }
   getUsers(){
     AsyncStorage.getItem('Name')
@@ -81,7 +138,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 
     setTimeout(() => {
-      fetch('http://192.168.0.24:5000/SeeAllTheCustomers', {
+      fetch('http://192.168.1.103:5000/SeeAllTheCustomers', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -104,6 +161,93 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   }
 
 
+
+
+  // TheBar(){
+  //   const TabNavigator = createMaterialBottomTabNavigator(  
+  //     {  
+  //         Home: { screen: "HomeScreen",  
+  //             navigationOptions:{  
+  //                 tabBarLabel:'Home',  
+  //                 tabBarIcon: ({ tintColor }) => (  
+  //                     <View>  
+  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
+  //                     </View>),  
+  //             }  
+  //         },  
+  //         Profile: { screen: "Blogs",  
+  //             navigationOptions:{  
+  //                 tabBarLabel:'Profile',  
+  //                 tabBarIcon: ({ tintColor }) => (  
+  //                     <View>  
+  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
+  //                     </View>),  
+  //                 activeColor: '#f60c0d',  
+  //                 inactiveColor: '#f65a22',  
+  //                 barStyle: { backgroundColor: '#f69b31' },  
+  //             }  
+  //         },  
+  //         Image: { screen: 'Blogs',  
+  //             navigationOptions:{  
+  //                 tabBarLabel:'History',  
+  //                 tabBarIcon: ({ tintColor }) => (  
+  //                     <View>  
+  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-images'}/>  
+  //                     </View>),  
+  //                 activeColor: '#615af6',  
+  //                 inactiveColor: '#46f6d7',  
+  //                 barStyle: { backgroundColor: '#67baf6' },  
+  //             }  
+  //         },  
+  //         Cart: {  
+  //             screen: Blogs,  
+  //             navigationOptions:{  
+  //                 tabBarLabel:'Cart',  
+  //                 tabBarIcon: ({ tintColor }) => (  
+  //                     <View>  
+  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
+  //                     </View>),  
+  //             }  
+  //         },  
+  //     },  
+  //     {  
+  //       initialRouteName: "Home",  
+  //       activeColor: '#f0edf6',  
+  //       inactiveColor: '#226557',  
+  //       barStyle: { backgroundColor: '#3BAD87' },  
+  //     },  
+  //   );  
+    
+  //     return TabNavigator
+
+
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
   }
@@ -111,8 +255,14 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     render() {
       return (
         <ScrollView>
-        <View>
-            <TextInput 
+        <View
+        style={{
+          // justifyContent: "center", 
+          // alignItems: "center"
+          backgroundColor:"#FDFEFE"
+        }}
+        >
+            {/* <TextInput 
                   style={{
                   backgroundColor:"#fff",
                   borderLeftWidth: 2,
@@ -159,36 +309,115 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   }}
                   
                   >Blogs</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
+
+            <View
+            style={{
+              justifyContent: "center", 
+              alignItems: "center",
+            }}
+            >    
 
             <Image 
             style={{
                 height:100,
                 width:100,
                 //position: 'absolute', 
-                justifyContent: 'center', 
-                margin:10
+                justifyContent: "center", 
+                alignItems: "center", 
+                margin:10,
+                
+                borderRadius:40
             }}
             source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
             />
+            
         <View
         style={{
-            margin:10
+            margin:10,
+            backgroundColor:"#17A589",
+            borderRadius:5,
+            width:250,
+            //display:"f"
         }}
         >
           <Text
           style={{
               fontSize:25,
-              marginBottom:15
+              marginBottom:15,
+              textAlign:"center",
+              color:"#fff",
+              margin:5,
+              fontWeight:"bold"
           }}
           >Your Info</Text>
-          <Text>Name {this.state.Name}</Text>
-          <Text>Bio  {this.state.Bio}</Text>
-          <Text>Experence {this.state.Experence}</Text>
-          <Text>Charge</Text>
-          <Text>Trainees</Text>
-          <Text>Review</Text>
+
+          <View
+          style={{
+          margin:5,
+          padding:8
+          }}
+          >
+          <Text
+          style={{
+          //backgroundColor:"red",
+         // padding:5
+         fontSize:15,
+         fontWeight:"bold",
+         color:"#fff",
+
+          }}
+          >Name {this.state.Name}</Text>
+          <Text
+          style={{
+            //backgroundColor:"red",
+           // padding:5
+           fontSize:15,
+           fontWeight:"bold",
+           color:"#fff",
+           
+            }}
+          >Bio  {this.state.Bio}</Text>
+          <Text
+          style={{
+            //backgroundColor:"red",
+           // padding:5
+           fontSize:15,
+           fontWeight:"bold",
+           color:"#fff",
+           
+            }}
+          >Experence {this.state.Experence}</Text>
+          <Text
+          style={{
+            //backgroundColor:"red",
+           // padding:5
+           fontSize:15,
+           fontWeight:"bold",
+           color:"#fff",
+           
+            }}
+          
+          >Charge 300$</Text>
+          <Text
+          style={{
+            //backgroundColor:"red",
+           // padding:5
+           fontSize:15,
+           fontWeight:"bold",
+           color:"#fff",
+           
+            }}
+          
+          >Review Soon</Text>
+          </View>
+
         </View>
+
+
+        </View>  
+
+
           <View>
            <Text
            style={{
@@ -283,12 +512,86 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
             </TouchableOpacity>
             </View>
           
-
+         {/* //  <TabNavigator />  */}
           </View>
           </ScrollView>
  )}
 
 
+
+
+
+
+
+            
+
+
+
+
 };
 
-export default CoachDashboard;
+
+
+const TabNavigator = createMaterialBottomTabNavigator(  
+  {  
+      Home: { screen: CoachDashboard,  
+          navigationOptions:{  
+              tabBarLabel:'Home',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
+                  </View>),  
+          }  
+      },  
+      Profile: { screen: Blogs,  
+          navigationOptions:{  
+              tabBarLabel:'Profile',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Foundation style={[{color: tintColor}]} size={25} name={'dollar-bill'}/>  
+                  </View>),  
+              activeColor: '#f60c0d',  
+              inactiveColor: '#f65a22',  
+              barStyle: { backgroundColor: '#f69b31' },  
+          }  
+      },  
+      Image: { screen: Blogs,  
+          navigationOptions:{  
+              tabBarLabel:'Tips',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Foundation style={[{color: tintColor}]} size={27} name={'social-blogger'}/>  
+                  </View>),  
+              activeColor: '#615af6',  
+              inactiveColor: '#46f6d7',  
+              barStyle: { backgroundColor: '#67baf6' },  
+          }  
+      },  
+      Cart: {  
+          screen: Blogs,  
+          navigationOptions:{  
+              tabBarLabel:'Cart',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
+                  </View>),  
+          }  
+      },  
+  },  
+  {  
+    initialRouteName: "Home",  
+    activeColor: '#f0edf6',  
+    inactiveColor: '#226557',  
+    barStyle: { backgroundColor: '#3BAD87' },  
+  },  
+);  
+
+
+
+
+
+
+export default createAppContainer(TabNavigator);  
+
+
+export { CoachDashboard};

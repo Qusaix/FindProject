@@ -34,7 +34,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
    }
 
   static navigationOptions = {
-    title:"Login as Coach",
+    title:"Back",
     headerStyle:{
       backgroundColor:"#238aff",
      // display:"none"
@@ -85,7 +85,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 
     setTimeout(() => {
-      fetch('http://192.168.0.24:5000/SeeAllBlogs', {
+      fetch('http://192.168.1.103:5000/SeeAllBlogs', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -109,7 +109,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
   AddBlog(){
 
-    fetch('http://192.168.0.24:5000/AddBlog', {
+    fetch('http://192.168.1.103:5000/AddBlog', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -130,6 +130,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
   }
 
   check(){
+    
     if(this.state.Content.length >= 99){Alert.alert(
       'Err',
       'You Reach The Max of charerctors',
@@ -143,7 +144,23 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
         {text: 'OK', onPress: () => console.log('OK Pressed')},
       ],
       {cancelable: false},
-    );}
+    );}else if(this.state.Title.length >= 30){
+        Alert.alert(
+        'Err',
+        'You Reach The Max of charerctors',
+        [
+          ,
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+           // style: 'cancel',
+          },
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        {cancelable: false},
+      );
+
+    }
     
   }
 
