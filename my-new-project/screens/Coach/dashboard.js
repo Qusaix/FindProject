@@ -15,7 +15,7 @@ import {
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { Ionicons , Foundation, AntDesign } from '@expo/vector-icons';
+import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import Blogs from "./Blogs"
 
@@ -30,7 +30,8 @@ import Blogs from "./Blogs"
        Bio:"",
       Experence:"",
       Email:"",
-      AllTheData:[]
+      AllTheData:[],
+      Length:0
      } 
    }
 
@@ -102,6 +103,7 @@ import Blogs from "./Blogs"
   componentDidMount(){
     this.getUsers();
     this.TakeAndSendData();
+    this.Counter();
    // this.TheBar();
   }
   getUsers(){
@@ -151,6 +153,8 @@ import Blogs from "./Blogs"
     
     console.log("The Array : ", this.state.AllTheData)
     this.setState({ AllTheData : res})
+    const Length = this.state.AllTheData.length
+    this.setState({Length:Length})
   })
   //.catch((err)=>console.warn(err))
   .done()
@@ -159,8 +163,13 @@ import Blogs from "./Blogs"
 
 
   }
-
-
+Counter(){
+  const Length = this.state.AllTheData.length
+  
+  console.log(Length)
+  return Length
+}
+  
 
 
   // TheBar(){
@@ -259,7 +268,8 @@ import Blogs from "./Blogs"
         style={{
           // justifyContent: "center", 
           // alignItems: "center"
-          backgroundColor:"#FDFEFE"
+          backgroundColor:"#FDFEFE",
+         
         }}
         >
             {/* <TextInput 
@@ -337,7 +347,8 @@ import Blogs from "./Blogs"
             margin:10,
             backgroundColor:"#17A589",
             borderRadius:5,
-            width:250,
+            width:80+"%",
+            flexDirection:"row"
             //display:"f"
         }}
         >
@@ -418,49 +429,119 @@ import Blogs from "./Blogs"
         </View>  
 
 
-          <View>
+          <View
+          // style={{
+             
+          //   margin:10,
+          //   backgroundColor:"#17A589",
+          //   borderRadius:5,
+          //   width:450,
+          //   flexDirection:"row"
+          //   //display:"f"
+      
+          // }}
+          style={{
+            justifyContent: "center", 
+            alignItems: "center",
+          }}
+          >
+            <View
+            style={{
+            margin:10,
+            backgroundColor:"#17A589",
+            borderRadius:5,
+            width:90+"%",
+             
+
+            // flexDirection:"row"
+            //display:"f"
+            }}
+            >
            <Text
            style={{
             fontSize:25,
-            margin:10
-           }}
+            marginBottom:15,
+            textAlign:"center", 
+            color:"#fff",
+            margin:5,
+            fontWeight:"bold"
+        }}
            >
-            Your Trainees
+           <FontAwesome style={[{color: "#0E6251"}]} size={25} name={'users'}/> Your Trainees
             </Text>
+            <Text
+            style={{
+              margin:5,
+              fontSize:16,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >You Have {this.state.Length} Trainees </Text>
             {this.state.AllTheData.map((Coach)=>{
               return(
                 <View
                 key={Coach.id+1}
+                style={{
+                  flex:1,
+                  jsutifyContent:"center",
+                  alignContent:"center"
+                }}
                 >
-                  <View><Text>{Coach.Name}</Text></View>
+                  <View
+                  style={{
+                  backgroundColor:"#0E6251",
+                  width:80+"%",
+                  margin:5,
+                  borderRadius:9,
+                  color:"#fff",
+                  padding:10
+                  
+                  }}
+                  >
+                     
+                    <Text
+                    style={{
+                      color:"#fff",
+                      fontSize:14
+                    }}
+                    > Name : {Coach.Name}</Text>
+                    <Text
+                    style={{
+                      color:"#fff",
+                      fontSize:14
+                    }}
+                    > Experence : {Coach.Experence}</Text>
+                    <Text
+                    style={{
+                      color:"#fff",
+                      fontSize:14
+                    }}
+                    > Goal : {Coach.Goal} </Text>
+                    <Text
+                    style={{
+                      color:"#fff",
+                      fontSize:14
+                    }}
+                    > Weight : {Coach.Weight}KG</Text>
+                    <Text
+                    style={{
+                      color:"#fff",
+                      fontSize:14
+                    }}
+                    > Height : {Coach.Height}CM</Text>
+                    {/* <Text> {Coach.Email}</Text> */}
+                    </View>
                     
                  </View>
 
             )})}
+            </View>
            <View>
 
 </View>
 
-
-
-          <Text
-          style={{
-              fontSize:25,
-              marginTop:15,
-              margin:10
-          }}
-          >
-         Your Revenue</Text>
-
-        
-         <Text
-          style={{
-              fontSize:25,
-              marginTop:15,
-              margin:10
-          }}
-          > 
-         Photos</Text>
+      
+         
 
           </View>
 
@@ -471,13 +552,14 @@ import Blogs from "./Blogs"
             <TouchableOpacity
             onPress={()=>this.props.navigation.navigate('UpdatedCoachInfo')}
             style={{
-              backgroundColor:"green",
+              backgroundColor:"#0E6251",
               padding:10,
-              width:70,
-              marginLeft:43+"%",
-              marginTop:5,
+              width:150,
+              margin:10,
+            //  marginLeft:43+"%",
+              // marginTop:5,
               borderRadius:7,
-              marginBottom:10
+              // marginBottom:10
             }}
             >
               <Text
@@ -492,7 +574,7 @@ import Blogs from "./Blogs"
           <TouchableOpacity 
           onPress={()=>this.props.navigation.navigate("LoginCoachTake")}
           style={{
-            backgroundColor:"green",
+            backgroundColor:"red",
             padding:10,
             width:70,
             marginLeft:43+"%",
@@ -573,7 +655,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
               tabBarLabel:'Cart',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
-                      <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
+                      <FontAwesome style={[{color: tintColor}]} size={25} name={'search'}/>  
                   </View>),  
           }  
       },  
