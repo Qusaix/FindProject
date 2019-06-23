@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
+  Button1, 
   Alert,
   TextInput,
   AsyncStorage,
@@ -16,9 +16,13 @@ import {
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer , Header} from 'react-navigation'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { TextField } from 'react-native-material-textfield';
+//import { Button , Card } from 'react-native-material-design'
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards'
+
 
 //import console = require('console');
-
+ 
  class Blogs extends React.Component {
    constructor(){
      super()
@@ -206,7 +210,36 @@ behavior = "padding"
                 }}>
                 
         
-                 <View style={{
+
+                <Card>
+  <CardImage 
+    source={{uri: 'http://placehold.it/480x270'}} 
+    title={Blog.TheCreater}
+  />
+  <CardTitle 
+    title={Blog.Title} 
+    subtitle="Email@gmail.com"
+   />
+  <CardContent text={Blog.content} />
+  <CardAction 
+    separator={true} 
+    inColumn={false}>
+    <CardButton
+      onPress={() => {}}
+      title="Push"
+      color="blue"
+    />
+    <CardButton
+      onPress={() => {}}
+      title="Later"
+      color="blue"
+    />
+  </CardAction>
+</Card>
+
+
+
+                 {/* <View style={{
                      width:220,
                      backgroundColor:"red",
                      margin:5,
@@ -240,7 +273,7 @@ behavior = "padding"
                 </View> 
         
         
-                  
+                   */}
 
         
     
@@ -288,7 +321,7 @@ behavior = "padding"
         width:150
       }}/>
        
-      <TextInput 
+      <TextInput
       name={"Content"}
       maxLength={100}
       onChangeText={(value)=>{this.setState({Content:value})
@@ -325,6 +358,31 @@ behavior = "padding"
   }}
   >Add Tip</Text>
 </TouchableOpacity>
+<Card>
+  <CardImage 
+    source={{uri: 'http://placehold.it/480x270'}} 
+    title="Above all i am here"
+  />
+  <CardTitle 
+    title="This is a title" 
+    subtitle="This is subtitle"
+   />
+  <CardContent text="Your device will reboot in few seconds once successful, be patient meanwhile" />
+  <CardAction 
+    separator={true} 
+    inColumn={false}>
+    <CardButton
+      onPress={() => {}}
+      title="Push"
+      color="blue"
+    />
+    <CardButton
+      onPress={() => {}}
+      title="Later"
+      color="blue"
+    />
+  </CardAction>
+</Card>
       </View>
          </ScrollView>
     </KeyboardAvoidingView>
