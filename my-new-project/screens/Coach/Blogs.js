@@ -42,8 +42,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
     headerTitleStyle:{
       color:"#fff",
       // marginLeft:48+"%",
-      // marginTop: -38
-    alignItems:"center",
+      // marginTop: -38,
+    //alignItems:"center",
     flex: 1
     }
   }

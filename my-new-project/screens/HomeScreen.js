@@ -369,11 +369,11 @@ const TabNavigator = createMaterialBottomTabNavigator(
 
 
 export default createStackNavigator({
-  HomeScreen:{
-    screen:HomeScreen
-  },
+  // HomeScreen:{
+  //   screen:HomeScreen
+  // },
   TestePage:{
-    screen:CoachDashboard
+    screen:UpdatedCoachInfo
   },
   LoginCoachTake:{
    screen:LoginCoach

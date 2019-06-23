@@ -10,10 +10,12 @@ import {
   Button,
   Alert,
   TextInput,
-  AsyncStorage
+  AsyncStorage,
+  KeyboardAvoidingView
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { createStackNavigator , createAppContainer , Header } from 'react-navigation';
+import { TextField } from 'react-native-material-textfield';
 
 //import console = require('console');
 
@@ -92,8 +94,25 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     render() {
       return (
         <ScrollView>
-        <View>
-            <TextInput 
+           <KeyboardAvoidingView
+           style={{
+            flex:1,
+            justifyContent:"flex-end"
+        
+            }}
+           keyboardVerticalOffset={ Header.HEIGHT + 5000}
+           behavior = "padding"
+           //behavior="padding"
+      
+          >
+        <View
+        style={{
+          flex:1,
+          justifyContent:"flex-end",
+          width:100+"%" 
+        }}
+        >
+            {/* <TextInput 
                   style={{
                   backgroundColor:"#fff",
                   borderLeftWidth: 2,
@@ -140,9 +159,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   }}
                   
                   >Find</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
 
-            <Image 
+            {/* <Image 
             style={{
                 height:100,
                 width:100,
@@ -151,27 +170,168 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 margin:10
             }}
             source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
-            />
+            /> */}
         <View
         style={{
-            margin:10
+           // margin:10,
+              
+            // justifyContent:"center",
+            // alignContent:"center"
+            justifyContent:"center",
+            alignItems:"center",
+            padding:25
+            
+          
         }}
         >
           <Text
           style={{
               fontSize:25,
-              marginBottom:15
+              marginBottom:15,
+              textAlign:"center",
+              fontWeight:"bold"
           }}
           > Update Your Info</Text>
-          <Text name="Email">Email {this.state.Email}</Text>
-          <Text>Name</Text>
-          <TextInput name={"UpdatedName"} placeholder="Put Your Name" onChangeText={(value)=>this.setState({UpdatedName:value})}/>
-          <Text >Bio</Text>
-          <TextInput name={"UpdatedBio"} placeholder="Put Your Bio" onChangeText={(value)=>this.setState({UpdatedBio:value})}/>
-          <Text >Experence</Text>
-          <TextInput name={"UpdatedExperence"} placeholder="Put Your Experence" onChangeText={(value)=>this.setState({UpdatedExperence:value})}/>
+          {/* <Text name="Email">Email {this.state.Email}</Text> */}
+          {/* <Text>Name</Text> */}
+         <View
+         style={{
+          width:100+"%", 
+           justifyContent:"center",
+            alignItems:"center"
+         }}>
+          <View
+          style={{
+            // flex:1,
+            // justifyContent:"center",
+            // alignItems:"center"
+            backgroundColor:"#17A589",
+            padding:10,
+            borderRadius:9,
+            width:100+"%"
+          //  margin:5
+          }}
+          >
+
+<TextField
+            Title = "Email"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {18}
+            label={this.state.Email}
+            prefix={this.state.Email}
+             multiline={false}
+            // maxLength={10}
+             animationDuration={350}
+             editable={ false }
+             lineWidth={ 2 }
+            // title="The Max Number Of Characters"
+            //  error="You Need To complete"
+            // characterRestriction={10}
+              onChangeText={(value)=>this.setState({UpdatedName:value})}
+              
+              />
+          <TextField
+           name={"UpdatedName"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {12}
+            fontSize={12}
+             label="Put Your Name"
+             multiline={false}
+             maxLength={10}
+             animationDuration={350}
+             editable={ true }
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={10}
+              onChangeText={(value)=>this.setState({UpdatedName:value})}
+              
+              />
+          {/* <Text >Bio</Text> */}
+          <TextField 
+          name={"UpdatedBio"} 
+
+             Title = "Name"
+             label="Put Your Bio"
+             baseColor = "#fff"
+             tintColor="#000"
+             multiline={true}
+             maxLength={100}
+             labelFontSize={12}
+             fontSize={12}
+             animationDuration={350}
+             editable={ true }
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={350} 
+
+          onChangeText={(value)=>this.setState({UpdatedBio:value})}
+          />
+          {/* <Text >Experence</Text> */}
+          <TextField
+          style={{
+
+          }}
+           name={"UpdatedExperence"}
+           Title = "Name"
+           label="Put Your Experence"
+           baseColor = "#fff"
+           tintColor="#000"
+           multiline={false}
+           maxLength={100}
+           fontSize={12}
+           labelFontSize={12}
+           Trailing icon
+           animationDuration={350}
+           editable={ true }
+           lineWidth={ 2 }
+           suffix="You Need To Put a Number"
+           title="The Max Number Of Characters"
+          //  error="You Need To complete"
+           characterRestriction={2}  
+           onChangeText={(value)=>this.setState({UpdatedExperence:value})}/>
+        </View>
         </View>
           <View>
+          </View>
+
+
+
+          
+          {/* <Text>This is the New Text Field</Text>
+          <TextField 
+          style={{
+            flex:1,
+            justifyContent:"flex-end"
+          }}
+          label="Phone Number"
+          value={this.Email}
+
+          /> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </View>
@@ -228,6 +388,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
               </Text>
           </TouchableOpacity>
           </View>
+          </KeyboardAvoidingView>
           </ScrollView>
  )}
 
