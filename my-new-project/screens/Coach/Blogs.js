@@ -32,8 +32,11 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
       Experence:"",
       Email:"",
       AllTheData:[],
+      reversed:[],
       Content:"",
-      Title:""
+      Title:"",
+      TheNewTitle:"Title",
+      TheNewContent:"Content"
      } 
    }
 
@@ -102,6 +105,9 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
     
     console.log("The Array : ", this.state.AllTheData)
     this.setState({ AllTheData : res})
+    const rever = this.state.AllTheData.reverse()
+    this.setState({reversed:rever}) 
+    console.log("This is the Rever Page ",rever)
   })
   //.catch((err)=>console.warn(err))
   .done()
@@ -124,6 +130,8 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
   .then((res)=>{return res.json()}) 
   .then((res)=>{
     this.setState({AllTheData:[...this.state.AllTheData,res]})
+    const rever = this.state.AllTheData.reverse();
+    this.setState({reversed:rever})
    console.log("This is the Data ",res)
   })
   //.catch((err)=>console.warn(err))
@@ -192,8 +200,186 @@ behavior = "padding"
            // flexDirection:"column",
         }}>
         
+
+
+
+
+
+        <View style={{
+        backgroundColor:"#16A085",
+        padding:5,
+        margin:5,
+        borderRadius:9,
+       // justifyContent:"flex-end"
+
+      }}>
+
+      <Text
+      style={{
+        fontSize:25,
+        fontWeight:"bold",
+        color:"#fff"
+      }}
+      >New Tip</Text>
+      <View style={{
+        //flexDirection:"row",
+        flex:1,
+        
+      }}>
+      {/* <Text name={"Email"}></Text>  */}
+      <TextField 
+      name={"Title"}
+      maxLength={60}
+      onChangeText={(value)=>{
+        this.setState({Title:value})
+        this.setState({TheNewTitle:value})
+      }}
+
+     // placeholder="Title" 
+      
+     // Title = "Name"
+      label="The Title"
+      baseColor = "#fff"
+      tintColor="#000"
+      multiline={true}
+      maxLength={60}
+      fontSize={14}
+      labelFontSize={17}
+      //Trailing icon
+      animationDuration={350}
+      editable={ true }
+      lineWidth={ 2 }
+     // suffix="You Need To Put a Number"
+     // title="The Max Number Of Characters"
+     //  error="You Need To complete"
+      characterRestriction={55}  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      // style={{
+      //   margin:5,
+      //   backgroundColor:"red",
+      //   color:"#fff",
+      //   padding:15,
+      //   borderRadius:6,
+      //   width:150
+      // }}
+      />
+       
+      <TextField
+      name={"Content"}
+      maxLength={100}
+      onChangeText={(value)=>{
+      this.setState({Content:value})
+      this.setState({TheNewContent:value})
+      //this.check()
+    }}
+      //placeholder="Content" 
+      
+        // Title = "Name"
+      label="The Content"
+      baseColor = "#fff"
+      tintColor="#000"
+      multiline={false}
+      maxLength={245}
+      fontSize={14}
+      labelFontSize={17}
+      //Trailing icon
+      animationDuration={350}
+      editable={ true }
+      lineWidth={ 2 }
+     // suffix="You Need To Put a Number"
+     // title="The Max Number Of Characters"
+     //  error="You Need To complete"
+      characterRestriction={240}
+
+
+
+
+      // style={{
+      //   margin:5,
+      //   backgroundColor:"red",
+      //   color:"#fff",
+      //   padding:15,
+      //   borderRadius:6,
+      //   width:150
+      // }}
+      />
+      </View>
+  <TouchableOpacity
+  onPress={()=>{
+    this.AddBlog();
+  }}
+  style={{
+  width:100,
+  backgroundColor:"red",
+  margin:5,
+  padding:5,
+  borderRadius:9,
+}}
+>
+  <Text
+  style={{
+    color:"#fff",
+    fontWeight:"bold",
+    fontSize:14
+  }}
+  >Add Tip</Text>
+</TouchableOpacity>
+<Card
+style={{
   
-        {this.state.AllTheData.map((Blog)=>{
+}}
+>
+  {/* <CardImage 
+    // source={{uri: 'http://placehold.it/480x270'}} 
+    title="Above all i am here"
+  /> */}
+  <CardTitle 
+    title={this.state.TheNewTitle} 
+    subtitle={this.state.Email}
+   />
+  <CardContent text={this.state.TheNewContent} />
+  <CardAction 
+    separator={true} 
+    inColumn={false}>
+    <CardButton
+      onPress={() => {
+        this.AddBlog();
+      }}
+      title="Add Tip"
+      color="blue"
+    />
+    <CardButton
+      onPress={() => {}}
+      title="Later"
+      color="blue"
+    />
+  </CardAction>
+</Card>
+      </View>
+
+
+
+
+
+
+
+
+
+
+
+  
+        {this.state.reversed.map((Blog)=>{
             return(
     
                 
@@ -201,7 +387,8 @@ behavior = "padding"
                 key={Blog.id+1}
                 style={{
                     flex: 1,
-                    justifyContent:"flex-end",
+                    justifyContent:"center",
+                    alignItems:"center"
 
                   //   flexDirection:"column",
                   //  // display:"flex",
@@ -211,19 +398,30 @@ behavior = "padding"
                 
         
 
-                <Card>
+  <Card
+  style={{
+    width:85+"%",
+    backgroundColor:"#FBFCFC",
+    margin:5,
+    borderRadius:9
+
+  }}
+  >
   <CardImage 
     source={{uri: 'http://placehold.it/480x270'}} 
+    avatarSource={{uri : 'http://placehold.it/480x270'}}
     title={Blog.TheCreater}
   />
   <CardTitle 
     title={Blog.Title} 
-    subtitle="Email@gmail.com"
+    subtitle={Blog.Email}
    />
   <CardContent text={Blog.content} />
   <CardAction 
     separator={true} 
-    inColumn={false}>
+    inColumn={false}
+    
+    > 
     <CardButton
       onPress={() => {}}
       title="Push"
@@ -289,53 +487,113 @@ behavior = "padding"
 
 
       <View style={{
-        backgroundColor:"green",
+        backgroundColor:"#16A085",
         padding:5,
         margin:5,
         borderRadius:9,
-        justifyContent:"flex-end"
+       // justifyContent:"flex-end"
 
       }}>
 
       <Text
       style={{
         fontSize:25,
-        fontWeight:"bold"
+        fontWeight:"bold",
+        color:"#fff"
       }}
       >New Tip</Text>
       <View style={{
-        flexDirection:"row",
-        flex:1
+        //flexDirection:"row",
+        flex:1,
+        
       }}>
       {/* <Text name={"Email"}></Text>  */}
-      <TextInput 
+      <TextField 
       name={"Title"}
       maxLength={60}
-      onChangeText={(value)=>this.setState({Title:value})}
-      placeholder="Title" style={{
-        margin:5,
-        backgroundColor:"red",
-        color:"#fff",
-        padding:15,
-        borderRadius:6,
-        width:150
-      }}/>
+      onChangeText={(value)=>{
+        this.setState({Title:value})
+        this.setState({TheNewTitle:value})
+      }}
+
+     // placeholder="Title" 
+      
+     // Title = "Name"
+      label="The Title"
+      baseColor = "#fff"
+      tintColor="#000"
+      multiline={true}
+      maxLength={60}
+      fontSize={14}
+      labelFontSize={17}
+      //Trailing icon
+      animationDuration={350}
+      editable={ true }
+      lineWidth={ 2 }
+     // suffix="You Need To Put a Number"
+     // title="The Max Number Of Characters"
+     //  error="You Need To complete"
+      characterRestriction={55}  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      // style={{
+      //   margin:5,
+      //   backgroundColor:"red",
+      //   color:"#fff",
+      //   padding:15,
+      //   borderRadius:6,
+      //   width:150
+      // }}
+      />
        
-      <TextInput
+      <TextField
       name={"Content"}
       maxLength={100}
-      onChangeText={(value)=>{this.setState({Content:value})
-      this.check()
+      onChangeText={(value)=>{
+      this.setState({Content:value})
+      this.setState({TheNewContent:value})
+      //this.check()
     }}
-      placeholder="Content" 
-      style={{
-        margin:5,
-        backgroundColor:"red",
-        color:"#fff",
-        padding:15,
-        borderRadius:6,
-        width:150
-      }}
+      //placeholder="Content" 
+      
+        // Title = "Name"
+      label="The Content"
+      baseColor = "#fff"
+      tintColor="#000"
+      multiline={false}
+      maxLength={245}
+      fontSize={14}
+      labelFontSize={17}
+      //Trailing icon
+      animationDuration={350}
+      editable={ true }
+      lineWidth={ 2 }
+     // suffix="You Need To Put a Number"
+     // title="The Max Number Of Characters"
+     //  error="You Need To complete"
+      characterRestriction={240}
+
+
+
+
+      // style={{
+      //   margin:5,
+      //   backgroundColor:"red",
+      //   color:"#fff",
+      //   padding:15,
+      //   borderRadius:6,
+      //   width:150
+      // }}
       />
       </View>
   <TouchableOpacity
@@ -358,22 +616,28 @@ behavior = "padding"
   }}
   >Add Tip</Text>
 </TouchableOpacity>
-<Card>
-  <CardImage 
-    source={{uri: 'http://placehold.it/480x270'}} 
+<Card
+style={{
+  
+}}
+>
+  {/* <CardImage 
+    // source={{uri: 'http://placehold.it/480x270'}} 
     title="Above all i am here"
-  />
+  /> */}
   <CardTitle 
-    title="This is a title" 
-    subtitle="This is subtitle"
+    title={this.state.TheNewTitle} 
+    subtitle={this.state.Email}
    />
-  <CardContent text="Your device will reboot in few seconds once successful, be patient meanwhile" />
+  <CardContent text={this.state.TheNewContent} />
   <CardAction 
     separator={true} 
     inColumn={false}>
     <CardButton
-      onPress={() => {}}
-      title="Push"
+      onPress={() => {
+        this.AddBlog();
+      }}
+      title="Add Tip"
       color="blue"
     />
     <CardButton

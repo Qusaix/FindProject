@@ -373,7 +373,7 @@ export default createStackNavigator({
   //   screen:HomeScreen
   // },
   TestePage:{
-    screen:UpdatedCoachInfo
+    screen:Blogs
   },
   LoginCoachTake:{
    screen:LoginCoach
