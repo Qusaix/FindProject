@@ -315,7 +315,7 @@ behavior = "padding"
       // }}
       />
       </View>
-  <TouchableOpacity
+  {/* <TouchableOpacity
   onPress={()=>{
     this.AddBlog();
   }}
@@ -334,7 +334,7 @@ behavior = "padding"
     fontSize:14
   }}
   >Add Tip</Text>
-</TouchableOpacity>
+</TouchableOpacity> */}
 <Card
 style={{
   
@@ -486,145 +486,16 @@ style={{
 
 
 
-      <View style={{
-        backgroundColor:"#16A085",
-        padding:5,
-        margin:5,
-        borderRadius:9,
-       // justifyContent:"flex-end"
-
-      }}>
-
-      <Text
-      style={{
-        fontSize:25,
-        fontWeight:"bold",
-        color:"#fff"
-      }}
-      >New Tip</Text>
-      <View style={{
-        //flexDirection:"row",
-        flex:1,
-        
-      }}>
-      {/* <Text name={"Email"}></Text>  */}
-      <TextField 
-      name={"Title"}
-      maxLength={60}
-      onChangeText={(value)=>{
-        this.setState({Title:value})
-        this.setState({TheNewTitle:value})
-      }}
-
-     // placeholder="Title" 
       
-     // Title = "Name"
-      label="The Title"
-      baseColor = "#fff"
-      tintColor="#000"
-      multiline={true}
-      maxLength={60}
-      fontSize={14}
-      labelFontSize={17}
-      //Trailing icon
-      animationDuration={350}
-      editable={ true }
-      lineWidth={ 2 }
-     // suffix="You Need To Put a Number"
-     // title="The Max Number Of Characters"
-     //  error="You Need To complete"
-      characterRestriction={55}  
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      // style={{
-      //   margin:5,
-      //   backgroundColor:"red",
-      //   color:"#fff",
-      //   padding:15,
-      //   borderRadius:6,
-      //   width:150
-      // }}
-      />
-       
-      <TextField
-      name={"Content"}
-      maxLength={100}
-      onChangeText={(value)=>{
-      this.setState({Content:value})
-      this.setState({TheNewContent:value})
-      //this.check()
-    }}
-      //placeholder="Content" 
-      
-        // Title = "Name"
-      label="The Content"
-      baseColor = "#fff"
-      tintColor="#000"
-      multiline={false}
-      maxLength={245}
-      fontSize={14}
-      labelFontSize={17}
-      //Trailing icon
-      animationDuration={350}
-      editable={ true }
-      lineWidth={ 2 }
-     // suffix="You Need To Put a Number"
-     // title="The Max Number Of Characters"
-     //  error="You Need To complete"
-      characterRestriction={240}
-
-
-
-
-      // style={{
-      //   margin:5,
-      //   backgroundColor:"red",
-      //   color:"#fff",
-      //   padding:15,
-      //   borderRadius:6,
-      //   width:150
-      // }}
-      />
-      </View>
-  <TouchableOpacity
-  onPress={()=>{
-    this.AddBlog();
-  }}
-  style={{
-  width:100,
-  backgroundColor:"red",
-  margin:5,
-  padding:5,
-  borderRadius:9,
-}}
->
-  <Text
-  style={{
-    color:"#fff",
-    fontWeight:"bold",
-    fontSize:14
-  }}
-  >Add Tip</Text>
-</TouchableOpacity>
-<Card
+{/* <Card
 style={{
   
 }}
 >
-  {/* <CardImage 
+  <CardImage 
     // source={{uri: 'http://placehold.it/480x270'}} 
     title="Above all i am here"
-  /> */}
+  />
   <CardTitle 
     title={this.state.TheNewTitle} 
     subtitle={this.state.Email}
@@ -646,8 +517,9 @@ style={{
       color="blue"
     />
   </CardAction>
-</Card>
-      </View>
+</Card> */}
+
+      
          </ScrollView>
     </KeyboardAvoidingView>
 
