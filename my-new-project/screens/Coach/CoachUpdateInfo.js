@@ -236,13 +236,17 @@ import { TextField } from 'react-native-material-textfield';
             Title = "Name"
             baseColor = "#fff"
             tintColor="#000"
-            labelFontSize = {12}
-            fontSize={12}
+            labelFontSize = {17}
+            fontSize={14}
              label="Put Your Name"
              multiline={false}
              maxLength={10}
              animationDuration={350}
              editable={ true }
+             inputContainerStyle={
+               color="red"
+             }
+            // disabledLineType="This is the Error"
              lineWidth={ 2 }
              title="The Max Number Of Characters"
             //  error="You Need To complete"
@@ -260,8 +264,8 @@ import { TextField } from 'react-native-material-textfield';
              tintColor="#000"
              multiline={true}
              maxLength={100}
-             labelFontSize={12}
-             fontSize={12}
+             labelFontSize={17}
+             fontSize={14}
              animationDuration={350}
              editable={ true }
              lineWidth={ 2 }
@@ -283,8 +287,8 @@ import { TextField } from 'react-native-material-textfield';
            tintColor="#000"
            multiline={false}
            maxLength={100}
-           fontSize={12}
-           labelFontSize={12}
+           fontSize={14}
+           labelFontSize={17}
            Trailing icon
            animationDuration={350}
            editable={ true }
