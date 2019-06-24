@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
+ // Button,
   Alert,
   TextInput,
   AsyncStorage
@@ -19,6 +19,7 @@ import { Avatar } from 'react-native-elements';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icons';
+import { Card, ListItem, Button} from 'react-native-elements'
 
 
 //import TheArray from './TraineeLoginPage'
@@ -58,7 +59,8 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
       Weight:"",
       Height:"",
       ScreeenHeight:0,
-      YourCouch:""
+      YourCouch:"",
+      Array:[1]
      } 
    }
    
@@ -192,7 +194,8 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
         <ScrollView>
         <View
         style={{
-          backgroundColor:"#fff"
+          backgroundColor:"#fff",
+          height:100+"%"
         }}
         >
             <TextInput 
@@ -292,7 +295,8 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
    fontSize:18,
    position:"absolute",
    justifyContent:"center",
-   left:180,
+   textAlign:"center",
+   left:83,
    top:240,
    width:67+"%",
    color:"#D0D3D4",
@@ -303,16 +307,107 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
 
 
 </View>
+
+<View>
+
+ 
+
+<View
+style={{
+  position:"absolute",
+  top:270,
+  left:207
+
+}}
+>
+  {/* <Text>Your Couch</Text> */}
+  {/* {
+    this.state.Array.map((l, i) => (
+      <ListItem
+      style={{
+        position:"absolute",
+        top:190,
+        left:83
+      }}
+        key={i}
+        leftAvatar={{ source: { uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg' } }}
+        title={this.state.YourCouch}
+        subtitle={"l.subtitle"}
+      />
+    ))
+  } */}
+  <Text
+  style={{
+    fontSize:20,
+    fontWeight:"bold",
+    textAlign:"center"
+  }}
+  >{this.state.YourCouch}</Text>
+</View>
+
+
+
+</View>
+
         <View
         style={{
-            margin:10
+            margin:10,
+            //position:"absolute",
+            top:280,
+            alignItems:"center",
+            justifyContent:"center",
+            left:40,
+            width:80+"%",
+            padding:15
         }}
         >
 
 
 
 
+<Card
+  title='Your Info'
+ // image={require('../images/pic2.jpg')}
+ style={{
+  
 
+}}
+ >
+
+  <Text style={{marginBottom: 10}}>
+  <Text
+  style={{
+  fontWeight:"bold",
+  fontSize:18  
+  }}
+  >
+  Experence: 
+    </Text> 
+    {this.state.Experence}
+  </Text>
+  <Text
+  style={{
+    fontWeight:"bold",
+  fontSize:18 
+  }}
+  >Years</Text> 
+   
+  
+  <Text style={{marginBottom: 10}}>
+    {this.state.Height}
+  </Text>
+  <Text style={{marginBottom: 10}}>
+    {this.state.Goal}
+  </Text>
+  {/* <Text style={{marginBottom: 10}}>
+    {this.state.Goal}
+  </Text> */}
+  {/* <Button
+    icon={<Icon name='code' color='#ffffff' />}
+    backgroundColor='#03A9F4'
+    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+    title='VIEW NOW' /> */}
+</Card>
 
 
 
@@ -325,7 +420,7 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
 
 
       
-        <View
+        {/* <View
         style={{
         //  position:"relative"
         }}
@@ -336,14 +431,13 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
               marginBottom:15
           }}
           >Your Info</Text>
-          <Text>Name {this.state.Name}</Text>
-          <Text>Bio {this.state.Bio}</Text>
+
           <Text>How Many Years {this.state.Experence}</Text>
           <Text>Goal {this.state.Goal}</Text>
-          <Text>Photos</Text>
           <Text>Weight {this.state.Weight}KG</Text>
           <Text>Height {this.state.Height}cm</Text>
-          </View>
+          
+          </View> */}
         </View>
 
 
@@ -365,7 +459,7 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
 
 
           <View>
-           <Text
+           {/* <Text
            style={{
             fontSize:25,
             margin:10
@@ -381,7 +475,7 @@ import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icon
              }}
             >
               <Text>{this.state.YourCouch}</Text>
-            </View>
+            </View> */}
           <Text
           style={{
               fontSize:25,
