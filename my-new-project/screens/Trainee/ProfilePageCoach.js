@@ -33,16 +33,17 @@ import {Bottom } from '../HomeScreen'
      } 
    }
 
-  static navigationOptions = {
-    title:"Login as Coach",
+  static navigationOptions = { 
+    title:"Back",
     headerStyle:{
       backgroundColor:"#238aff",
-      display:"none"
+     // display:"none"
     },
     headerTitleStyle:{
       color:"#fff",
     alignItems:"center",
-    flex: 1
+    flex: 1,
+    //display:"none"
     }
   }
   componentDidMount(){

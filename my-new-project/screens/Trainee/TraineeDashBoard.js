@@ -15,6 +15,12 @@ import {
 import SeeAllCoachs from './SeeAllCoachs'
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { Avatar } from 'react-native-elements';
+import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icons';
+
+
 //import TheArray from './TraineeLoginPage'
 //import console = require('console');
 //const { Height } = Dimensions.get('window');
@@ -184,7 +190,11 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
       return (
         <ScrollView>
-        <View>
+        <View
+        style={{
+          backgroundColor:"#fff"
+        }}
+        >
             <TextInput 
                   style={{
                   backgroundColor:"#fff",
@@ -234,19 +244,90 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   >Find</Text>
                   </TouchableOpacity>
 
+
+                  <View>
+
+                  
+                  <Image 
+            style={{
+                height:150,
+                width:100+"%",
+                position: 'absolute', 
+                justifyContent: 'center', 
+                margin:10
+            }}
+            source={{uri:"https://i.imgur.com/jOZUU2B.jpg"}}
+            />
+
+
+
             <Image 
             style={{
                 height:100,
                 width:100,
-                //position: 'absolute', 
+                position: 'absolute', 
                 justifyContent: 'center', 
-                margin:10
+               // margin:10
+               left:194,
+               top:100,
+               borderRadius:9
+              // bottom:250
             }}
             source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
             />
+
+</View>
+<View>
+ <Text
+ style={{
+   fontSize:25,
+   position:"absolute",
+   left:202,
+   top:200
+ }}
+ >  {this.state.Name}   </Text> 
+
+<Text
+ style={{
+   fontSize:18,
+   position:"absolute",
+   justifyContent:"center",
+   left:180,
+   top:240,
+   width:67+"%",
+   color:"#D0D3D4",
+  // backgroundColor:"#D0D3D4"
+ }}
+ >  {this.state.Bio}  </Text> 
+
+
+
+</View>
         <View
         style={{
             margin:10
+        }}
+        >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        <View
+        style={{
+        //  position:"relative"
         }}
         >
           <Text
@@ -262,7 +343,26 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
           <Text>Photos</Text>
           <Text>Weight {this.state.Weight}KG</Text>
           <Text>Height {this.state.Height}cm</Text>
+          </View>
         </View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           <View>
            <Text
@@ -378,4 +478,139 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 };
 
-export default TraineeDashboard;
+
+
+
+
+
+const TabNavigator = createMaterialBottomTabNavigator(  
+  {  
+      Home: { screen: TraineeDashboard,  
+          navigationOptions:{  
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+            //  flex: 1,
+              display:"none"
+            },
+          //  header: null,
+              tabBarLabel:'Home',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
+                  </View>),  
+          }
+
+
+      },  
+      Profile: { screen: TraineeDashboard,  
+          navigationOptions:{  
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+              flex: 1,
+              display:"none"
+            },
+
+              tabBarLabel:'Revenue',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Foundation style={[{color: tintColor}]} size={25} name={'dollar-bill'}/>  
+                  </View>),  
+              activeColor: '#f60c0d',  
+              inactiveColor: '#f65a22',  
+              barStyle: { backgroundColor: '#f69b31' },  
+          },
+          
+      },  
+      Image: { screen: TraineeDashboard,  
+          navigationOptions:{
+            
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+              // marginLeft:48+"%",
+              // marginTop: -38,
+            //alignItems:"center",
+            flex: 1,
+            display:"none"
+            },
+
+            headerStyle:{
+              display:"none"
+            },
+
+
+
+              tabBarLabel:'Tips',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <Foundation style={[{color: tintColor}]} size={27} name={'social-blogger'}/>  
+                  </View>),  
+              activeColor: '#615af6',  
+              inactiveColor: '#46f6d7',  
+              barStyle: { backgroundColor: '#67baf6' },  
+          }  
+      },  
+      Cart: {  
+          screen: TraineeDashboard,  
+          navigationOptions:{  
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+              flex: 1,
+              display:"none"
+            },
+
+
+
+            
+
+
+              tabBarLabel:'Search',  
+              tabBarIcon: ({ tintColor }) => (  
+                  <View>  
+                      <FontAwesome style={[{color: tintColor}]} size={25} name={'search'}/>  
+                  </View>),  
+          }  
+      },  
+  },  
+  {  
+    initialRouteName: "Home",  
+    activeColor: '#f0edf6',  
+    inactiveColor: '#226557',  
+    barStyle: { backgroundColor: '#3BAD87' },
+  },  
+);  
+
+
+
+
+
+
+export default createAppContainer(TabNavigator);  
+
+
+
+
+
+
+
+
+export { TraineeDashboard };

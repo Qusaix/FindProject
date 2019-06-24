@@ -44,14 +44,15 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
     title:"Back",
     headerStyle:{
       backgroundColor:"#238aff",
-     // display:"none"
+     display:"none"
     },
     headerTitleStyle:{
       color:"#fff",
       // marginLeft:48+"%",
       // marginTop: -38,
     //alignItems:"center",
-    flex: 1
+    flex: 1,
+    display:"none"
     }
   }
   componentDidMount(){

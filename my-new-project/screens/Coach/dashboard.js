@@ -18,6 +18,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import Blogs from "./Blogs"
+import Revenue from './Revenue'
+import Search from './Search'
 
 
 //import console = require('console');
@@ -36,18 +38,19 @@ import Blogs from "./Blogs"
    }
 
   // static navigationOptions = {
-  //   title:"Login as Coach",
+  //   tabBarVisible: false,
+  //   title:"Logout",
   //   headerStyle:{
-  //     backgroundColor:"#238aff",
-  //    // display:"none"
+  //     backgroundColor:"red",
+  //   display:"none"
   //   },
   //   headerTitleStyle:{
   //     color:"#fff",
   //     // marginLeft:48+"%",
   //     // marginTop: -38
-  //   alignItems:"center",
-  //   flex: 1,
-  //  // display:"none"
+  //  // alignItems:"center",
+  //  // flex: 1,
+  //  display:"none"
   //   }
   // };
 
@@ -618,16 +621,40 @@ const TabNavigator = createMaterialBottomTabNavigator(
   {  
       Home: { screen: CoachDashboard,  
           navigationOptions:{  
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+            //  flex: 1,
+              display:"none"
+            },
+          //  header: null,
               tabBarLabel:'Home',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
                       <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
                   </View>),  
-          }  
+          }
+
+
       },  
-      Profile: { screen: Blogs,  
+      Profile: { screen: Revenue,  
           navigationOptions:{  
-              tabBarLabel:'Profile',  
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+              flex: 1,
+              display:"none"
+            },
+
+              tabBarLabel:'Revenue',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
                       <Foundation style={[{color: tintColor}]} size={25} name={'dollar-bill'}/>  
@@ -635,10 +662,32 @@ const TabNavigator = createMaterialBottomTabNavigator(
               activeColor: '#f60c0d',  
               inactiveColor: '#f65a22',  
               barStyle: { backgroundColor: '#f69b31' },  
-          }  
+          },
+          
       },  
       Image: { screen: Blogs,  
-          navigationOptions:{  
+          navigationOptions:{
+            
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+              // marginLeft:48+"%",
+              // marginTop: -38,
+            //alignItems:"center",
+            flex: 1,
+            display:"none"
+            },
+
+            headerStyle:{
+              display:"none"
+            },
+
+
+
               tabBarLabel:'Tips',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
@@ -650,9 +699,25 @@ const TabNavigator = createMaterialBottomTabNavigator(
           }  
       },  
       Cart: {  
-          screen: Blogs,  
+          screen: Search,  
           navigationOptions:{  
-              tabBarLabel:'Cart',  
+            title:"Back",
+            headerStyle:{
+              backgroundColor:"#238aff",
+             display:"none"
+            },
+            headerTitleStyle:{
+              color:"#fff",
+              flex: 1,
+              display:"none"
+            },
+
+
+
+            
+
+
+              tabBarLabel:'Search',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
                       <FontAwesome style={[{color: tintColor}]} size={25} name={'search'}/>  
@@ -664,7 +729,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     initialRouteName: "Home",  
     activeColor: '#f0edf6',  
     inactiveColor: '#226557',  
-    barStyle: { backgroundColor: '#3BAD87' },  
+    barStyle: { backgroundColor: '#3BAD87' },
   },  
 );  
 

@@ -26,22 +26,22 @@ import CoachDashboard from './dashboard'
      }
    }
 
-   static navigationOptions = {
-    title:"LoginCoach",
-    headerStyle:{
-      backgroundColor:"#238aff",
-      //display:"none"
+  //  static navigationOptions = {
+  //   title:"LoginCoach",
+  //   headerStyle:{
+  //     backgroundColor:"#238aff",
+  //    // display:"none"
 
-    },
-    headerTitleStyle:{
-      color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
-    alignItems:"center",
-    flex: 1,
-    //display:"none"
-    }
-  }
+  //   },
+  //   headerTitleStyle:{
+  //     color:"#fff",
+  //     // marginLeft:48+"%",
+  //     // marginTop: -38
+  //   alignItems:"center",
+  //   flex: 1,
+  //   //display:"none"
+  //   }
+  // }
 
 
 
@@ -94,10 +94,11 @@ import CoachDashboard from './dashboard'
   }
 
   static navigationOptions = {
+    tabBarVisible: false,
     title:"Login as Coach",
     headerStyle:{
       backgroundColor:"#238aff",
-      //display:"none"
+      // display:"none"
      // marginTop: -38,
       
     },
@@ -107,7 +108,7 @@ import CoachDashboard from './dashboard'
     
     alignItems:"center",
     flex: 1,
-    //display:"none"
+    // display:"none"
     }
   }
 

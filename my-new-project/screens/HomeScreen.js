@@ -35,11 +35,12 @@ import Blogs from './Coach/Blogs'
 
 class HomeScreen extends React.Component {
 static navigationOptions = {
+  tabBarVisible: false,
   title:"Welcome Page",
   headerStyle:{
     color:"#fff",
     backgroundColor:"#238aff",
-    //display:"none"
+    display:"none"
   },
   headerTitleStyle:{
     color:"red",
@@ -302,59 +303,59 @@ static navigationOptions = {
 
 
 
-const TabNavigator = createMaterialBottomTabNavigator(  
-  {  
-      Home: { screen: HomeScreen,  
-          navigationOptions:{  
-              tabBarLabel:'Home',  
-              tabBarIcon: ({ tintColor }) => (  
-                  <View>  
-                      <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
-                  </View>),  
-          }  
-      },  
-      Profile: { screen: Blogs,  
-          navigationOptions:{  
-              tabBarLabel:'Profile',  
-              tabBarIcon: ({ tintColor }) => (  
-                  <View>  
-                      <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
-                  </View>),  
-              activeColor: '#f60c0d',  
-              inactiveColor: '#f65a22',  
-              barStyle: { backgroundColor: '#f69b31' },  
-          }  
-      },  
-      Image: { screen: Blogs,  
-          navigationOptions:{  
-              tabBarLabel:'History',  
-              tabBarIcon: ({ tintColor }) => (  
-                  <View>  
-                      <MaterialCommunityIcons style={[{color: tintColor}]} size={25} name={'blogger'}/>  
-                  </View>),  
-              activeColor: '#615af6',  
-              inactiveColor: '#46f6d7',  
-              barStyle: { backgroundColor: '#67baf6' },  
-          }  
-      },  
-      Cart: {  
-          screen: Blogs,  
-          navigationOptions:{  
-              tabBarLabel:'Cart',  
-              tabBarIcon: ({ tintColor }) => (  
-                  <View>  
-                      <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
-                  </View>),  
-          }  
-      },  
-  },  
-  {  
-    initialRouteName: "Home",  
-    activeColor: '#f0edf6',  
-    inactiveColor: '#226557',  
-    barStyle: { backgroundColor: '#3BAD87' },  
-  },  
-);  
+// const TabNavigator = createMaterialBottomTabNavigator(  
+//   {  
+//       Home: { screen: HomeScreen,  
+//           navigationOptions:{  
+//               tabBarLabel:'Home',  
+//               tabBarIcon: ({ tintColor }) => (  
+//                   <View>  
+//                       <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
+//                   </View>),  
+//           }  
+//       },  
+//       Profile: { screen: Blogs,  
+//           navigationOptions:{  
+//               tabBarLabel:'Profile',  
+//               tabBarIcon: ({ tintColor }) => (  
+//                   <View>  
+//                       <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
+//                   </View>),  
+//               activeColor: '#f60c0d',  
+//               inactiveColor: '#f65a22',  
+//               barStyle: { backgroundColor: '#f69b31' },  
+//           }  
+//       },  
+//       Image: { screen: Blogs,  
+//           navigationOptions:{  
+//               tabBarLabel:'History',  
+//               tabBarIcon: ({ tintColor }) => (  
+//                   <View>  
+//                       <MaterialCommunityIcons style={[{color: tintColor}]} size={25} name={'blogger'}/>  
+//                   </View>),  
+//               activeColor: '#615af6',  
+//               inactiveColor: '#46f6d7',  
+//               barStyle: { backgroundColor: '#67baf6' },  
+//           }  
+//       },  
+//       Cart: {  
+//           screen: Blogs,  
+//           navigationOptions:{  
+//               tabBarLabel:'Cart',  
+//               tabBarIcon: ({ tintColor }) => (  
+//                   <View>  
+//                       <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
+//                   </View>),  
+//           }  
+//       },  
+//   },  
+//   {  
+//     initialRouteName: "Home",  
+//     activeColor: '#f0edf6',  
+//     inactiveColor: '#226557',  
+//     barStyle: { backgroundColor: '#3BAD87' },  
+//   },  
+// );  
 
 
 
@@ -371,9 +372,9 @@ const TabNavigator = createMaterialBottomTabNavigator(
 export default createStackNavigator({
   // HomeScreen:{
   //   screen:HomeScreen
-  // },
+  // }, 
   TestePage:{
-    screen:Blogs
+    screen:TraineeDashboard
   },
   LoginCoachTake:{
    screen:LoginCoach
@@ -416,9 +417,7 @@ export default createStackNavigator({
    },
    Blogs:{
      screen:Blogs
-   },Bottom:{
-     screen:TabNavigator
-   }
+   },
 })
 
 
