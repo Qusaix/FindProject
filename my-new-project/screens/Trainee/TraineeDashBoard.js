@@ -18,8 +18,10 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 import { Avatar } from 'react-native-elements';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { Ionicons , Foundation, AntDesign , FontAwesome} from '@expo/vector-icons';
+import { Ionicons , Foundation, AntDesign , FontAwesome , MaterialCommunityIcons , Entypo} from '@expo/vector-icons';
 import { Card, ListItem, Button} from 'react-native-elements'
+import Dite from './Dite'
+import TraineeBlog from './BlogTrainee'
 
 
 //import TheArray from './TraineeLoginPage'
@@ -131,17 +133,18 @@ import { Card, ListItem, Button} from 'react-native-elements'
    }
    
   static navigationOptions = {
-    title:"Login as Coach",
+    title:"Login Out",
     headerStyle:{
       backgroundColor:"#238aff",
-      display:"none"
+     // display:"none"
     },
     headerTitleStyle:{
       color:"#fff",
       // marginLeft:48+"%",
       // marginTop: -38
     alignItems:"center",
-    flex: 1
+    flex: 1,
+    display:"none"
     }
   }
 
@@ -198,7 +201,10 @@ import { Card, ListItem, Button} from 'react-native-elements'
           height:100+"%"
         }}
         >
-            <TextInput 
+          {/* /// This is the Edite Button  */}
+        
+        {/* /// This is the Edite Button  */}
+            {/* <TextInput 
                   style={{
                   backgroundColor:"#fff",
                   borderLeftWidth: 2,
@@ -223,8 +229,8 @@ import { Card, ListItem, Button} from 'react-native-elements'
                 name={"Search"}
                 // onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
 
-                  />
-                  <TouchableOpacity
+                  /> */}
+                  {/* <TouchableOpacity
                 style={{
                   backgroundColor:"green",
                   padding:10,
@@ -245,12 +251,24 @@ import { Card, ListItem, Button} from 'react-native-elements'
                   }}
                   
                   >Find</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
 
 
                   <View>
 
-                  
+                  {/* <View
+        style={{
+          position:"absolute",
+          left:145,
+          marginTop:215,
+          backgroundColor:"red",
+          borderRadius:11
+        }}
+        >
+          <Text>This is the last thing</Text>
+        <AntDesign name="edit" size={20} color="#fff" />
+
+        </View> */}
                   <Image 
             style={{
                 height:150,
@@ -262,7 +280,44 @@ import { Card, ListItem, Button} from 'react-native-elements'
             source={{uri:"https://i.imgur.com/jOZUU2B.jpg"}}
             />
 
+            <View
+            style={{
+              backgroundColor:"#138D75",
+              width:98+"%",
+              height:60,
+              position:"absolute",
+              top:130,
+              borderRadius:9,
+              left:10,
+              padding:10
+            }}
+            >
+               <MaterialCommunityIcons name="scale-bathroom" size={20} color="#fff" />  
 
+              <Text
+              style={{
+                fontSize:18,
+                fontWeight:"bold",
+                color:"#fff",
+                textAlign:"left"
+              }}
+              >
+             
+
+              {this.state.Weight}KG</Text>
+              
+              <Text
+              style={{
+                fontSize:18,
+                fontWeight:"bold",
+                color:"#fff",
+                textAlign:"right",
+                marginTop:-33
+              }}
+              >
+              <MaterialCommunityIcons name="scale-bathroom" size={20} color="#fff" />
+              {this.state.Goal}</Text>
+            </View>
 
             <Image 
             style={{
@@ -356,25 +411,27 @@ style={{
             top:280,
             alignItems:"center",
             justifyContent:"center",
-            left:40,
-            width:80+"%",
-            padding:15
+            //left:40,
+            //width:100+"%",
+            padding:15,
+            //backgroundColor:"red"
         }}
         >
 
 
 
 
-<Card
+{/* <Card
   title='Your Info'
  // image={require('../images/pic2.jpg')}
  style={{
-  
+  backgroundColor:"green",
+  width:100+"%" 
 
 }}
- >
+ > */}
 
-  <Text style={{marginBottom: 10}}>
+  {/* <Text style={{marginBottom: 10}}>
   <Text
   style={{
   fontWeight:"bold",
@@ -383,9 +440,12 @@ style={{
   >
   Experence: 
     </Text> 
-    {this.state.Experence}
-  </Text>
-  <Text
+    <Text>{this.state.Experence}</Text>
+   
+
+  </Text> */}
+
+  {/* <Text
   style={{
     fontWeight:"bold",
   fontSize:18 
@@ -398,7 +458,7 @@ style={{
   </Text>
   <Text style={{marginBottom: 10}}>
     {this.state.Goal}
-  </Text>
+  </Text> */}
   {/* <Text style={{marginBottom: 10}}>
     {this.state.Goal}
   </Text> */}
@@ -407,7 +467,7 @@ style={{
     backgroundColor='#03A9F4'
     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
     title='VIEW NOW' /> */}
-</Card>
+{/* </Card> */}
 
 
 
@@ -476,7 +536,7 @@ style={{
             >
               <Text>{this.state.YourCouch}</Text>
             </View> */}
-          <Text
+          {/* <Text
           style={{
               fontSize:25,
               marginTop:15,
@@ -493,17 +553,17 @@ style={{
           <Text>Protein: </Text>
           <Text>Carb: </Text>
           <Text>Fat: </Text>
-          </View>
+          </View> */}
 
-           <Text
+           {/* <Text
            style={{
             fontSize:25,
             marginTop:15,
             margin:10
             }}
-           >Goal </Text>
+           >Goal </Text> */}
 
-         <View
+         {/* <View
            style={{
             fontSize:25,
             margin:10
@@ -515,23 +575,37 @@ style={{
              <Text>
                End 
              </Text>
-         </View>
+         </View> */}
            
 
           </View>
           <View>
-          <TouchableOpacity 
+
+         <View>
+
+
+
+
+
+          
+         </View>
+
+          {/* <TouchableOpacity 
           onPress={()=>this.props.navigation.navigate("LoginTraineeTake")}
           style={{
             backgroundColor:"green",
             padding:10,
             width:70,
-            marginLeft:43+"%",
+          //  marginLeft:90+"%",
+            alignContent:"flex-end",
             marginTop:5,
             borderRadius:7,
-            marginBottom:10
+            marginBottom:10,
+            marginTop:90+"%",
           }}
           >
+
+
             <Text
             style={{
               color:"#fff",
@@ -540,18 +614,24 @@ style={{
               textAlign:"center"
             }}
             >Logout</Text>
-            </TouchableOpacity>
+
+            </TouchableOpacity> */}
+
             </View>
+
+          {/* Edite */}
 
             <TouchableOpacity
             style={{
-              backgroundColor:"green",
+              backgroundColor:"#138D75",
               padding:10,
-              width:70,
-              marginLeft:43+"%",
-              marginTop:5,
+              width:15+"%",
+              //marginLeft:43+"%",
+              marginTop:102+"%",
               borderRadius:7,
-              marginBottom:10
+              marginBottom:10,
+              margin:5,
+              borderRadius:12
             }}
             onPress={()=>this.props.navigation.navigate('UpdateTraineeInfo')}
             >
@@ -562,8 +642,38 @@ style={{
                 fontWeight:"bold",
                 textAlign:"center"
               }}
-              >Update Your Info</Text>
+              >
+
+              <AntDesign name="edit" size={20} color="#fff" />
+
+              </Text>
             </TouchableOpacity>
+
+
+            {/* <TouchableOpacity
+                style={{
+                  backgroundColor:"green",
+                  padding:10,
+                  width:15+"%",
+                  marginLeft:95+"%",
+                //  marginTop:-5,
+                  borderRadius:7,
+                  top:80+"%",
+                  position:"absolute"
+                }}
+                onPress={()=>{
+                  this.props.navigation.navigate("SeeAllCoachs"); 
+                }}
+                >
+                  <Text
+                  style={{
+                    textAlign:"center",
+                    color:"#fff",
+                    fontWeight:"bold"
+                  }}
+                  
+                  >Add Coach</Text>
+                  </TouchableOpacity> */}
 
           </View>
           </ScrollView>
@@ -584,12 +694,12 @@ const TabNavigator = createMaterialBottomTabNavigator(
             title:"Back",
             headerStyle:{
               backgroundColor:"#238aff",
-             display:"none"
+             //display:"none"
             },
             headerTitleStyle:{
               color:"#fff",
             //  flex: 1,
-              display:"none"
+             // display:"none"
             },
           //  header: null,
               tabBarLabel:'Home',  
@@ -601,23 +711,23 @@ const TabNavigator = createMaterialBottomTabNavigator(
 
 
       },  
-      Profile: { screen: TraineeDashboard,  
+      Profile: { screen: Dite,  
           navigationOptions:{  
             title:"Back",
             headerStyle:{
               backgroundColor:"#238aff",
-             display:"none"
+            // display:"none"
             },
             headerTitleStyle:{
               color:"#fff",
               flex: 1,
-              display:"none"
+             //  display:"none"
             },
 
-              tabBarLabel:'Revenue',  
+              tabBarLabel:'Dite',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
-                      <Foundation style={[{color: tintColor}]} size={25} name={'dollar-bill'}/>  
+                      <MaterialCommunityIcons style={[{color: tintColor}]} size={25} name={'food-variant'}/>  
                   </View>),  
               activeColor: '#f60c0d',  
               inactiveColor: '#f65a22',  
@@ -625,7 +735,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
           },
           
       },  
-      Image: { screen: TraineeDashboard,  
+      Image: { screen: TraineeBlog,  
           navigationOptions:{
             
             title:"Back",
@@ -659,7 +769,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
           }  
       },  
       Cart: {  
-          screen: TraineeDashboard,  
+          screen: SeeAllCoachs,  
           navigationOptions:{  
             title:"Back",
             headerStyle:{

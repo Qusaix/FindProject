@@ -118,7 +118,7 @@ import { Card, ListItem , Icon } from 'react-native-elements'
     render() {
       return (
         <ScrollView >
-          <TouchableOpacity
+          {/* <TouchableOpacity
          onPress={()=> {this.backProfile()}}
          style={{
            width:110,
@@ -135,7 +135,7 @@ import { Card, ListItem , Icon } from 'react-native-elements'
             }}
             ><Ionicons name="ios-arrow-back" size={35} color="#fff" /> <Text style={{fontWeight:"bold",fontSize:14}}>Profile
               </Text></Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
             {this.state.AllCoachs.map((Coach)=>{
               return(
 

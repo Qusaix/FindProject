@@ -127,7 +127,7 @@ import {Bottom } from '../HomeScreen'
     render() {
       return (
         <ScrollView >
-          <TouchableOpacity
+          {/* <TouchableOpacity
           
           onPress={()=>{return this.Back()}}
           style={{
@@ -144,7 +144,7 @@ import {Bottom } from '../HomeScreen'
             }}
             ><Ionicons name="ios-arrow-back" size={35} color="#fff" /> <Text style={{fontWeight:"bold",fontSize:14}}>Profile
               </Text></Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <View>
           <Image 
                           style={{
