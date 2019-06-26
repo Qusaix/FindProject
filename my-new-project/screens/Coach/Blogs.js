@@ -113,9 +113,6 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
   //.catch((err)=>console.warn(err))
   .done()
     }, 10000);
-
-
-
   }
 
   AddBlog(){
@@ -200,21 +197,13 @@ behavior = "padding"
             flex: 1,
            // flexDirection:"column",
         }}>
-        
-
-
-
-
-
         <View style={{
         backgroundColor:"#16A085",
         padding:5,
         margin:5,
         borderRadius:9,
        // justifyContent:"flex-end"
-
       }}>
-
       <Text
       style={{
         fontSize:25,
@@ -253,27 +242,7 @@ behavior = "padding"
      // suffix="You Need To Put a Number"
      // title="The Max Number Of Characters"
      //  error="You Need To complete"
-      characterRestriction={55}  
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      // style={{
-      //   margin:5,
-      //   backgroundColor:"red",
-      //   color:"#fff",
-      //   padding:15,
-      //   borderRadius:6,
-      //   width:150
-      // }}
+      characterRestriction={55}
       />
        
       <TextField
@@ -284,7 +253,7 @@ behavior = "padding"
       this.setState({TheNewContent:value})
       //this.check()
     }}
-      //placeholder="Content" 
+
       
         // Title = "Name"
       label="The Content"
@@ -303,17 +272,6 @@ behavior = "padding"
      //  error="You Need To complete"
       characterRestriction={240}
 
-
-
-
-      // style={{
-      //   margin:5,
-      //   backgroundColor:"red",
-      //   color:"#fff",
-      //   padding:15,
-      //   borderRadius:6,
-      //   width:150
-      // }}
       />
       </View>
   {/* <TouchableOpacity
@@ -368,19 +326,7 @@ style={{
   </CardAction>
 </Card>
       </View>
-
-
-
-
-
-
-
-
-
-
-
-  
-        {this.state.reversed.map((Blog)=>{
+ {this.state.reversed.map((Blog)=>{
             return(
     
                 
@@ -433,50 +379,10 @@ style={{
       title="Later"
       color="blue"
     /> */}
-  </CardAction>
-</Card>
+    </CardAction>
+   </Card>
 
-
-
-                 {/* <View style={{
-                     width:220,
-                     backgroundColor:"red",
-                     margin:5,
-                     borderRadius:5,
-                     
-                 }}>
-                 <Text
-                 style={{
-                     padding:5,
-                     color:"#fff",
-                     fontSize:25,
-                     fontWeight:"bold",
-                 }}
-                 >{Blog.TheCreater}</Text>      
-                <Text
-                style={{
-                    padding:5,
-                    color:"#fff",
-                    fontSize:21,
-                    fontWeight:"bold"
-                }}
-                > {Blog.Title} </Text>
-                <Text
-                style={{
-                    padding:5,
-                    color:"#fff",
-                    fontSize:14,
-                    fontWeight:"bold"
-                }}
-                > {Blog.content}  </Text>
-                </View> 
-        
-        
-                   */}
-
-        
-    
-                  </View>
+ </View>
         
                   
     
@@ -484,57 +390,9 @@ style={{
     
             )
          })}  
-
-
-
-      
-{/* <Card
-style={{
-  
-}}
->
-  <CardImage 
-    // source={{uri: 'http://placehold.it/480x270'}} 
-    title="Above all i am here"
-  />
-  <CardTitle 
-    title={this.state.TheNewTitle} 
-    subtitle={this.state.Email}
-   />
-  <CardContent text={this.state.TheNewContent} />
-  <CardAction 
-    separator={true} 
-    inColumn={false}>
-    <CardButton
-      onPress={() => {
-        this.AddBlog();
-      }}
-      title="Add Tip"
-      color="blue"
-    />
-    <CardButton
-      onPress={() => {}}
-      title="Later"
-      color="blue"
-    />
-  </CardAction>
-</Card> */}
-
-      
          </ScrollView>
     </KeyboardAvoidingView>
-
-
-
-      )
-    
-    
-    
-    
-    
-    
-    
-    }
+ )}
 
 
 };
