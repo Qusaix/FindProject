@@ -129,16 +129,6 @@ var options = {
             borderRadius:10
           }}
           > 
-                  {/* <TouchableOpacity
-                  style={{
-                    padding:25,
-                    backgroundColor:"red",
-
-                  }}
-                  onPress={this.UploadPhotos.bind(this)}
-                  >
-                  <Text>Upload Photo</Text>
-                  </TouchableOpacity> */}
                 <TextInput 
                   style={{
                   backgroundColor:"#fff",
@@ -374,12 +364,6 @@ var options = {
                onChangeText={(value)=>this.setState({Height:value})}
                 
                   />
-
-
-
-
-
-
 
 
                 <TouchableOpacity

@@ -79,65 +79,6 @@ import { Ionicons , FontAwesome, AntDesign , MaterialCommunityIcons} from '@expo
           alignItems:"center",
         }}
         >
-            {/* <TextInput 
-                  style={{
-                  backgroundColor:"#fff",
-                  borderLeftWidth: 2,
-                  borderRightWidth: 2,
-                  borderBottomWidth:2,
-                  borderTopWidth:2,
-                  borderColor:"#000",
-                  borderRadius:8,
-                  height: 40,
-                  textAlign:"center",
-                  marginTop:15,
-                  marginLeft:15,
-                  marginRight:15,
-                  padding:10,
-                  color:"#000",
-                  fontSize:15,
-                  textDecorationLine:"none"
-
-          
-                }}
-                placeholder="Find Trainees"
-                name={"Search"}
-                // onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
-
-                  /> */}
-                  {/* <TouchableOpacity
-                style={{
-                  backgroundColor:"green",
-                  padding:10,
-                  width:70,
-                  marginLeft:80+"%",
-                  marginTop:5,
-                  borderRadius:7
-                }}
-                onPress={()=>{
-                  this.props.navigation.navigate("LoginCoach");
-                }}
-                >
-                  <Text
-                  style={{
-                    textAlign:"center",
-                    color:"#fff",
-                    fontWeight:"bold"
-                  }}
-                  
-                  >Find</Text>
-                  </TouchableOpacity> */}
-
-            {/* <Image 
-            style={{
-                height:100,
-                width:100,
-                //position: 'absolute', 
-                justifyContent: 'center', 
-                margin:10
-            }}
-            source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
-            /> */}
              <Text
           style={{
               fontSize:25,
@@ -183,14 +124,6 @@ import { Ionicons , FontAwesome, AntDesign , MaterialCommunityIcons} from '@expo
               onChangeText={(value)=>this.setState({UpdatedName:value})}
               
               />
-
-
-
-
-
-
-
-
           <TextField
            name={"UpdatedName"}
             Title = "Name"
@@ -339,19 +272,6 @@ import { Ionicons , FontAwesome, AntDesign , MaterialCommunityIcons} from '@expo
               onChangeText={(value)=>this.setState({UpdatedHeight:value})}
               
               />
-
-          {/* <Text>Name</Text>
-          <TextInput name={"UpdatedName"} placeholder="Put Your Name" onChangeText={(value)=>this.setState({UpdatedName:value})}/>
-          <Text >Bio</Text>
-          <TextInput name={"UpdatedBio"} placeholder="Put Your Bio" onChangeText={(value)=>this.setState({UpdatedBio:value})}/>
-          <Text >Experence</Text>
-          <TextInput name={"UpdatedExperence"} placeholder="Put Your Experence" onChangeText={(value)=>this.setState({UpdatedExperence:value})}/>
-          <Text >Goal</Text>
-          <TextInput name={"UpdatedGoal"} placeholder="Put Your Goal" onChangeText={(value)=>this.setState({UpdatedGoal:value})}/>
-          <Text >Weight</Text>
-          <TextInput name={"UpdatedWeight"} placeholder="Put Your Weight in KG" onChangeText={(value)=>this.setState({UpdatedWeight:value})}/>
-          <Text >Height</Text>
-          <TextInput name={"UpdatedHeight"} placeholder="Put Your Height in cm" onChangeText={(value)=>this.setState({UpdatedHeight:value})}/> */}
         </View>
           <View>
 

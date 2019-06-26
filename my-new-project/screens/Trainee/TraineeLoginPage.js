@@ -215,40 +215,11 @@ import CoachDashboard from '../Coach/dashboard'
                  >
                    Don't have account you can register now for free 
                  </Text>
-                 {/* <TouchableOpacity
-                 onPress={this.props.navigation.goBack}
-                 >
-                   <Text>Go Back</Text>
-                   </TouchableOpacity> */}
              </View>
         </View>
  )}
 
 
 };
-//this.props.navigation.navigate("TraineeDashBoardPage");
 export default LoginTrainee
-// export default createStackNavigator({
-//   Home:{
-//     screen: LoginTrainee
-//   },
-//   TraineeDashBoardPage:{
-//     screen: TraineeDashboard
-//   },
-//   RegisterTrainee:{
-//     screen:RegTrainee
-//   },
-//   SeeAllCoachs:{
-//     screen: SeeAllCoachs
-//   },
-//   DashboardPage:{
-//     screen:CoachDashboard
-//   },
-//   RegCoachPage:{
-//     screen:RegCoach
-//   },
-//   // LoginCoach:{
-//   //   screen:LoginCoach
-//   // }
-// })
   
