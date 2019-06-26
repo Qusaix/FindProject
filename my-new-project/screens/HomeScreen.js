@@ -53,35 +53,7 @@ static navigationOptions = {
 
   }
 }
-  
 
-
-
-
-
-tabs = [
-  {
-    key: 'games',
-    icon: 'gamepad-variant',
-    label: 'Games',
-    barColor: '#388E3C',
-    pressColor: 'rgba(255, 255, 255, 0.16)'
-  },
-  {
-    key: 'movies-tv',
-    icon: 'movie',
-    label: 'Movies & TV',
-    barColor: '#B71C1C',
-    pressColor: 'rgba(255, 255, 255, 0.16)'
-  },
-  {
-    key: 'music',
-    icon: 'music-note',
-    label: 'Music',
-    barColor: '#E64A19',
-    pressColor: 'rgba(255, 255, 255, 0.16)'
-  }
-]
 
 renderIcon = icon => ({ isActive }) => (
   <Icon size={24} color="white" name={icon} />
@@ -96,26 +68,6 @@ renderTab = ({ tab, isActive }) => (
   />
 )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 LoginTrainee = () => {
   this.props.navigation.navigate('LoginTraineeTake')  
 }
@@ -126,36 +78,6 @@ LoginCoach = () =>{
   render() {
     return (
     <View style={styles.container}>
-
-
-
-
-
-
-
-
-
-{/* <View style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
-          {/* Your screen contents depending on current tab. */}
-        {/* </View>
-        <BottomNavigation
-          onTabPress={newTab => this.setState({ activeTab: newTab.key })}
-          renderTab={this.renderTab}
-          tabs={this.tabs}
-        /> */}
-      {/* // </View> */}
-
-
-
-
-
-
-
-
-
-
-
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Image 
@@ -172,11 +94,7 @@ LoginCoach = () =>{
           marginLeft:54,
           marginBottom:25,
           marginTop:15,
-         // padding:25,
-         // backgroundColor:"red",
-          //borderRadius:7,
           width:200,
-         // color:"#fff",
           textAlign:"center",
           fontSize:21,
           fontWeight:"bold"
@@ -227,19 +145,12 @@ LoginCoach = () =>{
          > Coach </Text>
        </TouchableOpacity>
 
-          
-
-         
-
-          
         </ScrollView>
        {/* // <TapBar /> */}
       </View>
     );
   }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -256,119 +167,6 @@ const styles = StyleSheet.create({
 
   },
 });
-/*
-static navigationOptions = {
-    title:"Login as Coach",
-    headerStyle:{
-      backgroundColor:"#238aff",
-      display:"none"
-    },
-    headerTitleStyle:{
-      color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
-    alignItems:"center",
-    flex: 1
-    }
-  }
-
-*/
-// createMaterialBottomTabNavigator(
-//   createStackNavigator,
-//   HomeScreen
-// )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const TabNavigator = createMaterialBottomTabNavigator(  
-//   {  
-//       Home: { screen: HomeScreen,  
-//           navigationOptions:{  
-//               tabBarLabel:'Home',  
-//               tabBarIcon: ({ tintColor }) => (  
-//                   <View>  
-//                       <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
-//                   </View>),  
-//           }  
-//       },  
-//       Profile: { screen: Blogs,  
-//           navigationOptions:{  
-//               tabBarLabel:'Profile',  
-//               tabBarIcon: ({ tintColor }) => (  
-//                   <View>  
-//                       <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
-//                   </View>),  
-//               activeColor: '#f60c0d',  
-//               inactiveColor: '#f65a22',  
-//               barStyle: { backgroundColor: '#f69b31' },  
-//           }  
-//       },  
-//       Image: { screen: Blogs,  
-//           navigationOptions:{  
-//               tabBarLabel:'History',  
-//               tabBarIcon: ({ tintColor }) => (  
-//                   <View>  
-//                       <MaterialCommunityIcons style={[{color: tintColor}]} size={25} name={'blogger'}/>  
-//                   </View>),  
-//               activeColor: '#615af6',  
-//               inactiveColor: '#46f6d7',  
-//               barStyle: { backgroundColor: '#67baf6' },  
-//           }  
-//       },  
-//       Cart: {  
-//           screen: Blogs,  
-//           navigationOptions:{  
-//               tabBarLabel:'Cart',  
-//               tabBarIcon: ({ tintColor }) => (  
-//                   <View>  
-//                       <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
-//                   </View>),  
-//           }  
-//       },  
-//   },  
-//   {  
-//     initialRouteName: "Home",  
-//     activeColor: '#f0edf6',  
-//     inactiveColor: '#226557',  
-//     barStyle: { backgroundColor: '#3BAD87' },  
-//   },  
-// );  
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default createStackNavigator({
   HomeScreen:{
@@ -423,6 +221,3 @@ export default createStackNavigator({
      screen:Dite
    }
 })
-
-
-// export default createAppContainer(TabNavigator)
