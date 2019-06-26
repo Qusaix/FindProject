@@ -27,23 +27,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        Experence:""
      }
    }
-  // static navigationOptions = {
-  //   title:"RegIster",
-  //   headerStyle:{
-  //     backgroundColor:"red",
-  //     height:1,
-  //     display:"none"
-  //   },
-  //   headerTitleStyle:{
-  //     color:"#fff",
-  //     // marginLeft:48+"%",
-  //     // marginTop: -38
-  //   alignItems:"center",
-  //   flex: 1,
-  //   height:1,
-  //   display:"none"
-  //   }
-  // }
+   
   TextFieldValue(type){
     this.setState({ text: type }) 
     

@@ -25,30 +25,9 @@ import CoachDashboard from './dashboard'
        Password:""
      }
    }
-
-  //  static navigationOptions = {
-  //   title:"LoginCoach",
-  //   headerStyle:{
-  //     backgroundColor:"#238aff",
-  //    // display:"none"
-
-  //   },
-  //   headerTitleStyle:{
-  //     color:"#fff",
-  //     // marginLeft:48+"%",
-  //     // marginTop: -38
-  //   alignItems:"center",
-  //   flex: 1,
-  //   //display:"none"
-  //   }
-  // }
-
-
-
+   
    TheData(data){
     console.log(data)
-    //this.state.userInfo.push(data)
-   // console.log("This is the Array ",this.state.userInfo)
    console.log("This is the Err ",data.err)
     if(data.err === undefined){
       console.log("It's Work", data.Name)
@@ -242,16 +221,4 @@ import CoachDashboard from './dashboard'
 };
 
 export default LoginCoach
-
-// export default createStackNavigator({
-//   Home:{
-//     screen:LoginCoach
-//   },
-//   DashboardPage:{
-//     screen:CoachDashboard
-//   },
-//   RegCoachPage:{
-//     screen:RegCoach
-//   }
-// })
   
