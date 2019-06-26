@@ -27,23 +27,6 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        Experence:""
      }
    }
-  // static navigationOptions = {
-  //   title:"RegIster",
-  //   headerStyle:{
-  //     backgroundColor:"red",
-  //     height:1,
-  //     display:"none"
-  //   },
-  //   headerTitleStyle:{
-  //     color:"#fff",
-  //     // marginLeft:48+"%",
-  //     // marginTop: -38
-  //   alignItems:"center",
-  //   flex: 1,
-  //   height:1,
-  //   display:"none"
-  //   }
-  // }
   handelChange(event = {}){
     const name = event.target && event.target.name;
     const value = event.target && event.target.value;
@@ -63,11 +46,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
   .then((data)=>{console.warn("This is the data ",data)})
   //.catch((err)=>console.warn(err))
   .done()
-
-     
-
-  }
-
+}
     render() {
       return (
         <View>

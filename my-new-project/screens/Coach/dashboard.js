@@ -37,25 +37,6 @@ import Search from './Search'
      } 
    }
 
-  // static navigationOptions = {
-  //   tabBarVisible: false,
-  //   title:"Logout",
-  //   headerStyle:{
-  //     backgroundColor:"red",
-  //   display:"none"
-  //   },
-  //   headerTitleStyle:{
-  //     color:"#fff",
-  //     // marginLeft:48+"%",
-  //     // marginTop: -38
-  //  // alignItems:"center",
-  //  // flex: 1,
-  //  display:"none"
-  //   }
-  // };
-
-  
-  
   tabs = [
     {
       key: 'games',
@@ -92,16 +73,6 @@ import Search from './Search'
       renderIcon={this.renderIcon(tab.icon)}
     />
   )
-  
-
-
-
-
-
-
-
-
-
 
   componentDidMount(){
     this.getUsers();
@@ -172,94 +143,7 @@ Counter(){
   console.log(Length)
   return Length
 }
-  
 
-
-  // TheBar(){
-  //   const TabNavigator = createMaterialBottomTabNavigator(  
-  //     {  
-  //         Home: { screen: "HomeScreen",  
-  //             navigationOptions:{  
-  //                 tabBarLabel:'Home',  
-  //                 tabBarIcon: ({ tintColor }) => (  
-  //                     <View>  
-  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>  
-  //                     </View>),  
-  //             }  
-  //         },  
-  //         Profile: { screen: "Blogs",  
-  //             navigationOptions:{  
-  //                 tabBarLabel:'Profile',  
-  //                 tabBarIcon: ({ tintColor }) => (  
-  //                     <View>  
-  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
-  //                     </View>),  
-  //                 activeColor: '#f60c0d',  
-  //                 inactiveColor: '#f65a22',  
-  //                 barStyle: { backgroundColor: '#f69b31' },  
-  //             }  
-  //         },  
-  //         Image: { screen: 'Blogs',  
-  //             navigationOptions:{  
-  //                 tabBarLabel:'History',  
-  //                 tabBarIcon: ({ tintColor }) => (  
-  //                     <View>  
-  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-images'}/>  
-  //                     </View>),  
-  //                 activeColor: '#615af6',  
-  //                 inactiveColor: '#46f6d7',  
-  //                 barStyle: { backgroundColor: '#67baf6' },  
-  //             }  
-  //         },  
-  //         Cart: {  
-  //             screen: Blogs,  
-  //             navigationOptions:{  
-  //                 tabBarLabel:'Cart',  
-  //                 tabBarIcon: ({ tintColor }) => (  
-  //                     <View>  
-  //                         <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
-  //                     </View>),  
-  //             }  
-  //         },  
-  //     },  
-  //     {  
-  //       initialRouteName: "Home",  
-  //       activeColor: '#f0edf6',  
-  //       inactiveColor: '#226557',  
-  //       barStyle: { backgroundColor: '#3BAD87' },  
-  //     },  
-  //   );  
-    
-  //     return TabNavigator
-
-
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
   }
@@ -275,55 +159,6 @@ Counter(){
          
         }}
         >
-            {/* <TextInput 
-                  style={{
-                  backgroundColor:"#fff",
-                  borderLeftWidth: 2,
-                  borderRightWidth: 2,
-                  borderBottomWidth:2,
-                  borderTopWidth:2,
-                  borderColor:"#000",
-                  borderRadius:8,
-                  height: 40,
-                  textAlign:"center",
-                  marginTop:15,
-                  marginLeft:15,
-                  marginRight:15,
-                  padding:10,
-                  color:"#000",
-                  fontSize:15,
-                  textDecorationLine:"none"
-
-          
-                }}
-                placeholder="Find Trainees"
-                name={"Search"}
-                // onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
-
-                  />
-                  <TouchableOpacity
-                style={{
-                  backgroundColor:"green",
-                  padding:10,
-                  width:70,
-                  marginLeft:80+"%",
-                  marginTop:5,
-                  borderRadius:7
-                }}
-                onPress={()=>{
-                  this.props.navigation.navigate("Blogs");
-                }}
-                >
-                  <Text
-                  style={{
-                    textAlign:"center",
-                    color:"#fff",
-                    fontWeight:"bold"
-                  }}
-                  
-                  >Blogs</Text>
-                  </TouchableOpacity> */}
-
             <View
             style={{
               justifyContent: "center", 
@@ -601,21 +436,7 @@ Counter(){
           </View>
           </ScrollView>
  )}
-
-
-
-
-
-
-
-            
-
-
-
-
 };
-
-
 
 const TabNavigator = createMaterialBottomTabNavigator(  
   {  
@@ -732,9 +553,6 @@ const TabNavigator = createMaterialBottomTabNavigator(
     barStyle: { backgroundColor: '#3BAD87' },
   },  
 );  
-
-
-
 
 
 
