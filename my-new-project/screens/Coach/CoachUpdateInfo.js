@@ -112,65 +112,6 @@ import { TextField } from 'react-native-material-textfield';
           width:100+"%" 
         }}
         >
-            {/* <TextInput 
-                  style={{
-                  backgroundColor:"#fff",
-                  borderLeftWidth: 2,
-                  borderRightWidth: 2,
-                  borderBottomWidth:2,
-                  borderTopWidth:2,
-                  borderColor:"#000",
-                  borderRadius:8,
-                  height: 40,
-                  textAlign:"center",
-                  marginTop:15,
-                  marginLeft:15,
-                  marginRight:15,
-                  padding:10,
-                  color:"#000",
-                  fontSize:15,
-                  textDecorationLine:"none"
-
-          
-                }}
-                placeholder="Find Trainees"
-                name={"Search"}
-                // onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
-
-                  />
-                  <TouchableOpacity
-                style={{
-                  backgroundColor:"green",
-                  padding:10,
-                  width:70,
-                  marginLeft:80+"%",
-                  marginTop:5,
-                  borderRadius:7
-                }}
-                onPress={()=>{
-                  this.props.navigation.navigate("LoginCoach");
-                }}
-                >
-                  <Text
-                  style={{
-                    textAlign:"center",
-                    color:"#fff",
-                    fontWeight:"bold"
-                  }}
-                  
-                  >Find</Text>
-                  </TouchableOpacity> */}
-
-            {/* <Image 
-            style={{
-                height:100,
-                width:100,
-                //position: 'absolute', 
-                justifyContent: 'center', 
-                margin:10
-            }}
-            source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
-            /> */}
         <View
         style={{
            // margin:10,
@@ -302,42 +243,7 @@ import { TextField } from 'react-native-material-textfield';
         </View>
           <View>
           </View>
-
-
-
           
-          {/* <Text>This is the New Text Field</Text>
-          <TextField 
-          style={{
-            flex:1,
-            justifyContent:"flex-end"
-          }}
-          label="Phone Number"
-          value={this.Email}
-
-          /> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </View>
 
           <View>
