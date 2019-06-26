@@ -127,24 +127,6 @@ import {Bottom } from '../HomeScreen'
     render() {
       return (
         <ScrollView >
-          {/* <TouchableOpacity
-          
-          onPress={()=>{return this.Back()}}
-          style={{
-            width:100
-          }}
-          >
-            <Text
-            style={{
-              backgroundColor:"#000",
-              padding:10,
-              margin:5,
-              color:"#fff",
-              borderRadius:9
-            }}
-            ><Ionicons name="ios-arrow-back" size={35} color="#fff" /> <Text style={{fontWeight:"bold",fontSize:14}}>Profile
-              </Text></Text>
-          </TouchableOpacity> */}
           <View>
           <Image 
                           style={{
@@ -247,9 +229,6 @@ import {Bottom } from '../HomeScreen'
           >This is the post it will The Coach Relese </Text>
             
             </View> 
-
-
-
             <View style={{
             margin:5
           }}>
@@ -359,17 +338,8 @@ import {Bottom } from '../HomeScreen'
             <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
             <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
             </View>
-
-
-
-
-
-
             </View>  
-
-
             </View>
-          {/* <Bottom /> */}
 </ScrollView>
  )}
 

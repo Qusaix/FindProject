@@ -218,115 +218,10 @@ behavior = "padding"
         flex:1,
         
       }}>
-      {/* <TextField 
-      name={"Title"}
-      maxLength={60}
-      onChangeText={(value)=>{
-        this.setState({Title:value})
-        this.setState({TheNewTitle:value})
-      }}
-      label="The Title"
-      baseColor = "#fff"
-      tintColor="#000"
-      multiline={true}
-      maxLength={60}
-      fontSize={14}
-      labelFontSize={17}
-      animationDuration={350}
-      editable={ true }
-      lineWidth={ 2 }
-      characterRestriction={55}  
-      />
-       
-      <TextField
-      name={"Content"}
-      maxLength={100}
-      onChangeText={(value)=>{
-      this.setState({Content:value})
-      this.setState({TheNewContent:value})
-    }}
-      label="The Content"
-      baseColor = "#fff"
-      tintColor="#000"
-      multiline={false}
-      maxLength={245}
-      fontSize={14}
-      labelFontSize={17}
      
-      animationDuration={350}
-      editable={ true }
-      lineWidth={ 2 }
-      characterRestriction={240}
-
-
-
-      /> */}
       </View>
-  {/* <TouchableOpacity
-  onPress={()=>{
-    this.AddBlog();
-  }}
-  style={{
-  width:100,
-  backgroundColor:"red",
-  margin:5,
-  padding:5,
-  borderRadius:9,
-}}
->
-  <Text
-  style={{
-    color:"#fff",
-    fontWeight:"bold",
-    fontSize:14
-  }}
-  >Add Tip</Text>
-</TouchableOpacity> */}
-{/* <Card
-style={{
-  
-}}
->
-  <CardImage 
-    source={{uri: 'http://placehold.it/480x270'}} 
-    title="Above all i am here"
-  /> 
-  <CardTitle 
-    title={this.state.TheNewTitle} 
-    subtitle={this.state.Email}
-   />
-  <CardContent text={this.state.TheNewContent} />
-  <CardAction 
-    separator={true} 
-    inColumn={false}>
-    <CardButton
-      onPress={() => {
-        this.AddBlog();
-      }}
-      title="Add Tip"
-      color="blue"
-    />
-    <CardButton
-      onPress={() => {}}
-      title="Later"
-      color="blue"
-    />
-  </CardAction>
-</Card> */}
       </View>
-
-
-
-
-
-
-
-
-
-
-
-  
-        {this.state.reversed.map((Blog)=>{
+          {this.state.reversed.map((Blog)=>{
             return(
     
                 
@@ -381,108 +276,11 @@ style={{
     /> */}
   </CardAction>
 </Card>
-
-
-
-                 {/* <View style={{
-                     width:220,
-                     backgroundColor:"red",
-                     margin:5,
-                     borderRadius:5,
-                     
-                 }}>
-                 <Text
-                 style={{
-                     padding:5,
-                     color:"#fff",
-                     fontSize:25,
-                     fontWeight:"bold",
-                 }}
-                 >{Blog.TheCreater}</Text>      
-                <Text
-                style={{
-                    padding:5,
-                    color:"#fff",
-                    fontSize:21,
-                    fontWeight:"bold"
-                }}
-                > {Blog.Title} </Text>
-                <Text
-                style={{
-                    padding:5,
-                    color:"#fff",
-                    fontSize:14,
-                    fontWeight:"bold"
-                }}
-                > {Blog.content}  </Text>
-                </View> 
-        
-        
-                   */}
-
-        
-    
-                  </View>
-        
-                  
-    
-    
-    
-            )
-         })}  
-
-
-
-      
-{/* <Card
-style={{
-  
-}}
->
-  <CardImage 
-    // source={{uri: 'http://placehold.it/480x270'}} 
-    title="Above all i am here"
-  />
-  <CardTitle 
-    title={this.state.TheNewTitle} 
-    subtitle={this.state.Email}
-   />
-  <CardContent text={this.state.TheNewContent} />
-  <CardAction 
-    separator={true} 
-    inColumn={false}>
-    <CardButton
-      onPress={() => {
-        this.AddBlog();
-      }}
-      title="Add Tip"
-      color="blue"
-    />
-    <CardButton
-      onPress={() => {}}
-      title="Later"
-      color="blue"
-    />
-  </CardAction>
-</Card> */}
-
-      
-         </ScrollView>
+    </View>
+                   )})}  
+      </ScrollView>
     </KeyboardAvoidingView>
-
-
-
-      )
-    
-    
-    
-    
-    
-    
-    
-    }
-
-
+)}
 };
 
 export default TraineeBlog;
