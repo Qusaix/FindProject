@@ -147,9 +147,7 @@ import TraineeBlog from './BlogTrainee'
     display:"none"
     }
   }
-
-
-
+  
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
   }
@@ -169,14 +167,7 @@ import TraineeBlog from './BlogTrainee'
   .then((res)=>{
     console.log(res);
     this.setState({YourCouch:res.Name})
-    //console.log("Helllo",res)
-    //this.setState({ AllCoachs : res})
-    //console.log("This is the Array ",this.state.AllCoachs)
-   // console.log("This is The ID",res)
-    //this.state.AllCoachs.map((element)=>{return (console.log("This is the Element ",element))})
-    //this.TheData(res)
   })
-  //.catch((err)=>console.warn(err))
   .done()
     }, 10000);
     
@@ -201,74 +192,8 @@ import TraineeBlog from './BlogTrainee'
           height:100+"%"
         }}
         >
-          {/* /// This is the Edite Button  */}
-        
-        {/* /// This is the Edite Button  */}
-            {/* <TextInput 
-                  style={{
-                  backgroundColor:"#fff",
-                  borderLeftWidth: 2,
-                  borderRightWidth: 2,
-                  borderBottomWidth:2,
-                  borderTopWidth:2,
-                  borderColor:"#000",
-                  borderRadius:8,
-                  height: 40,
-                  textAlign:"center",
-                  marginTop:15,
-                  marginLeft:15,
-                  marginRight:15,
-                  padding:10,
-                  color:"#000",
-                  fontSize:15,
-                  textDecorationLine:"none"
-
-          
-                }}
-                placeholder="Find Trainees"
-                name={"Search"}
-                // onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
-
-                  /> */}
-                  {/* <TouchableOpacity
-                style={{
-                  backgroundColor:"green",
-                  padding:10,
-                  width:70,
-                  marginLeft:80+"%",
-                  marginTop:5,
-                  borderRadius:7
-                }}
-                onPress={()=>{
-                  this.props.navigation.navigate("SeeAllCoachs"); 
-                }}
-                >
-                  <Text
-                  style={{
-                    textAlign:"center",
-                    color:"#fff",
-                    fontWeight:"bold"
-                  }}
-                  
-                  >Find</Text>
-                  </TouchableOpacity> */}
-
-
-                  <View>
-
-                  {/* <View
-        style={{
-          position:"absolute",
-          left:145,
-          marginTop:215,
-          backgroundColor:"red",
-          borderRadius:11
-        }}
-        >
-          <Text>This is the last thing</Text>
-        <AntDesign name="edit" size={20} color="#fff" />
-
-        </View> */}
+           
+             <View>
                   <Image 
             style={{
                 height:150,
@@ -375,22 +300,6 @@ style={{
 
 }}
 >
-  {/* <Text>Your Couch</Text> */}
-  {/* {
-    this.state.Array.map((l, i) => (
-      <ListItem
-      style={{
-        position:"absolute",
-        top:190,
-        left:83
-      }}
-        key={i}
-        leftAvatar={{ source: { uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg' } }}
-        title={this.state.YourCouch}
-        subtitle={"l.subtitle"}
-      />
-    ))
-  } */}
   <Text
   style={{
     fontSize:20,
@@ -399,8 +308,6 @@ style={{
   }}
   >{this.state.YourCouch}</Text>
 </View>
-
-
 
 </View>
 
@@ -417,205 +324,14 @@ style={{
             //backgroundColor:"red"
         }}
         >
-
-
-
-
-{/* <Card
-  title='Your Info'
- // image={require('../images/pic2.jpg')}
- style={{
-  backgroundColor:"green",
-  width:100+"%" 
-
-}}
- > */}
-
-  {/* <Text style={{marginBottom: 10}}>
-  <Text
-  style={{
-  fontWeight:"bold",
-  fontSize:18  
-  }}
-  >
-  Experence: 
-    </Text> 
-    <Text>{this.state.Experence}</Text>
-   
-
-  </Text> */}
-
-  {/* <Text
-  style={{
-    fontWeight:"bold",
-  fontSize:18 
-  }}
-  >Years</Text> 
-   
-  
-  <Text style={{marginBottom: 10}}>
-    {this.state.Height}
-  </Text>
-  <Text style={{marginBottom: 10}}>
-    {this.state.Goal}
-  </Text> */}
-  {/* <Text style={{marginBottom: 10}}>
-    {this.state.Goal}
-  </Text> */}
-  {/* <Button
-    icon={<Icon name='code' color='#ffffff' />}
-    backgroundColor='#03A9F4'
-    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-    title='VIEW NOW' /> */}
-{/* </Card> */}
-
-
-
-
-
-
-
-
-
-
-
-      
-        {/* <View
-        style={{
-        //  position:"relative"
-        }}
-        >
-          <Text
-          style={{
-              fontSize:25,
-              marginBottom:15
-          }}
-          >Your Info</Text>
-
-          <Text>How Many Years {this.state.Experence}</Text>
-          <Text>Goal {this.state.Goal}</Text>
-          <Text>Weight {this.state.Weight}KG</Text>
-          <Text>Height {this.state.Height}cm</Text>
-          
-          </View> */}
         </View>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <View>
-           {/* <Text
-           style={{
-            fontSize:25,
-            margin:10
-           }}
-           >
-            Your Coach
-
-            </Text>
-            <View
-            style={{
-              fontSize:25,
-              margin:10
-             }}
-            >
-              <Text>{this.state.YourCouch}</Text>
-            </View> */}
-          {/* <Text
-          style={{
-              fontSize:25,
-              marginTop:15,
-              margin:10
-          }}
-          >
-         Your Diet</Text>
-          <View
-          style={{
-            fontSize:25,
-            margin:10
-           }}
-          >
-          <Text>Protein: </Text>
-          <Text>Carb: </Text>
-          <Text>Fat: </Text>
-          </View> */}
-
-           {/* <Text
-           style={{
-            fontSize:25,
-            marginTop:15,
-            margin:10
-            }}
-           >Goal </Text> */}
-
-         {/* <View
-           style={{
-            fontSize:25,
-            margin:10
-           }}
-           >
-             <Text>
-               Start
-             </Text>
-             <Text>
-               End 
-             </Text>
-         </View> */}
-           
-
           </View>
           <View>
 
          <View>
-
-
-
-
-
-          
          </View>
-
-          {/* <TouchableOpacity 
-          onPress={()=>this.props.navigation.navigate("LoginTraineeTake")}
-          style={{
-            backgroundColor:"green",
-            padding:10,
-            width:70,
-          //  marginLeft:90+"%",
-            alignContent:"flex-end",
-            marginTop:5,
-            borderRadius:7,
-            marginBottom:10,
-            marginTop:90+"%",
-          }}
-          >
-
-
-            <Text
-            style={{
-              color:"#fff",
-              fontSize:15,
-              fontWeight:"bold",
-              textAlign:"center"
-            }}
-            >Logout</Text>
-
-            </TouchableOpacity> */}
 
             </View>
 
@@ -649,44 +365,12 @@ style={{
               </Text>
             </TouchableOpacity>
 
-
-            {/* <TouchableOpacity
-                style={{
-                  backgroundColor:"green",
-                  padding:10,
-                  width:15+"%",
-                  marginLeft:95+"%",
-                //  marginTop:-5,
-                  borderRadius:7,
-                  top:80+"%",
-                  position:"absolute"
-                }}
-                onPress={()=>{
-                  this.props.navigation.navigate("SeeAllCoachs"); 
-                }}
-                >
-                  <Text
-                  style={{
-                    textAlign:"center",
-                    color:"#fff",
-                    fontWeight:"bold"
-                  }}
-                  
-                  >Add Coach</Text>
-                  </TouchableOpacity> */}
-
           </View>
           </ScrollView>
  )}
 
 
 };
-
-
-
-
-
-
 const TabNavigator = createMaterialBottomTabNavigator(  
   {  
       Home: { screen: TraineeDashboard,  
@@ -781,12 +465,6 @@ const TabNavigator = createMaterialBottomTabNavigator(
               flex: 1,
               display:"none"
             },
-
-
-
-            
-
-
               tabBarLabel:'Search',  
               tabBarIcon: ({ tintColor }) => (  
                   <View>  
@@ -803,18 +481,5 @@ const TabNavigator = createMaterialBottomTabNavigator(
   },  
 );  
 
-
-
-
-
-
 export default createAppContainer(TabNavigator);  
-
-
-
-
-
-
-
-
 export { TraineeDashboard };
