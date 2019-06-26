@@ -340,7 +340,7 @@ import TraineeBlog from './BlogTrainee'
  style={{
    fontSize:25,
    position:"absolute",
-   left:202,
+   left:185,
    top:200
  }}
  >  {this.state.Name}   </Text> 

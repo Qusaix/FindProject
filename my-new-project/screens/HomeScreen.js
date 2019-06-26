@@ -181,7 +181,7 @@ LoginCoach = () =>{
           fontSize:21,
           fontWeight:"bold"
         }}
-        >Application Name</Text>
+        >Journey</Text>
 
         <TouchableOpacity
             style={{width:250,
@@ -375,7 +375,7 @@ export default createStackNavigator({
     screen:HomeScreen 
   }, 
   TestePage:{
-    screen:Dite
+    screen:TraineeDashboard
   },
   LoginCoachTake:{
    screen:LoginCoach

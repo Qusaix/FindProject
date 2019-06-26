@@ -123,7 +123,7 @@ var options = {
           style={{
             width: 300,
             height: 600,
-            backgroundColor:"#238aff",
+            backgroundColor:"#138D75",
             marginLeft:90,
             marginTop:20,
             borderRadius:10

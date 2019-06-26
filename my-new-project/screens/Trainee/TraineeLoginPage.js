@@ -37,7 +37,7 @@ import CoachDashboard from '../Coach/dashboard'
   static navigationOptions = {
     title:"LoginTrainee",
     headerStyle:{
-      backgroundColor:"#238aff",
+      backgroundColor:"#138D75",
       //display:"none"
 
     },
@@ -108,7 +108,7 @@ import CoachDashboard from '../Coach/dashboard'
         style={{
           width: 300,
           height: 250,
-          backgroundColor:"red",
+          backgroundColor:"#138D75", 
           marginLeft:90,
           marginTop:20,
           marginBottom:150,

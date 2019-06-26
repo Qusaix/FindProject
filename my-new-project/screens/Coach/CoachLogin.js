@@ -95,9 +95,10 @@ import CoachDashboard from './dashboard'
 
   static navigationOptions = {
     tabBarVisible: false,
-    title:"Login as Coach",
+    title:"Coach Login",
     headerStyle:{
-      backgroundColor:"#238aff",
+      backgroundColor:"#138D75",
+      color:"#fff"
       // display:"none"
      // marginTop: -38,
       
@@ -126,7 +127,7 @@ import CoachDashboard from './dashboard'
         style={{
           width: 300,
           height: 250,
-          backgroundColor:"red",
+          backgroundColor:"#138D75",
           marginLeft:90,
           marginTop:20,
           marginBottom:150,

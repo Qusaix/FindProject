@@ -14,6 +14,9 @@ import {
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { TextField } from 'react-native-material-textfield';
+import { Ionicons , FontAwesome, AntDesign , MaterialCommunityIcons} from '@expo/vector-icons';
+
 
 //import console = require('console');
 
@@ -51,7 +54,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
       })
   }
   UpdatedData(){
-    fetch('http://192.168.1.255:5000/UpdateTraineeInfo', {
+    fetch('http://192.168.1.103:5000/UpdateTraineeInfo', {
         method: 'post',
         headers: {
           Accept: 'application/json',
@@ -70,8 +73,13 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     render() {
       return (
         <ScrollView>
-        <View>
-            <TextInput 
+        <View
+        style={{
+          width:100+"%",
+          alignItems:"center",
+        }}
+        >
+            {/* <TextInput 
                   style={{
                   backgroundColor:"#fff",
                   borderLeftWidth: 2,
@@ -96,8 +104,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 name={"Search"}
                 // onChangeText={(text)=>{this.TextFieldValue(text,"Email")}}
 
-                  />
-                  <TouchableOpacity
+                  /> */}
+                  {/* <TouchableOpacity
                 style={{
                   backgroundColor:"green",
                   padding:10,
@@ -118,9 +126,9 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                   }}
                   
                   >Find</Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
 
-            <Image 
+            {/* <Image 
             style={{
                 height:100,
                 width:100,
@@ -129,20 +137,210 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 margin:10
             }}
             source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
-            />
-        <View
-        style={{
-            margin:10
-        }}
-        >
-          <Text
+            /> */}
+             <Text
           style={{
               fontSize:25,
-              marginBottom:15
+              marginBottom:15,
+              margin:5,
+              
           }}
           > Update Your Info</Text>
-          <Text name="Email">Email {this.state.Email}</Text>
-          <Text>Name</Text>
+        <View
+        style={{
+          backgroundColor:"#17A589",
+          padding:10,
+          borderRadius:9, 
+          width:90+"%",
+          margin:5,
+          
+
+        }}
+        >
+          {/* <Text name="Email">Email {this.state.Email}</Text> */}
+
+
+          <TextField
+           name={this.state.Email}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+            label={this.state.Email}
+             multiline={false}
+             maxLength={10}
+             animationDuration={350}
+             editable={ false }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+          //   title="The Max Number Of Characters"
+            //  error="You Need To complete"
+           //  characterRestriction={10}
+              onChangeText={(value)=>this.setState({UpdatedName:value})}
+              
+              />
+
+
+
+
+
+
+
+
+          <TextField
+           name={"UpdatedName"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+             label="Update Your Name"
+             multiline={false}
+             maxLength={10}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={10}
+              onChangeText={(value)=>this.setState({UpdatedName:value})}
+              
+              />
+
+<TextField
+           name={"UpdatedBio"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+             label="Update Your Bio"
+             multiline={true}
+             maxLength={255}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={255}
+              onChangeText={(value)=>this.setState({UpdatedBio:value})}
+              
+              />
+
+
+
+<TextField
+           name={"UpdatedExperence"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+             label="Update Your Experence"
+             multiline={false}
+             maxLength={2}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={10}
+              onChangeText={(value)=>this.setState({UpdatedExperence:value})}
+              
+              />
+
+
+
+<TextField
+           name={"UpdatedGoal"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+             label="Update Your Goal"
+             multiline={false}
+             maxLength={10}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={10}
+              onChangeText={(value)=>this.setState({UpdatedGoal:value})}
+              
+              />
+
+<TextField
+           name={"UpdatedWeight"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+             label="Update Your Weight"
+             multiline={false}
+             maxLength={3}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={3}
+              onChangeText={(value)=>this.setState({UpdatedWeight:value})}
+              
+              />
+
+
+<TextField
+           name={"UpdatedHeight"}
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#000"
+            labelFontSize = {17}
+            fontSize={14}
+             label="Update Your Height"
+             multiline={false}
+             maxLength={4}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={4}
+              onChangeText={(value)=>this.setState({UpdatedHeight:value})}
+              
+              />
+
+          {/* <Text>Name</Text>
           <TextInput name={"UpdatedName"} placeholder="Put Your Name" onChangeText={(value)=>this.setState({UpdatedName:value})}/>
           <Text >Bio</Text>
           <TextInput name={"UpdatedBio"} placeholder="Put Your Bio" onChangeText={(value)=>this.setState({UpdatedBio:value})}/>
@@ -153,7 +351,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
           <Text >Weight</Text>
           <TextInput name={"UpdatedWeight"} placeholder="Put Your Weight in KG" onChangeText={(value)=>this.setState({UpdatedWeight:value})}/>
           <Text >Height</Text>
-          <TextInput name={"UpdatedHeight"} placeholder="Put Your Height in cm" onChangeText={(value)=>this.setState({UpdatedHeight:value})}/>
+          <TextInput name={"UpdatedHeight"} placeholder="Put Your Height in cm" onChangeText={(value)=>this.setState({UpdatedHeight:value})}/> */}
         </View>
           <View>
 
@@ -184,8 +382,15 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
                 textAlign:"center"
               }}
               >
+
+
+                  <FontAwesome name="save" size={20} color="#fff" /> 
                   Save Your Updated Info
               </Text>
+
+
+              
+
           </TouchableOpacity>
 
           <TouchableOpacity
