@@ -3,7 +3,6 @@ const app = express();
 const bodyparser = require('body-parser')
 const { TheData } = require('./Database/database')
 var { NewCoach , NewTraineeModule , Blogs} = require('./Database/moduls/CoachIModule');
-//const NewTrainee = require('./Database/moduls/TraineeModule')
 const bcrypt = require('bcrypt')
 const nodemailer = require("nodemailer");
 const salt = 10; 
@@ -16,27 +15,9 @@ TheData.authenticate()
 .then(()=>console.log("Database is on"))
 .catch((err)=>console.log("There is and err ",err))
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
 app.get('/',(req,res)=>{
     res.send("Hello")
 })
-/* This is For The REalation Data Base 
-NewCoach.hasMany( NewTrainee , {as:req.body.Email, foreignKey:req.body.id});
-NewTrainee.belongsTo(NewCoach ,{as:req.body.Email,foreignKey:req.body.id});
-
-*/
-/*New Thing 
-NewTrainee.belongsTo(NewCoach, { as: 'NewTrainee', foreignKey: 'id' });
-        NewCoach.hasMany(NewTrainee, { as:'NewCoach',foreignKey: 'id' })
-*/
-//Item.setNewTrinee(NewCoach)
-//NewCoach.hasMany(NewTrainee, { as:'NewCoach',foreignKey: 'id' })
-
 
 app.post('/registerCoach',(req,res , next)=>{
     const Info = req.body.Email;
@@ -85,42 +66,36 @@ app.post('/registerCoach',(req,res , next)=>{
 
 
   
-//   var transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//       user: 'tafran56@gmail.com',
-//       pass: '12345678D!'
-//     },tls: {
-//       rejectUnauthorized: false
-//   }
-//   });
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'tafran56@gmail.com',
+      pass: '12345678D!'
+    },tls: {
+      rejectUnauthorized: false
+  }
+  });
   
-//   var mailOptions = {
-//     from: 'tafran56@gmail.com',
-//     to: `${req.body.Email}`,
-//     subject: 'TAFRAN.inc Registerd in TAFRAN',
-//     text: `Thank You For Registerd We Will Be in Toch With You Soon`,
-//     html: `<h1 style="color:#000">App NAME</h1>
-//     <h3 style="color:#000">Thank You For Registerd We Will Be in Toch With You Soon</h3>
+  var mailOptions = {
+    from: 'tafran56@gmail.com',
+    to: `${req.body.Email}`,
+    subject: 'TAFRAN.inc Registerd in TAFRAN',
+    text: `Thank You For Registerd We Will Be in Toch With You Soon`,
+    html: `<h1 style="color:#000">App NAME</h1>
+    <h3 style="color:#000">Thank You For Registerd We Will Be in Toch With You Soon</h3>
    
-//     `        
-//   };
+    `        
+  };
   
-//   transporter.sendMail(mailOptions, function(error, info){
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log('Email sent: ' + info.response);
-//     }
-//   });
-
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
 
 /// Send Email Area END
-
-
-
-
-
 
          console.log("This is the Info From the FrontEnd ",Info)
 
@@ -364,9 +339,6 @@ app.post('/registerTrainee',(req,res)=>{
               .then(Couch => console.log("This is the Couch Id From the rel database ",Couch))
               .catch(err=>console.log(err))
 
-
-
-
             console.log("This is the Trainee Info ", TheInfo)
 
         }else{
@@ -431,14 +403,7 @@ app.post('/SeeAlTraineesYouHave',(req,res)=>{
 
     .catch((err)=>console.log(err))
 
-
-
-
-
 })
-
-
-
 
 })
 
@@ -503,16 +468,8 @@ app.post('/SeeAllTheCustomers',(req,res)=>{
            res.json(couch);
        })
    }
-
-   // console.log("This is the Will Reach : ", ThisIsMyId)
-    setTimeout(function(){ Start(); }, 5000);
-
-   
-
-    
+    setTimeout(function(){ Start(); }, 5000); 
 })
-
-
 
 // START WITH Relation - END
 
@@ -522,9 +479,6 @@ app.post('/SeeAllUsers',(req,res)=>{
         res.json(couch);
     })
 })
-
-
-
 
 app.post('/LoginTrainee',(req,res,next)=>{
    const TheEmail = req.body.Email;
@@ -547,30 +501,6 @@ app.post('/LoginTrainee',(req,res,next)=>{
 
 // Send All The Coachs Inside the database to The frontEnd
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // BLOGS APIs START 
 
 // ADD Done
@@ -578,10 +508,6 @@ app.post('/AddBlog',(req,res)=>{
     
     console.log("email : ",req.body.Email);
     console.log("Name :",req.body);
-
-
-   
-
 
     const AllTheDataFromTheFrontEnd = {
         TheCouchEmail : req.body.Email,
@@ -629,14 +555,6 @@ app.post('/AddBlog',(req,res)=>{
     // res.json(Blogs)
 })
 
-
-
-
-
-
-
-
-
 // See All Blogs Done
 app.post('/SeeAllBlogs',(req,res)=>{
     Blogs.findAll()
@@ -652,29 +570,4 @@ app.post('/SeeAllBlogs',(req,res)=>{
 
 // Blogs APIs END
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 
-

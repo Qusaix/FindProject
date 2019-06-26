@@ -360,11 +360,11 @@ style={{
       title="Add Tip"
       color="blue"
     />
-    <CardButton
+    {/* <CardButton
       onPress={() => {}}
       title="Later"
       color="blue"
-    />
+    /> */}
   </CardAction>
 </Card>
       </View>
@@ -425,14 +425,14 @@ style={{
     > 
     <CardButton
       onPress={() => {}}
-      title="Push"
+      title="Profile"
       color="blue"
     />
-    <CardButton
+    {/* <CardButton
       onPress={() => {}}
       title="Later"
       color="blue"
-    />
+    /> */}
   </CardAction>
 </Card>
 
