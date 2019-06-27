@@ -68,7 +68,7 @@ import TraineeBlog from './BlogTrainee'
    
    
    getTheUser(){
-     alert(1)
+    //  alert(1)
      AsyncStorage.getItem('Name')
      .then((value)=>{
       this.setState({Name:value})
@@ -153,7 +153,7 @@ import TraineeBlog from './BlogTrainee'
   }
 
   SeeYourCouch(){   
-    alert(2)
+    // alert(2)
     setTimeout(() => {
       fetch('http://192.168.1.103:5000/SeeAlTraineesYouHave', {
     method: 'post',
