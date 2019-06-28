@@ -155,7 +155,7 @@ import TraineeBlog from './BlogTrainee'
   SeeYourCouch(){   
     // alert(2)
     setTimeout(() => {
-      fetch('http://192.168.1.103:5000/SeeAlTraineesYouHave', {
+      fetch('http://192.168.1.2:5000/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -265,7 +265,7 @@ import TraineeBlog from './BlogTrainee'
  style={{
    fontSize:25,
    position:"absolute",
-   left:185,
+   left:198,
    top:200
  }}
  >  {this.state.Name}   </Text> 
@@ -296,7 +296,7 @@ import TraineeBlog from './BlogTrainee'
 style={{
   position:"absolute",
   top:270,
-  left:207
+  left:215
 
 }}
 >

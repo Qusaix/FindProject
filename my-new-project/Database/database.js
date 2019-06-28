@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const sequelize = require('sequelize');
 
-const TheData = new sequelize('qusai1',"root","12345678A",{
+const TheData = new sequelize('qusai1',"root","1111",{
     host:"localhost",
     dialect:"mysql",
     // pool: {

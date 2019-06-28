@@ -56,7 +56,7 @@ import CoachDashboard from './dashboard'
   }
 
    LoginNow(){
-    fetch('http://192.168.1.103:5000/LoginCoch', {
+    fetch('http://192.168.1.2:5000/LoginCoch', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -115,13 +115,14 @@ import CoachDashboard from './dashboard'
         >
           <Image 
           style={{
-            width:50,
-            height:50,
+            width:200,
+            height:80,
             //marginBottom:3,
-            marginLeft:120,
-            marginTop:10
+            marginLeft:45,
+            marginTop:-1,
+            marginBottom:-15
           }}
-          source={{uri:"http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png"}}
+          source={{uri:"https://i.ibb.co/NKWQQnN/ffff.png"}}
           /> 
               <TextInput 
                 style={{

@@ -54,7 +54,7 @@ import { Ionicons , FontAwesome, AntDesign , MaterialCommunityIcons} from '@expo
       })
   }
   UpdatedData(){
-    fetch('http://192.168.1.103:5000/UpdateTraineeInfo', {
+    fetch('http://192.168.1.2:5000/UpdateTraineeInfo', {
         method: 'post',
         headers: {
           Accept: 'application/json',

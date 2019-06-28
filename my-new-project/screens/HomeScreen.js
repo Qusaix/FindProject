@@ -82,14 +82,14 @@ LoginCoach = () =>{
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Image 
         style={{
-          width:100,
-          height:100,
-          marginBottom:10,
-          marginLeft:105
+          width:300,
+          height:300,
+          marginBottom:-75,
+          // marginLeft:105
         }}
-        source={{uri:'http://hqfit.com/wp-content/uploads/2018/07/Asset-1HQ_Logo_Main.png'}}
+        source={{uri:'https://i.ibb.co/HXbWPKL/555.png'}}
         />
-        <Text
+        {/* <Text
         style={{
           marginLeft:54,
           marginBottom:25,
@@ -99,11 +99,11 @@ LoginCoach = () =>{
           fontSize:21,
           fontWeight:"bold"
         }}
-        >Journey</Text>
+        >Journey</Text> */}
 
         <TouchableOpacity
             style={{width:250,
-              backgroundColor:"#238aff",
+              backgroundColor:"#17A589",
               alignItems:"center",
               padding:10,
               marginLeft:23,
@@ -127,7 +127,7 @@ LoginCoach = () =>{
 
       <TouchableOpacity
             style={{width:250,
-              backgroundColor:"#238aff",
+              backgroundColor:"#17A589",
               alignItems:"center",
               padding:10,
               marginLeft:23,
@@ -173,7 +173,7 @@ export default createStackNavigator({
     screen:HomeScreen 
   }, 
   TestePage:{
-    screen:TraineeDashboard
+    screen:LoginTrainee
   },
   LoginCoachTake:{
    screen:LoginCoach

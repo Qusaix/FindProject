@@ -114,7 +114,7 @@ import Search from './Search'
 
 
     setTimeout(() => {
-      fetch('http://192.168.1.103:5000/SeeAllTheCustomers', {
+      fetch('http://192.168.1.2:5000/SeeAllTheCustomers', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -343,6 +343,12 @@ Counter(){
                       fontSize:14
                     }}
                     > Name : {Coach.Name}</Text>
+                    <Text
+                    style={{
+                      color:"#fff",
+                      fontSize:14
+                    }}
+                    > Email : {Coach.Email}</Text>
                     <Text
                     style={{
                       color:"#fff",
