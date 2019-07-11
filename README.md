@@ -6,8 +6,8 @@
 - my sql Database
 
 
-## Journy
-The Idea behind the app become to me after i see alot of  Trainers strugele with work in something they love and make a living and the same thing for the trainees they need a good Trainers to help them reach there goal. in this appleication im trying to solve this throw connect thes tow in one place and offer them every thing thay need.
+## Journey
+The idea behind the app becomes to me after I see a lot of  Trainers struggle with work in something they love and make a living and the same thing for the trainees they need a good Trainers to help them reach their goal. in this application, I'm trying to solve this throw connect these tow in one place and offer them everything they need.
 
 ## Motivation
 The Motivation behind this project is to help Trainers Work in something they love without caring about advertising their self on social media or anything else just focusing on helping there Trainees  
@@ -30,14 +30,14 @@ logo
 ## Features
 
 <b>Trainee</b>
-- Can See Heis Trainear and Change him
-- Can See All The Tip (The tips the Trainer Write to attraicat more Trainees) The Trainears Added
-- Can Change and See His Static ex.weight/Goal ect..
+- Can See Heis Trainer and Change him
+- Can See All The Tip (The tips the Trainer Write to attract more Trainees) The Trainers Added
+- Can Change and See His Static ex.weight/Goal ect...
 
 <b>Trainer</b>
 - Can See Heis Static
 - Can See All Hies Trainees
-- Can Add a tip to Convience More People Train With Him
+- Can Add a tip to Convince More People Train With Him
 
 ## Installation
 ```bash
