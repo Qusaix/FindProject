@@ -16,7 +16,7 @@ The Motivation behind this project is to help Trainers Work in something they lo
 ## Screenshots
 logo
 
-![Logo](https://ibb.co/Qd37CQX)
+![Logo](https://i.ibb.co/6B7c1wN/88.png)
 
 
 ## Tech/framework used
