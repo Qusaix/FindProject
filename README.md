@@ -9,8 +9,8 @@ The Motivation behind this project is to help Trainers Work in something they lo
 
 ![Logo](https://i.ibb.co/6B7c1wN/88.png)
 
-![Journey App](https://i.ibb.co/ZcY1yb1/Untitled-1.png|width=100)
-- Pic 1
+![Journey App](https://i.ibb.co/ZcY1yb1/Untitled-1.png)
+
 ![Journey App](https://i.ibb.co/j3hjvp3/Untitled-2.png)
 
 ![Journey App](https://i.ibb.co/82jXQ9c/Untitled-3.png)
