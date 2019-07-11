@@ -50,6 +50,10 @@ npm i express
 npm install -g expo-cli
 ```
 ```bash
+node server.js
+```
+
+```bash
 npm start
 ```
  
