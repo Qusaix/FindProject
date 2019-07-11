@@ -1,11 +1,3 @@
-# Find Project
-
-# The Stack
-- React Native
-- express server 
-- my sql Database
-
-
 ## Journey
 The idea behind the app becomes to me after I see a lot of  Trainers struggle with work in something they love and make a living and the same thing for the trainees they need a good Trainers to help them reach their goal. in this application, I'm trying to solve this throw connect these tow in one place and offer them everything they need.
 
@@ -15,8 +7,19 @@ The Motivation behind this project is to help Trainers Work in something they lo
 
 ## Screenshots
 logo
-
 ![Logo](https://i.ibb.co/6B7c1wN/88.png)
+
+![Journey App](https://i.ibb.co/ZcY1yb1/Untitled-1.png)
+![Journey App](https://i.ibb.co/j3hjvp3/Untitled-2.png)
+![Journey App](https://i.ibb.co/82jXQ9c/Untitled-3.png)
+![Journey App](https://i.ibb.co/8DKX336/Untitled-4.png)
+![Journey App](https://i.ibb.co/Y3v2SwK/Untitled-5.png)
+![Journey App](https://i.ibb.co/84pv4d5/Untitled-6.png)
+![Journey App](https://i.ibb.co/hdx9s0w/Untitled-7.png)
+![Journey App](https://i.ibb.co/RN23Pjv/Untitled-8.png)
+![Journey App](https://i.ibb.co/HVbCWbp/Untitled-9.png)
+![Journey App](https://i.ibb.co/cLFgZgk/Untitled-10.png)
+![Journey App](https://i.ibb.co/DR2bcdR/Untitled-11.png)
 
 
 ## Tech/framework used
