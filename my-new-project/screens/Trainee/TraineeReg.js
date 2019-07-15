@@ -15,6 +15,7 @@ import {
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import ImagePicker from 'react-native-image-picker';
+import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
 
 var options = {
   title: 'Select Avatar',
@@ -99,7 +100,7 @@ var options = {
     this.setState({[name] : value})
   }
   sendUserInfo(){
-    fetch('http://192.168.1.2:5000/registerTrainee', {
+    fetch('http://192.168.1.3:5000/registerTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -114,17 +115,24 @@ var options = {
   this.props.navigation.navigate('LoginTraineeTake')
   
 }
+Close(){
+  return this.props.navigation.navigate('LoginTraineeTake')
+}
 
     render() {
       return (
         <ScrollView>
-        <View>
+        <View
+        style={{
+          flex:1,
+          alignItems:"center"
+        }}
+        >
           <View
           style={{
             width: 300,
             height: 600,
             backgroundColor:"#138D75",
-            marginLeft:90,
             marginTop:20,
             borderRadius:10
           }}
@@ -386,6 +394,23 @@ var options = {
                   }}
                   >SignUp</Text> 
                   </TouchableOpacity>
+
+                  <TouchableOpacity
+                   style={{
+                   // backgroundColor:"red",
+                    padding:5,
+                    width:70,
+                    marginLeft:38+"%",
+                    marginTop:5,
+                    borderRadius:25,
+                    alignItems:"center"
+                  }}
+                  onPress={this.Close.bind(this)}
+                  >
+                    
+                  <FontAwesome name="close" size={20} color="#fff"/>
+                  </TouchableOpacity>
+
                </View>
           </View>
           </ScrollView>

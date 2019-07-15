@@ -45,11 +45,8 @@ static navigationOptions = {
   },
   headerTitleStyle:{
     color:"red",
-    // marginLeft:48+"%",
-    // marginTop: -38
-  alignItems:"center",
-  flex: 1,
-  //display:"none"
+    alignItems:"center",
+    flex: 1,
 
   }
 }
@@ -77,36 +74,30 @@ LoginCoach = () =>{
 
   render() {
     return (
-    <View style={styles.container}>
-
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    <View
+    style={{
+      flex:1,
+      alignItems:"center",
+      justifyContent:"center",
+     marginTop:25+"%"
+    }}
+    >
+        <ScrollView>
         <Image 
         style={{
-          width:300,
-          height:300,
+          width:250,
+          height:250,
           marginBottom:-75,
-          // marginLeft:105
+          marginLeft:2+"%"
         }}
         source={{uri:'https://i.ibb.co/HXbWPKL/555.png'}}
         />
-        {/* <Text
-        style={{
-          marginLeft:54,
-          marginBottom:25,
-          marginTop:15,
-          width:200,
-          textAlign:"center",
-          fontSize:21,
-          fontWeight:"bold"
-        }}
-        >Journey</Text> */}
 
         <TouchableOpacity
             style={{width:250,
               backgroundColor:"#17A589",
               alignItems:"center",
               padding:10,
-              marginLeft:23,
               borderRadius:7,
               marginBottom:10
             }}
@@ -130,7 +121,6 @@ LoginCoach = () =>{
               backgroundColor:"#17A589",
               alignItems:"center",
               padding:10,
-              marginLeft:23,
               borderRadius:7,
               marginBottom:10
             }}
@@ -144,7 +134,6 @@ LoginCoach = () =>{
          }}
          > Coach </Text>
        </TouchableOpacity>
-
         </ScrollView>
        {/* // <TapBar /> */}
       </View>
@@ -152,28 +141,12 @@ LoginCoach = () =>{
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffff',
-    marginTop:50,
-    width:300,
-    marginLeft:45
-  },
-  Button:{
-    marginTop:100,
-    color:"red"
-
-
-  },
-});
-
 export default createStackNavigator({
   HomeScreen:{
     screen:HomeScreen 
   }, 
   TestePage:{
-    screen:LoginTrainee
+    screen:RegTrainee
   },
   LoginCoachTake:{
    screen:LoginCoach

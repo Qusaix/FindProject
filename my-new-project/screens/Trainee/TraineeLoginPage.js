@@ -53,8 +53,7 @@ import CoachDashboard from '../Coach/dashboard'
   TheData(data){
     console.log(data)
     this.state.userInfo.push(data)
-   // console.log("This is the Array ",this.state.userInfo)
-   console.log("This is the Err ",data.err)
+    console.log("This is the Err ",data.err)
     if(data.err === undefined){
       console.log("It's Work")
 
@@ -84,7 +83,7 @@ import CoachDashboard from '../Coach/dashboard'
     }
   }
   LoginNow(){
-    fetch('http://192.168.1.2:5000/LoginTrainee', {
+    fetch('http://192.168.1.3:5000/LoginTrainee', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -99,18 +98,21 @@ import CoachDashboard from '../Coach/dashboard'
   //.catch((err)=>console.warn(err))
   .done()
   }
-  
- 
+
     render() {
       return (
-        <View>
+        <View
+        style={{
+          alignItems:"center",
+        }}
+        >
         <View
         style={{
           width: 300,
           height: 250,
           backgroundColor:"#138D75", 
-          marginLeft:90,
-          marginTop:20,
+          // marginLeft:90,
+          marginTop:5+"%",
           marginBottom:150,
           borderRadius:10
         }}
