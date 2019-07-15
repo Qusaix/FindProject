@@ -101,13 +101,17 @@ import CoachDashboard from './dashboard'
 }
     render() {
       return (
-        <View>
+        <View
+        style={{
+          alignItems:"center"
+        }}
+        >
         <View
         style={{
           width: 300,
           height: 250,
           backgroundColor:"#138D75",
-          marginLeft:90,
+         // marginLeft:90,
           marginTop:20,
           marginBottom:150,
           borderRadius:10
