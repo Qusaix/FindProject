@@ -189,18 +189,338 @@ import TraineeBlog from './BlogTrainee'
         <View
         style={{
           backgroundColor:"#fff",
-          height:100+"%"
+          height:100+"%",
         }}
         >
+        {/* Profile Infio */}
+        <View
+        style={{
+          alignItems:"center"
+        }}
+        >
+        <Image 
+        source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
+        style={{
+          height:100,
+          width:25+"%",
+          marginTop:2+"%",
+          borderRadius:5
+        }}
+        />
+        <Text
+        style={{
+          fontSize:16
+        }}
+        >{this.state.Name}</Text>
+      </View>
+{/* To Do  */}
+{/* Mother View  */}
+      <View
+      style={{
+        flexDirection:"row",
+        alignItems:"flex-start",
+        margin:2+"%"
+      }}
+      >
+
+        {/* This is the Weight Area */}
+
+        <View
+        style={{
+          width:50+"%",
+          heigh:250,
+          backgroundColor:"#138D75",
+          marginRight:5,
+          marginLeft:5,
+          borderWidth:0.5,
+          borderRadius:5,
+          alignItems:"center"
+        }}
+        >
+          <Text
+          style={{
+            padding:15,
+            color:"#fff",
+            paddingBottom:-8
+          }}
+          
+          >
+            <MaterialCommunityIcons name="scale-bathroom" size={60} color="#fff" />
            
-             <View>
+          </Text>
+          <Text
+          style={{
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#fff"
+          }}
+          > {this.state.Weight}KG</Text>
+         </View>
+
+         
+{/* This is the Goal Area */}
+
+         
+<View
+        style={{
+          width:45+"%",
+          heigh:250,
+          backgroundColor:"#138D75",
+          marginRight:5,
+          marginLeft:5,
+          borderWidth:0.5,
+          borderRadius:5,
+          alignItems:"center"
+        }}
+        >
+          <Text
+          style={{
+            padding:15,
+            color:"#fff",
+            paddingBottom:-8
+          }}
+          
+          >
+            <Entypo name="blackboard" size={60} color="#fff" />
+           
+          </Text>
+          <Text
+          style={{
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#fff"
+          }}
+          > {this.state.Goal}</Text>
+         </View>
+
+
+
+
+            </View>
+
+            {/* The Seconone  */}
+
+<View
+      style={{
+        flexDirection:"row",
+        alignItems:"flex-start",
+        margin:2+"%"
+      }}
+      >
+
+        {/* This is the Coach Area */}
+
+        <View
+        style={{
+          width:50+"%",
+          heigh:250,
+          backgroundColor:"#138D75",
+          marginRight:5,
+          marginLeft:5,
+          borderWidth:0.5,
+          borderRadius:5,
+          alignItems:"center"
+        }}
+        >
+          <Text
+          style={{
+            padding:15,
+            color:"#fff",
+            paddingBottom:-8
+          }}
+          
+          >
+            <FontAwesome name="user" size={60} color="#fff" />
+           
+          </Text>
+          <Text
+          style={{
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#fff"
+          }}
+          > {this.state.YourCouch}</Text>
+         </View>
+
+         
+{/* This is the Food Area */}
+
+         
+<View
+        style={{
+          width:45+"%",
+          heigh:250,
+          backgroundColor:"#138D75",
+          marginRight:5,
+          marginLeft:5,
+          borderWidth:0.5,
+          borderRadius:5,
+          alignItems:"center"
+        }}
+        >
+          <Text
+          style={{
+            padding:15,
+            color:"#fff",
+            paddingBottom:-8
+          }}
+          
+          >
+            <MaterialCommunityIcons name="food-variant" size={60} color="#fff" />
+           
+          </Text>
+          <Text
+          style={{
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#fff"
+          }}
+          >Soon</Text> 
+
+         </View>
+         
+         {/*The therd*/ }
+
+          
+         <View
+      style={{
+        flexDirection:"row",
+        alignItems:"flex-start",
+        margin:2+"%"
+      }}
+      >
+
+        {/* This is the Weight Area */}
+
+        <View
+        style={{
+          width:50+"%",
+          heigh:250,
+          backgroundColor:"#138D75",
+          marginRight:5,
+          marginLeft:5,
+          borderWidth:0.5,
+          borderRadius:5,
+          alignItems:"center"
+        }}
+        >
+          <Text
+          style={{
+            padding:15,
+            color:"#fff",
+            paddingBottom:-8
+          }}
+          
+          >
+            <MaterialCommunityIcons name="scale-bathroom" size={60} color="#fff" />
+           
+          </Text>
+          <Text
+          style={{
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#fff"
+          }}
+          > {this.state.Weight}KG</Text>
+         </View>
+
+         
+{/* This is the Goal Area */}
+
+         
+<View
+        style={{
+          width:45+"%",
+          heigh:250,
+          backgroundColor:"#138D75",
+          marginRight:5,
+          marginLeft:5,
+          borderWidth:0.5,
+          borderRadius:5,
+          alignItems:"center"
+        }}
+        >
+          <Text
+          style={{
+            padding:15,
+            color:"#fff",
+            paddingBottom:-8
+          }}
+          
+          >
+            <Entypo name="blackboard" size={60} color="#fff" />
+           
+          </Text>
+          <Text
+          style={{
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#fff"
+          }}
+          > {this.state.Goal}</Text>
+         </View>
+
+       </View>
+          <TouchableOpacity
+          style={{
+            backgroundColor:"red",
+            padding:25,
+            width:100,
+            height:100,
+            flexDirection:"row"
+          }}
+          >
+            <Text>This is the Update Button</Text>
+          </TouchableOpacity>
+
+            </View>
+
+
+{/*Update Area*/ }
+  <View
+  style={{
+    alignItems:"flex-end",
+    margin:10,
+    marginBottom:35+"%"
+  }}>
+         <TouchableOpacity
+            style={{
+              backgroundColor:"#138D75",
+              padding:10,
+              width:15+"%",
+              marginBottom:35+"%",
+              borderRadius:7,
+              margin:5,
+            }}
+            onPress={()=>this.props.navigation.navigate('UpdateTraineeInfo')}
+            >
+              <Text
+              style={{
+                color:"#fff",
+                fontSize:15,
+                fontWeight:"bold",
+                textAlign:"center"
+              }}
+              >
+              <AntDesign name="edit" size={20} color="#fff" />
+
+              </Text>
+            </TouchableOpacity>
+            </View>
+
+           
+             {/* <View
+             style={{
+              alignItems:"center",
+             }}
+             >
                   <Image 
             style={{
                 height:150,
                 width:100+"%",
                 position: 'absolute', 
                 justifyContent: 'center', 
-                margin:10
+               // margin:10
             }}
             source={{uri:"https://i.imgur.com/jOZUU2B.jpg"}}
             />
@@ -208,7 +528,7 @@ import TraineeBlog from './BlogTrainee'
             <View
             style={{
               backgroundColor:"#138D75",
-              width:98+"%",
+              width:100+"%",
               height:60,
               position:"absolute",
               top:130,
@@ -243,7 +563,15 @@ import TraineeBlog from './BlogTrainee'
               <MaterialCommunityIcons name="scale-bathroom" size={20} color="#fff" />
               {this.state.Goal}</Text>
             </View>
-
+        
+        <View
+        style={{
+          alignItems:"center",
+          width:100+"%",
+          height:100,
+          backgroundColor:"red"
+        }}
+        >
             <Image 
             style={{
                 height:100,
@@ -258,7 +586,7 @@ import TraineeBlog from './BlogTrainee'
             }}
             source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
             />
-
+</View>
 </View>
 <View>
  <Text
@@ -333,37 +661,11 @@ style={{
          <View>
          </View>
 
-            </View>
+            </View> */}
 
           {/* Edite */}
 
-            <TouchableOpacity
-            style={{
-              backgroundColor:"#138D75",
-              padding:10,
-              width:15+"%",
-              //marginLeft:43+"%",
-              marginTop:102+"%",
-              borderRadius:7,
-              marginBottom:10,
-              margin:5,
-              borderRadius:12
-            }}
-            onPress={()=>this.props.navigation.navigate('UpdateTraineeInfo')}
-            >
-              <Text
-              style={{
-                color:"#fff",
-                fontSize:15,
-                fontWeight:"bold",
-                textAlign:"center"
-              }}
-              >
-
-              <AntDesign name="edit" size={20} color="#fff" />
-
-              </Text>
-            </TouchableOpacity>
+            
 
           </View>
           </ScrollView>

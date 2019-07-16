@@ -146,7 +146,7 @@ export default createStackNavigator({
     screen:HomeScreen 
   }, 
   TestePage:{
-    screen:RegTrainee
+    screen:TraineeDashboard
   },
   LoginCoachTake:{
    screen:LoginCoach
