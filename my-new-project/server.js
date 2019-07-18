@@ -564,7 +564,7 @@ app.post('/SeeAllBlogs',(req,res)=>{
     })
    
 })
-
+// The Trainee Can See The Couch Blogs
 app.post('/SeeTheBlogsCouchHave',(req,res)=>{
 
     console.log("See All Couchs :",req.body.TheEmail);
@@ -572,19 +572,23 @@ app.post('/SeeTheBlogsCouchHave',(req,res)=>{
     var CouchEmail = req.body.TheEmail;
     var TheCouchId;
     var Blog;
-    
+
     NewCoach.findOne({where:{Email:CouchEmail}})
     .then((CouchInfo)=>{
         TheCouchId = CouchInfo.id
-    })
+    });
+
     setTimeout(function(){
-        Blogs.findOne({where:{id:TheCouchId}})
+        Blogs.findAll( { where: { CoachInfoId : TheCouchId } } )
+
         .then((Blogs)=>{
             Blog = Blogs
         })
+        .catch((err)=>console.log("err: ",err))
     },200)
 
     setTimeout(function(){
+    console.log("Blogs :",Blog)
     res.json(Blog)
     },300)
 })

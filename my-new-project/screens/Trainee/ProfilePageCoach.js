@@ -29,7 +29,8 @@ import {Bottom } from '../HomeScreen'
        Name:"",
        Bio:"",
       Experence:"",
-      AllProfiles:[]
+      AllProfiles:[],
+      AllTheBlogs:[]
      } 
    }
 
@@ -137,8 +138,9 @@ import {Bottom } from '../HomeScreen'
       })
     .then((res)=>{return res.json()})
     .then((data)=>{
-  
-      console.warn("This is the data ",data)
+      //this.setState({ AllTheBlogs : data})
+      this.setState({AllTheBlogs : data})
+      console.warn("This is the data ",this.state.AllTheBlogs)
     })
     //.catch((err)=>console.warn(err))
     .done()  
@@ -266,116 +268,31 @@ import {Bottom } from '../HomeScreen'
          <ScrollView>      
           <View style={{
             margin:5
-          }}>
-          <Text
-          style={{
-            fontSize:15,
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          > Blog Title </Text>
-          <Text
-          style={{
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          >This is the post it will The Coach Relese </Text>
+          }}>   
+          {this.state.AllTheBlogs.map((blog)=>{
+            return(
+           <View
+           key={blog.id++}
+           >
+             <Text
+             style={{
+              fontSize:15,
+              fontWeight:"bold",
+              color:"#fff"
+            }}
             
-            </View> 
+             >{blog.Title}</Text>
+             <Text>{blog.content}</Text>
+           </View> 
+           
+           
+           
+           )})}
 
 
-            <View style={{
-            margin:5
-          }}>
-          <Text
-          style={{
-            fontSize:15,
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          > Blog Title </Text>
-          <Text
-          style={{
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          >This is the post it will The Coach Relese </Text>
-            
-            </View> 
-            <View style={{
-            margin:5
-          }}>
-          <Text
-          style={{
-            fontSize:15,
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          > Blog Title </Text>
-          <Text
-          style={{
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          >This is the post it will The Coach Relese </Text>
-            
-            </View> 
 
-            <View style={{
-            margin:5
-          }}>
-          <Text
-          style={{
-            fontSize:15,
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          > Blog Title </Text>
-          <Text
-          style={{
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          >This is the post it will The Coach Relese </Text>
-            
-            </View> 
 
-            <View style={{
-            margin:5
-          }}>
-          <Text
-          style={{
-            fontSize:15,
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          > Blog Title </Text>
-          <Text
-          style={{
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          >This is the post it will The Coach Relese </Text>
-            
-            </View> 
 
-            <View style={{
-            margin:5
-          }}>
-          <Text
-          style={{
-            fontSize:15,
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          > Blog Title </Text>
-          <Text
-          style={{
-            fontWeight:"bold",
-            color:"#fff"
-          }}
-          >This is the post it will The Coach Relese </Text>
-            
             </View> 
 
 
