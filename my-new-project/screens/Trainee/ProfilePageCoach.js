@@ -48,6 +48,8 @@ import {Bottom } from '../HomeScreen'
   }
   componentDidMount(){
     this.TheInfo()
+    var that = this;
+    setTimeout(function(){that.SeeCouchBlogs()},3000);
     
   }
   
@@ -104,7 +106,7 @@ import {Bottom } from '../HomeScreen'
     return this.props.navigation.navigate("SeeAllCoachsPage");
   }
   AddCoach(){
-    alert("Welcome")
+    alert(`Now ${this.state.Name} is Your Couch`)
     fetch('http://192.168.1.2:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
@@ -124,11 +126,82 @@ import {Bottom } from '../HomeScreen'
 
   }
 
+  SeeCouchBlogs(){
+    fetch('http://192.168.1.2:5000/SeeTheBlogsCouchHave', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(this.state)
+      })
+    .then((res)=>{return res.json()})
+    .then((data)=>{
+  
+      console.warn("This is the data ",data)
+    })
+    //.catch((err)=>console.warn(err))
+    .done()  
+  }
+
     render() {
       return (
         <ScrollView >
           <View>
-          <Image 
+      {/*Start Of User Info*/}
+        <View
+        style={{
+          alignItems:"center",
+          margin:5
+        }}
+        >
+          <Image
+          style={{
+            width:100,
+            height:100,
+            borderRadius:45
+          }}
+          source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
+          />
+          <Text
+          style={{
+            fontSize:19,
+            marginTop:7,
+          }}
+          >{this.state.Name}</Text>
+          <Text
+          style={{
+            fontSize:12,
+            color:"#C0C0C0"
+          }}
+          >{this.state.Bio}</Text>
+
+          <TouchableOpacity
+          style={{
+            backgroundColor:"green",
+            padding:8,
+            marginTop:5,
+            borderRadius:9
+          }}
+          onPress={this.AddCoach.bind(this)}
+          >
+          <Text
+          style={{
+            color:"#fff",
+            fontWeight:"bold"
+          }}
+          ><FontAwesome name="user-plus" size={16} color="#fff" /> Contect</Text>
+          </TouchableOpacity>
+        </View>
+
+          {/*Start Of Blogs Area*/ }
+
+
+
+
+
+
+          {/* <Image 
                           style={{
                           width:100,
                           height:100,
@@ -138,7 +211,7 @@ import {Bottom } from '../HomeScreen'
                           }}
                           source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
                         /> 
-            {/* This is The Start of User Info */}
+           
       <View style={{
         backgroundColor:"#f5f5f5",
         margin:5,
@@ -153,7 +226,7 @@ import {Bottom } from '../HomeScreen'
               fontSize:16
             }}
             ><Text style={{fontWeight:"bold"}}>NAME</Text> {this.state.Name}</Text>
-              {/* <Text>This is Test For PROPS {this.props.state.TheEmail}</Text> */}
+              
             <Text
             style={{
               marginLeft:4,
@@ -163,9 +236,9 @@ import {Bottom } from '../HomeScreen'
             
             <View style={{alignItems:"flex-end"}}><TouchableOpacity onPress={this.AddCoach.bind(this)} style={{marginTop:-25,backgroundColor:"green",padding:5,borderRadius:5,width:80,}}><Text style={{color:"#fff"}}><FontAwesome name="user-plus" size={16} color="#fff" />Contect</Text></TouchableOpacity></View>
 
-            </View>
-
-
+            </View> */}
+{/* <Text>This is Test For PROPS {this.props.state.TheEmail}</Text> */}
+ {/* This is The Start of User Info */}
 
             <Text
             style={{
@@ -329,6 +402,9 @@ import {Bottom } from '../HomeScreen'
             >
             <FontAwesome name="photo" size={16} color="#fff" /> Clients Photos
               </Text>
+
+
+
             {/* Hold Photos */}
             <View
             style={{flexDirection:'row', flexWrap:'wrap'}}

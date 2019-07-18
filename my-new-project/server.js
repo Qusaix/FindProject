@@ -565,6 +565,29 @@ app.post('/SeeAllBlogs',(req,res)=>{
    
 })
 
+app.post('/SeeTheBlogsCouchHave',(req,res)=>{
+
+    console.log("See All Couchs :",req.body.TheEmail);
+
+    var CouchEmail = req.body.TheEmail;
+    var TheCouchId;
+    var Blog;
+    
+    NewCoach.findOne({where:{Email:CouchEmail}})
+    .then((CouchInfo)=>{
+        TheCouchId = CouchInfo.id
+    })
+    setTimeout(function(){
+        Blogs.findOne({where:{id:TheCouchId}})
+        .then((Blogs)=>{
+            Blog = Blogs
+        })
+    },200)
+
+    setTimeout(function(){
+    res.json(Blog)
+    },300)
+})
 
 
 
