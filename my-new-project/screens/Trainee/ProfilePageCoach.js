@@ -37,7 +37,7 @@ import {Bottom } from '../HomeScreen'
   static navigationOptions = { 
     title:"Back",
     headerStyle:{
-      backgroundColor:"#238aff",
+      backgroundColor:"#17A589",
      // display:"none"
     },
     headerTitleStyle:{
@@ -139,7 +139,8 @@ import {Bottom } from '../HomeScreen'
     .then((res)=>{return res.json()})
     .then((data)=>{
       //this.setState({ AllTheBlogs : data})
-      this.setState({AllTheBlogs : data})
+      var reverse = data.reverse();
+      this.setState({AllTheBlogs : reverse})
       console.warn("This is the data ",this.state.AllTheBlogs)
     })
     //.catch((err)=>console.warn(err))
@@ -241,38 +242,60 @@ import {Bottom } from '../HomeScreen'
             </View> */}
 {/* <Text>This is Test For PROPS {this.props.state.TheEmail}</Text> */}
  {/* This is The Start of User Info */}
-
-            <Text
+            <View
             style={{
-              backgroundColor:"green",
-              borderRadius:9,
-              width:150,
-              fontSize:16,
-              fontWeight:"bold",
-              padding:10,
-              margin:10,
-              color:"#fff"
+              alignItems:"center"
             }}
             >
-              
-            <MaterialCommunityIcons name="blogger" size={20} color="#fff" /> Blogs
-              </Text>
+            
+              </View>
+              <View
+              style={{
+                alignItems:"center"
+              }}
+              >
             <View style={{
-              backgroundColor:"#238aff",
+              backgroundColor:"#17A589",
               height:200,
               width:300,
               borderRadius:7,
               margin:10,
-              color:"#fff"
+              color:"#fff",
+
             }}>
          <ScrollView>      
           <View style={{
             margin:5
           }}>   
+          <View
+          style={{
+            alignItems:"center"
+          }}
+          >
+            <Text
+            style={{
+             // backgroundColor:"green",
+              borderRadius:9,
+              width:150,
+              fontSize:35,
+              fontWeight:"bold",
+              padding:5,
+             // margin:6,
+              color:"#fff"
+            }}
+            >
+              
+            <MaterialCommunityIcons name="blogger" size={35} color="#fff" /> Blogs
+              </Text>
+
+          </View>
           {this.state.AllTheBlogs.map((blog)=>{
             return(
            <View
            key={blog.id++}
+           style={{
+            margin:5
+           }}
            >
              <Text
              style={{
@@ -300,6 +323,7 @@ import {Bottom } from '../HomeScreen'
 
             </ScrollView> 
 
+            </View>
             </View>
 
           {/* This is the Photos Area  */}
