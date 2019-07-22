@@ -30,6 +30,9 @@ const NewTraineeModule = TheData.define('TraineeInfos',{
     },
     Height:{
     type:sequelize.STRING
+    },
+    URL:{
+        type:sequelize.STRING
     }
   })
   

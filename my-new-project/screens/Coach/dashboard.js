@@ -114,7 +114,7 @@ import Search from './Search'
 
 
     setTimeout(() => {
-      fetch('http://192.168.1.2:5000/SeeAllTheCustomers', {
+      fetch('http://192.168.1.3:5000/SeeAllTheCustomers', {
     method: 'post',
     headers: {
     Accept: 'application/json',

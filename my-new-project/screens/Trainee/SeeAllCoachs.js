@@ -86,7 +86,7 @@ import { Card, ListItem , Icon } from 'react-native-elements'
   }
   
   componentWillMount(){
-    fetch('http://192.168.1.2:5000/SeeAllUsers', {
+    fetch('http://192.168.1.3:5000/SeeAllUsers', {
     method: 'post',
     headers: {
     Accept: 'application/json',

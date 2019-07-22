@@ -60,7 +60,7 @@ import CoachDashboard from '../Coach/dashboard'
       /// Savaing Data Here -- Start 
       const saveData = async Saving =>{
         try {
-          console.log("Im Inside Try ",data.id)
+          console.log("Im Inside Try ",data.URL)
            AsyncStorage.setItem("TheEmail",data.Email)
            AsyncStorage.setItem("Bio",data.Bio)
            AsyncStorage.setItem("Email",data.Email)
@@ -69,6 +69,7 @@ import CoachDashboard from '../Coach/dashboard'
            AsyncStorage.setItem("Height",data.Height)
            AsyncStorage.setItem("Name",data.Name)
            AsyncStorage.setItem("weight",data.Weight)
+           AsyncStorage.setItem("ImageURL",data.URL)
 
         }
         catch(error){
@@ -83,7 +84,7 @@ import CoachDashboard from '../Coach/dashboard'
     }
   }
   LoginNow(){
-    fetch('http://192.168.1.2:5000/LoginTrainee', {
+    fetch('http://192.168.1.3:5000/LoginTrainee', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -93,8 +94,10 @@ import CoachDashboard from '../Coach/dashboard'
     })
   .then((res)=>{return res.json()}) 
   .then((res)=>{
-    console.log("Helllo")
-    this.TheData(res)})
+    console.log("Login successfully")
+    console.log("Data :",res)
+    this.TheData(res)}
+    )
   //.catch((err)=>console.warn(err))
   .done()
   }

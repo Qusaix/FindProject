@@ -20,6 +20,8 @@ import { createMaterialBottomTabNavigator} from 'react-navigation-material-botto
 import Icon from 'react-native-vector-icons/Ionicons'
 import { Ionicons , Foundation, AntDesign , FontAwesome , MaterialCommunityIcons , Entypo} from '@expo/vector-icons';
 import { Card, ListItem, Button} from 'react-native-elements'
+import * as Permissions from 'expo-permissions';
+import { Camera } from 'expo-camera';
 import Dite from './Dite'
 import TraineeBlog from './BlogTrainee'
 
@@ -60,9 +62,12 @@ import TraineeBlog from './BlogTrainee'
       Goal:"",
       Weight:"",
       Height:"",
+      URL:"",
       ScreeenHeight:0,
       YourCouch:"",
-      Array:[1]
+      Array:[1],
+      hasCameraPermission: null,
+      type: Camera.Constants.Type.back,
      } 
    }
    
@@ -72,7 +77,7 @@ import TraineeBlog from './BlogTrainee'
      AsyncStorage.getItem('Name')
      .then((value)=>{
       this.setState({Name:value})
-       //console.log("This is the value ",value)
+       console.log("This is the value ",value)
       })
      .then((res)=>{
       // console.log("Hi is Done ",res)
@@ -81,7 +86,7 @@ import TraineeBlog from './BlogTrainee'
      .then((value)=>{
       this.setState({Bio:value})
       // console.log("This is the value ",value)
-      })
+      }) 
      .then((res)=>{
       // console.log("Hi is Done ",res)
       })
@@ -116,19 +121,24 @@ import TraineeBlog from './BlogTrainee'
      AsyncStorage.getItem('weight')
      .then((value)=>{
       this.setState({Weight:value})
-       console.log("This is the WEight From Login ",value)
+       console.log("Weight : ",value)
       })
      .then((res)=>{})
 
 
      AsyncStorage.getItem('TheEmail')
      .then((value)=>{
-       console.log("This is the id from the login ",value)
+       console.log("EMAIL : ",value)
       this.setState({TheEmail:value})
       })
      .then((res)=>{})
 
-
+     AsyncStorage.getItem('ImageURL')
+     .then((value)=>{
+       console.log("URL :",value)
+      this.setState({URL:value})
+      })
+     .then((res)=>{})
 
    }
    
@@ -155,7 +165,7 @@ import TraineeBlog from './BlogTrainee'
   SeeYourCouch(){   
     // alert(2)
     setTimeout(() => {
-      fetch('http://192.168.1.2:5000/SeeAlTraineesYouHave', {
+      fetch('http://192.168.1.3:5000/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -177,13 +187,23 @@ import TraineeBlog from './BlogTrainee'
   async componentDidMount(){
    await this.getTheUser();
     await this.SeeYourCouch();
+    if(this.state.URL === null){
+      this.setState({URL:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"})
+    }
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasCameraPermission: status === 'granted' });
     }
 
 
 
     render() {
     //const Scroll = this.state.ScreeenHeight > Height
-
+    const { hasCameraPermission } = this.state;
+    if (hasCameraPermission === null) {
+      return <View />;
+    } else if (hasCameraPermission === false) {
+      return <Text>No access to camera</Text>;
+    } else {
       return (
         <ScrollView>
         <View
@@ -199,7 +219,7 @@ import TraineeBlog from './BlogTrainee'
         }}
         >
         <Image 
-        source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
+        source={{uri:`${this.state.URL}`}}
         style={{
           height:100,
           width:25+"%",
@@ -212,7 +232,25 @@ import TraineeBlog from './BlogTrainee'
           fontSize:16
         }}
         >{this.state.Name}</Text>
+
       </View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {/* To Do  */}
 {/* Mother View  */}
       <View
@@ -481,14 +519,14 @@ import TraineeBlog from './BlogTrainee'
   style={{
     alignItems:"flex-end",
     margin:10,
-    marginBottom:35+"%"
+    marginBottom:30+"%"
   }}>
          <TouchableOpacity
             style={{
               backgroundColor:"#138D75",
               padding:10,
               width:15+"%",
-              marginBottom:35+"%",
+            //  marginBottom:35+"%",
               borderRadius:7,
               margin:5,
             }}
@@ -503,6 +541,30 @@ import TraineeBlog from './BlogTrainee'
               }}
               >
               <AntDesign name="edit" size={20} color="#fff" />
+
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={{
+              backgroundColor:"#138D75",
+              padding:10,
+              width:15+"%",
+             // marginBottom:35+"%",
+              borderRadius:7,
+              margin:5,
+            }}
+            onPress={()=>this.props.navigation.navigate('TakeCamera')}
+            >
+              <Text
+              style={{
+                color:"#fff",
+                fontSize:15,
+                fontWeight:"bold",
+                textAlign:"center"
+              }}
+              >
+              <AntDesign name="camera" size={20} color="#fff" />
 
               </Text>
             </TouchableOpacity>
@@ -672,7 +734,7 @@ style={{
  )}
 
 
-};
+}};
 const TabNavigator = createMaterialBottomTabNavigator(  
   {  
       Home: { screen: TraineeDashboard,  

@@ -312,10 +312,11 @@ app.post('/registerTrainee',(req,res)=>{
                 Goal:req.body.Goal,
                 Weight:req.body.Weight,
                 Height:req.body.Height,
-                CoachInfoId:null
+                CoachInfoId:null,
+                URL:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"
         
             }
-            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId} = TraineeData
+            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId , URL} = TraineeData
             NewTraineeModule.create({
                 Name,
                 Email,
@@ -325,7 +326,8 @@ app.post('/registerTrainee',(req,res)=>{
                 Goal,
                 Weight,
                 Height,
-                CoachInfoId
+                CoachInfoId,
+                URL
             })
 
             NewTraineeModule.findAll({
@@ -592,7 +594,22 @@ app.post('/SeeTheBlogsCouchHave',(req,res)=>{
     res.json(Blog)
     },300)
 })
-
+// Images Area Upload/SeeAllPhotos
+app.post('/uploadImage',(req,res)=>{
+    console.log("Email :",req.body.Email)
+    NewTraineeModule.findOne({where:{Email:req.body.Email}})
+    .then((Trainee)=>{
+     //   console.log("URL :",Trainee.URL)
+        Trainee.update({
+            URL:req.body.URL
+        })
+       // console.log("After URL :",Trainee.URL)
+    })
+    // NewTraineeModule.create({ 
+    //     URL : req.body.URL
+    // })
+    res.send("Done!")
+})
 
 
 // Blogs APIs END
