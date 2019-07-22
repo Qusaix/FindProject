@@ -12,11 +12,7 @@ import {
   TextInput,
   AsyncStorage
 } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { createStackNavigator , createAppContainer } from 'react-navigation'
 import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
-import {Bottom } from '../HomeScreen'
-
 //import console = require('console');
 
  class CoachProfile extends React.Component {
@@ -199,49 +195,7 @@ import {Bottom } from '../HomeScreen'
 
           {/*Start Of Blogs Area*/ }
 
-
-
-
-
-
-          {/* <Image 
-                          style={{
-                          width:100,
-                          height:100,
-                          marginLeft:4,
-                          marginTop:5,
-
-                          }}
-                          source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
-                        /> 
-           
-      <View style={{
-        backgroundColor:"#f5f5f5",
-        margin:5,
-        borderRadius:9,
-        width:400,
-        padding:10
-
-      }}>                  
-            <Text
-            style={{
-              marginLeft:4,
-              fontSize:16
-            }}
-            ><Text style={{fontWeight:"bold"}}>NAME</Text> {this.state.Name}</Text>
-              
-            <Text
-            style={{
-              marginLeft:4,
-              fontSize:16
-            }}
-            > <Text style={{fontWeight:"bold"}} >BIO</Text> {this.state.Bio}</Text>
-            
-            <View style={{alignItems:"flex-end"}}><TouchableOpacity onPress={this.AddCoach.bind(this)} style={{marginTop:-25,backgroundColor:"green",padding:5,borderRadius:5,width:80,}}><Text style={{color:"#fff"}}><FontAwesome name="user-plus" size={16} color="#fff" />Contect</Text></TouchableOpacity></View>
-
-            </View> */}
-{/* <Text>This is Test For PROPS {this.props.state.TheEmail}</Text> */}
- {/* This is The Start of User Info */}
+          {/* This is The Start of User Info */}
             <View
             style={{
               alignItems:"center"
@@ -309,18 +263,8 @@ import {Bottom } from '../HomeScreen'
            </View> 
            
            
-           
            )})}
-
-
-
-
-
             </View> 
-
-
-
-
             </ScrollView> 
 
             </View>
