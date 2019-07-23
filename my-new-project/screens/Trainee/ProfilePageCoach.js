@@ -104,7 +104,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   }
   AddCoach(){
     alert(`Now ${this.state.Name} is Your Couch`)
-    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.2:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',

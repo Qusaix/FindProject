@@ -165,7 +165,7 @@ import TraineeBlog from './BlogTrainee'
   SeeYourCouch(){   
     // alert(2)
     setTimeout(() => {
-      fetch('http://192.168.1.3:5000/SeeAlTraineesYouHave', {
+      fetch('http://192.168.1.2:5000/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',

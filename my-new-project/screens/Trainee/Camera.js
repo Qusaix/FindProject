@@ -221,7 +221,7 @@ import * as firebase from "firebase"
   }
   AddCoach(){
     alert("Welcome")
-    fetch('http://192.168.1.2:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -257,7 +257,7 @@ import * as firebase from "firebase"
                       style={{
                         flex: 1,
                         backgroundColor: 'transparent',
-                        flexDirection: 'row',
+                      //  flexDirection: 'row',
                       }}>
                       <TouchableOpacity
                         style={{
@@ -273,17 +273,54 @@ import * as firebase from "firebase"
                                 : Camera.Constants.Type.back,
                           });
                         }}>
-                        <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+                          <MaterialCommunityIcons name="camera-front" size={45} color="#fff" 
+                          style={{
+                            margin:5
+                          }}
+                          />
+                        {/* <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text> */}
                       </TouchableOpacity>
-                      <TouchableOpacity  onPress={this.snapPhoto.bind(this)}>
+                      <TouchableOpacity  onPress={this.snapPhoto.bind(this)}
+                      style={{
+
+                     // backgroundColor:"#17A589",
+                      padding:5,
+                      height:55,
+                      borderRadius:25,
+                      margin:3,
+                       marginTop:98+"%",
+                       marginLeft:40+"%",
+                      width:20+"%"
+
+                      }}
+                      >
                      <Text>
-                     <FontAwesome name="camera" size={60} color="#fff" />  
+                     <FontAwesome name="camera" size={45} color="#fff" />  
                          </Text>        
               
             </TouchableOpacity>
-            <TouchableOpacity  onPress={this._pickImage.bind(this)}>
-                     <Text>
-                     <FontAwesome name="photo" size={60} color="#fff" />  
+            <TouchableOpacity  onPress={this._pickImage.bind(this)}
+            style={{
+            //  backgroundColor:"#17A589",
+              //padding:5,
+            //  height:55,
+              borderRadius:25,
+              margin:3,
+             // marginTop:98+"%",
+              // marginLeft:60+"%",
+              width:20+"%",
+              alignItems:"center",
+
+            }}
+            >
+                     <Text style={{
+                       padding:5,
+                     //  marginTop:4
+                     }}>
+                     <FontAwesome name="photo" size ={25} style={{
+                       color:"#fff",
+                       
+                     }}/>  
                          </Text>        
               
             </TouchableOpacity>
