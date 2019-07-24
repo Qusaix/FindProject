@@ -52,11 +52,6 @@ import {Bottom } from '../HomeScreen'
     
   }
   
-
-  TextFieldValue(text , type){
-    console.warn("The Change Function is Working")
-  }
-  
   componentWillMount(){
     this.TheInfo()
   }
@@ -128,7 +123,287 @@ import {Bottom } from '../HomeScreen'
     render() {
       return (
         <ScrollView >
-          <Text>Soon...</Text>
+          {/*The Mother View */}
+          <View
+          style={{
+            flex:1
+          }}
+          >
+          <View
+          style={{
+            alignItems:"center"
+          }}
+          >
+
+          {/* Your Plan Contaner*/}
+          <View
+          style={{
+            width:90+"%",
+            height:80,
+            backgroundColor:"#17A589",
+            marginTop:5,
+            borderRadius:9
+          }}
+          >
+            <Text
+            style={{
+              color:"#fff",
+              fontSize:19,
+              fontWeight:"bold",
+              margin:3
+            }}
+            ><MaterialCommunityIcons name="food-apple" size={19} color="#fff" />Your Dite Plan</Text>
+          
+            {/*Prtoien , Carbs , Fat*/}
+            <View
+            style={{
+              flex:1,
+              flexDirection:"row",
+              justifyContent:"center"
+            }}
+            >
+              
+            <Text
+            style={{
+              margin:5,
+              fontSize:13,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >Prtoien : 150g</Text>
+            <Text
+            style={{
+              margin:5,
+              fontSize:13,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >Carbs :350g</Text>
+            <Text
+            style={{
+              margin:5,
+              fontSize:13,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >Fat : 20g</Text>
+
+            </View>
+            {/*Update dite Button*/}
+            <View
+            style={{
+              alignItems:"flex-end",
+              marginRight:3
+            }}
+            >
+             <TouchableOpacity>
+            <FontAwesome name="edit" size={16} color="#fff" />
+            </TouchableOpacity> 
+            </View>
+          </View>
+
+
+
+
+
+
+ {/* Coach Plan Contaner*/}
+ <View
+          style={{
+            width:90+"%",
+            height:80,
+            backgroundColor:"#17A589",
+            marginTop:5,
+            borderRadius:9
+          }}
+          >
+            <Text
+            style={{
+              color:"#fff",
+              fontSize:19,
+              fontWeight:"bold",
+              margin:3
+            }}
+            ><FontAwesome name="user-circle-o" size={19} color="#fff" /> Coach Dite Plan</Text>
+          
+            {/*Prtoien , Carbs , Fat*/}
+            <View
+            style={{
+              flex:1,
+              flexDirection:"row",
+              justifyContent:"center"
+            }}
+            >
+              
+            <Text
+            style={{
+              margin:5,
+              fontSize:13,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >Prtoien : 150g</Text>
+            <Text
+            style={{
+              margin:5,
+              fontSize:13,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >Carbs :350g</Text>
+            <Text
+            style={{
+              margin:5,
+              fontSize:13,
+              color:"#fff",
+              fontWeight:"bold"
+            }}
+            >Fat : 20g</Text>
+
+            </View>
+
+          </View>
+
+        
+
+              </View>
+
+
+
+
+            {/* Food Area and meals */}
+
+            
+            <View
+            style={{
+              flex:1,
+              flexDirection:"row",
+            //  justifyContent:"flex-start"
+              marginLeft:8+"%",
+              marginTop:5+"%",
+              marginBottom:5+"%",
+              //overflow:"scroll"
+            }}
+            >
+              {/* Your Food Area*/}
+              <View
+              style={{
+                backgroundColor:"#17A589",
+                height:200,
+                width:40+"%",
+                marginRight:12+"%",
+                padding:2
+              }}
+              >
+              <Text
+              style={{
+                fontWeight:"bold",
+                fontSize:18,
+                color:"#ffff",
+                padding:5
+              }}
+              >
+                Your Meal Plan
+                </Text>  
+
+              {/* Added Meals*/}
+              <ScrollView>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+
+              </ScrollView>
+              </View>
+
+
+
+              {/* Coach Food Area*/}
+              <View
+              style={{
+                backgroundColor:"#17A589",
+                height:200,
+                width:40+"%",
+                padding:2
+              }}
+              >
+
+                <Text
+              style={{
+                fontWeight:"bold",
+                fontSize:18,
+                color:"#ffff",
+                padding:5
+              }}
+              >
+                Coach Meal Plan
+                </Text>  
+
+                {/* Added Meals*/}
+                <ScrollView>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              <Text
+              style={{
+                fontSize:10,
+                fontWeight:"bold"
+              }}
+              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+
+              </ScrollView>
+
+              </View>
+
+              
+
+
+            </View>
+
+
+
+
+
+
+
+
+          </View>
+
         </ScrollView>
  )}
 

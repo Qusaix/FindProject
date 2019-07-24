@@ -143,11 +143,11 @@ LoginCoach = () =>{
 }
 
 export default createStackNavigator({
-  HomeScreen:{
-    screen:HomeScreen 
-  }, 
+  // HomeScreen:{
+  //   screen:HomeScreen  
+  // }, 
   TestePage:{
-    screen:TakeCamera
+    screen:Dite
   },
   LoginCoachTake:{
    screen:LoginCoach
