@@ -33,6 +33,24 @@ const NewTraineeModule = TheData.define('TraineeInfos',{
     },
     URL:{
         type:sequelize.STRING
+    },
+    Protein:{
+        type:sequelize.STRING
+    },
+    Carb:{
+        type:sequelize.STRING
+    },
+    Fat:{
+        type:sequelize.STRING
+    },
+    ProteinC:{
+        type:sequelize.STRING
+    },
+    CarbC:{
+        type:sequelize.STRING
+    },
+    FatC:{
+        type:sequelize.STRING
     }
   })
   

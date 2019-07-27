@@ -313,7 +313,13 @@ app.post('/registerTrainee',(req,res)=>{
                 Weight:req.body.Weight,
                 Height:req.body.Height,
                 CoachInfoId:null,
-                URL:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"
+                URL:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg",
+                Protein:"0",
+                Carb:"0",
+                Fat:"0",
+                ProteinC:"0",
+                CarbC:"0",
+                FatC:"0"
         
             }
             const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId , URL} = TraineeData
@@ -611,7 +617,23 @@ app.post('/uploadImage',(req,res)=>{
     res.send("Done!")
 })
 
-
 // Blogs APIs END
+
+// Dite APIs
+app.post('/UpdateDite',(req,res)=>{
+    console.log(req.body)
+    NewTraineeModule.findOne({where:{Email:req.body.TheEmail}})
+    .then((Trainee)=>{
+        Trainee.update({
+            Protein:req.body.Protein,
+            Carb:req.body.Carb,
+            Fat:req.body.Fat
+        }) 
+       // res.send(Trainee);
+    })
+    .catch((err)=>{console.log(err)})
+    res.send("Done!")
+})
+
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 

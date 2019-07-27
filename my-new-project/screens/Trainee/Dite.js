@@ -29,7 +29,10 @@ import {Bottom } from '../HomeScreen'
        Name:"",
        Bio:"",
       Experence:"",
-      AllProfiles:[]
+      AllProfiles:[],
+      Protein:"",
+      Carb:"",
+      Fat:""
      } 
    }
 
@@ -57,24 +60,24 @@ import {Bottom } from '../HomeScreen'
   }
 
   TheInfo(){
-    AsyncStorage.getItem('ProFileName')
+    AsyncStorage.getItem('Protein')
      .then((value)=>{
-      this.setState({Name:value})
-      // console.log("This the Profile Now ",value)
+      this.setState({Protein:value})
+       console.warn("This the Profile Now ",value)
       })
      .then((res)=>{})
      
-     AsyncStorage.getItem('ProFileBio')
+     AsyncStorage.getItem('Carb')
      .then((value)=>{
-      this.setState({Bio:value})
+      this.setState({Carb:value})
        //console.log("This is Bio",value)
       // console.log("This is the Name", this.state.Bio)
       })
      .then((res)=>{})
 
-     AsyncStorage.getItem('TheEmail')
+     AsyncStorage.getItem('Fat')
      .then((value)=>{
-      this.setState({TheEmail:value})
+      this.setState({Fat:value})
       //console.log("Email :",value)
        console.log("State Email :", this.state.TheEmail)
       })
@@ -170,7 +173,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Prtoien : 150g</Text>
+            >Prtoien :{this.state.Protein}g</Text>
             <Text
             style={{
               margin:5,
@@ -178,7 +181,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Carbs :350g</Text>
+            >Carbs :{this.state.Carb}g</Text>
             <Text
             style={{
               margin:5,
@@ -186,7 +189,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Fat : 20g</Text>
+            >Fat : {this.state.Fat}g</Text>
 
             </View>
             {/*Update dite Button*/}
@@ -196,7 +199,7 @@ import {Bottom } from '../HomeScreen'
               marginRight:3
             }}
             >
-             <TouchableOpacity>
+             <TouchableOpacity onPress={()=>this.props.navigation.navigate("EditDite")}>
             <FontAwesome name="edit" size={16} color="#fff" />
             </TouchableOpacity> 
             </View>

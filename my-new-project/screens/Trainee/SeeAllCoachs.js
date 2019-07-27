@@ -125,20 +125,25 @@ import { Card, ListItem , Icon } from 'react-native-elements'
                 }}
                 key={Coach.id}
                 >
-
-                    <Card
+                   <Card
+                   title={Coach.Name+""} 
+                   >
+                    {/* <Card
                       title={Coach.Name}
                     //image={{uri:"https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
-                      >
+                      > */}
                       <Text style={{marginBottom: 10,textAlign:"left",fontSize:18,color:"#B3B6B7"}}>
                         Bio
                       </Text>
+
                       <Text style={{marginBottom: 10,textAlign:"left",fontSize:14,color:"#000"}} >
                           {Coach.Bio}
                         </Text>
+
                         <Text style={{marginBottom: 10,textAlign:"left",fontSize:18,color:"#000"}}>
                         Experence : {Coach.Experence}
                       </Text>
+
                       <Button
                         icon={<Icon name='code' color='#ffffff' />}
                         backgroundColor='#03A9F4'
@@ -156,14 +161,15 @@ import { Card, ListItem , Icon } from 'react-native-elements'
                                       }}
                         
                         />
-                    </Card>
+                        </Card>
+                    {/* </Card>  */}
                     </View>
                      )})}
 
 
 {/* This is the Start Of The New Design */}
 
-<View
+{/* <View
 style={{
   width:100+"%",
   flex:1,
@@ -181,7 +187,7 @@ style={{
 >
 </View>
 
-</View> 
+</View>  */}
 
 </ScrollView>
  )}

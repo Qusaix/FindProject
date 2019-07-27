@@ -70,6 +70,9 @@ import CoachDashboard from '../Coach/dashboard'
            AsyncStorage.setItem("Name",data.Name)
            AsyncStorage.setItem("weight",data.Weight)
            AsyncStorage.setItem("ImageURL",data.URL)
+           AsyncStorage.setItem("Protein",data.Protein)
+           AsyncStorage.setItem("Carb",data.Carb)
+           AsyncStorage.setItem("Fat",data.Fat)
 
         }
         catch(error){

@@ -124,7 +124,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   }
 
   SeeCouchBlogs(){
-    fetch('http://192.168.1.3:5000/SeeTheBlogsCouchHave', {
+    fetch('http://192.168.1.2:5000/SeeTheBlogsCouchHave', {
       method: 'post',
       headers: {
         Accept: 'application/json',
