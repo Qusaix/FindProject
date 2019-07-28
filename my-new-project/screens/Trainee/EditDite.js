@@ -114,7 +114,7 @@ AsyncStorage.setItem("Protein",this.state.Protein)
 AsyncStorage.setItem("Carb",this.state.Carb)
 AsyncStorage.setItem("Fat",this.state.Fat)
 
-return this.props.navigation.navigate("TraineeDashboard")
+return this.props.navigation.navigate("TraineeDashBoardPage")
 
   }
 

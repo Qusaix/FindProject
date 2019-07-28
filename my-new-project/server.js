@@ -632,8 +632,20 @@ app.post('/UpdateDite',(req,res)=>{
        // res.send(Trainee);
     })
     .catch((err)=>{console.log(err)})
-    res.send("Done!")
+  //  res.send("Done!")
 })
 
+app.post('/CouchUpdateDite',(req,res)=>{
+    console.log("Email :",req.body.Email)
+    NewTraineeModule.findOne({where:{Email:req.body.Email}})
+    .then((Trainee)=>{
+        Trainee.update({
+            ProteinC:req.body.UpdatedProtein,
+            CarbC:req.body.UpdatedCarb,
+            FatC:req.body.UpdatedFat
+        })
+    })
+    //res.send("The Dite Was Updated")
+})
 
 app.listen(PORT,()=> console.log("The Server Is On ",PORT)); 

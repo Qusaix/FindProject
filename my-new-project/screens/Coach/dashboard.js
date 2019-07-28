@@ -335,6 +335,7 @@ Counter(){
                   padding:10
                   
                   }}
+                  
                   >
                      
                     <Text
@@ -374,7 +375,34 @@ Counter(){
                     }}
                     > Height : {Coach.Height}CM</Text>
                     {/* <Text> {Coach.Email}</Text> */}
+
+                    <TouchableOpacity
+                    style={{
+                      backgroundColor:"#0E6251",
+                      width:100,
+                      borderRadius:5,
+                      marginTop:3,
+                      marginLeft:2
+                    }}
+                    onPress={()=>{
+
+                      AsyncStorage.setItem("UpdateDiteName",Coach.Name)
+                      AsyncStorage.setItem("UpdateDiteEmail",Coach.Email)
+
+                      return this.props.navigation.navigate('UpdatedTraineeDite')
+                    
+                    }}
+                    >
+                      <Text
+                      style={{
+                        color:"#fff",
+                        padding:4
+                      }}
+                      >Update Dite</Text>
+                    </TouchableOpacity>
+
                     </View>
+                    
                     
                  </View>
 

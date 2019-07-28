@@ -73,7 +73,9 @@ import CoachDashboard from '../Coach/dashboard'
            AsyncStorage.setItem("Protein",data.Protein)
            AsyncStorage.setItem("Carb",data.Carb)
            AsyncStorage.setItem("Fat",data.Fat)
-
+           AsyncStorage.setItem("ProteinC",data.ProteinC)
+           AsyncStorage.setItem("CarbC",data.CarbC)
+           AsyncStorage.setItem("FatC",data.FatC)
         }
         catch(error){
           console.log("This is the Error ",error)

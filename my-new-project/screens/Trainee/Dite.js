@@ -32,7 +32,10 @@ import {Bottom } from '../HomeScreen'
       AllProfiles:[],
       Protein:"",
       Carb:"",
-      Fat:""
+      Fat:"",
+      ProteinC:"No Info",
+      CarbC:"No Info",
+      FatC:"No Info"
      } 
    }
 
@@ -79,7 +82,7 @@ import {Bottom } from '../HomeScreen'
      .then((value)=>{
       this.setState({Fat:value})
       //console.log("Email :",value)
-       console.log("State Email :", this.state.TheEmail)
+      // console.log("State Email :", this.state.TheEmail)
       })
      .then((res)=>{})
 
@@ -87,15 +90,27 @@ import {Bottom } from '../HomeScreen'
      .then((value)=>{
       this.setState({IdCoach:value})
       //console.log("IDCouch :",value)
-       console.log("State IDCouch :", this.state.IdCoach)
+       //console.log("State IDCouch :", this.state.IdCoach)
       })
      .then((res)=>{})
 
-     AsyncStorage.getItem('Email')
+     AsyncStorage.getItem('ProteinC')
      .then((value)=>{
-      this.setState({TheLoginTraineeEmail:value})
-       console.log("LoginTraineeEmail :",value)
+      this.setState({ProteinC:value})
+    //   console.log("LoginTraineeEmail :",value)
       })
+
+      AsyncStorage.getItem('CarbC')
+      .then((value)=>{
+       this.setState({CarbC:value})
+     //   console.log("LoginTraineeEmail :",value)
+       })
+
+       AsyncStorage.getItem('FatC')
+      .then((value)=>{
+       this.setState({FatC:value})
+     //   console.log("LoginTraineeEmail :",value)
+       })
 
   }
 
@@ -245,7 +260,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Prtoien : 150g</Text>
+            >Prtoien : {this.state.ProteinC}</Text>
             <Text
             style={{
               margin:5,
@@ -253,7 +268,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Carbs :350g</Text>
+            >Carbs {this.state.CarbC}</Text>
             <Text
             style={{
               margin:5,
@@ -261,7 +276,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Fat : 20g</Text>
+            >Fat : {this.state.FatC}</Text>
 
             </View>
 
