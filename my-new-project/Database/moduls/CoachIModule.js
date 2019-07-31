@@ -72,6 +72,9 @@ const NewTraineeModule = TheData.define('TraineeInfos',{
   Experence:{
       type:sequelize.STRING
   },
+  URL:{
+      type:sequelize.STRING
+  }
   })
   
   

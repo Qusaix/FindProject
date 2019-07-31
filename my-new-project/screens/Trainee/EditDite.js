@@ -94,7 +94,7 @@ import { Header } from 'react-navigation';
   }
   UpdateNutriton(){
 //     alert("Welcome")
-    fetch('http://192.168.1.2:5000/UpdateDite', {
+    fetch('http://192.168.1.5:5000/UpdateDite', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -113,6 +113,7 @@ import { Header } from 'react-navigation';
 AsyncStorage.setItem("Protein",this.state.Protein)
 AsyncStorage.setItem("Carb",this.state.Carb)
 AsyncStorage.setItem("Fat",this.state.Fat)
+
 
 return this.props.navigation.navigate("TraineeDashBoardPage")
 

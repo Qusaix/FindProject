@@ -32,6 +32,7 @@ import Search from './Search'
        Bio:"",
       Experence:"",
       Email:"",
+      URL:"",
       AllTheData:[],
       Length:0
      } 
@@ -108,13 +109,20 @@ import Search from './Search'
       })
      .then((res)=>{})
 
+     AsyncStorage.getItem('URL')
+     .then((value)=>{
+      this.setState({URL:value})
+       console.log("This is the value ",value)
+      })
+     .then((res)=>{})
+
   }
 
   TakeAndSendData(){
 
 
     setTimeout(() => {
-      fetch('http://192.168.1.2:5000/SeeAllTheCustomers', {
+      fetch('http://192.168.1.5:5000/SeeAllTheCustomers', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -177,8 +185,32 @@ Counter(){
                 
                 borderRadius:40
             }}
-            source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
+            source={{uri:`${this.state.URL}`}}
             />
+                        <TouchableOpacity
+            style={{
+              backgroundColor:"#138D75",
+              padding:10,
+              width:15+"%",
+             // marginBottom:35+"%",
+              borderRadius:7,
+              margin:5,
+            }}
+            onPress={()=>this.props.navigation.navigate('TakeCameraCoach')}
+            >
+              <Text
+              style={{
+                color:"#fff",
+                fontSize:15,
+                fontWeight:"bold",
+                textAlign:"center"
+              }}
+              >
+              <AntDesign name="camera" size={20} color="#fff" />
+
+              </Text>
+            </TouchableOpacity>
+
             
         <View
         style={{

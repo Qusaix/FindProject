@@ -93,7 +93,7 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 
 
     setTimeout(() => {
-      fetch('http://192.168.1.2:5000/SeeAllBlogs', {
+      fetch('http://192.168.1.5:5000/SeeAllBlogs', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -120,7 +120,7 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 
   AddBlog(){
 
-    fetch('http://192.168.1.2:5000/AddBlog', {
+    fetch('http://192.168.1.5:5000/AddBlog', {
     method: 'post',
     headers: {
     Accept: 'application/json',

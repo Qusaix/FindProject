@@ -66,7 +66,7 @@ import {Bottom } from '../HomeScreen'
     AsyncStorage.getItem('Protein')
      .then((value)=>{
       this.setState({Protein:value})
-       console.warn("This the Profile Now ",value)
+       console.warn("This the Protein Now ",value)
       })
      .then((res)=>{})
      
@@ -119,7 +119,7 @@ import {Bottom } from '../HomeScreen'
   }
   AddCoach(){
     alert("Welcome")
-    fetch('http://192.168.1.2:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.5:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',

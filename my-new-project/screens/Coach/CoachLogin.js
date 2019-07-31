@@ -42,6 +42,7 @@ import CoachDashboard from './dashboard'
            AsyncStorage.setItem("Name",data.Name)
            AsyncStorage.setItem("Bio",data.Bio)
            AsyncStorage.setItem("Experence",data.Experence)
+           AsyncStorage.setItem("URL",data.URL)
         }
         catch(error){
           console.log("This is the Error ",error)
@@ -56,7 +57,7 @@ import CoachDashboard from './dashboard'
   }
 
    LoginNow(){
-    fetch('http://192.168.1.2:5000/LoginCoch', {
+    fetch('http://192.168.1.5:5000/LoginCoch', {
     method: 'post',
     headers: {
     Accept: 'application/json',

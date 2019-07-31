@@ -165,7 +165,7 @@ import TraineeBlog from './BlogTrainee'
   SeeYourCouch(){   
     // alert(2)
     setTimeout(() => {
-      fetch('http://192.168.1.2:5000/SeeAlTraineesYouHave', {
+      fetch('http://192.168.1.5:5000/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -554,7 +554,7 @@ import TraineeBlog from './BlogTrainee'
               borderRadius:7,
               margin:5,
             }}
-            onPress={()=>this.props.navigation.navigate('TakeCamera')}
+            onPress={()=>this.props.navigation.navigate('TakeCameraCoach')}
             >
               <Text
               style={{

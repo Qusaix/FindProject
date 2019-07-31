@@ -75,7 +75,7 @@ import { TextField } from 'react-native-material-textfield';
   }
 
   UpdatedData(){
-    fetch('http://192.168.1.2:5000/CouchUpdateDite', {
+    fetch('http://192.168.1.5:5000/CouchUpdateDite', {
         method: 'post',
         headers: {
           Accept: 'application/json',

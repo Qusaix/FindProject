@@ -32,17 +32,19 @@ app.post('/registerCoach',(req,res , next)=>{
             Email: req.body.Email,
             Password: HashPassword,
             Bio: req.body.Bio,
-            Experence: req.body.Experence 
+            Experence: req.body.Experence ,
+            URL:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"
          }
      
-         const {Name , Email , Password , Bio , Experence } = CoachData
+         const {Name , Email , Password , Bio , Experence , URL} = CoachData
      
          NewCoach.create({
              Name:Name,
              Email:Email,
              Password:Password,
              Bio:Bio,
-             Experence:Experence
+             Experence:Experence,
+             URL:URL
          })
          .then((created)=>{console.log("The User Is Created",created.dataValues)
          res.send(created.dataValues)})
@@ -317,12 +319,12 @@ app.post('/registerTrainee',(req,res)=>{
                 Protein:"0",
                 Carb:"0",
                 Fat:"0",
-                ProteinC:"0",
-                CarbC:"0",
-                FatC:"0"
+                ProteinC:"No Couch",
+                CarbC:"No Couch",
+                FatC:"NoCouhc"
         
             }
-            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId , URL} = TraineeData
+            const { Name , Email , Password , Bio , Experence , Goal , Weight , Height ,  CoachInfoId , URL , Protein , Carb , Fat , ProteinC , CarbC , FatC} = TraineeData
             NewTraineeModule.create({
                 Name,
                 Email,
@@ -333,7 +335,13 @@ app.post('/registerTrainee',(req,res)=>{
                 Weight,
                 Height,
                 CoachInfoId,
-                URL
+                URL,
+                Protein,
+                Carb,
+                Fat,
+                ProteinC,
+                CarbC,
+                FatC
             })
 
             NewTraineeModule.findAll({
@@ -616,6 +624,20 @@ app.post('/uploadImage',(req,res)=>{
     // })
     res.send("Done!")
 })
+
+
+// Coach Uplaod Photos
+app.post('/uploadImageCoach',(req,res)=>{
+    console.log("Email :",req.body.Email)
+    NewCoach.findOne({where:{Email:req.body.Email}})
+    .then((Trainee)=>{
+        Trainee.update({
+            URL:req.body.URL
+        })
+    })
+    res.send("Done!")
+})
+
 
 // Blogs APIs END
 

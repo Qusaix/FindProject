@@ -18,7 +18,7 @@ import { Camera } from 'expo-camera';
 import { ImagePicker , Constants } from 'expo';
 import * as firebase from "firebase"
 //import console = require('console');
- class TakeCamera extends React.Component {
+ class TakeCameraCoach extends React.Component {
    constructor(props){
      super(props)
      this.state={
@@ -102,7 +102,7 @@ import * as firebase from "firebase"
      ref.getDownloadURL().then((url)=>{
       if(url){
         this.setState({URL:url})
-        fetch('http://192.168.1.5:5000/uploadImage',{
+        fetch('http://192.168.1.5:5000/uploadImageCoach',{
           method: 'post',
           headers: {
           Accept: 'application/json',
@@ -115,7 +115,7 @@ import * as firebase from "firebase"
         .then()
         .catch()
         Alert.alert("Upload Is Done! to",this.state.Email)
-        this.props.navigation.navigate('TraineeDashBoardPage')
+        this.props.navigation.navigate('DashboardPage')
         return console.log("The Image Has Been Found :",url)
       }else{
        return console.log("There Is No Image has been found")
@@ -177,67 +177,19 @@ import * as firebase from "firebase"
   }
 
   TheInfo(){
-    AsyncStorage.getItem('TheEmail')
+    AsyncStorage.getItem('Email')
      .then((value)=>{
       this.setState({Email:value})
        console.log("This the Email Now ",value)
       })
      .then((res)=>{})
-     
-     AsyncStorage.getItem('ProFileBio')
-     .then((value)=>{
-      this.setState({Bio:value})
-       //console.log("This is Bio",value)
-      // console.log("This is the Name", this.state.Bio)
-      })
-     .then((res)=>{})
-
-     AsyncStorage.getItem('TheEmail')
-     .then((value)=>{
-      this.setState({TheEmail:value})
-      //console.log("Email :",value)
-       console.log("State Email :", this.state.TheEmail)
-      })
-     .then((res)=>{})
-
-     AsyncStorage.getItem('IdCoach')
-     .then((value)=>{
-      this.setState({IdCoach:value})
-      //console.log("IDCouch :",value)
-       console.log("State IDCouch :", this.state.IdCoach)
-      })
-     .then((res)=>{})
-
-     AsyncStorage.getItem('Email')
-     .then((value)=>{
-      this.setState({TheLoginTraineeEmail:value})
-       console.log("LoginTraineeEmail :",value)
-      })
-
   }
 
   Back(){
     return this.props.navigation.navigate("SeeAllCoachsPage");
   }
-  AddCoach(){
-    alert("Welcome")
-    fetch('http://192.168.1.5:5000/AddingCouchForTrainee', {
-    method: 'post',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(this.state)
-    })
-  .then((res)=>{return res.json()})
-  .then((data)=>{
 
-    console.warn("This is the data ",data)
-  })
-  //.catch((err)=>console.warn(err))
-  .done()
-  }
-     render() {
+  render() {
 
             const { hasCameraPermission , image} = this.state;
             if (hasCameraPermission === null) {
@@ -278,7 +230,6 @@ import * as firebase from "firebase"
                             margin:5
                           }}
                           />
-                        {/* <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text> */}
                       </TouchableOpacity>
                       <TouchableOpacity  onPress={this.snapPhoto.bind(this)}
                       style={{
@@ -301,13 +252,8 @@ import * as firebase from "firebase"
             </TouchableOpacity>
             <TouchableOpacity  onPress={this._pickImage.bind(this)}
             style={{
-            //  backgroundColor:"#17A589",
-              //padding:5,
-            //  height:55,
               borderRadius:25,
               margin:3,
-             // marginTop:98+"%",
-              // marginLeft:60+"%",
               width:20+"%",
               alignItems:"center",
 
@@ -315,7 +261,6 @@ import * as firebase from "firebase"
             >
                      <Text style={{
                        padding:5,
-                     //  marginTop:4
                      }}>
                      <FontAwesome name="photo" size ={25} style={{
                        color:"#fff",
@@ -336,4 +281,4 @@ import * as firebase from "firebase"
 
 };
 
-export default TakeCamera;
+export default TakeCameraCoach;
