@@ -154,7 +154,7 @@ Counter(){
 
   TextFieldValue(text , type){
     console.warn("The Change Function is Working")
-  }
+  } 
   
     render() {
       return (
