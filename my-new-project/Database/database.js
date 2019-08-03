@@ -2,8 +2,8 @@ const express = require('express')
 const app = express();
 const sequelize = require('sequelize');
 
-const TheData = new sequelize('qusai1',"root","1111",{
-    host:"localhost",
+const TheData = new sequelize('srZOKwU0xw',"srZOKwU0xw","yLSvhquMaf",{
+    host:"remotemysql.com",
     dialect:"mysql",
     // pool: {
     //     max: 5,
