@@ -9,6 +9,15 @@ import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+},
+{
+ 
+  defaultNavigationOptions:{
+    headerStyle:{
+      backgroundColor:"red",
+      display:"none"
+    }
+  }
 });
 
 HomeStack.navigationOptions = {

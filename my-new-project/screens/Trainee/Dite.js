@@ -66,50 +66,41 @@ import {Bottom } from '../HomeScreen'
     AsyncStorage.getItem('Protein')
      .then((value)=>{
       this.setState({Protein:value})
-       console.warn("This the Protein Now ",value)
+      // console.warn("This the Protein Now ",value)
       })
      .then((res)=>{})
      
      AsyncStorage.getItem('Carb')
      .then((value)=>{
       this.setState({Carb:value})
-       //console.log("This is Bio",value)
-      // console.log("This is the Name", this.state.Bio)
       })
      .then((res)=>{})
 
      AsyncStorage.getItem('Fat')
      .then((value)=>{
       this.setState({Fat:value})
-      //console.log("Email :",value)
-      // console.log("State Email :", this.state.TheEmail)
       })
      .then((res)=>{})
 
      AsyncStorage.getItem('IdCoach')
      .then((value)=>{
       this.setState({IdCoach:value})
-      //console.log("IDCouch :",value)
-       //console.log("State IDCouch :", this.state.IdCoach)
       })
      .then((res)=>{})
 
      AsyncStorage.getItem('ProteinC')
      .then((value)=>{
       this.setState({ProteinC:value})
-    //   console.log("LoginTraineeEmail :",value)
       })
 
       AsyncStorage.getItem('CarbC')
       .then((value)=>{
        this.setState({CarbC:value})
-     //   console.log("LoginTraineeEmail :",value)
        })
 
        AsyncStorage.getItem('FatC')
       .then((value)=>{
        this.setState({FatC:value})
-     //   console.log("LoginTraineeEmail :",value)
        })
 
   }
@@ -119,7 +110,7 @@ import {Bottom } from '../HomeScreen'
   }
   AddCoach(){
     alert("Welcome")
-    fetch('http://192.168.1.5:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -130,7 +121,6 @@ import {Bottom } from '../HomeScreen'
   .then((res)=>{return res.json()})
   .then((data)=>{
 
-    console.warn("This is the data ",data)
   })
   //.catch((err)=>console.warn(err))
   .done()

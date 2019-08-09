@@ -1,14 +1,14 @@
 const express = require('express')
 const app = express();
 const sequelize = require('sequelize');
-
-const TheData = new sequelize('srZOKwU0xw',"srZOKwU0xw","yLSvhquMaf",{
-    host:"remotemysql.com",
+// srZOKwU0xw srZOKwU0xw yLSvhquMaf
+const TheData = new sequelize('qusai1',"root","1111",{
+    host:"localhost",
     dialect:"mysql",
     // pool: {
     //     max: 5,
     //     min: 0,
-    //     acquire: 30000,
+    //     acquire: 30000, 
     //     idle: 10000
     //   },
     //   define:{

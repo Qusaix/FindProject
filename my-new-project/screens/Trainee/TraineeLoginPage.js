@@ -38,16 +38,11 @@ import CoachDashboard from '../Coach/dashboard'
     title:"LoginTrainee",
     headerStyle:{
       backgroundColor:"#138D75",
-      //display:"none"
-
     },
     headerTitleStyle:{
       color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
     alignItems:"center",
     flex: 1,
-    //display:"none"
     }
   }
   TheData(data){
@@ -89,7 +84,7 @@ import CoachDashboard from '../Coach/dashboard'
     }
   }
   LoginNow(){
-    fetch('http://192.168.1.5:5000/LoginTrainee', {
+    fetch('http://192.168.1.3:5000/LoginTrainee', {
     method: 'post',
     headers: {
     Accept: 'application/json',

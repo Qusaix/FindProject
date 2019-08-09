@@ -33,21 +33,29 @@ import { Card, ListItem , Icon } from 'react-native-elements'
      } 
    }
 
-  static navigationOptions = {
-    title:"Login as Coach",
+  // static navigationOptions = {
+  //   title:"Login as Coach",
+  //   headerStyle:{
+  //     backgroundColor:"#238aff",
+  //     //display:"none"
+  //   },
+  //   headerTitleStyle:{
+  //     color:"#fff",
+  //     // marginLeft:48+"%",
+  //     // marginTop: -38
+  //   alignItems:"center",
+  //   flex: 1,
+  //   display:"none"
+  //   }
+  // }
+  static navigationOptions = { 
+    //title:"Back",
     headerStyle:{
-      backgroundColor:"#238aff",
-      //display:"none"
-    },
-    headerTitleStyle:{
-      color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
-    alignItems:"center",
-    flex: 1,
-    display:"none"
+      backgroundColor:"#17A589",
+      display:"none"
     }
   }
+
   componentDidMount(){
     this.getUsers();
   }
@@ -86,7 +94,7 @@ import { Card, ListItem , Icon } from 'react-native-elements'
   }
   
   componentWillMount(){
-    fetch('http://192.168.1.5:5000/SeeAllUsers', {
+    fetch('http://192.168.1.3:5000/SeeAllUsers', {
     method: 'post',
     headers: {
     Accept: 'application/json',

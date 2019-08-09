@@ -32,20 +32,11 @@ import TraineeBlog from './BlogTrainee'
 
  class TraineeDashboard extends React.Component {
 
-  static navigationOptions = {
-    title:"Welcom to Your Account",
+  static navigationOptions = { 
+    //title:"Back",
     headerStyle:{
-    backgroundColor:"#000",
-    //display:"none"
-
-    },
-    headerTitleStyle:{
-      color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
-    alignItems:"center",
-    flex: 1,
-    //display:"none"
+      backgroundColor:"#17A589",
+      display:"none"
     }
   }
 
@@ -165,7 +156,7 @@ import TraineeBlog from './BlogTrainee'
   SeeYourCouch(){   
     // alert(2)
     setTimeout(() => {
-      fetch('http://192.168.1.5:5000/SeeAlTraineesYouHave', {
+      fetch('http://192.168.1.3:5000/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -234,22 +225,6 @@ import TraineeBlog from './BlogTrainee'
         >{this.state.Name}</Text>
 
       </View>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {/* To Do  */}
 {/* Mother View  */}
@@ -331,12 +306,9 @@ import TraineeBlog from './BlogTrainee'
           > {this.state.Goal}</Text>
          </View>
 
-
-
-
             </View>
 
-            {/* The Seconone  */}
+  {/* The Seconone  */}
 
 <View
       style={{
@@ -554,7 +526,7 @@ import TraineeBlog from './BlogTrainee'
               borderRadius:7,
               margin:5,
             }}
-            onPress={()=>this.props.navigation.navigate('TakeCameraCoach')}
+            onPress={()=>this.props.navigation.navigate('TakeCamera')}
             >
               <Text
               style={{

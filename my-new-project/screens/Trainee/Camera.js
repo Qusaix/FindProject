@@ -102,7 +102,7 @@ import * as firebase from "firebase"
      ref.getDownloadURL().then((url)=>{
       if(url){
         this.setState({URL:url})
-        fetch('http://192.168.1.5:5000/uploadImage',{
+        fetch('http://192.168.1.3:5000/uploadImage',{
           method: 'post',
           headers: {
           Accept: 'application/json',
@@ -221,7 +221,7 @@ import * as firebase from "firebase"
   }
   AddCoach(){
     alert("Welcome")
-    fetch('http://192.168.1.5:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',

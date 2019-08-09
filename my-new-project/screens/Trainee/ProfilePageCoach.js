@@ -1,19 +1,13 @@
 import React from 'react';
 import {
   Image,
-  Platform,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Button,
-  Alert,
-  TextInput,
   AsyncStorage
 } from 'react-native';
-import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
-//import console = require('console');
+import {FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
 
  class CoachProfile extends React.Component {
    constructor(props){
@@ -46,39 +40,31 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   componentDidMount(){
     this.TheInfo()
     var that = this;
-    setTimeout(function(){that.SeeCouchBlogs()},3000);
+    setTimeout(function(){that.SeeCouchBlogs()},10000);
     
   }
   
-
-  TextFieldValue(text , type){
-    console.warn("The Change Function is Working")
-  }
   
-  componentWillMount(){
-    this.TheInfo()
-  }
+  // componentWillMount(){
+  //   this.TheInfo()
+  // }
 
   TheInfo(){
     AsyncStorage.getItem('ProFileName')
      .then((value)=>{
       this.setState({Name:value})
-      // console.log("This the Profile Now ",value)
       })
      .then((res)=>{})
      
      AsyncStorage.getItem('ProFileBio')
      .then((value)=>{
       this.setState({Bio:value})
-       //console.log("This is Bio",value)
-      // console.log("This is the Name", this.state.Bio)
       })
      .then((res)=>{})
 
      AsyncStorage.getItem('TheEmail')
      .then((value)=>{
       this.setState({TheEmail:value})
-      //console.log("Email :",value)
        console.log("State Email :", this.state.TheEmail)
       })
      .then((res)=>{})
@@ -86,7 +72,6 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
      AsyncStorage.getItem('IdCoach')
      .then((value)=>{
       this.setState({IdCoach:value})
-      //console.log("IDCouch :",value)
        console.log("State IDCouch :", this.state.IdCoach)
       })
      .then((res)=>{})
@@ -104,7 +89,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   }
   AddCoach(){
     alert(`Now ${this.state.Name} is Your Couch`)
-    fetch('http://192.168.1.5:5000/AddingCouchForTrainee', {
+    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -115,7 +100,6 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   .then((res)=>{return res.json()})
   .then((data)=>{
 
-    console.warn("This is the data ",data)
   })
   //.catch((err)=>console.warn(err))
   .done()
@@ -124,7 +108,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
   }
 
   SeeCouchBlogs(){
-    fetch('http://192.168.1.5:5000/SeeTheBlogsCouchHave', {
+    fetch('http://192.168.1.3:5000/SeeTheBlogsCouchHave', {
       method: 'post',
       headers: {
         Accept: 'application/json',
@@ -137,7 +121,7 @@ import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/v
       //this.setState({ AllTheBlogs : data})
       var reverse = data.reverse();
       this.setState({AllTheBlogs : reverse})
-      console.warn("This is the data ",this.state.AllTheBlogs)
+     // console.warn("This is the data ",this.state.AllTheBlogs)
     })
     //.catch((err)=>console.warn(err))
     .done()  

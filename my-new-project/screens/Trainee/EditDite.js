@@ -53,15 +53,13 @@ import { Header } from 'react-navigation';
     AsyncStorage.getItem('Name')
      .then((value)=>{
       this.setState({Name:value})
-      console.warn("This the Profile Now ",value)
+     // console.warn("This the Profile Now ",value)
       })
      .then((res)=>{})
      
      AsyncStorage.getItem('ProFileBio')
      .then((value)=>{
       this.setState({Bio:value})
-       //console.log("This is Bio",value)
-      // console.log("This is the Name", this.state.Bio)
       })
      .then((res)=>{})
 
@@ -94,7 +92,7 @@ import { Header } from 'react-navigation';
   }
   UpdateNutriton(){
 //     alert("Welcome")
-    fetch('http://192.168.1.5:5000/UpdateDite', {
+    fetch('http://192.168.1.3:5000/UpdateDite', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -105,7 +103,7 @@ import { Header } from 'react-navigation';
   .then((res)=>{return res.json()})
   .then((data)=>{
 
-    console.warn("This is the data ",data)
+  //  console.warn("This is the data ",data)
   })
   .catch((err)=>console.warn(err))
   .done()

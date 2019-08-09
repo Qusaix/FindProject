@@ -150,7 +150,7 @@ export default createStackNavigator({
     screen:HomeScreen  
   },  
   TestePage:{
-    screen:CoachDashboard
+    screen:CoachProfile
   },
   LoginCoachTake:{
    screen:LoginCoach
@@ -209,4 +209,14 @@ export default createStackNavigator({
   TakeCameraCoach:{
     screen:TakeCameraCoach
   }
-})
+},{
+ 
+  defaultNavigationOptions:{
+    title:"Logout",
+    headerStyle:{
+      backgroundColor:"#fff",
+      //display:"none"
+    }
+  }
+}
+)
