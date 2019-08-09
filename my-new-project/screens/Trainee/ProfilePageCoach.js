@@ -89,7 +89,7 @@ import {FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
   }
   AddCoach(){
     alert(`Now ${this.state.Name} is Your Couch`)
-    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -108,7 +108,7 @@ import {FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
   }
 
   SeeCouchBlogs(){
-    fetch('http://192.168.1.3:5000/SeeTheBlogsCouchHave', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/SeeTheBlogsCouchHave', {
       method: 'post',
       headers: {
         Accept: 'application/json',

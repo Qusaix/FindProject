@@ -584,14 +584,15 @@ app.post('/SeeAllBlogs',(req,res)=>{
 app.post('/SeeTheBlogsCouchHave',(req,res)=>{
 
     console.log("See All Couchs :",req.body.TheEmail);
-
+    console.log(req.body)
     var CouchEmail = req.body.TheEmail;
     var TheCouchId;
     var Blog;
 
     NewCoach.findOne({where:{Email:CouchEmail}})
     .then((CouchInfo)=>{
-        TheCouchId = CouchInfo.id
+       TheCouchId = CouchInfo.id
+        console.log("The Couch ",CouchInfo)
     });
 
     setTimeout(function(){
@@ -601,12 +602,12 @@ app.post('/SeeTheBlogsCouchHave',(req,res)=>{
             Blog = Blogs
         })
         .catch((err)=>console.log("err: ",err))
-    },200)
+    },1000)
 
     setTimeout(function(){
     console.log("Blogs :",Blog)
     res.json(Blog)
-    },300)
+    },1500)
 })
 // Images Area Upload/SeeAllPhotos
 app.post('/uploadImage',(req,res)=>{

@@ -57,7 +57,7 @@ import CoachDashboard from './dashboard'
   }
 
    LoginNow(){
-    fetch('http://192.168.1.3:5000/LoginCoch', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/LoginCoch', {
     method: 'post',
     headers: {
     Accept: 'application/json',

@@ -34,7 +34,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
     this.setState({[name] : value})
   }
   sendUserInfo(){
-    fetch('http://192.168.1.3:5000/registerCoach', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/registerCoach', {
     method: 'post',
     headers: {
       Accept: 'application/json',

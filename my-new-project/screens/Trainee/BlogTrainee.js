@@ -93,7 +93,7 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 
 
     setTimeout(() => {
-      fetch('http://192.168.1.3:5000/SeeAllBlogs', {
+      fetch('https://quiet-beyond-30221.herokuapp.com/SeeAllBlogs', {
     method: 'post',
     headers: {
     Accept: 'application/json',
@@ -120,7 +120,7 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 
   AddBlog(){
 
-    fetch('http://192.168.1.3:5000/AddBlog', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/AddBlog', {
     method: 'post',
     headers: {
     Accept: 'application/json',

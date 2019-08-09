@@ -122,7 +122,7 @@ import Search from './Search'
 
 
     setTimeout(() => {
-      fetch('http://192.168.1.3:5000/SeeAllTheCustomers', {
+      fetch('https://quiet-beyond-30221.herokuapp.com/SeeAllTheCustomers', {
     method: 'post',
     headers: {
     Accept: 'application/json',

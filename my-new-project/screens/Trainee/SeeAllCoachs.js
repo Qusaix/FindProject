@@ -94,7 +94,7 @@ import { Card, ListItem , Icon } from 'react-native-elements'
   }
   
   componentWillMount(){
-    fetch('http://192.168.1.3:5000/SeeAllUsers', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/SeeAllUsers', {
     method: 'post',
     headers: {
     Accept: 'application/json',

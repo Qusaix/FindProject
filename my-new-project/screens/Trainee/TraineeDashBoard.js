@@ -156,7 +156,7 @@ import TraineeBlog from './BlogTrainee'
   SeeYourCouch(){   
     // alert(2)
     setTimeout(() => {
-      fetch('http://192.168.1.3:5000/SeeAlTraineesYouHave', {
+      fetch('https://quiet-beyond-30221.herokuapp.com/SeeAlTraineesYouHave', {
     method: 'post',
     headers: {
     Accept: 'application/json',

@@ -100,7 +100,7 @@ var options = {
     this.setState({[name] : value})
   }
   sendUserInfo(){
-    fetch('http://192.168.1.3:5000/registerTrainee', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/registerTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',

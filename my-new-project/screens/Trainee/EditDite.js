@@ -92,7 +92,7 @@ import { Header } from 'react-navigation';
   }
   UpdateNutriton(){
 //     alert("Welcome")
-    fetch('http://192.168.1.3:5000/UpdateDite', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/UpdateDite', {
     method: 'post',
     headers: {
       Accept: 'application/json',

@@ -110,7 +110,7 @@ import {Bottom } from '../HomeScreen'
   }
   AddCoach(){
     alert("Welcome")
-    fetch('http://192.168.1.3:5000/AddingCouchForTrainee', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/AddingCouchForTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',

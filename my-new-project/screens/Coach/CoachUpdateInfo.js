@@ -75,7 +75,7 @@ import { TextField } from 'react-native-material-textfield';
   }
 
   UpdatedData(){
-    fetch('http://192.168.1.3:5000/UpdateCoachInfo', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/UpdateCoachInfo', {
         method: 'post',
         headers: {
           Accept: 'application/json',

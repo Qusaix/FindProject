@@ -102,7 +102,7 @@ import * as firebase from "firebase"
      ref.getDownloadURL().then((url)=>{
       if(url){
         this.setState({URL:url})
-        fetch('http://192.168.1.3:5000/uploadImageCoach',{
+        fetch('https://quiet-beyond-30221.herokuapp.com/uploadImageCoach',{
           method: 'post',
           headers: {
           Accept: 'application/json',

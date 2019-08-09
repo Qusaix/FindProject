@@ -54,7 +54,7 @@ import { Ionicons , FontAwesome, AntDesign , MaterialCommunityIcons} from '@expo
       })
   }
   UpdatedData(){
-    fetch('http://192.168.1.3:5000/UpdateTraineeInfo', {
+    fetch('https://quiet-beyond-30221.herokuapp.com/UpdateTraineeInfo', {
         method: 'post',
         headers: {
           Accept: 'application/json',
