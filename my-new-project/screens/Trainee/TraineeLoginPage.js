@@ -79,7 +79,13 @@ import CoachDashboard from '../Coach/dashboard'
       saveData();
       /// Savaing Data Here -- END
       return this.props.navigation.navigate("TraineeDashBoardPage",data)
-    }else{
+    }else if(data.err == "Put Password"){
+      alert("Put Password")
+    }
+    else if(data.err == "Wrong Password"){
+      alert("Wrong Password")
+    }
+    else{
       alert("You Need To Sighn Up")
     }
   }

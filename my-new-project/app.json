@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Find",
-    "slug": "my-new-project",
+    "name": "Journy-app-v8",
+    "slug": "Journy-app-v8",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
@@ -24,6 +24,11 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+     "android": {
+      "versionCode": 32,
+      "package": "com.test.test"
+     
+      }
   }
 }
