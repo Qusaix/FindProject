@@ -1,21 +1,17 @@
 import React from 'react';
 import {
   Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Button,
   Alert,
   TextInput,
   AsyncStorage
 } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import RegCoach from "./CoachRegPage";
-import CoachDashboard from './dashboard'
  
  class LoginCoach extends React.Component {
    constructor(){
@@ -99,10 +95,6 @@ import CoachDashboard from './dashboard'
     }
   }
 
-
-  TextFieldValue(text , type){
-    console.warn("The Change Function is Working")
-  }
   Coach (){
     this.props.navigation.navigate(RegCoach)
 }
@@ -223,7 +215,7 @@ import CoachDashboard from './dashboard'
                  }}
                  onPress={()=>{this.props.navigation.navigate('RegCoachPage')}}
                  >
-                   Don't have account you can register now for free 
+                   Don't have an account you can register now for free 
                  </Text>
              </View>
              </View>

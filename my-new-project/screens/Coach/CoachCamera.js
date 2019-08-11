@@ -217,30 +217,9 @@ import * as firebase from "firebase"
                         }}
                         ><MaterialCommunityIcons name="camera-front" size={45} color="#fff" style={{}}/>
                         </TouchableOpacity>
-                      {/* <TouchableOpacity
-                        style={{
-                          flex: 0.1,
-                          alignSelf: 'flex-end',
-                          alignItems: 'center',
-                          backgroundColor:"red",
-                          marginTop:5
-                        }}
-                        // onPress={() => {
-                        //   this.setState({
-                        //     type:
-                        //       this.state.type === Camera.Constants.Type.back
-                        //         ? Camera.Constants.Type.front
-                        //         : Camera.Constants.Type.back,
-                        //   });
-                        // }}
-                        >
-                          <Text>Hello</Text>
-                          <MaterialCommunityIcons name="camera-front" size={45} color="#fff" style={{margin:5}}/>
-                      </TouchableOpacity> */}
+
                       <TouchableOpacity  onPress={this.snapPhoto.bind(this)}
                       style={{
-
-                     // backgroundColor:"#17A589",
                       padding:5,
                       height:55,
                       borderRadius:25,
@@ -259,10 +238,8 @@ import * as firebase from "firebase"
             <TouchableOpacity  onPress={this._pickImage.bind(this)}
             style={{
               borderRadius:25,
-             // margin:3,
               width:20+"%",
               alignItems:"center",
-              //backgroundColor:"red"
             }}
             >
                      <Text style={{
