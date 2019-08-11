@@ -1,13 +1,11 @@
 import React from 'react';
 import {
   Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Button,
   Alert,
   TextInput,
   AsyncStorage
@@ -241,8 +239,7 @@ Counter(){
           >
           <Text
           style={{
-          //backgroundColor:"red",
-         // padding:5
+
          fontSize:15,
          fontWeight:"bold",
          color:"#fff",
@@ -251,8 +248,7 @@ Counter(){
           >Name {this.state.Name}</Text>
           <Text
           style={{
-            //backgroundColor:"red",
-           // padding:5
+
            fontSize:15,
            fontWeight:"bold",
            color:"#fff",
@@ -261,8 +257,6 @@ Counter(){
           >Bio  {this.state.Bio}</Text>
           <Text
           style={{
-            //backgroundColor:"red",
-           // padding:5
            fontSize:15,
            fontWeight:"bold",
            color:"#fff",
@@ -271,8 +265,6 @@ Counter(){
           >Experence {this.state.Experence}</Text>
           <Text
           style={{
-            //backgroundColor:"red",
-           // padding:5
            fontSize:15,
            fontWeight:"bold",
            color:"#fff",
@@ -282,8 +274,6 @@ Counter(){
           >Charge 300$</Text>
           <Text
           style={{
-            //backgroundColor:"red",
-           // padding:5
            fontSize:15,
            fontWeight:"bold",
            color:"#fff",
@@ -300,16 +290,6 @@ Counter(){
 
 
           <View
-          // style={{
-             
-          //   margin:10,
-          //   backgroundColor:"#17A589",
-          //   borderRadius:5,
-          //   width:450,
-          //   flexDirection:"row"
-          //   //display:"f"
-      
-          // }}
           style={{
             justifyContent: "center", 
             alignItems: "center",
@@ -323,8 +303,7 @@ Counter(){
             width:90+"%",
              
 
-            // flexDirection:"row"
-            //display:"f"
+            
             }}
             >
            <Text
@@ -460,10 +439,7 @@ Counter(){
               padding:10,
               width:150,
               margin:10,
-            //  marginLeft:43+"%",
-              // marginTop:5,
               borderRadius:7,
-              // marginBottom:10
             }}
             >
               <Text
@@ -562,10 +538,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
             },
             headerTitleStyle:{
               color:"#fff",
-              // marginLeft:48+"%",
-              // marginTop: -38,
-            //alignItems:"center",
-            flex: 1,
+             flex: 1,
             display:"none"
             },
 
