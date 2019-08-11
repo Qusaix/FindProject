@@ -1,17 +1,13 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Button,
   Alert,
   TextInput
 } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 
 //import console = require('console');
@@ -27,19 +23,8 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        Experence:""
      }
    }
-   
-  TextFieldValue(type){
-    this.setState({ text: type }) 
-    
-    ///console.warn(type)
-  }
-  handelChange(event = {}){
-    const name = event.target && event.target.name;
-    const value = event.target && event.target.value;
-    console.warn("This is the Name Value ",name)
-    this.setState({[name] : value})
-  }
-  sendUserInfo(){
+  
+   sendUserInfo(){
     fetch('https://quiet-beyond-30221.herokuapp.com/registerCoach', {
     method: 'post',
     headers: {
@@ -59,14 +44,20 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
 
     render() {
       return (
-        <View>
+        <View
+        style={{
+          flex:1,
+          alignContent:"center",
+          alignItems:"center",
+        }}
+        >
           <View
           style={{
             width: 300,
             height: 400,
             backgroundColor:"#238aff",
-            marginLeft:90,
-            marginTop:20,
+           // marginLeft:90,
+            marginTop:8+"%",
             borderRadius:10
           }}
           > 
