@@ -13,16 +13,11 @@ import {
   AsyncStorage,
   KeyboardAvoidingView
 } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { createStackNavigator , createAppContainer , Header} from 'react-navigation'
+import {Header} from 'react-navigation'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { TextField } from 'react-native-material-textfield';
-//import { Button , Card } from 'react-native-material-design'
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards'
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards' 
 
-
-//import console = require('console');
- 
  class Blogs extends React.Component {
    constructor(){
      super()
@@ -48,9 +43,6 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
     },
     headerTitleStyle:{
       color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38,
-    //alignItems:"center",
     flex: 1,
     display:"none"
     }
@@ -175,9 +167,6 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
   }
 
 
-  TextFieldValue(text , type){
-    console.warn("The Change Function is Working")
-  }
   scrollKeyBoard(){
     this.scrollKeyBoard.props.scrollToFocusedInput(reactNode)
   }
@@ -274,26 +263,7 @@ behavior = "padding"
 
       />
       </View>
-  {/* <TouchableOpacity
-  onPress={()=>{
-    this.AddBlog();
-  }}
-  style={{
-  width:100,
-  backgroundColor:"red",
-  margin:5,
-  padding:5,
-  borderRadius:9,
-}}
->
-  <Text
-  style={{
-    color:"#fff",
-    fontWeight:"bold",
-    fontSize:14
-  }}
-  >Add Tip</Text>
-</TouchableOpacity> */}
+  
 <Card
 style={{
   
