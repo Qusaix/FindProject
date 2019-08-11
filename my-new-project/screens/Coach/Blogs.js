@@ -1,15 +1,9 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
   ScrollView,
-  StyleSheet,
   Text,
-  TouchableOpacity,
   View,
-  Button1, 
   Alert,
-  TextInput,
   AsyncStorage,
   KeyboardAvoidingView
 } from 'react-native';
@@ -285,7 +279,7 @@ style={{
       onPress={() => {
         this.AddBlog();
       }}
-      title="Add Tip"
+      title="Add New Tip"
       color="blue"
     />
     {/* <CardButton
@@ -306,11 +300,6 @@ style={{
                     flex: 1,
                     justifyContent:"center",
                     alignItems:"center"
-
-                  //   flexDirection:"column",
-                  //  // display:"flex",
-                   // justifyContent:"center", 
-                   // flexShrink:1
                 }}>
                 
         
