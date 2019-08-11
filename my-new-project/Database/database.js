@@ -21,63 +21,6 @@ TheData.sync({force:false,logging:false})
 .catch((err)=>console.log("This is the Err ",err))
 
 
-// const NewTraineeModule = TheData.define('TraineeInfos',{
-//   Name:{
-//       type:sequelize.STRING
-//   },
-//   Email:{
-//       type:sequelize.STRING,
-      
-//   },
-//   Password:{
-//       type:sequelize.STRING
-//   },
-//   Bio:{
-//       type:sequelize.STRING
-//   },
-//   Experence:{
-//       type:sequelize.STRING
-//   },
-//   Goal:{
-//       type:sequelize.STRING
-//   },
-//   Weight:{
-//       type:sequelize.STRING
-//   },
-//   Height:{
-//   type:sequelize.STRING
-//   }
-// })
-
-
-
-// const NewCoach = TheData.define("CoachInfo",{
-// Name:{
-//     type: sequelize.STRING
-// },
-// Email:{
-//     type:sequelize.STRING
-// },
-// Password:{
-//     type:sequelize.STRING
-// },
-// Bio:{
-//     type:sequelize.STRING
-// },
-// Experence:{
-//     type:sequelize.STRING
-// },
-// })
-
-
-// // NewCoach.sync()
-// // NewTraineeModule.sync()
-// NewTraineeModule.belongsTo(NewCoach)
-// NewCoach.hasMany(NewTraineeModule)
-
-
-
-
 module.exports.TheData = TheData;
 module.exports.sequelize = sequelize;
 //module.exports = NewCoach;
