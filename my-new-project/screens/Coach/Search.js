@@ -27,12 +27,7 @@ import { createStackNavigator , createAppContainer } from 'react-navigation'
        Experence:""
      }
    }
-  handelChange(event = {}){
-    const name = event.target && event.target.name;
-    const value = event.target && event.target.value;
-    console.warn("This is the Name Value ",name)
-    this.setState({[name] : value})
-  }
+   
   sendUserInfo(){
     fetch('https://quiet-beyond-30221.herokuapp.com/registerCoach', {
     method: 'post',
