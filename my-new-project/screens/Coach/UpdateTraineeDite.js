@@ -1,20 +1,14 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Button,
   Alert,
-  TextInput,
   AsyncStorage,
   KeyboardAvoidingView
 } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { createStackNavigator , createAppContainer , Header } from 'react-navigation';
+import { Header } from 'react-navigation';
 import { TextField } from 'react-native-material-textfield';
 
 //import console = require('console');
@@ -38,8 +32,6 @@ import { TextField } from 'react-native-material-textfield';
     },
     headerTitleStyle:{
       color:"#fff",
-      // marginLeft:48+"%",
-      // marginTop: -38
     alignItems:"center",
     flex: 1
     }
