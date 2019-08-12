@@ -57,6 +57,7 @@ import CoachDashboard from '../Coach/dashboard'
         try {
           console.log("Im Inside Try ",data.URL)
            AsyncStorage.setItem("TheEmail",data.Email)
+           AsyncStorage.setItem("Password",this.state.Password)
            AsyncStorage.setItem("Bio",data.Bio)
            AsyncStorage.setItem("Email",data.Email)
            AsyncStorage.setItem("Experence",data.Experence)

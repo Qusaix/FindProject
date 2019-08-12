@@ -16,6 +16,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { createStackNavigator , createAppContainer } from 'react-navigation'
 import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
 import {Bottom } from '../HomeScreen'
+//import console = require('console');
 
 //import console = require('console');
 
@@ -23,7 +24,8 @@ import {Bottom } from '../HomeScreen'
    constructor(props){
      super(props)
      this.state={
-      TheEmail:"",
+      Email:"",
+      Password:"",
       TheLoginTraineeEmail:"",
        IdCoach:"",
        Name:"",
@@ -103,14 +105,26 @@ import {Bottom } from '../HomeScreen'
        this.setState({FatC:value})
        })
 
+       AsyncStorage.getItem('TheEmail')
+       .then((value)=>{
+         console.warn("Email ",value)
+         this.setState({Email:value})
+       })
+       AsyncStorage.getItem('Password')
+       .then((value)=>{
+         console.warn("Password" , value)
+         this.setState({Password:value})
+       })
+
   }
 
   Back(){
     return this.props.navigation.navigate("SeeAllCoachsPage");
   }
-  AddCoach(){
-    alert("Welcome")
-    fetch('https://quiet-beyond-30221.herokuapp.com/AddingCouchForTrainee', {
+
+  refreshInfo(){
+  //  alert("Welcome")
+    fetch('https://quiet-beyond-30221.herokuapp.com/LoginTrainee', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -120,6 +134,10 @@ import {Bottom } from '../HomeScreen'
     })
   .then((res)=>{return res.json()})
   .then((data)=>{
+    this.setState({Carb:data.Carb})
+    this.setState({Protein:data.Protein})
+    this.setState({Fat:data.Fat})
+    console.warn(data)
 
   })
   //.catch((err)=>console.warn(err))
@@ -207,11 +225,15 @@ import {Bottom } from '../HomeScreen'
              <TouchableOpacity onPress={()=>this.props.navigation.navigate("EditDite")}>
             <FontAwesome name="edit" size={16} color="#fff" />
             </TouchableOpacity> 
+            
             </View>
+            
           </View>
 
 
-
+ <TouchableOpacity onPress={()=>{this.refreshInfo()}}> 
+             <FontAwesome name="refresh" size={25} color="#000" />
+            </TouchableOpacity> 
 
 
 
