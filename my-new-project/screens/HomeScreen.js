@@ -142,7 +142,7 @@ LoginCoach = () =>{
        {/* // <TapBar /> */}
       </View>
     );
-  }
+  } 
 }
 
 export default createStackNavigator({

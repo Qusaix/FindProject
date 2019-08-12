@@ -162,6 +162,13 @@ import {Bottom } from '../HomeScreen'
           >
 
           {/* Your Plan Contaner*/}
+          <TouchableOpacity onPress={()=>{this.refreshInfo()}} style={{
+            flex:1,
+            justifyContent:"flex-start",
+            alignItems:"flex-start"
+          }}> 
+             <FontAwesome name="refresh" size={25} color="#000"/>
+            </TouchableOpacity> 
           <View
           style={{
             width:90+"%",
@@ -179,6 +186,7 @@ import {Bottom } from '../HomeScreen'
               margin:3
             }}
             ><MaterialCommunityIcons name="food-apple" size={19} color="#fff" />Your Dite Plan</Text>
+            
           
             {/*Prtoien , Carbs , Fat*/}
             <View
@@ -228,12 +236,13 @@ import {Bottom } from '../HomeScreen'
             
             </View>
             
+
+            
+
           </View>
 
 
- <TouchableOpacity onPress={()=>{this.refreshInfo()}}> 
-             <FontAwesome name="refresh" size={25} color="#000" />
-            </TouchableOpacity> 
+ 
 
 
 
