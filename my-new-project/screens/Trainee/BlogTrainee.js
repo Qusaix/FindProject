@@ -19,6 +19,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { TextField } from 'react-native-material-textfield';
 //import { Button , Card } from 'react-native-material-design'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards'
+import Loading from "../Loading"
 
 
 //import console = require('console');
@@ -36,7 +37,8 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
       Content:"",
       Title:"",
       TheNewTitle:"Title",
-      TheNewContent:"Content"
+      TheNewContent:"Content",
+      Loading:true
      } 
    }
 
@@ -108,6 +110,7 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
     this.setState({ AllTheData : res})
     const rever = this.state.AllTheData.reverse()
     this.setState({reversed:rever}) 
+    this.setState({Loading:false})
     console.log("This is the Rever Page ",rever)
   })
   //.catch((err)=>console.warn(err))
@@ -134,6 +137,7 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
     const rever = this.state.AllTheData.reverse();
     this.setState({reversed:rever})
    console.log("This is the Data ",res)
+   
   })
   //.catch((err)=>console.warn(err))
   .done()
@@ -185,6 +189,11 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
     this.scrollKeyBoard.props.scrollToFocusedInput(reactNode)
   }
     render() {
+      if(this.state.Loading === true){
+        return(
+          <Loading />
+        )
+      }else if(this.state.Loading === false){
       return (
       <KeyboardAvoidingView
       style={{
@@ -280,7 +289,7 @@ behavior = "padding"
                    )})}  
       </ScrollView>
     </KeyboardAvoidingView>
-)}
+)}}
 };
 
 export default TraineeBlog;

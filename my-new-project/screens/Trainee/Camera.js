@@ -17,6 +17,7 @@ import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera';
 import { ImagePicker , Constants } from 'expo';
 import * as firebase from "firebase"
+import Loading from "../Loading"
 //import console = require('console');
  class TakeCamera extends React.Component {
    constructor(props){
@@ -26,7 +27,8 @@ import * as firebase from "firebase"
         type: Camera.Constants.Type.back,
         Email:"",
         URL:"",
-        image:null
+        image:null,
+        Loading:false
      } 
    }
 
@@ -111,9 +113,10 @@ import * as firebase from "firebase"
           body: JSON.stringify(this.state)
         }
         )
-        .then()
+        .then() 
         .then()
         .catch()
+        this.setState({Loading:false})
         Alert.alert("Upload Is Done! to",this.state.Email)
         this.props.navigation.navigate('TraineeDashBoardPage')
         return console.log("The Image Has Been Found :",url)
@@ -140,7 +143,8 @@ import * as firebase from "firebase"
 
           this.uploadPhotos(photo.uri,Random)
 
-           console.log("This is the Photo",photo.uri);            
+           console.log("This is the Photo",photo.uri);
+           this.setState({Loading:true})            
            }); 
      }
     }
@@ -166,7 +170,7 @@ import * as firebase from "firebase"
       console.warn("result ",result.uri)
 
       this.uploadPhotos(result.uri,Random)
-
+      this.setState({Loading:true})
 
     }
 
@@ -244,7 +248,13 @@ import * as firebase from "firebase"
               return <View />;
             } else if (hasCameraPermission === false) {
               return <Text>No access to camera</Text>;
-            } else {
+            }else if(this.state.Loading === true){
+              return(
+                <Loading />
+              )
+
+            } 
+            else if(this.state.Loading === false) {
               return (
                 <View style={{ flex: 1 }}>
                   <Camera 

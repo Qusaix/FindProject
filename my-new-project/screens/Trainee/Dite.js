@@ -10,12 +10,15 @@ import {
   Button,
   Alert,
   TextInput,
-  AsyncStorage
+  AsyncStorage,
+  KeyboardAvoidingView
 } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { createStackNavigator , createAppContainer } from 'react-navigation'
+import { Header ,createStackNavigator , createAppContainer } from 'react-navigation'
 import { Ionicons , FontAwesome, AntDesign,MaterialCommunityIcons} from '@expo/vector-icons';
 import {Bottom } from '../HomeScreen'
+import { TextField } from 'react-native-material-textfield';
+
 //import console = require('console');
 
 //import console = require('console');
@@ -24,7 +27,7 @@ import {Bottom } from '../HomeScreen'
    constructor(props){
      super(props)
      this.state={
-      Email:"",
+      TheEmail:"",
       Password:"",
       TheLoginTraineeEmail:"",
        IdCoach:"",
@@ -37,7 +40,8 @@ import {Bottom } from '../HomeScreen'
       Fat:"",
       ProteinC:"No Info",
       CarbC:"No Info",
-      FatC:"No Info"
+      FatC:"No Info",
+      EditDite:"Normal"
      } 
    }
 
@@ -107,12 +111,10 @@ import {Bottom } from '../HomeScreen'
 
        AsyncStorage.getItem('TheEmail')
        .then((value)=>{
-         console.warn("Email ",value)
-         this.setState({Email:value})
+         this.setState({TheEmail:value})
        })
        AsyncStorage.getItem('Password')
        .then((value)=>{
-         console.warn("Password" , value)
          this.setState({Password:value})
        })
 
@@ -137,7 +139,6 @@ import {Bottom } from '../HomeScreen'
     this.setState({Carb:data.Carb})
     this.setState({Protein:data.Protein})
     this.setState({Fat:data.Fat})
-    console.warn(data)
 
   })
   //.catch((err)=>console.warn(err))
@@ -146,7 +147,155 @@ import {Bottom } from '../HomeScreen'
 
   }
 
+
+  UpdateNutriton(){
+    //     alert("Welcome")
+        fetch('https://quiet-beyond-30221.herokuapp.com/UpdateDite', {
+        method: 'post',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state)
+        })
+      .then((res)=>{return res.json()})
+      .then((data)=>{
+    
+      //  console.warn("This is the data ",data)
+      })
+      .catch((err)=>console.warn(err))
+      .done()
+    
+    AsyncStorage.setItem("Protein",this.state.Protein)
+    AsyncStorage.setItem("Carb",this.state.Carb)
+    AsyncStorage.setItem("Fat",this.state.Fat)
+    
+    
+    return this.setState({EditDite:"Normal"})
+    
+      }
+    
+
     render() {
+      if(this.state.EditDite === "NotNormal"){
+        return(
+          <ScrollView >
+          {/*The Mother View */}
+          <KeyboardAvoidingView
+          keyboardVerticalOffset = {Header.HEIGHT + 150}
+          style = {{ flex: 1 }}
+          behavior = "padding" >
+          
+         <View
+         style={{
+             margin:10,
+             alignItems:"center"
+         }}
+         >
+
+         <View
+         style={{
+             width:90+"%",
+             height:350,
+             backgroundColor:"#17A589",
+             padding:5,
+             borderRadius:9
+         }}
+         >
+        <TextField
+           name="Protein"
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#fff"
+            labelFontSize = {17}
+            fontSize={14}
+            label="Protein"
+             multiline={false}
+             maxLength={3}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={3}
+             onChangeText={(value)=>this.setState({Protein:value})}
+              
+              />
+
+<TextField
+           name="Carb"
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#fff"
+            labelFontSize = {17}
+            fontSize={14}
+            label="Carb"
+             multiline={false}
+             maxLength={3}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={3}
+              onChangeText={(value)=>this.setState({Carb:value})}
+              
+              />
+
+<TextField
+           name="Fat"
+            Title = "Name"
+            baseColor = "#fff"
+            tintColor="#fff"
+            labelFontSize = {17}
+            fontSize={14}
+            label="Fat"
+             multiline={false}
+             maxLength={3}
+             animationDuration={350}
+             editable={ true }
+             inputContainerStyle={
+              color="red"
+             }
+            // disabledLineType="This is the Error"
+             lineWidth={ 2 }
+             title="The Max Number Of Characters"
+            //  error="You Need To complete"
+             characterRestriction={3}
+             onChangeText={(value)=>this.setState({Fat:value})}
+              
+              />
+
+
+            <TouchableOpacity
+            style={{
+                alignItems:"center",
+                marginTop:10+"%"
+            }}
+            onPress={()=> this.UpdateNutriton()}
+            >
+                
+                 <Text>Update</Text>
+             </TouchableOpacity>
+
+         </View>
+
+             
+
+         </View>
+         </KeyboardAvoidingView>
+
+        </ScrollView>
+        )
+      }else if(this.state.EditDite === "Normal"){
       return (
         <ScrollView >
           {/*The Mother View */}
@@ -162,13 +311,15 @@ import {Bottom } from '../HomeScreen'
           >
 
           {/* Your Plan Contaner*/}
-          <TouchableOpacity onPress={()=>{this.refreshInfo()}} style={{
+          {/* <TouchableOpacity onPress={()=>{this.refreshInfo()}} style={{
             flex:1,
             justifyContent:"flex-start",
             alignItems:"flex-start"
           }}> 
              <FontAwesome name="refresh" size={25} color="#000"/>
-            </TouchableOpacity> 
+            </TouchableOpacity>  */}
+            
+
           <View
           style={{
             width:90+"%",
@@ -230,7 +381,7 @@ import {Bottom } from '../HomeScreen'
               marginRight:3
             }}
             >
-             <TouchableOpacity onPress={()=>this.props.navigation.navigate("EditDite")}>
+             <TouchableOpacity onPress={()=>{ return this.setState({EditDite:"NotNormal"})}}>
             <FontAwesome name="edit" size={16} color="#fff" />
             </TouchableOpacity> 
             
@@ -281,7 +432,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Prtoien : {this.state.ProteinC}</Text>
+            >Prtoien : {this.state.ProteinC}g</Text>
             <Text
             style={{
               margin:5,
@@ -289,7 +440,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Carbs {this.state.CarbC}</Text>
+            >Carbs {this.state.CarbC}g</Text>
             <Text
             style={{
               margin:5,
@@ -297,7 +448,7 @@ import {Bottom } from '../HomeScreen'
               color:"#fff",
               fontWeight:"bold"
             }}
-            >Fat : {this.state.FatC}</Text>
+            >Fat : {this.state.FatC}g</Text>
 
             </View>
 
@@ -328,7 +479,7 @@ import {Bottom } from '../HomeScreen'
               <View
               style={{
                 backgroundColor:"#17A589",
-                height:200,
+                height:350,
                 width:40+"%",
                 marginRight:12+"%",
                 padding:2
@@ -352,26 +503,31 @@ import {Bottom } from '../HomeScreen'
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
               <Text
               style={{
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 2#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
               <Text
               style={{
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 3#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
               <Text
               style={{
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 4#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
 
+              {/* Add Button */}
+              <TouchableOpacity style={{width:20+"%",backgroundColor:"red"}}>
+              <Text style={{fontSize:10,color:"#fff",padding:2}}>Add Meal
+              </Text></TouchableOpacity>
+              {/* Add Button */}
               </ScrollView>
               </View>
 
@@ -381,7 +537,7 @@ import {Bottom } from '../HomeScreen'
               <View
               style={{
                 backgroundColor:"#17A589",
-                height:200,
+                height:350,
                 width:40+"%",
                 padding:2
               }}
@@ -405,25 +561,25 @@ import {Bottom } from '../HomeScreen'
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
               <Text
               style={{
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
               <Text
               style={{
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
               <Text
               style={{
                 fontSize:10,
                 fontWeight:"bold"
               }}
-              > Rice 200g and CheckBreast 200g , oil 10g</Text>
+              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
 
               </ScrollView>
 
@@ -444,7 +600,8 @@ import {Bottom } from '../HomeScreen'
           </View>
 
         </ScrollView>
- )}
+      
+ )}}
 
 
 };

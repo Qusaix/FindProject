@@ -24,6 +24,7 @@ import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera';
 import Dite from './Dite'
 import TraineeBlog from './BlogTrainee'
+import Loading from '../Loading'
 
 
 //import TheArray from './TraineeLoginPage'
@@ -55,7 +56,7 @@ import TraineeBlog from './BlogTrainee'
       Height:"",
       URL:"",
       ScreeenHeight:0,
-      YourCouch:"",
+      YourCouch:"Loading",
       Array:[1],
       hasCameraPermission: null,
       type: Camera.Constants.Type.back,
@@ -194,7 +195,12 @@ import TraineeBlog from './BlogTrainee'
       return <View />;
     } else if (hasCameraPermission === false) {
       return <Text>No access to camera</Text>;
-    } else {
+    }else if(this.state.YourCouch === "Loading"){
+      return(
+       <Loading />
+      )
+    } 
+    else {
       return (
         <ScrollView>
         <View
