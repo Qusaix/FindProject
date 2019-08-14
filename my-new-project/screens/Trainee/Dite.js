@@ -135,6 +135,54 @@ import { TextField } from 'react-native-material-textfield';
        .then((value)=>{
          this.setState({Password:value})
        })
+       AsyncStorage.getItem('Meal1')
+       .then((value)=>{
+         this.setState({Meal1:value})
+       })
+       AsyncStorage.getItem('Meal2')
+       .then((value)=>{
+         this.setState({Meal2:value})
+       })
+       AsyncStorage.getItem('Meal3')
+       .then((value)=>{
+         this.setState({Meal3:value})
+       })
+       AsyncStorage.getItem('Meal4')
+       .then((value)=>{
+         this.setState({Meal4:value})
+       })
+       AsyncStorage.getItem('Meal5')
+       .then((value)=>{
+         this.setState({Meal5:value})
+       })
+       AsyncStorage.getItem('Meal6')
+       .then((value)=>{
+         this.setState({Meal6:value})
+       })
+       AsyncStorage.getItem('TimeMeal1')
+       .then((value)=>{
+         this.setState({TimeMeal1:value})
+       })
+       AsyncStorage.getItem('TimeMeal2')
+       .then((value)=>{
+         this.setState({TimeMeal2:value})
+       })
+       AsyncStorage.getItem('TimeMeal3')
+       .then((value)=>{
+         this.setState({TimeMeal3:value})
+       })
+       AsyncStorage.getItem('TimeMeal4')
+       .then((value)=>{
+         this.setState({TimeMeal4:value})
+       })
+       AsyncStorage.getItem('TimeMeal5')
+       .then((value)=>{
+         this.setState({TimeMeal5:value})
+       })
+       AsyncStorage.getItem('TimemMeal6')
+       .then((value)=>{
+         this.setState({TimeMeal6:value})
+       })
 
   }
 
@@ -408,6 +456,11 @@ import { TextField } from 'react-native-material-textfield';
               }} style={{backgroundColor:"red",marginTop:5}}>
               <FontAwesome name="check" size={25} style={{backgroundColor:"green",color:"#fff"}}/>
             </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{
+              this.setState({Meal:false})
+              }} style={{backgroundColor:"red",marginTop:5}}>
+              <Text>Back</Text>
+            </TouchableOpacity>
             {/*Edit Button*/}
           </View>
         )
@@ -617,32 +670,60 @@ import { TextField } from 'react-native-material-textfield';
               <ScrollView>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 1# {this.state.Meal1} Time:{this.state.TimeMeal1}</Text>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 2#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 2# {this.state.Meal2} Time:{this.state.TimeMeal2}</Text>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 3#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 3# {this.state.Meal3} Time:{this.state.TimeMeal3}</Text>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 4#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 4# {this.state.Meal4} Time:{this.state.TimeMeal4}</Text>
+
+              <Text
+              style={{
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
+                fontWeight:"bold"
+              }}
+              > 5# {this.state.Meal5} Time:{this.state.TimeMeal5}</Text>
+
+            <Text
+              style={{
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
+                fontWeight:"bold"
+              }}
+              > 6# {this.state.Meal6} Time:{this.state.TimeMeal6}</Text>
+
+  
 
               {/* Add Button */}
-              <TouchableOpacity onPress={()=>{this.setState({Meal:true})}}style={{width:20+"%",backgroundColor:"red"}}>
-              <Text style={{fontSize:10,color:"#fff",padding:2}}>Add Meal
+              <TouchableOpacity onPress={()=>{this.setState({Meal:true})}}style={{width:40+"%",backgroundColor:"red",borderRadius:9,padding:5}}>
+              <Text style={{fontSize:10,color:"#fff"}}>Add Meal
               </Text></TouchableOpacity>
               {/* Add Button */}
               </ScrollView>
