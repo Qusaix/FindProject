@@ -41,7 +41,20 @@ import { TextField } from 'react-native-material-textfield';
       ProteinC:"No Info",
       CarbC:"No Info",
       FatC:"No Info",
-      EditDite:"Normal"
+      EditDite:"Normal",
+      Meal:false,
+      Meal1:"",
+      Meal2:"",
+      Meal3:"",
+      Meal4:"",
+      Meal5:"",
+      Meal6:"",
+      Time1:"",
+      Time2:"",
+      Time3:"",
+      Time4:"",
+      Time5:"",
+      Time6:"",
      } 
    }
 
@@ -295,7 +308,76 @@ import { TextField } from 'react-native-material-textfield';
 
         </ScrollView>
         )
-      }else if(this.state.EditDite === "Normal"){
+      }else if(this.state.Meal === true){
+        return(
+          // Main View to edite the meals
+          <View style={{
+            flex:1,
+            alignItems:"center",
+            // justifyContent:"center"
+            marginTop:10
+          }}>
+          {/* Start Of Editing the meals*/}
+            <View
+            style={{
+              backgroundColor:"red",
+              height:400,
+              width:90+"%",
+              padding:10,
+              borderRadius:5
+            }}
+            >
+              <ScrollView>
+              <View
+              style={{
+                flex:1,
+                alignItems:"flex-start",
+              }}
+              >
+              <KeyboardAvoidingView
+              keyboardVerticalOffset={ Header.HEIGHT + 60}
+              behavior = "padding"
+              >
+              <Text style={{marginLeft:5,color:"#fff",fontSize:18 , width:40+"%"}}>Meal #1</Text>
+              <TextInput onChange={(value)=>{this.setState({Meal1:value})}} placeholder="ex. Rise200g,150gChicken breast" multiline={true} style={{backgroundColor:"#fff",width:85+"%",marginLeft:5,borderRadius:5,height:60}}/>
+              <TextInput onChange={(value)=>{this.setState({Time1:value})}} placeholder="Time ex. 3:00PM" style={{backgroundColor:"#fff",width:35+"%",marginLeft:5,borderRadius:5,marginTop:3}}/>
+
+              <Text style={{marginLeft:5,color:"#fff",fontSize:18 , width:40+"%"}}>Meal #2</Text>
+              <TextInput  onChange={(value)=>{this.setState({Meal2:value})}} placeholder="ex. Rise200g,150gChicken breast" multiline={true} style={{backgroundColor:"#fff",width:85+"%",marginLeft:5,borderRadius:5,height:60}}/>
+              <TextInput  onChange={(value)=>{this.setState({Time2:value})}} placeholder="Time ex. 3:00PM" style={{backgroundColor:"#fff",width:35+"%",marginLeft:5,borderRadius:5,marginTop:3}}/>
+
+              <Text style={{marginLeft:5,color:"#fff",fontSize:18 , width:40+"%"}}>Meal #3</Text>
+              <TextInput  onChange={(value)=>{this.setState({Meal3:value})}} placeholder="ex. Rise200g,150gChicken breast" multiline={true} style={{backgroundColor:"#fff",width:85+"%",marginLeft:5,borderRadius:5,height:60}}/>
+              <TextInput  onChange={(value)=>{this.setState({Time3:value})}} placeholder="Time ex. 3:00PM" style={{backgroundColor:"#fff",width:35+"%",marginLeft:5,borderRadius:5,marginTop:3}}/>
+
+              <Text style={{marginLeft:5,color:"#fff",fontSize:18 , width:40+"%"}}>Meal #4</Text>
+              <TextInput  onChange={(value)=>{this.setState({Meal4:value})}} placeholder="ex. Rise200g,150gChicken breast" multiline={true} style={{backgroundColor:"#fff",width:85+"%",marginLeft:5,borderRadius:5,height:60}}/>
+              <TextInput  onChange={(value)=>{this.setState({Time4:value})}} placeholder="Time ex. 3:00PM" style={{backgroundColor:"#fff",width:35+"%",marginLeft:5,borderRadius:5,marginTop:3}}/>
+
+              <Text style={{marginLeft:5,color:"#fff",fontSize:18 , width:40+"%"}}>Meal #5</Text>
+              <TextInput  onChange={(value)=>{this.setState({Meal5:value})}} placeholder="ex. Rise200g,150gChicken breast" multiline={true} style={{backgroundColor:"#fff",width:85+"%",marginLeft:5,borderRadius:5,height:60}}/>
+              <TextInput  onChange={(value)=>{this.setState({Time5:value})}} placeholder="Time ex. 3:00PM" style={{backgroundColor:"#fff",width:35+"%",marginLeft:5,borderRadius:5,marginTop:3}}/>
+
+              <Text style={{marginLeft:5,color:"#fff",fontSize:18 , width:40+"%"}}>Meal #6</Text>
+              <TextInput  onChange={(value)=>{this.setState({Meal6:value})}} placeholder="ex. Rise200g,150gChicken breast" multiline={true} style={{backgroundColor:"#fff",width:85+"%",marginLeft:5,borderRadius:5,height:60}}/>
+              <TextInput  onChange={(value)=>{this.setState({Time6:value})}} placeholder="Time ex. 3:00PM" style={{backgroundColor:"#fff",width:35+"%",marginLeft:5,borderRadius:5,marginTop:3}}/>
+              </KeyboardAvoidingView>
+              </View>
+
+              
+              </ScrollView>
+            </View>
+
+            {/*Edit Button*/}
+
+            <TouchableOpacity onPress={()=>{this.setState({Meal:false})}} style={{backgroundColor:"red",marginTop:5}}>
+              <FontAwesome name="check" size={25} style={{backgroundColor:"green",color:"#fff"}}/>
+            </TouchableOpacity>
+            {/*Edit Button*/}
+          </View>
+        )
+      }
+      else if(this.state.EditDite === "Normal"){
       return (
         <ScrollView >
           {/*The Mother View */}
@@ -524,7 +606,7 @@ import { TextField } from 'react-native-material-textfield';
               > 4#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
 
               {/* Add Button */}
-              <TouchableOpacity style={{width:20+"%",backgroundColor:"red"}}>
+              <TouchableOpacity onPress={()=>{this.setState({Meal:true})}}style={{width:20+"%",backgroundColor:"red"}}>
               <Text style={{fontSize:10,color:"#fff",padding:2}}>Add Meal
               </Text></TouchableOpacity>
               {/* Add Button */}
