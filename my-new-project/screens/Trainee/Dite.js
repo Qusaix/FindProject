@@ -697,7 +697,7 @@ import { TextField } from 'react-native-material-textfield';
             <View
             style={{
               flex:1,
-              flexDirection:"row",
+           //   flexDirection:"row",
             //  justifyContent:"flex-start"
               marginLeft:8+"%",
               marginTop:5+"%",
@@ -709,75 +709,128 @@ import { TextField } from 'react-native-material-textfield';
               <View
               style={{
                 backgroundColor:"#17A589",
-                height:350,
-                width:40+"%",
+                height:380,
+                width:90+"%",
                 marginRight:12+"%",
-                padding:2
+                padding:2,
+                borderRadius:9
               }}
               >
               <Text
               style={{
                 fontWeight:"bold",
-                fontSize:18,
+                fontSize:25,
                 color:"#ffff",
                 padding:5
               }}
               >
-                Your Meal Plan
+                Your Meals Plan
                 </Text>  
 
               {/* Added Meals*/}
               <ScrollView>
               <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
+                
                 fontWeight:"bold"
               }}
-              > 1# {this.state.Meal1} Time:{this.state.TimeMeal1}</Text>
+              > 1# {this.state.Meal1}</Text>
               <Text
               style={{
-                fontSize:11,
-                color:"#fff",
                 marginBottom:5,
+                color:"#fff",
                 fontWeight:"bold"
+
               }}
-              > 2# {this.state.Meal2} Time:{this.state.TimeMeal2}</Text>
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal1}</Text>
               <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
+                
                 fontWeight:"bold"
               }}
-              > 3# {this.state.Meal3} Time:{this.state.TimeMeal3}</Text>
+              > 2# {this.state.Meal2}</Text>
               <Text
               style={{
-                fontSize:11,
-                color:"#fff",
                 marginBottom:5,
+                color:"#fff",
+                fontWeight:"bold"
+
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal2}</Text>
+              <Text
+              style={{
+                fontSize:13,
+                color:"#fff",
+                
                 fontWeight:"bold"
               }}
-              > 4# {this.state.Meal4} Time:{this.state.TimeMeal4}</Text>
+              > 3# {this.state.Meal3}</Text>
+              <Text
+              style={{
+                marginBottom:5,
+                color:"#fff",
+                fontWeight:"bold"
+
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal3}</Text>
 
               <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
+                
                 fontWeight:"bold"
               }}
-              > 5# {this.state.Meal5} Time:{this.state.TimeMeal5}</Text>
+              > 4# {this.state.Meal4}</Text>
+
+
+              <Text
+              style={{
+                marginBottom:5,
+                color:"#fff",
+                fontWeight:"bold"
+
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal4}</Text>
+
+
+              <Text
+              style={{
+                fontSize:13,
+                color:"#fff",
+                
+                fontWeight:"bold"
+              }}
+              > 5# {this.state.Meal5}</Text>
+
+              <Text
+              style={{
+                marginBottom:5,
+                color:"#fff",
+                fontWeight:"bold"
+
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal5}</Text>
 
             <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 6# {this.state.Meal6} Time:{this.state.TimeMeal6}</Text>
+              > 6# {this.state.Meal6}</Text>
+              <Text
+              style={{
+                marginBottom:5,
+                color:"#fff",
+                fontWeight:"bold"
+
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal6}</Text>
 
   
 
@@ -795,9 +848,11 @@ import { TextField } from 'react-native-material-textfield';
               <View
               style={{
                 backgroundColor:"#17A589",
-                height:350,
-                width:40+"%",
-                padding:2
+                height:380,
+                width:90+"%",
+                padding:2,
+                marginTop:5,
+                borderRadius:9
               }}
               >
 
@@ -809,61 +864,110 @@ import { TextField } from 'react-native-material-textfield';
                 padding:5
               }}
               >
-                Coach Meal Plan
+                Coach Meals Plan
                 </Text>  
 
                 {/* Added Meals*/}
                 <ScrollView>
                 <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 1# {this.state.Meal1C} Time:{this.state.TimeMeal1C}</Text>
+              > 1# {this.state.Meal1C}</Text>
               <Text
               style={{
-                fontSize:11,
-                color:"#fff",
                 marginBottom:5,
-                fontWeight:"bold"
-              }}
-              > 2# {this.state.Meal2C} Time:{this.state.TimeMeal2C}</Text>
-              <Text
-              style={{
-                fontSize:11,
                 color:"#fff",
-                marginBottom:5,
                 fontWeight:"bold"
+
               }}
-              > 3# {this.state.Meal3C} Time:{this.state.TimeMeal3C}</Text>
-              <Text
-              style={{
-                fontSize:11,
-                color:"#fff",
-                marginBottom:5,
-                fontWeight:"bold"
-              }}
-              > 4# {this.state.Meal4C} Time:{this.state.TimeMeal4C}</Text>
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal1C}</Text>
+
 
               <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 5# {this.state.Meal5C} Time:{this.state.TimeMeal5C}</Text>
+              > 2# {this.state.Meal2C}</Text>
+              <Text
+              style={{
+                marginBottom:5,
+                color:"#fff",
+                fontWeight:"bold"
+
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal2C}</Text>
+
+
+              <Text
+              style={{
+                fontSize:13,
+                color:"#fff",
+                fontWeight:"bold"
+              }}
+              > 3# {this.state.Meal3C}</Text>
+              <Text
+              style={{
+                color:"#fff",
+                fontWeight:"bold",
+                marginBottom:5,
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal3C}</Text>
+
+
+              <Text
+              style={{
+                fontSize:13,
+                color:"#fff",
+                fontWeight:"bold"
+              }}
+              > 4# {this.state.Meal4C}</Text>
+
+              <Text
+              style={{
+                color:"#fff",
+                fontWeight:"bold",
+                marginBottom:5,
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal4C}</Text>
+
+              <Text
+              style={{
+                fontSize:13,
+                color:"#fff",
+                fontWeight:"bold"
+              }}
+              > 5# {this.state.Meal5C}</Text>
+
+
+              <Text
+              style={{
+                color:"#fff",
+                fontWeight:"bold",
+                marginBottom:5,
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal5C}</Text>
+
 
             <Text
               style={{
-                fontSize:11,
+                fontSize:13,
                 color:"#fff",
-                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 6# {this.state.Meal6C} Time:{this.state.TimeMeal6C}</Text>
+              > 6# {this.state.Meal6C}</Text>
+
+              <Text
+              style={{
+                color:"#fff",
+                fontWeight:"bold",
+                marginBottom:5,
+              }}
+              ><FontAwesome name="clock-o" size={13} color="#fff" /> {this.state.TimeMeal6C}</Text>
 
               </ScrollView>
 
