@@ -56,6 +56,18 @@ import { TextField } from 'react-native-material-textfield';
       TimeMeal4:"",
       TimeMeal5:"",
       TimeMeal6:"",
+      Meal1C:"",
+      Meal2C:"",
+      Meal3C:"",
+      Meal4C:"",
+      Meal5C:"",
+      Meal6C:"",
+      TimeMeal1C:"",
+      TimeMeal2C:"",
+      TimeMeal3C:"",
+      TimeMeal4C:"",
+      TimeMeal5C:"",
+      TimeMeal6C:"",
      } 
    }
 
@@ -179,11 +191,59 @@ import { TextField } from 'react-native-material-textfield';
        .then((value)=>{
          this.setState({TimeMeal5:value})
        })
-       AsyncStorage.getItem('TimemMeal6')
+       AsyncStorage.getItem('TimeMeal6')
        .then((value)=>{
          this.setState({TimeMeal6:value})
        })
 
+       AsyncStorage.getItem('Meal1C')
+       .then((value)=>{
+         this.setState({Meal1C:value})
+       })
+       AsyncStorage.getItem('Meal2C')
+       .then((value)=>{
+         this.setState({Meal2C:value})
+       })
+       AsyncStorage.getItem('Meal3C')
+       .then((value)=>{
+         this.setState({Meal3C:value})
+       })
+       AsyncStorage.getItem('Meal4C')
+       .then((value)=>{
+         this.setState({Meal4C:value})
+       })
+       AsyncStorage.getItem('Meal5C')
+       .then((value)=>{
+         this.setState({Meal5C:value})
+       })
+       AsyncStorage.getItem('Meal6C')
+       .then((value)=>{
+         this.setState({Meal6C:value})
+       })
+       AsyncStorage.getItem('TimeMeal1C')
+       .then((value)=>{
+         this.setState({TimeMeal1C:value})
+       })
+       AsyncStorage.getItem('TimeMeal2C')
+       .then((value)=>{
+         this.setState({TimeMeal2C:value})
+       })
+       AsyncStorage.getItem('TimeMeal3C')
+       .then((value)=>{
+         this.setState({TimeMeal3C:value})
+       })
+       AsyncStorage.getItem('TimeMeal4C')
+       .then((value)=>{
+         this.setState({TimeMeal4C:value})
+       })
+       AsyncStorage.getItem('TimeMeal5C')
+       .then((value)=>{
+         this.setState({TimeMeal5C:value})
+       })
+       AsyncStorage.getItem('TimeMeal6C')
+       .then((value)=>{
+         this.setState({TimeMeal6C:value})
+       }) 
   }
 
   Back(){
@@ -754,30 +814,56 @@ import { TextField } from 'react-native-material-textfield';
 
                 {/* Added Meals*/}
                 <ScrollView>
-              <Text
+                <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 1# {this.state.Meal1C} Time:{this.state.TimeMeal1C}</Text>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 2# {this.state.Meal2C} Time:{this.state.TimeMeal2C}</Text>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 3# {this.state.Meal3C} Time:{this.state.TimeMeal3C}</Text>
               <Text
               style={{
-                fontSize:10,
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
                 fontWeight:"bold"
               }}
-              > 1#Rice 200g,CheckBreast 200g,oil 10g Time:3:00PM</Text>
+              > 4# {this.state.Meal4C} Time:{this.state.TimeMeal4C}</Text>
+
+              <Text
+              style={{
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
+                fontWeight:"bold"
+              }}
+              > 5# {this.state.Meal5C} Time:{this.state.TimeMeal5C}</Text>
+
+            <Text
+              style={{
+                fontSize:11,
+                color:"#fff",
+                marginBottom:5,
+                fontWeight:"bold"
+              }}
+              > 6# {this.state.Meal6C} Time:{this.state.TimeMeal6C}</Text>
 
               </ScrollView>
 

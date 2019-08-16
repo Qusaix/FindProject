@@ -84,6 +84,18 @@ import CoachDashboard from '../Coach/dashboard'
            AsyncStorage.setItem('TimeMeal4',data.TimeMeal5)
            AsyncStorage.setItem('TimeMeal5',data.TimeMeal5)
            AsyncStorage.setItem('TimeMeal6',data.TimeMeal6)
+           AsyncStorage.setItem('Meal1C',data.Meal1C)
+           AsyncStorage.setItem('Meal2C',data.Meal2C)
+           AsyncStorage.setItem('Meal3C',data.Meal3C)
+           AsyncStorage.setItem('Meal4C',data.Meal4C)
+           AsyncStorage.setItem('Meal5C',data.Meal5C)
+           AsyncStorage.setItem('Meal6C',data.Meal6C)
+           AsyncStorage.setItem('TimeMeal1C',data.TimeMeal1C)
+           AsyncStorage.setItem('TimeMeal2C',data.TimeMeal2C)
+           AsyncStorage.setItem('TimeMeal3C',data.TimeMeal4C)
+           AsyncStorage.setItem('TimeMeal4C',data.TimeMeal5C)
+           AsyncStorage.setItem('TimeMeal5C',data.TimeMeal5C)
+           AsyncStorage.setItem('TimeMeal6C',data.TimeMeal6C)
         }
         catch(error){
           console.log("This is the Error ",error)
