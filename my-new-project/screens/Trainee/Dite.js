@@ -460,7 +460,7 @@ import { TextField } from 'react-native-material-textfield';
           {/* Start Of Editing the meals*/}
             <View
             style={{
-              backgroundColor:"red",
+              backgroundColor:"#17A589",
               height:400,
               width:90+"%",
               padding:10,
@@ -509,18 +509,24 @@ import { TextField } from 'react-native-material-textfield';
             </View>
 
             {/*Edit Button*/}
-
+              <View
+              style={{
+                flex:1,
+                flexDirection:"row"
+              }}
+              >
             <TouchableOpacity onPress={()=>{
               this.UpdateMeals()  
               this.setState({Meal:false})
-              }} style={{backgroundColor:"red",marginTop:5}}>
-              <FontAwesome name="check" size={25} style={{backgroundColor:"green",color:"#fff"}}/>
+              }} style={{marginTop:5,marginRight:5}}>
+              <FontAwesome name="check" size={25} style={{backgroundColor:"green",color:"#fff",padding:5,borderRadius:5}}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>{
               this.setState({Meal:false})
-              }} style={{backgroundColor:"red",marginTop:5}}>
-              <Text>Back</Text>
+              }} style={{marginTop:5}}>
+              <FontAwesome name="close" size={25} style={{backgroundColor:"green",color:"#fff",padding:5,borderRadius:5}}/>
             </TouchableOpacity>
+            </View>
             {/*Edit Button*/}
           </View>
         )
@@ -835,7 +841,7 @@ import { TextField } from 'react-native-material-textfield';
   
 
               {/* Add Button */}
-              <TouchableOpacity onPress={()=>{this.setState({Meal:true})}}style={{width:40+"%",backgroundColor:"red",borderRadius:9,padding:5}}>
+              <TouchableOpacity onPress={()=>{this.setState({Meal:true})}}style={{width:40+"%",backgroundColor:"#238aff",borderRadius:9,padding:5}}>
               <Text style={{fontSize:10,color:"#fff"}}>Add Meal
               </Text></TouchableOpacity>
               {/* Add Button */}
@@ -859,7 +865,7 @@ import { TextField } from 'react-native-material-textfield';
                 <Text
               style={{
                 fontWeight:"bold",
-                fontSize:18,
+                fontSize:25,
                 color:"#ffff",
                 padding:5
               }}
