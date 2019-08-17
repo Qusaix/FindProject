@@ -285,7 +285,7 @@ behavior = "padding"
 
 
       {/* Name */}
-      <Text style={{marginTop:-28,color:"#fff",fontSize:12,fontWeight:"bold",marginLeft:60}}>View Profile</Text>
+      <TouchableOpacity style={{marginTop:-28,marginLeft:60}}><Text style={{color:"#fff",fontSize:12,fontWeight:"bold"}}>View Profile</Text></TouchableOpacity> 
       <Text style={{marginTop:-38,color:"#fff",fontSize:18,fontWeight:"bold",marginLeft:60}}>{Blog.TheCreater}</Text>
 
      
