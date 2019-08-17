@@ -20,6 +20,9 @@ import { TextField } from 'react-native-material-textfield';
 //import { Button , Card } from 'react-native-material-design'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards'
 import Loading from "../Loading"
+import { database } from 'firebase';
+import {FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
+
 
 
 //import console = require('console');
@@ -32,13 +35,16 @@ import Loading from "../Loading"
        Bio:"",
       Experence:"",
       Email:"",
+      TheEmail:"",
       AllTheData:[],
       reversed:[],
       Content:"",
       Title:"",
       TheNewTitle:"Title",
       TheNewContent:"Content",
-      Loading:true
+      Loading:true,
+      AllTheBlogs:[],
+      Profile:false
      } 
    }
 
@@ -120,6 +126,25 @@ import Loading from "../Loading"
 
 
   }
+  AddCoach(){
+    alert(`Now ${this.state.Name} is Your Couch`)
+    fetch('https://quiet-beyond-30221.herokuapp.com/AddingCouchForTrainee', {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state)
+    })
+  .then((res)=>{return res.json()})
+  .then((data)=>{
+
+  })
+  //.catch((err)=>console.warn(err))
+  .done()
+
+
+  }
 
   AddBlog(){
 
@@ -145,6 +170,32 @@ import Loading from "../Loading"
   
 
   }
+
+
+  SeeCouchBlogs(){
+    fetch('https://quiet-beyond-30221.herokuapp.com/SeeTheBlogsCouchHave', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(this.state)
+      })
+    .then((res)=>{return res.json()})
+    .then((data)=>{
+     
+      //this.setState({ AllTheBlogs : data})
+      var reverse = data.reverse();
+      this.setState({AllTheBlogs : reverse})
+     // console.warn("This is the data ",this.state.AllTheBlogs)
+    })
+    //.catch((err)=>console.warn(err))
+    .done()  
+  }
+
+
+
+
 
   check(){
     
@@ -193,7 +244,187 @@ import Loading from "../Loading"
         return(
           <Loading />
         )
-      }else if(this.state.Loading === false){
+      }else if(this.state.Profile === true){
+        return(
+
+          <ScrollView >
+          <View>
+      {/*Start Of User Info*/}
+        <View
+        style={{
+          alignItems:"center",
+          margin:5
+        }}
+        >
+          <Image
+          style={{
+            width:100,
+            height:100,
+            borderRadius:45
+          }}
+          source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}
+          />
+          <Text
+          style={{
+            fontSize:19,
+            marginTop:7,
+          }}
+          >{this.state.Name}</Text>
+          <Text
+          style={{
+            fontSize:12,
+            color:"#C0C0C0"
+          }}
+          >{this.state.Bio}</Text>
+
+          <TouchableOpacity
+          style={{
+            backgroundColor:"green",
+            padding:8,
+            marginTop:5,
+            borderRadius:9
+          }}
+          onPress={this.AddCoach.bind(this)}
+          >
+          <Text
+          style={{
+            color:"#fff",
+            fontWeight:"bold"
+          }}
+          ><FontAwesome name="user-plus" size={16} color="#fff" /> Contect</Text>
+          </TouchableOpacity>
+        </View>
+
+          {/*Start Of Blogs Area*/ }
+
+          {/* This is The Start of User Info */}
+            <View
+            style={{
+              alignItems:"center"
+            }}
+            >
+            
+              </View>
+              <View
+              style={{
+                alignItems:"center"
+              }}
+              >
+            <View style={{
+              backgroundColor:"#17A589",
+              height:200,
+              width:300,
+              borderRadius:7,
+              margin:10,
+              color:"#fff",
+
+            }}>
+         <ScrollView>      
+          <View style={{
+            margin:5
+          }}>   
+          <View
+          style={{
+            alignItems:"center"
+          }}
+          >
+            <Text
+            style={{
+             // backgroundColor:"green",
+              borderRadius:9,
+              width:150,
+              fontSize:35,
+              fontWeight:"bold",
+              padding:5,
+             // margin:6,
+              color:"#fff"
+            }}
+            >
+              
+            <MaterialCommunityIcons name="blogger" size={35} color="#fff" /> Blogs
+              </Text>
+
+          </View>
+          {this.state.AllTheBlogs.map((blog)=>{
+            return(
+           <View
+           key={blog.id++}
+           style={{
+            margin:5
+           }}
+           >
+             <Text
+             style={{
+              fontSize:15,
+              fontWeight:"bold",
+              color:"#fff"
+            }}
+            
+             >{blog.Title}</Text>
+             <Text>{blog.content}</Text>
+           </View> 
+           
+           
+           )})}
+            </View> 
+            </ScrollView> 
+
+            </View>
+            </View>
+
+          {/* This is the Photos Area  */}
+
+          <View>
+          <Text
+            style={{
+              backgroundColor:"green",
+              borderRadius:9,
+              width:150,
+              fontSize:14,
+              fontWeight:"bold",
+              padding:10,
+              margin:10,
+              color:"#fff"
+            }}
+            >
+            <FontAwesome name="photo" size={16} color="#fff" /> Clients Photos
+              </Text>
+
+
+
+            {/* Hold Photos */}
+            <View
+            style={{flexDirection:'row', flexWrap:'wrap'}}
+            >
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>   
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
+            <Image style={{width:100,height:100,marginTop:5,margin:4}}source={{uri:"https://www.free-and-safe.org/wp-content/uploads/2018/01/nobody_m.original.jpg"}}/>
+            </View>
+
+            </View>
+            <TouchableOpacity
+          style={{
+            backgroundColor:"green",
+            padding:8,
+            marginTop:5,
+            borderRadius:9
+          }}
+          onPress={()=>{this.setState({Profile:false})}}
+          >
+          <Text
+          style={{
+            color:"#fff",
+            fontWeight:"bold"
+          }}
+          ><FontAwesome name="arrow-left" size={16} color="#fff" /> Back</Text>
+          </TouchableOpacity>  
+            </View>
+</ScrollView>
+        
+          )
+      }
+      else if(this.state.Loading === false){
       return (
       <KeyboardAvoidingView
       style={{
@@ -285,7 +516,17 @@ behavior = "padding"
 
 
       {/* Name */}
-      <TouchableOpacity style={{marginTop:-28,marginLeft:60}}><Text style={{color:"#fff",fontSize:12,fontWeight:"bold"}}>View Profile</Text></TouchableOpacity> 
+      <TouchableOpacity onPress={()=>{
+        this.setState({Name:Blog.TheCreater})
+        this.setState({Bio:Blog.Bio})
+        this.setState({TheEmail:Blog.Email})
+        var that = this
+        setTimeout(function(){
+          that.SeeCouchBlogs()
+        },10000)
+         this.SeeCouchBlogs();
+        this.setState({Profile:true})
+        }} style={{marginTop:-28,marginLeft:60}}><Text style={{color:"#fff",fontSize:12,fontWeight:"bold"}}>View Profile</Text></TouchableOpacity> 
       <Text style={{marginTop:-38,color:"#fff",fontSize:18,fontWeight:"bold",marginLeft:60}}>{Blog.TheCreater}</Text>
 
      

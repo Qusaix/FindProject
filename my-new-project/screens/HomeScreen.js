@@ -149,7 +149,7 @@ LoginCoach = () =>{
 export default createStackNavigator({
   HomeScreen:{
     screen:HomeScreen  
-  },  
+  },   
   TestePage:{
     screen:TraineeBlog
   },
