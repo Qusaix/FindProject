@@ -223,6 +223,39 @@ behavior = "padding"
         color:"#fff"
       }}
       >All Tips</Text>
+ 
+      {/* <View style={{width:250,backgroundColor:"#000",borderRadius:9,overflow:"hidden",padding:5}}>
+
+     Avatar 
+    <View>
+      <Image style={{width:50,height:50,margin:5,borderRadius:5}}
+       source={{uri:"https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" }}/>
+      
+    </View>
+     Avatar 
+
+
+       Name 
+      <Text style={{marginTop:-28,color:"#fff",fontSize:12,fontWeight:"bold",marginLeft:60}}>View Profile</Text>
+      <Text style={{marginTop:-38,color:"#fff",fontSize:18,fontWeight:"bold",marginLeft:60}}>Qusai</Text>
+
+     
+      
+       Name 
+
+
+      Text Content
+      <View style={{marginTop:25,marginRight:5}}>
+        <Text style={{fontSize:18,color:"#fff"}}>How to lose weight </Text>
+        <Text style={{paddingRight:5,color:"#fff",fontSize:14}}>Hello This is the conten of the tips it will be alot of text thats why im writting this paragraphasdasdasdasdasdasdasdasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
+      </View>
+    Text Content
+        
+
+
+      </View>  */}
+
+
       <View style={{
         flex:1,
         
@@ -230,63 +263,48 @@ behavior = "padding"
      
       </View>
       </View>
+      <View style={{flexDirection:"row",flexWrap:"wrap"}}>
+
           {this.state.reversed.map((Blog)=>{
             return(
     
-                
-                <View 
-                key={Blog.id+1}
-                style={{
-                    flex: 1,
-                    justifyContent:"center",
-                    alignItems:"center"
 
-                  //   flexDirection:"column",
-                  //  // display:"flex",
-                   // justifyContent:"center", 
-                   // flexShrink:1
-                }}>
-                
+
+
+
+
+<View  key={Blog.id+1} style={{width:45+"%",backgroundColor:"#16A085",borderRadius:9,overflow:"hidden",padding:5,margin:5}}>
+
+    {/* Avatar */}
+    <View>
+      <Image style={{width:50,height:50,margin:5,borderRadius:5}}
+       source={{uri:"https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" }}/>
+      
+    </View>
+    {/* Avatar */}
+
+
+      {/* Name */}
+      <Text style={{marginTop:-28,color:"#fff",fontSize:12,fontWeight:"bold",marginLeft:60}}>View Profile</Text>
+      <Text style={{marginTop:-38,color:"#fff",fontSize:18,fontWeight:"bold",marginLeft:60}}>{Blog.TheCreater}</Text>
+
+     
+      
+      {/* Name */}
+
+
+      {/*Text Content*/}
+      <View style={{marginTop:25,marginLeft:5}}>
+        <Text style={{fontSize:18,color:"#fff",fontWeight:"bold"}}>{Blog.Title}</Text>
+        <Text style={{paddingRight:5,color:"#fff",fontSize:14}}>{Blog.content}</Text>
+      </View>
+      {/*Text Content*/}
         
 
-  <Card
-  style={{
-    width:85+"%",
-    backgroundColor:"#FBFCFC",
-    margin:5,
-    borderRadius:9
 
-  }}
-  >
-  <CardImage 
-    source={{uri: 'http://placehold.it/480x270'}} 
-    avatarSource={{uri : 'http://placehold.it/480x270'}}
-    title={Blog.TheCreater}
-  />
-  <CardTitle 
-    title={Blog.Title} 
-    subtitle={Blog.Email}
-   />
-  <CardContent text={Blog.content} />
-  <CardAction 
-    separator={true} 
-    inColumn={false}
-    
-    > 
-    <CardButton
-      onPress={() => {}}
-      title="Profile"
-      color="blue"
-    />
-    {/* <CardButton
-      onPress={() => {}}
-      title="Later"
-      color="blue"
-    /> */}
-  </CardAction>
-</Card>
-    </View>
+      </View>
                    )})}  
+                   </View>
       </ScrollView>
     </KeyboardAvoidingView>
 )}}

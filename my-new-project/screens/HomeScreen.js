@@ -37,6 +37,7 @@ import EditDite from './Trainee/EditDite'
 import TakeCamera from './Trainee/Camera'
 import UpdatedTraineeDite from './Coach/UpdateTraineeDite'
 import TakeCameraCoach from './Coach/CoachCamera'
+import TraineeBlog from'./Trainee/BlogTrainee'
 
 class HomeScreen extends React.Component {
 static navigationOptions = {
@@ -150,7 +151,7 @@ export default createStackNavigator({
     screen:HomeScreen  
   },  
   TestePage:{
-    screen:Dite
+    screen:TraineeBlog
   },
   LoginCoachTake:{
    screen:LoginCoach
@@ -208,6 +209,9 @@ export default createStackNavigator({
   },
   TakeCameraCoach:{
     screen:TakeCameraCoach
+  },
+  TraineeBlog:{
+    screen:TraineeBlog
   }
 },{
  
