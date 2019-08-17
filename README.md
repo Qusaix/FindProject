@@ -29,6 +29,15 @@ The Motivation behind this project is to help Trainers Work in something they lo
 
 ![Journey App](https://i.ibb.co/4PZKK9f/Screenshot-20190817-221431.jpg)
 
+![Journey App](https://i.ibb.co/RDsgfp0/Screenshot-20190818-012605.jpg)
+
+![Journey App](https://i.ibb.co/YNyz986/Screenshot-20190818-012811.jpg)
+
+![Journey App](https://i.ibb.co/JdxT5sX/Screenshot-20190818-013944.jpg)
+
+![Journey App](https://i.ibb.co/Wv9dp5B/Screenshot-20190818-013948.jpg)
+
+
 
 
 ## Tech/framework used
