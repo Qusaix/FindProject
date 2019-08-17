@@ -9,25 +9,25 @@ The Motivation behind this project is to help Trainers Work in something they lo
 
 ![Logo](https://i.ibb.co/6B7c1wN/88.png)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMFNLLT7A/screenshot_20190817-215531.jpg)
+![Journey App](https://i.ibb.co/xLZy7Mp/Screenshot-20190817-215531.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMFNSTH2R/screenshot_20190817-215540.jpg)
+![Journey App](https://i.ibb.co/TWrLR3h/Screenshot-20190817-215540.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMFNSS79B/screenshot_20190817-215549.jpg)
+![Journey App](https://i.ibb.co/CQ2n7Qr/Screenshot-20190817-215549.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FM9BFCSN5/screenshot_20190817-220339.jpg)
+![Journey App](https://i.ibb.co/nr9kZfP/Screenshot-20190817-215846.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMF8ZF1JQ/screenshot_20190817-221431.jpg)
+![Journey App](https://i.ibb.co/BZHtLKY/Screenshot-20190817-215918.jpg)
 
-![Journey App](https://files.slack.com/files-tmb/TGEHN6M8Q-FM49K9B8B-5298b6799c/screenshot_20190817-215846_720.jpg)
+![Journey App](https://i.ibb.co/7GVKqqs/Screenshot-20190817-220339.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMF8XAYAG/screenshot_20190817-215918.jpg)
+![Journey App](https://i.ibb.co/f0zhdcP/Screenshot-20190817-220458.jpg)
 
-![Journey App](https://files.slack.com/files-tmb/TGEHN6M8Q-FM49GQZ8S-5938ccec17/screenshot_20190817-220458_720.jpg)
+![Journey App](https://i.ibb.co/Z2XHHs5/Screenshot-20190817-220515.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMHU3U1GW/screenshot_20190817-220515.jpg)
+![Journey App](https://i.ibb.co/JHKyC68/Screenshot-20190817-220550.jpg)
 
-![Journey App](https://files.slack.com/files-pri/TGEHN6M8Q-FMFNLF43S/screenshot_20190817-220550.jpg)
+![Journey App](https://i.ibb.co/4PZKK9f/Screenshot-20190817-221431.jpg)
 
 
 
