@@ -31,7 +31,7 @@
     "bplist-creator": "^0.0.7",
     "bplist-parser": "^0.1.1",
     "brace-expansion": "^1.1.11",
-    "braces": "^1.8.5",
+    "braces": "^2.3.1",
     "bser": "^2.0.0",
     "buffer-crc32": "^0.2.13",
     "buffer-from": "^1.1.1",
