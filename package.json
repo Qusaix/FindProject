@@ -120,7 +120,7 @@
     "get-value": "^2.0.6",
     "glob": "^7.1.4",
     "glob-base": "^0.3.0",
-    "glob-parent": "^2.0.0",
+    "glob-parent": "^5.1.2",
     "global": "^4.3.2",
     "globals": "^11.12.0",
     "graceful-fs": "^4.1.15",
