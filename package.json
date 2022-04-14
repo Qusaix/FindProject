@@ -18,7 +18,7 @@
     "array-unique": "^0.2.1",
     "asap": "^2.0.6",
     "assign-symbols": "^1.0.0",
-    "async": "^2.6.2",
+    "async": "^3.2.2",
     "async-limiter": "^1.0.0",
     "atob": "^2.1.2",
     "babel-plugin-syntax-trailing-function-commas": "^7.0.0-beta.0",
